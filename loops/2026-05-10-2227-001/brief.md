@@ -1,10 +1,6 @@
 ---
 layout: default
-title: Brief
-nav_order: 1
-parent: "Loop 2026-05-10-2227-001"
-grand_parent: "Loops"
-render_with_liquid: false
+title: CEO Brief — 2026-05-10-2227-001
 date: 2026-05-09
 status: active
 type: okr
@@ -17,7 +13,7 @@ owner: board
   owner: board
   date: 2026-05-09
   status: active
-  loop: 2026-05-09
+  loop: 2026-05-10-2227-001
   links: parent: ""
 -->
 # Resink.ai CEO Brief — 2026-05-09

@@ -1,8 +1,6 @@
 ---
 layout: default
-title: application-sim-farm Exec Summary — 2026-05-09
-nav_exclude: true
-render_with_liquid: false
+title: application-sim-farm Exec Summary — 2026-05-10-2227-001
 date: 2026-05-09
 status: active
 type: exec-summary
@@ -15,7 +13,7 @@ owner: teams/application/sim-farm
   owner: teams/application/sim-farm
   date: 2026-05-09
   status: active
-  loop: 2026-05-09
+  loop: 2026-05-10-2227-001
   links: parent: teams/application/sim-farm/okrs/2026-05-10-2227-001-team-okr.md
 -->
 # Sim Farm Exec Summary — 2026-05-09

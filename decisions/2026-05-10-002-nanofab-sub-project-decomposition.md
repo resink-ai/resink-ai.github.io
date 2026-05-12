@@ -1,8 +1,6 @@
 ---
 layout: default
 title: "ADR 2026-05-10-002: nanofab sub project decomposition"
-parent: "Decisions (ADRs)"
-render_with_liquid: false
 date: 2026-05-10
 status: active
 type: adr

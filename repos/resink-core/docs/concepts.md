@@ -1,9 +1,6 @@
 ---
 layout: default
-title: Concepts
-nav_order: 3
-parent: "resink-core"
-render_with_liquid: false
+title: "resink-core: concepts"
 date: 2026-05-30
 status: active
 type: doc

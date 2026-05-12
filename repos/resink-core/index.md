@@ -1,13 +1,10 @@
 ---
 layout: default
-title: "resink-core"
-nav_order: 8
-has_children: true
-render_with_liquid: false
+title: resink-core (overview)
 ---
 # resink-core
 
-resink-core is the Rust Cargo workspace plus Python training-pipeline that hosts the **Nanofab Runtime** (sub-project #1) and the **Nanofab Training Pipeline** (sub-project #2) of the resink.ai product family. It is consumed by other resink.ai teams (sim-farm, data-engineering, devops, sre) and is the primary code surface owned by `teams/application/resink-core/`. The MVP closed loop ships an end-to-end demo where a synthetic tenant's CDC fact streams are routed through orchestrator-generated SCD2-maintainer nodes inside a multi-node supervisor and the resulting per-dim parquets are byte-diffed against a deterministic fixture — `make mvp-loop` exits 0 with `verdict=pass mismatches=0` on the widened 2-dim / 3-fact / 4-shard fixture as of loop 2026-05-11-1113. This repo does not target Spark, the JVM, or a general SQL engine; analytical query is delegated to Trino/DuckDB over the (future) Iceberg CDC sink.
+resink-core is the Rust Cargo workspace plus Python training-pipeline that hosts the **Nanofab Runtime** (sub-project #1) and the **Nanofab Training Pipeline** (sub-project #2) of the resink.ai product family. It is consumed by other resink.ai teams (sim-farm, data-engineering, devops, sre) and is the primary code surface owned by `teams/application/resink-core/`. The MVP closed loop ships an end-to-end demo where a synthetic tenant's CDC fact streams are routed through orchestrator-generated SCD2-maintainer nodes inside a multi-node supervisor and the resulting per-dim parquets are byte-diffed against a deterministic fixture — `make mvp-loop` exits 0 with `verdict=pass mismatches=0` on the widened 2-dim / 3-fact / 4-shard fixture as of loop 2026-05-23. This repo does not target Spark, the JVM, or a general SQL engine; analytical query is delegated to Trino/DuckDB over the (future) Iceberg CDC sink.
 
 <!-- rit-docs-init:begin auto-generated -->
 
@@ -17,7 +14,7 @@ resink-core is the Rust Cargo workspace plus Python training-pipeline that hosts
 - **Cargo workspace** — resolver = 2, pinned `arrow`/`parquet` 53, `clap` 4, `serde`/`serde_json`/`serde_yaml`, `twox-hash` 1.x (xxHash64 partitioning per DE contract §2 / §2.1, `seed=0`). Release profile uses `lto = "thin"`, `codegen-units = 1`.
 - **Python 3.12 (>=3.11)** — `uv`-managed environments under `training/orchestrator/.venv` and `sim-farm/.venv`. Build backend `hatchling`. Orchestrator deps: `pyarrow>=14`, `pyyaml>=6`. Sim-farm deps: `duckdb>=1.0`, `pyarrow>=14`, `pytz>=2024.1`.
 - **DuckDB-via-Python** — the sim-farm diff engine (`sim_farm/diff_scd2.py`) reads both fixture and supervisor-output parquets into DuckDB and emits the verdict JSON.
-- **Helm 3** — chart skeleton at `deploy/charts/nanofab-supervisor/` (15 files; 8 templates + 2 minikube values files + `Chart.yaml` + `values.yaml` + `Dockerfile` + `Makefile` + `README.md`). `helm lint --strict`, `helm template`, and `helm install --dry-run` all exit 0 as of loop 2026-05-11-1113; minikube smoke is deferred.
+- **Helm 3** — chart skeleton at `deploy/charts/nanofab-supervisor/` (15 files; 8 templates + 2 minikube values files + `Chart.yaml` + `values.yaml` + `Dockerfile` + `Makefile` + `README.md`). `helm lint --strict`, `helm template`, and `helm install --dry-run` all exit 0 as of loop 2026-05-23; minikube smoke is deferred.
 - **`claude` CLI (optional)** — the orchestrator dispatches AE's `nanofab:codegen-scd2-node` skill via the local `claude` binary on PATH; when absent or unauthenticated, in-process slot-fill is used instead (see env var below).
 
 ## Common commands
@@ -44,7 +41,7 @@ cargo build --release -p nanofab-coordinator
 # Supervisor determinism test (whole-DAG, ignored-by-default, slow).
 cargo test --release -p nanofab-supervisor --test determinism -- --include-ignored
 
-# Sim-farm test suite (9 tests as of loop 2026-05-11-1113).
+# Sim-farm test suite (9 tests as of loop 2026-05-23).
 cd sim-farm && uv run pytest -q
 
 # Helm chart gates (all three must exit 0).

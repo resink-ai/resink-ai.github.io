@@ -1,8 +1,6 @@
 ---
 layout: default
 title: "ADR 2026-05-09-001: org os bottom up flow"
-parent: "Decisions (ADRs)"
-render_with_liquid: false
 date: 2026-05-09
 status: active
 type: adr

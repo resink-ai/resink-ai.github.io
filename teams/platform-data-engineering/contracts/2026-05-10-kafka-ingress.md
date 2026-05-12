@@ -1,9 +1,6 @@
 ---
 layout: default
 title: "platform-data-engineering contract: 2026-05-10-kafka-ingress"
-parent: "Team: platform-data-engineering"
-grand_parent: "Teams"
-render_with_liquid: false
 date: 2026-05-10
 status: active
 type: contract
@@ -117,8 +114,11 @@ Both values above were computed against the Python `xxhash` package
 (`xxhash.xxh64(key_bytes, seed=0).intdigest()`) at ratification time
 (2026-05-23). The expected equivalence is byte-for-byte with
 `twox-hash::xxh64::xxh64`; tagged as
-`<verified-against-rust-impl: pending — resink-core to confirm during O1 KR1.4
-supervisor partition swap>`. If the Rust observation diverges, the hex value
+`<verified-against-rust-impl: verified-2026-06-13-by-resink-core — Example A
+(`user_id="u-001"` → `0x571e3e04781b0ff5`) confirmed byte-stable by
+resink-core's supervisor `partition()` impl against `twox-hash::xxh64::xxh64`
+at 2026-05-23; tag flipped 2026-06-13 as part of DE's schema-JSON
+canonicalization loop>`. If a future Rust observation diverges, the hex value
 gets a one-line correction here (and the team OKR's risk row triggers).
 
 **Why the decimal-string encoding rule is pinned, not the i64 binary form.**

@@ -1,9 +1,6 @@
 ---
 layout: default
 title: Teams
-nav_order: 7
-has_children: true
-render_with_liquid: false
 ---
 # Teams
 

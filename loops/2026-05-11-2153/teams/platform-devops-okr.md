@@ -1,8 +1,6 @@
 ---
 layout: default
-title: platform-devops OKR — 2026-06-13
-nav_exclude: true
-render_with_liquid: false
+title: platform-devops OKR — 2026-05-11-2153
 date: 2026-06-13
 status: active
 type: okr
@@ -15,7 +13,7 @@ owner: teams/platform/devops
   owner: teams/platform/devops
   date: 2026-06-13
   status: active
-  loop: 2026-06-13
+  loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md
 -->
 # DevOps OKR — 2026-06-13
@@ -34,19 +32,19 @@ Why it matters: Board-action `2026-06-06-002` hit its 2026-06-13 forcing functio
 
 **Key results**
 
-- KR5.1: `board/actions/2026-06-06-002-install-minikube-on-dev-machine.md` flips `status: open → status: superseded` this loop. Resolution subsection added naming the supersession reason verbatim ("per CEO brief 2026-06-13's working answer to retro P5: toolchain installs route through team Prerequisite docs, not board-action tickets") with a forward-link to the chart README's existing `brew install minikube` Prerequisite. Per the brief's standing answer, this is the default action since the brief's `which minikube` probe returned "not found" at brief-authoring time; DevOps confirms the same probe state in this loop's build phase before flipping. (If `which minikube` exits 0 at flip time — unlikely given the probe state — the close-reason becomes `done` with a one-line install-date + version capture instead.)
-- KR5.2: Chart README (`repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md`) `Prerequisites` section gets a one-line policy note at the top: "Toolchain installs are documented here, not in board-action tickets, per CEO brief 2026-06-13" with a forward-link to ADR-2026-06-06-001 (provisional-and-migrate playbook — pattern reuse). The existing `brew install minikube` invocation is preserved verbatim.
-- KR5.3: Minikube smoke (KR carry from 2026-06-06) remains carry. Re-attempt happens only if `which minikube` exits 0 in DevOps's build phase this loop (probe says no). If not, the smoke carries via the chart README's Prerequisites; no new board-action ticket. The carryover hand-off is documented in this loop's exec summary.
-- KR5.4: Board's GitBook publishing scope query response (one-paragraph note in this loop's exec summary): chart README at `repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md` is **IN scope** (it's chart-side documentation that documents the public chart interface — Prerequisites, Parameters, Cross-team contracts — and is part of the resink-core docs surface that board O1 KR1.3 names as in-scope under the `repos/resink-core/` namespace). `values.schema.json` is JSON not markdown; **out of gitbook scope by default** (it's referenced from the chart README which IS in scope, so it's discoverable transitively without standalone publishing). DevOps recommends the publishing script either skips JSON files or renders them as fenced code blocks under the chart README's "Schema" anchor (script author's choice).
-- KR5.5: Tenant-isolation invariant holds. No `org-os/` edits this objective. Edits land in `board/actions/` (board-namespace artifact) and `repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md` (product-repo docs). Dry-run captured in exec summary.
+- KR5.1: [x] ✅ done — `board/actions/2026-06-06-002-install-minikube-on-dev-machine.md` flipped `status: open → status: superseded`. Resolution subsection added naming supersession reason verbatim per the brief's standing answer to retro P5, with a forward-link to chart README `§ Prerequisites`. Probe (`which minikube`) confirmed exit 1 in this loop's build phase; default action triggered as predicted.
+- KR5.2: [x] ✅ done — Chart README's `Prerequisites` section gained a top-line blockquote policy note pointing at CEO brief 2026-06-13 + ADR-2026-06-06-001 (provisional-and-migrate playbook, pattern reuse). Existing `brew install minikube` invocation preserved verbatim below the policy note.
+- KR5.3: [x] ✅ done — Minikube smoke remains carry; toolchain probe negative this loop (exit 1). No re-attempt run. Pickup happens whenever toolchain lands via chart README Prerequisites; no new board-action ticket. Carry documented in this loop's exec summary.
+- KR5.4: [x] ✅ done — GitBook publishing scope response authored: chart README IN scope (under `/repos/resink-core/charts/` namespace per board's publishing-tree decision); `values.schema.json` OUT of gitbook scope by default (JSON not markdown; transitively discoverable via in-scope README); `values.yaml` + templates OUT of scope (deployment-time configuration, not user-facing docs). Recommendation: future loop can revisit if external readers ask for chart-config visibility.
+- KR5.5: [x] ✅ done — Tenant-isolation invariant holds. Edits landed in `board/actions/2026-06-06-002-install-minikube-on-dev-machine.md` and `repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md`; no `org-os/` writes. Final `grep -nrE "(resink|nanofab|acme\.ai)" org-os/` returns only the pre-existing `acme.ai` placeholder at `org-os/conventions.md:107`.
 
 **Tasks**
 
-- [ ] Verify `which minikube` exits non-zero in this loop's build phase (matches the brief's probe); update `board/actions/2026-06-06-002-install-minikube-on-dev-machine.md` with `status: superseded` and a Resolution subsection citing the brief's standing answer + chart README Prerequisite link — owner: teams/platform/devops.
-- [ ] Add the policy-note one-liner + ADR-2026-06-06-001 forward-link to the chart README's `Prerequisites` section — owner: teams/platform/devops.
-- [ ] Document the minikube-smoke carry in this loop's exec summary (carry note + chart README Prerequisites pointer; no new board-action ticket) — owner: teams/platform/devops.
-- [ ] Author the one-paragraph GitBook publishing scope response (chart README in / `values.schema.json` out) for this loop's exec summary; surface the recommendation to board's O1 planning so the publishing-script filter can lock chart-side scope — owner: teams/platform/devops.
-- [ ] Tenant-isolation dry-run after edits (`grep -nrE "(resink|nanofab|acme\.ai)" org-os/` returns only the pre-existing `acme.ai` placeholder); capture in exec summary — owner: teams/platform/devops.
+- [x] ✅ done — Verified `which minikube` exits non-zero (probe returns "minikube not found", exit 1) in this loop's build phase, matching the brief's probe. Updated `board/actions/2026-06-06-002-install-minikube-on-dev-machine.md` with `status: superseded` and Resolution subsection citing brief's standing answer + chart README Prerequisite link.
+- [x] ✅ done — Added policy-note one-liner (blockquote) + ADR-2026-06-06-001 forward-link at the top of the chart README's `Prerequisites` section. Existing `brew install minikube` invocation preserved verbatim.
+- [x] ✅ done — Minikube-smoke carry documented in this loop's exec summary cross-team coordination + carry-into-next-loop sections; chart README Prerequisites is the toolchain pickup surface; no new board-action ticket.
+- [x] ✅ done — One-paragraph GitBook publishing scope response authored in this loop's exec summary's Cross-team coordination section: chart README IN scope (under `/repos/resink-core/charts/` namespace per board's publishing-tree decision); `values.schema.json` OUT of gitbook scope by default; `values.yaml` + templates OUT of gitbook scope.
+- [x] ✅ done — Tenant-isolation dry-run: `grep -nrE "(resink|nanofab|acme\.ai)" org-os/` returns only the pre-existing `acme.ai` placeholder (`org-os/conventions.md:107`). Invariant holds.
 
 ## Risks
 

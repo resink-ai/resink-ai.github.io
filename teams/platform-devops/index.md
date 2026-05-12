@@ -1,8 +1,6 @@
 ---
 layout: default
 title: "Team: platform-devops"
-parent: "Teams"
-render_with_liquid: false
 ---
 # Team: platform-devops
 
@@ -58,18 +56,19 @@ Bridge dev and ops; own deployment pipelines and cloud infra.
 
 ## Executive summaries
 
-- [2026-06-06](../../loops/2026-05-11-1631/teams/platform-devops-exec-summary.html)
-- [2026-05-30](../../loops/2026-05-11-1302/teams/platform-devops-exec-summary.html)
-- [2026-05-23](../../loops/2026-05-11-1113/teams/platform-devops-exec-summary.html)
-- [2026-05-10](../../loops/2026-05-10-2227-002/teams/platform-devops-exec-summary.html)
-- [2026-05-09](../../loops/2026-05-10-2227-001/teams/platform-devops-exec-summary.html)
-- [2026-05-08](../../loops/2026-05-09-1715/teams/platform-devops-exec-summary.html)
+- [2026-05-11-2153](../../loops/2026-05-11-2153/teams/platform-devops-exec-summary.html)
+- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/platform-devops-exec-summary.html)
+- [2026-05-11-1302](../../loops/2026-05-11-1302/teams/platform-devops-exec-summary.html)
+- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/platform-devops-exec-summary.html)
+- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/platform-devops-exec-summary.html)
+- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/platform-devops-exec-summary.html)
+- [2026-05-09-1715](../../loops/2026-05-09-1715/teams/platform-devops-exec-summary.html)
 
 ## OKRs
 
-- [2026-06-13](../../loops/2026-05-11-2153/teams/platform-devops-okr.html)
-- [2026-06-06](../../loops/2026-05-11-1631/teams/platform-devops-okr.html)
-- [2026-05-23](../../loops/2026-05-11-1113/teams/platform-devops-okr.html)
-- [2026-05-10](../../loops/2026-05-10-2227-002/teams/platform-devops-okr.html)
-- [2026-05-09](../../loops/2026-05-10-2227-001/teams/platform-devops-okr.html)
-- [2026-05-08](../../loops/2026-05-09-1715/teams/platform-devops-okr.html)
+- [2026-05-11-2153](../../loops/2026-05-11-2153/teams/platform-devops-okr.html)
+- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/platform-devops-okr.html)
+- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/platform-devops-okr.html)
+- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/platform-devops-okr.html)
+- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/platform-devops-okr.html)
+- [2026-05-09-1715](../../loops/2026-05-09-1715/teams/platform-devops-okr.html)

@@ -1,10 +1,8 @@
 ---
 layout: default
 title: "ADR 2026-05-30-001: verify predicted syntax in okrs"
-parent: "Decisions (ADRs)"
-render_with_liquid: false
 date: 2026-05-30
-status: draft
+status: active
 type: adr
 owner: board
 ---
@@ -13,7 +11,7 @@ owner: board
   type: adr
   owner: board
   date: 2026-05-30
-  status: draft
+  status: active
   decision: "Team OKRs that reference predicted-but-unverified syntax (CLI flags, file paths, env vars) must carry an explicit verification marker; the build phase confirms or files an addendum"
 -->
 # ADR 2026-05-30-001: Verify Predicted Syntax in OKRs at Planning Time
@@ -26,9 +24,23 @@ ADR-2026-05-16-003 (ratified this loop) requires contracts to include a Verified
 
 ## Decision
 
-(Placeholder — to be expanded loop 2026-05-11-2153.) Update `org-os/rituals/team-planning.md` step 3 ("Break key results into tasks with owners") or step 4 ("Flag cross-team asks"): when an OKR mentions a CLI flag, file path, or environment variable that doesn't yet exist on the team's working branch, the OKR carries an explicit "not yet verified — predicted shape" marker (e.g., `<predicted: claude --skill <name>>` in the OKR text). The build phase converts the marker into a confirmed reference (drop the marker) or files an addendum (replace with the actual shape).
+Team-planning ritual gains an explicit predicted-syntax discipline. When an OKR (CEO brief or team OKR) mentions a CLI flag, a file path, or an environment variable that doesn't yet exist on the team's working branch — i.e., the author is reasoning about an *intended* shape rather than an *observed* one — the reference MUST be wrapped in a `<predicted: ...>` marker. The marker is a literal text inclusion in the OKR body; example shapes:
 
-Update `org-os/rituals/build.md` step 3 ("Surface blockers inline"): predicted-syntax markers that fail at build time are recorded as "predicted-but-divergent" addenda rather than silent corrections.
+- `<predicted: claude --skill <name>>`
+- `<predicted: scripts/publish-to-gitbook.py --incremental>`
+- `<predicted: env var RESINK_TENANT_ID>`
+
+The marker travels with the OKR through team-planning, into the build phase, and is the planning author's promise that the syntax has not been ground-truthed against an actual environment.
+
+Two ritual edits land alongside this ratification:
+
+1. **`org-os/rituals/team-planning.md`** gains a new step (between current steps 3 "Break key results into tasks with owners" and 4 "Flag cross-team asks") instructing planners to scan their drafted KRs for any reference to a CLI flag, file path, or env var that is not yet present on the team's working branch, and wrap each such reference in a `<predicted: ...>` marker. Acceptance gains a corresponding line: "Every reference to a CLI flag, file path, or env var that does not exist on the working branch at planning time is wrapped in a `<predicted: ...>` marker."
+
+2. **`org-os/rituals/build.md`** step 3 ("Surface blockers inline") gains an explicit clause: when a build IC encounters a `<predicted: ...>` marker in the OKR, the IC verifies the syntax against the actual environment. On match, the IC drops the marker (the reference is now confirmed). On mismatch, the IC files an addendum (one bullet under the task) tagged "predicted-but-divergent" naming the actual shape; the addendum is recorded inline rather than silently corrected, so consolidation can count divergences across loops.
+
+**Grandfathering.** OKRs filed before this ADR's `status: active` date (i.e., the 2026-06-13 ratification loop) do not need retroactive marker insertion. Future OKRs comply.
+
+**Marker shape rationale.** The angle-bracket `<predicted: ...>` form is chosen because (a) it is unmistakable at human reading time, (b) it parses cleanly under any future frontmatter-lint script (DevOps's deferred work), and (c) it does not interfere with markdown rendering of normal text or backticked code spans inside the marker.
 
 ## Alternatives considered
 

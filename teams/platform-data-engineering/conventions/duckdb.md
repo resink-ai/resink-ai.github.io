@@ -1,9 +1,6 @@
 ---
 layout: default
 title: "platform-data-engineering convention: duckdb"
-parent: "Team: platform-data-engineering"
-grand_parent: "Teams"
-render_with_liquid: false
 date: 2026-05-23
 status: active
 type: convention

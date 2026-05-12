@@ -1,9 +1,6 @@
 ---
 layout: default
 title: 2026-05-30-resink-core-capabilities
-parent: "Reports"
-permalink: /reports/2026-05-30-resink-core-capabilities/
-render_with_liquid: false
 date: 2026-05-30
 status: active
 type: report

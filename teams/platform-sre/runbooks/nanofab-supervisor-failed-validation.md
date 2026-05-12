@@ -1,9 +1,6 @@
 ---
 layout: default
 title: "platform-sre runbook: nanofab-supervisor-failed-validation"
-parent: "Team: platform-sre"
-grand_parent: "Teams"
-render_with_liquid: false
 date: 2026-05-23
 status: active
 type: runbook

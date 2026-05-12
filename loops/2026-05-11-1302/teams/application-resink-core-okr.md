@@ -1,8 +1,6 @@
 ---
 layout: default
-title: application-resink-core OKR — 2026-05-30
-nav_exclude: true
-render_with_liquid: false
+title: application-resink-core OKR — 2026-05-11-1302
 date: 2026-05-30
 status: active
 type: okr
@@ -15,7 +13,7 @@ owner: teams/application/resink-core
   owner: teams/application/resink-core
   date: 2026-05-30
   status: active
-  loop: 2026-05-30
+  loop: 2026-05-11-1302
   links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
 # Resink Core OKR — 2026-05-30

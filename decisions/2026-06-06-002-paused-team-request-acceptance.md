@@ -1,10 +1,8 @@
 ---
 layout: default
 title: "ADR 2026-06-06-002: paused team request acceptance"
-parent: "Decisions (ADRs)"
-render_with_liquid: false
 date: 2026-06-06
-status: draft
+status: active
 type: adr
 owner: board
 ---
@@ -13,7 +11,7 @@ owner: board
   type: adr
   owner: board
   date: 2026-06-06
-  status: draft
+  status: active
   decision: "Paused teams accepting in-loop requests record the acceptance canonically in the request file's frontmatter (status field + deferred_to_loop), not in status.md; status.md may reference the request file by path but is not source-of-truth"
 -->
 # ADR 2026-06-06-002: Paused-Team Request Acceptance Canonicalization
@@ -32,14 +30,21 @@ This is a minor bookkeeping friction today, but the pattern is recurring: at 202
 
 ## Decision
 
-(Placeholder — to be expanded loop 2026-05-11-2153.) Extend `org-os/rituals/team-intake.md` (and possibly the request-template frontmatter at `org-os/templates/request.md`):
+Canonicalize the source-of-truth for any request's status (especially for paused teams accepting in-loop with deferred action) in the request file itself. Three concrete changes:
 
-- **The request file is source-of-truth** for any request's status and any acceptance/decline/deferral record.
-- **New optional field in request frontmatter:** `deferred_to_loop: <YYYY-MM-DD>`. Used when a paused team accepts a request but defers action to a specific named loop.
-- **Status transition for paused teams accepting in-loop requests:** `open → accepted` (not a new `accepted-deferred` status — keep the state space small). The `deferred_to_loop` field carries the timing.
-- **status.md and exec summary MAY reference the request file by path** ("Carrying into next loop: schema-JSON canonicalization per [request 2026-06-06-001](requests/...)"), but the reference is informational only; the request file is canonical.
+1. **The request file is canonical.** For any request's status field — including a paused team's "accepted with action in a future named loop" record — the request file under `teams/<layer>/<receiver>/requests/<date>-<slug>.md` is source-of-truth. `status.md` and exec summaries MAY reference the request file by path (e.g., "Carrying into next loop: schema-JSON canonicalization per [request 2026-06-06-001](requests/...)"); such references are informational only and grandfather under earlier-loop authoring.
 
-Open question for 2026-06-13 expansion: do we want a forcing function on `deferred_to_loop` analogous to the `board/actions/<date>-<slug>.md` `due:` field — i.e., if the deferred loop arrives and the request is still `accepted`, does the brief's first read step surface it? Recommended yes; this maps the request-flow lifecycle to the loop-boundary discipline.
+2. **New optional frontmatter field on requests: `deferred_to_loop: <YYYY-MM-DD>`.** Used when a paused team accepts a request in-loop but defers concrete action to a specific named loop. The state transition is the existing `open → accepted` (no new `accepted-deferred` state — the field carries the timing while the state space stays at the seven values defined in `org-os/conventions.md`).
+
+3. **Forcing function at brief-authoring time** (the open question from the draft is decided "yes"). The CEO brief ritual's first read step (per `org-os/rituals/ceo-brief.md` step 1 and ADR-2026-05-09-005's carryover-load discipline) surfaces every `accepted` request whose `deferred_to_loop` matches the loop being authored. Surfacing means: the brief names the request explicitly in its Context section's carryover summary so it cannot be silently absorbed. This is the same shape as the `board/actions/<date>-<slug>.md` `due:` field's forcing function.
+
+Three ritual/template edits land alongside this ratification:
+
+- **`org-os/rituals/team-intake.md`** specifies the request file as canonical source-of-truth, names the new optional `deferred_to_loop` field, and clarifies the `open → accepted` transition for paused-team in-loop acceptance.
+- **`org-os/templates/request.md`** documents the new optional `deferred_to_loop` frontmatter field.
+- **`org-os/rituals/ceo-brief.md`** step 1 (re-read state) explicitly mentions surfacing any request hitting its `deferred_to_loop` this loop.
+
+**Grandfathering.** Existing request files do not need retroactive `deferred_to_loop` insertion (the field is optional + future-only). The first request to use the field is `teams/platform/data-engineering/requests/2026-06-06-001-schema-json-shape-ack.md` at its 2026-06-13 acceptance bookkeeping; no historical request needs editing.
 
 ## Alternatives considered
 
@@ -53,10 +58,10 @@ Open question for 2026-06-13 expansion: do we want a forcing function on `deferr
 - **Negative / costs:** One new optional frontmatter field; rituals update. Existing request files don't need retroactive editing (`deferred_to_loop` is optional + future-only).
 - **Follow-ups required:** Update `org-os/rituals/team-intake.md` with the canonicalization rule. Update `org-os/templates/request.md` to mention the optional field. Sister cross-link from `org-os/rituals/ceo-brief.md` step 1 (read state) — surface any request hitting its deferred-loop this loop.
 
-## Alternatives considered (for forcing function — to be decided 2026-06-13)
+## Alternatives considered (for forcing function — decided this ratification)
 
-- **A1: Forcing function on `deferred_to_loop`** (brief's first read step surfaces unresolved deferrals at the named loop). Recommended; maps the request flow to the loop-boundary discipline. Same mechanism as `board/actions/<date>-<slug>.md` `due:` field.
-- **A2: No forcing function — soft deadline only.** Rejected (proposed for rejection at 2026-06-13) because soft deadlines on paused-team work tend to slip indefinitely; the forcing function is the load-bearing piece.
+- **A1: Forcing function on `deferred_to_loop`** (brief's first read step surfaces unresolved deferrals at the named loop). **Adopted.** Maps the request flow to the loop-boundary discipline; same mechanism as `board/actions/<date>-<slug>.md` `due:` field.
+- **A2: No forcing function — soft deadline only.** Rejected because soft deadlines on paused-team work tend to slip indefinitely; the forcing function is the load-bearing piece.
 
 ## Links
 

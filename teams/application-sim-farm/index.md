@@ -1,9 +1,6 @@
 ---
 layout: default
 title: "Team: application-sim-farm"
-parent: "Teams"
-has_children: true
-render_with_liquid: false
 ---
 # Team: application-sim-farm
 
@@ -38,20 +35,21 @@ Internal product — execute candidate nanofab DAGs against synthetic or shadowe
 
 ## Executive summaries
 
-- [2026-06-06](../../loops/2026-05-11-1631/teams/application-sim-farm-exec-summary.html)
-- [2026-05-30](../../loops/2026-05-11-1302/teams/application-sim-farm-exec-summary.html)
-- [2026-05-23](../../loops/2026-05-11-1113/teams/application-sim-farm-exec-summary.html)
-- [2026-05-16](../../loops/2026-05-11-0958/teams/application-sim-farm-exec-summary.html)
-- [2026-05-10](../../loops/2026-05-10-2227-002/teams/application-sim-farm-exec-summary.html)
-- [2026-05-09](../../loops/2026-05-10-2227-001/teams/application-sim-farm-exec-summary.html)
+- [2026-05-11-2153](../../loops/2026-05-11-2153/teams/application-sim-farm-exec-summary.html)
+- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/application-sim-farm-exec-summary.html)
+- [2026-05-11-1302](../../loops/2026-05-11-1302/teams/application-sim-farm-exec-summary.html)
+- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/application-sim-farm-exec-summary.html)
+- [2026-05-11-0958](../../loops/2026-05-11-0958/teams/application-sim-farm-exec-summary.html)
+- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/application-sim-farm-exec-summary.html)
+- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/application-sim-farm-exec-summary.html)
 
 ## OKRs
 
-- [2026-06-06](../../loops/2026-05-11-1631/teams/application-sim-farm-okr.html)
-- [2026-05-23](../../loops/2026-05-11-1113/teams/application-sim-farm-okr.html)
-- [2026-05-16](../../loops/2026-05-11-0958/teams/application-sim-farm-okr.html)
-- [2026-05-10](../../loops/2026-05-10-2227-002/teams/application-sim-farm-okr.html)
-- [2026-05-09](../../loops/2026-05-10-2227-001/teams/application-sim-farm-okr.html)
+- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/application-sim-farm-okr.html)
+- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/application-sim-farm-okr.html)
+- [2026-05-11-0958](../../loops/2026-05-11-0958/teams/application-sim-farm-okr.html)
+- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/application-sim-farm-okr.html)
+- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/application-sim-farm-okr.html)
 
 ## Contracts
 

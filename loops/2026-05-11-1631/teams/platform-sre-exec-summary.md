@@ -1,8 +1,6 @@
 ---
 layout: default
-title: platform-sre Exec Summary — 2026-06-06
-nav_exclude: true
-render_with_liquid: false
+title: platform-sre Exec Summary — 2026-05-11-1631
 date: 2026-06-06
 status: active
 type: exec-summary
@@ -15,7 +13,7 @@ owner: teams/platform/sre
   owner: teams/platform/sre
   date: 2026-06-06
   status: active
-  loop: 2026-06-06
+  loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
 # SRE Exec Summary — 2026-06-06 (paused, review-ack)

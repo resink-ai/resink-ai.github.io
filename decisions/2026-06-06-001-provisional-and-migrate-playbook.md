@@ -1,10 +1,8 @@
 ---
 layout: default
 title: "ADR 2026-06-06-001: provisional and migrate playbook"
-parent: "Decisions (ADRs)"
-render_with_liquid: false
 date: 2026-06-06
-status: draft
+status: active
 type: adr
 owner: board
 ---
@@ -13,7 +11,7 @@ owner: board
   type: adr
   owner: board
   date: 2026-06-06
-  status: draft
+  status: active
   decision: "Codify the 'provisional-and-migrate' coordination pattern as a documented org-os playbook, with three worked examples from prior loops"
 -->
 # ADR 2026-06-06-001: Provisional-and-Migrate Coordination Playbook
@@ -32,18 +30,16 @@ AE's status.md (refreshed at 2026-05-30) names the pattern as a standing practic
 
 ## Decision
 
-(Placeholder — to be expanded loop 2026-05-11-2153.) Author a new playbook at `org-os/playbooks/provisional-and-migrate.md` with `type: playbook` codifying the pattern:
+Codify the provisional-and-migrate pattern as a first-class org-os playbook at `org-os/playbooks/provisional-and-migrate.md` (`type: playbook`) so future ICs can apply it from cold rather than rediscover it from prior loops. The playbook documents:
 
-- **When to use:** When team A's work depends on team B's same-loop or future-loop output (typically a conventions change, contract change, enum extension, or new convention admission). Team A's deliverable would be malformed under current rules but well-formed under the upcoming change.
+- **When to use** — team A's work depends on team B's same-loop or one-loop-out output (typically a conventions change, contract change, enum extension, or new convention admission). Team A's deliverable would be malformed under current rules but well-formed under the upcoming change.
+- **Shape** — team A files with provisional frontmatter + an explicit in-body provisional note naming (1) the canonical type/shape post-migration, (2) which board work ships the canonical change, (3) when the migration will happen. Team B ratifies the canonical change. Parent/board housekeeping (or team A themselves, if same-loop) migrates frontmatter and removes the provisional note once the canonical change lands `active`.
+- **Worked examples** — three from the prior three loops (AE `rfc → role` at 2026-05-30; board `type: action` provisional at 2026-06-06; sim-farm schema-JSON spec inline at 2026-06-06 → DE canonicalization at 2026-06-13).
+- **Anti-pattern** — do not use when the canonical change is more than one loop away; instead use the standard request mechanism with the `deferred_to_loop` field per [ADR-2026-06-06-002](2026-06-06-002-paused-team-request-acceptance.md).
 
-- **Shape:** Team A files the artifact with provisional frontmatter (existing workaround value, or new type with explicit in-body provisional note). The in-body note states: (1) the canonical type/shape it WILL have post-migration, (2) which board work is shipping the canonical change, (3) when the migration will happen. Team B ratifies the canonical change in their parallel work stream. Parent/board housekeeping (or team A themselves, if same-loop) migrates the frontmatter once the canonical change lands `active`.
+Additionally, cross-link the new playbook from `org-os/conventions.md` near the frontmatter section so a reader looking at the type enum has a one-hop path to "what to do when your artifact's canonical type isn't admitted yet."
 
-- **Worked examples (cite from prior loops):**
-  - AE rfc → role at 2026-05-30 (mid-loop migration)
-  - Board `type: action` provisional at 2026-06-06 (next-loop migration)
-  - Sim-farm schema-JSON inline at 2026-06-06 → DE canonicalization at 2026-06-13 (next-loop content migration)
-
-- **Anti-pattern:** Do not use provisional-and-migrate when the canonical change is more than one loop away — the provisional artifact then accrues edit risk across multiple loops with no clear migration boundary. For >1-loop-out work, use the standard request mechanism with `status: accepted-deferred` instead (per ADR-2026-06-06-002, also drafted this loop).
+The pattern's reuse rate (3-in-3-loops) is the load-bearing argument for codification this loop rather than waiting for a 4th instance.
 
 ## Alternatives considered
 

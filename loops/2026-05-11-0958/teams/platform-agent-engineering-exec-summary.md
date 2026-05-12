@@ -1,8 +1,6 @@
 ---
 layout: default
-title: platform-agent-engineering Exec Summary — 2026-05-16
-nav_exclude: true
-render_with_liquid: false
+title: platform-agent-engineering Exec Summary — 2026-05-11-0958
 date: 2026-05-16
 status: active
 type: exec-summary
@@ -15,7 +13,7 @@ owner: teams/platform/agent-engineering
   owner: teams/platform/agent-engineering
   date: 2026-05-16
   status: active
-  loop: 2026-05-16
+  loop: 2026-05-11-0958
   links: parent: teams/platform/agent-engineering/okrs/2026-05-11-0958-team-okr.md
 -->
 # Agent Engineering Exec Summary — 2026-05-16

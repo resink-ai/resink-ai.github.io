@@ -1,8 +1,6 @@
 ---
 layout: default
-title: platform-devops Exec Summary — 2026-05-30
-nav_exclude: true
-render_with_liquid: false
+title: platform-devops Exec Summary — 2026-05-11-1302
 date: 2026-05-30
 status: active
 type: exec-summary
@@ -15,7 +13,7 @@ owner: teams/platform/devops
   owner: teams/platform/devops
   date: 2026-05-30
   status: active
-  loop: 2026-05-30
+  loop: 2026-05-11-1302
   links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
 # DevOps Exec Summary — 2026-05-30 (paused team — review-ack)

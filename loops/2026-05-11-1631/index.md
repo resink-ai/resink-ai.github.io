@@ -1,10 +1,6 @@
 ---
 layout: default
-title: "Loop 2026-05-11-1631"
-nav_order: 7
-parent: "Loops"
-has_children: true
-render_with_liquid: false
+title: Loop 2026-05-11-1631
 ---
 # Loop 2026-05-11-1631
 

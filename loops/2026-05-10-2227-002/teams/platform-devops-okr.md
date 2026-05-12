@@ -1,8 +1,6 @@
 ---
 layout: default
-title: platform-devops OKR — 2026-05-10
-nav_exclude: true
-render_with_liquid: false
+title: platform-devops OKR — 2026-05-10-2227-002
 date: 2026-05-10
 status: active
 type: okr
@@ -15,7 +13,7 @@ owner: teams/platform/devops
   owner: teams/platform/devops
   date: 2026-05-10
   status: active
-  loop: 2026-05-10
+  loop: 2026-05-10-2227-002
   links: parent: board/okrs/2026-05-10-2227-002-ceo-brief.md
 -->
 # DevOps OKR — 2026-05-10

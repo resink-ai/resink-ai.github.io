@@ -1,8 +1,6 @@
 ---
 layout: default
 title: "ADR 2026-05-30-002: multi loop plan relative dating"
-parent: "Decisions (ADRs)"
-render_with_liquid: false
 date: 2026-05-30
 status: active
 type: adr

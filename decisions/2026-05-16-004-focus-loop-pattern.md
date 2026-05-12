@@ -1,8 +1,6 @@
 ---
 layout: default
 title: "ADR 2026-05-16-004: focus loop pattern"
-parent: "Decisions (ADRs)"
-render_with_liquid: false
 date: 2026-05-16
 status: active
 type: adr

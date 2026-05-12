@@ -1,8 +1,6 @@
 ---
 layout: default
 title: "ADR 2026-05-10-003: verify state claims at ritual transitions"
-parent: "Decisions (ADRs)"
-render_with_liquid: false
 date: 2026-05-10
 status: active
 type: adr

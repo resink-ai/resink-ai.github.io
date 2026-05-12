@@ -1,8 +1,6 @@
 ---
 layout: default
 title: "ADR 2026-05-09-002: streaming engine choice"
-parent: "Decisions (ADRs)"
-render_with_liquid: false
 date: 2026-05-09
 status: archived
 type: adr

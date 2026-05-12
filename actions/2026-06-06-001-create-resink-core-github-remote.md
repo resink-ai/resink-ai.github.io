@@ -1,8 +1,6 @@
 ---
 layout: default
 title: "Action 2026-06-06-001: create resink core github remote"
-parent: "Actions"
-render_with_liquid: false
 date: 2026-06-06
 status: open
 type: action
@@ -19,8 +17,6 @@ due: 2026-06-13
   links: triggering_retro: ../retros/2026-05-11-1302-ceo-retro.md
 -->
 # Action 2026-06-06-001: Create the `resink-ai/resink-core` GitHub remote
-
-> **Frontmatter `type: action` is provisional.** The `action` type is not yet admitted to the org-os conventions enum; admission is deferred to loop 2026-05-11-2153 alongside ADR-2026-05-30-001 (P2) to batch the enum-extension changes naturally. Same `provisional-and-migrate` pattern AE used at 2026-05-30 for `rfc → role` migration. Until then, this artifact lives at a tenant-local path (`board/actions/`) under tenant convention only.
 
 ## Problem
 
@@ -78,5 +74,5 @@ This file is read at every CEO brief authoring step (per ADR-2026-05-09-005's ca
 
 - Triggering retro: [board/retros/2026-05-11-1302-ceo-retro.md](../retros/2026-05-11-1302-ceo-retro.md) — P1.
 - Worked-example blocker: workspace promotion in [teams/application/resink-core/status.md](../../teams/application/resink-core/status.md) — third-consecutive-loop carry.
-- Sister provisional artifact: this is the first `board/actions/` ticket. Future tickets share this provisional-and-migrate pattern until the org-os enum extension at 2026-06-13.
-- ADR governing the convention's eventual admission: TBD-2026-06-13 (sibling to ADR-2026-05-30-001 P2).
+- Sister artifact: this is the first `board/actions/` ticket; the second is [`board/actions/2026-06-06-002-install-minikube-on-dev-machine.md`](2026-06-06-002-install-minikube-on-dev-machine.md). Both filed under provisional `type: action`; both migrated to canonical at 2026-06-13.
+- ADR admitting the convention: [ADR-2026-06-13-001](../decisions/2026-06-13-001-admit-action-to-conventions-enum.md) (admit `action` to the conventions enum; ratified 2026-06-13).

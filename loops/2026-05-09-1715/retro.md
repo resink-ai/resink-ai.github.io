@@ -1,10 +1,6 @@
 ---
 layout: default
-title: Retro
-nav_order: 3
-parent: "Loop 2026-05-09-1715"
-grand_parent: "Loops"
-render_with_liquid: false
+title: Retro — 2026-05-09-1715
 date: 2026-05-08
 status: active
 type: retro
@@ -17,7 +13,7 @@ owner: board
   owner: board
   date: 2026-05-08
   status: active
-  loop: 2026-05-08
+  loop: 2026-05-09-1715
   links: parent: board/exec-summaries/2026-05-09-1715.md
 -->
 # Resink.ai CEO Retro — 2026-05-08

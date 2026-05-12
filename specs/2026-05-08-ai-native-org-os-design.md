@@ -1,8 +1,6 @@
 ---
 layout: default
 title: "Spec: 2026-05-08-ai-native-org-os-design"
-parent: "Design specs"
-render_with_liquid: false
 ---
 # AI-Native Org-OS — Design Spec
 

@@ -1,9 +1,6 @@
 ---
 layout: default
 title: "application-sim-farm contract: 2026-05-16-mvp-loop-verdict"
-parent: "Team: application-sim-farm"
-grand_parent: "Teams"
-render_with_liquid: false
 date: 2026-05-16
 status: active
 type: contract

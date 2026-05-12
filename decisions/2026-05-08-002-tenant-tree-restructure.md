@@ -1,8 +1,6 @@
 ---
 layout: default
 title: "ADR 2026-05-08-002: tenant tree restructure"
-parent: "Decisions (ADRs)"
-render_with_liquid: false
 date: 2026-05-08
 status: active
 type: adr

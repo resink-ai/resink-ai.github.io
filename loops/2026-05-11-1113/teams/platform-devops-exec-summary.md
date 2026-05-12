@@ -1,8 +1,6 @@
 ---
 layout: default
-title: platform-devops Exec Summary — 2026-05-23
-nav_exclude: true
-render_with_liquid: false
+title: platform-devops Exec Summary — 2026-05-11-1113
 date: 2026-05-23
 status: active
 type: exec-summary
@@ -15,7 +13,7 @@ owner: teams/platform/devops
   owner: teams/platform/devops
   date: 2026-05-23
   status: active
-  loop: 2026-05-23
+  loop: 2026-05-11-1113
   links: parent: teams/platform/devops/okrs/2026-05-11-1113-team-okr.md
 -->
 # DevOps Exec Summary — 2026-05-23
@@ -64,7 +62,7 @@ All against OKR O1 (CEO brief O4 in full — KR4.1, KR4.2, KR4.3, KR4.4). `sourc
 
 ## Asks
 
-### To `teams/application/resink-core` (next-loop 2026-05-30 deliverable; not blocking)
+### To `teams/application/resink-core` (next-loop 2026-05-11-1302 deliverable; not blocking)
 
 Confirm the five hand-off items in OKR § Hand-off to resink-core, all aimed at post-dlopen-restoration work:
 
@@ -74,7 +72,7 @@ Confirm the five hand-off items in OKR § Hand-off to resink-core, all aimed at 
 4. **Env-var convention vs. CLI flags** — DevOps's preference: keep CLI flags primary; secrets injected via mounted Secret files referenced by `--*-credentials-file=<path>`, not env vars.
 5. **`nodePluginManifestUri` runtime semantics** — chart axis is wired; runtime consumer shape (env var? CLI flag? coordinator-fetched config?) decided once dlopen restores.
 
-### To `teams/platform/data-engineering` (next-loop 2026-05-30 deliverable; not blocking)
+### To `teams/platform/data-engineering` (next-loop 2026-05-11-1302 deliverable; not blocking)
 
 Confirm the three hand-off items in OKR § Hand-off to DE:
 

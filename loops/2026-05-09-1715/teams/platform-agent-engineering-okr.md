@@ -1,8 +1,6 @@
 ---
 layout: default
-title: platform-agent-engineering OKR — 2026-05-08
-nav_exclude: true
-render_with_liquid: false
+title: platform-agent-engineering OKR — 2026-05-09-1715
 date: 2026-05-08
 status: active
 type: okr
@@ -15,7 +13,7 @@ owner: teams/platform/agent-engineering
   owner: teams/platform/agent-engineering
   date: 2026-05-08
   status: active
-  loop: 2026-05-08
+  loop: 2026-05-09-1715
   links: parent: board/okrs/2026-05-09-1715-ceo-brief.md
 -->
 # Agent Engineering Team OKR — 2026-05-08

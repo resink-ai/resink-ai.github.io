@@ -1,10 +1,8 @@
 ---
 layout: default
 title: "Action 2026-06-06-002: install minikube on dev machine"
-parent: "Actions"
-render_with_liquid: false
 date: 2026-06-06
-status: open
+status: superseded
 type: action
 owner: board
 due: 2026-06-13
@@ -14,13 +12,11 @@ due: 2026-06-13
   type: action
   owner: board
   date: 2026-06-06
-  status: open
+  status: superseded
   due: 2026-06-13
   links: triggering_retro: ../retros/2026-05-11-1631-ceo-retro.md
 -->
 # Action 2026-06-06-002: Install minikube CLI on the developer machine
-
-> **Frontmatter `type: action` is provisional.** Same provisional-and-migrate as `2026-06-06-001`; admission to the org-os conventions enum deferred to loop 2026-05-11-2153 alongside ADR-2026-05-30-001 (P2) batched org-os changes.
 
 ## Problem
 
@@ -65,6 +61,10 @@ When `minikube` is installed:
 1. Flip frontmatter `status: open → status: done`.
 2. Add a "## Resolution" subsection below with date, who installed, minikube version output.
 3. DevOps picks up `make minikube-smoke` in the 2026-06-13 build phase.
+
+## Resolution
+
+Superseded 2026-06-13 per CEO brief 2026-06-13's working answer to retro P5: toolchain installs route through team Prerequisite documentation, not board-action tickets. Chart README at `repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md § Prerequisites` already names `brew install minikube` as the recovery command. Future minikube smoke attempts pick up the toolchain via the chart's own surface.
 
 ## Read order
 

@@ -1,10 +1,6 @@
 ---
 layout: default
-title: "Decisions (ADRs)"
-nav_order: 3
-has_children: true
-child_nav_order: reversed
-render_with_liquid: false
+title: Decisions (ADRs)
 ---
 # Decisions (ADRs)
 
@@ -12,10 +8,11 @@ All architectural decision records, sorted by date (newest first). Both `draft` 
 
 | Date | # | Title | Status |
 |---|---|---|---|
-| 2026-06-06 | 002 | ["Paused teams accepting in-loop requests record the acceptance canonically in the request file's frontmatter (status field + deferred_to_loop), not in status.md; status.md may reference the request file by path but is not source-of-truth"](2026-06-06-002-paused-team-request-acceptance.html) | draft |
-| 2026-06-06 | 001 | ["Codify the 'provisional-and-migrate' coordination pattern as a documented org-os playbook, with three worked examples from prior loops"](2026-06-06-001-provisional-and-migrate-playbook.html) | draft |
+| 2026-06-13 | 001 | ["Admit type: action to the org-os conventions enum so board-action tickets become canonical artifacts; migrate the two existing 2026-06-06-001 and 2026-06-06-002 board-action tickets from provisional to canonical in the same loop"](2026-06-13-001-admit-action-to-conventions-enum.html) | active |
+| 2026-06-06 | 002 | ["Paused teams accepting in-loop requests record the acceptance canonically in the request file's frontmatter (status field + deferred_to_loop), not in status.md; status.md may reference the request file by path but is not source-of-truth"](2026-06-06-002-paused-team-request-acceptance.html) | active |
+| 2026-06-06 | 001 | ["Codify the 'provisional-and-migrate' coordination pattern as a documented org-os playbook, with three worked examples from prior loops"](2026-06-06-001-provisional-and-migrate-playbook.html) | active |
 | 2026-05-30 | 002 | ["Multi-loop plans inside ADRs name dates as `loop+N` relative to the ADR's ratification loop, with an explicit 'subject to team capacity at that loop's brief' qualifier; absolute calendar dates only when external commitments require them"](2026-05-30-002-multi-loop-plan-relative-dating.html) | active |
-| 2026-05-30 | 001 | ["Team OKRs that reference predicted-but-unverified syntax (CLI flags, file paths, env vars) must carry an explicit verification marker; the build phase confirms or files an addendum"](2026-05-30-001-verify-predicted-syntax-in-okrs.html) | draft |
+| 2026-05-30 | 001 | ["Team OKRs that reference predicted-but-unverified syntax (CLI flags, file paths, env vars) must carry an explicit verification marker; the build phase confirms or files an addendum"](2026-05-30-001-verify-predicted-syntax-in-okrs.html) | active |
 | 2026-05-23 | 001 | ["Extend the type enum in org-os/conventions.md to admit five additional owned-artifact types in one ratification batch: `runbook`, `convention`, `playbook`, `report`, and `role`; add a row to the additional-fields-per-type table for each; migrate existing files filed under workaround types to their new canonical types"](2026-05-23-001-conventions-enum-extension.html) | active |
 | 2026-05-16 | 004 | ["Codify the focus-loop pattern AND its consolidation-loop sibling as a single playbook at org-os/playbooks/focus-and-consolidation-loops.md; both patterns are CEO-invocable, both have explicit preconditions, both have explicit exit criteria, and they form a paired rhythm (focus loops produce structural deviations; consolidation loops close them)"](2026-05-16-004-focus-loop-pattern.html) | active |
 | 2026-05-16 | 003 | ["Every cross-team contract or RFC artifact must include a 'Verified-against-environment' subsection naming toolchain versions, OS, runtime dependencies, and auth-mode prerequisites it was exercised against; new contracts comply going forward, existing contracts grandfather"](2026-05-16-003-contract-environment-verification.html) | active |

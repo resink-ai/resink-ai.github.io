@@ -1,10 +1,6 @@
 ---
 layout: default
-title: "Exec summary"
-nav_order: 2
-parent: "Loop 2026-05-10-2227-001"
-grand_parent: "Loops"
-render_with_liquid: false
+title: Exec Summary — 2026-05-10-2227-001
 date: 2026-05-09
 status: active
 type: exec-summary
@@ -17,7 +13,7 @@ owner: board
   owner: board
   date: 2026-05-09
   status: active
-  loop: 2026-05-09
+  loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md
 -->
 # Resink.ai Loop 2026-05-10-2227-001 — Company Exec Summary

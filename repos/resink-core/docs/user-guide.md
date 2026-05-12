@@ -1,9 +1,6 @@
 ---
 layout: default
-title: "User guide"
-nav_order: 5
-parent: "resink-core"
-render_with_liquid: false
+title: "resink-core: user-guide"
 date: 2026-05-30
 status: active
 type: doc
@@ -81,6 +78,43 @@ make clean
 
 `make clean` does **not** drop the workspace-root `target/` (the supervisor + coordinator binaries); a `cargo clean` from the repo root handles that.
 
+## Plugin loading modes
+
+The supervisor crate ships two mutually-exclusive Cargo features that select **how** the per-tenant SCD2-maintainer node code is loaded into the supervisor binary:
+
+- **`static-plugins`** (default) — the codegen-output crates under `synthetic_tenants/<tenant>/workspace/nodes/<dim>_scd2/` are linked into the supervisor binary as Cargo path-dependencies. The supervisor is rebuilt per-tenant per-DAG-version. This is the original ABI Option A path (named in ADR-2026-05-16-001) and remains the default for `make mvp-loop`.
+- **`dlopen-plugins`** — the supervisor links `libloading` and resolves `nanofab_node_new` / `nanofab_node_process` / `nanofab_node_drop` via `libloading::Library::open(...)` against an external cdylib. The canonical artifact source is the in-tree `crates/nanofab-plugin-dim-user/` workspace member, built as `target/release/libnanofab_plugin_dim_user.{so,dylib}`. ADR-2026-05-16-001 step 2 (closed loop 2026-06-13) end-to-end exercises this path; the supervisor wraps the loaded symbols in a safe `PluginNode` Rust handle (see `crates/nanofab-supervisor/src/plugin_loader.rs`).
+
+To run the closed loop under the dlopen path, use the dedicated Make target (added 2026-06-13):
+
+```bash
+cd repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0
+make mvp-loop-dlopen
+```
+
+This rebuilds the supervisor under `--no-default-features --features dlopen-plugins`, builds the in-tree `nanofab-plugin-dim-user` cdylib, then runs steps 5-7 of the closed loop (publish-dag, run supervisor, verdict). The verdict.json shape is identical to the default `make mvp-loop` run: `overall_pass: true`, `engine_version: 0.3.0`, both per-dim `pass: true` with `mismatch_count: 0`. To exercise the FFI roundtrip end-to-end without the full closed loop, run the dlopen integration test directly:
+
+```bash
+cargo test --features dlopen-plugins -p nanofab-supervisor --test dlopen_integration
+```
+
+The integration test (`crates/nanofab-supervisor/tests/dlopen_integration.rs`) builds `nanofab-plugin-dim-user` via `cargo build --release -p nanofab-plugin-dim-user`, opens the resulting cdylib via `libloading::Library::new`, looks up the three C-ABI symbols, fires a known `dim_user` insert event, and asserts `NANOFAB_NODE_OK = 0` from the FFI roundtrip.
+
+To choose feature configurations explicitly when building the supervisor:
+
+```bash
+# Static-plugins exclusively (rollback configuration; matches MVP baseline).
+cargo build --release --no-default-features --features static-plugins -p nanofab-supervisor
+
+# Dlopen-plugins exclusively (canonical going-forward path per ADR-2026-05-16-001).
+cargo build --release --no-default-features --features dlopen-plugins -p nanofab-supervisor
+
+# Build the dlopen artifact alongside (workspace target dir).
+cargo build --release -p nanofab-plugin-dim-user
+```
+
+Hot-swap (loading a new plugin version into a running supervisor without restart) is the joint AE + resink-core deliverable for ADR-2026-05-16-001 step 3 (target loop 2026-06-20).
+
 ## Environment variables
 
 - **`CLAUDE_DISPATCH`** — defaults to unset. When `CLAUDE_DISPATCH=1`, the Makefile's `ORCH_FLAGS` toggles from `--skip-dispatch` to empty, which makes the orchestrator route codegen through `claude` CLI (LLM-driven dispatch via AE's `nanofab:codegen-scd2-node` skill) instead of the deterministic in-process slot-fill. Note: the live env var is `CLAUDE_DISPATCH=1` to **enable** dispatch; there is no `CLAUDE_SKIP_DISPATCH` env var (the negation lives on the orchestrator CLI as `--skip-dispatch`, which the Makefile passes by default).
@@ -90,7 +124,7 @@ make clean
 
 - **`cargo build` fails on a codegen-output crate (step 3).** The orchestrator prints `[orchestrator] [<dim>] stage compile: FAILED (exit=N)` to stderr and dumps the cargo stderr. Inspect `workspace/nodes/<dim>_scd2/src/lib.rs` (the slot-filled source). The seal at `workspace/.nanofab/release_seal.json` will carry `status: failed` plus `reason: cargo build exit=N` for the offending node. Per-node failures are independent; one node's compile failure does not silently mark the other passed.
 - **`verdict=fail mismatches=N`.** Open `workspace/verdict.json`. The `verdicts[].mismatches[]` list carries per-dim diff records with `type` (`missing` | `extra` | `diverged`), `key`, `fixture_row`, and `output_row`. Compare to the corresponding `workspace/<dim>_output.parquet` and `fixtures/<dim>_fixture.parquet`.
-- **`verdict.json` shape mismatch.** Check the `engine_version` field. As of loop 2026-05-11-1113 the sim-farm engine is at `0.2.0` (multi-dim); a `0.1.0` legacy single-dim verdict would surface here only if `sim-farm/sim_farm/diff_scd2.py` is older than the Makefile expects.
+- **`verdict.json` shape mismatch.** Check the `engine_version` field. As of loop 2026-05-23 the sim-farm engine is at `0.2.0` (multi-dim); a `0.1.0` legacy single-dim verdict would surface here only if `sim-farm/sim_farm/diff_scd2.py` is older than the Makefile expects.
 - **Parquet non-determinism (repeat runs produce different bytes).** Reset with `make clean` and re-run. If non-determinism persists, run the determinism test directly: `cargo test --release -p nanofab-supervisor --test determinism -- --include-ignored` from the repo root; it produces `workspace/__det_a` and `workspace/__det_b` and compares them byte-for-byte.
 - **`claude` CLI authentication errors (only with `CLAUDE_DISPATCH=1`).** If you see `Not logged in` or auth-related stderr from `claude`, the dispatch path can't reach Anthropic's API. Two fixes: (a) set `ANTHROPIC_API_KEY` in your shell; or (b) run `claude` interactively once to populate the OAuth keychain. The default `--skip-dispatch` path bypasses this entirely.
 - **Supervisor terminal failure / panic.** See the SRE runbook at `teams/platform/sre/runbooks/nanofab-supervisor-failed-validation.md` (in parent newbase). The supervisor uses `panic::catch_unwind` and emits the panic message into `trace.jsonl`; the runbook is the triage entry-point for any non-success terminal state.

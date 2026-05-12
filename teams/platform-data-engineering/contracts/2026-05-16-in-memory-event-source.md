@@ -1,9 +1,6 @@
 ---
 layout: default
 title: "platform-data-engineering contract: 2026-05-16-in-memory-event-source"
-parent: "Team: platform-data-engineering"
-grand_parent: "Teams"
-render_with_liquid: false
 date: 2026-05-16
 status: active
 type: contract
