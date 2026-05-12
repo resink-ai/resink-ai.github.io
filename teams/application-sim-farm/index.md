@@ -35,6 +35,7 @@ Internal product — execute candidate nanofab DAGs against synthetic or shadowe
 
 ## Executive summaries
 
+- [2026-05-12-0645](../../loops/2026-05-12-0645/teams/application-sim-farm-exec-summary.html)
 - [2026-05-11-2153](../../loops/2026-05-11-2153/teams/application-sim-farm-exec-summary.html)
 - [2026-05-11-1631](../../loops/2026-05-11-1631/teams/application-sim-farm-exec-summary.html)
 - [2026-05-11-1302](../../loops/2026-05-11-1302/teams/application-sim-farm-exec-summary.html)

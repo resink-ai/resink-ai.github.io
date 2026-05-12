@@ -50,6 +50,7 @@ Uptime, SLOs, incident response. As of 2026-05-10, SRE also owns the **operation
 
 ## Executive summaries
 
+- [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-sre-exec-summary.html)
 - [2026-05-11-1631](../../loops/2026-05-11-1631/teams/platform-sre-exec-summary.html)
 - [2026-05-11-1302](../../loops/2026-05-11-1302/teams/platform-sre-exec-summary.html)
 - [2026-05-11-1113](../../loops/2026-05-11-1113/teams/platform-sre-exec-summary.html)
@@ -59,6 +60,7 @@ Uptime, SLOs, incident response. As of 2026-05-10, SRE also owns the **operation
 
 ## OKRs
 
+- [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-sre-okr.html)
 - [2026-05-11-1113](../../loops/2026-05-11-1113/teams/platform-sre-okr.html)
 - [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/platform-sre-okr.html)
 - [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/platform-sre-okr.html)
@@ -66,4 +68,5 @@ Uptime, SLOs, incident response. As of 2026-05-10, SRE also owns the **operation
 
 ## Runbooks
 
+- [nanofab-supervisor-deployment](runbooks/nanofab-supervisor-deployment.html)
 - [nanofab-supervisor-failed-validation](runbooks/nanofab-supervisor-failed-validation.html)
