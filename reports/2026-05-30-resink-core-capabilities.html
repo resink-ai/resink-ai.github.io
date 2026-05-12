@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="type" content="report">
+<meta name="owner" content="board">
+<meta name="date" content="2026-05-30">
+<meta name="status" content="active">
+<meta name="audience" content="technical reviewer">
+<title>Resink.ai &middot; resink-core capabilities &mdash; 2026-05-30</title>
+<style>
+  :root {
+    --fg: #1a1a1a;
+    --muted: #5a5a5a;
+    --rule: #d8d8d8;
+    --bg: #ffffff;
+    --code-bg: #f4f4f4;
+    --accent: #1d4e89;
+    --warn-bg: #fff7e0;
+    --warn-rule: #e6c558;
+  }
+  html { background: var(--bg); }
+  body {
+    color: var(--fg);
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  header h1 {
+    font-size: 1.6rem;
+    margin: 0 0 0.4rem 0;
+  }
+  header .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  header .meta span { margin-right: 1.2rem; }
+  h2 {
+    font-size: 1.2rem;
+    margin-top: 2.4rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-size: 1.0rem;
+    margin-top: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+  p, ul, ol { margin: 0.6rem 0; }
+  ul, ol { padding-left: 1.4rem; }
+  li { margin: 0.3rem 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    background: var(--code-bg);
+    padding: 0.05rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--rule);
+    padding: 0.8rem 1rem;
+    overflow-x: auto;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: 0.83em;
+    line-height: 1.4;
+  }
+  pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-size: 1em;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.8rem 0;
+    font-size: 0.92em;
+  }
+  th, td {
+    border: 1px solid var(--rule);
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--code-bg);
+    font-weight: 600;
+  }
+  .toc {
+    background: var(--code-bg);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.92rem;
+  }
+  .toc ol { margin: 0.3rem 0 0.3rem 1.2rem; padding-left: 0.6rem; }
+  .toc li { margin: 0.15rem 0; }
+  .lede {
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.6rem;
+  }
+  .diagram {
+    font-size: 0.78rem;
+    line-height: 1.3;
+  }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Resink.ai &middot; resink-core capabilities &mdash; 2026-05-30</h1>
+  <div class="meta">
+    <span><strong>Type:</strong> report</span>
+    <span><strong>Owner:</strong> board</span>
+    <span><strong>Date:</strong> 2026-05-30</span>
+    <span><strong>Status:</strong> active</span>
+    <span><strong>Audience:</strong> technical reviewer</span>
+  </div>
+  <p class="lede">What <code>repos/resink-ai/resink-core/</code> can do today, with verdicts and test counts cited as evidence. Not a roadmap. Not aspirations.</p>
+</header>
+
+<nav class="toc" aria-label="Table of contents">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#product-summary">Product summary</a></li>
+    <li><a href="#what-works-today">What works today (with evidence)</a></li>
+    <li><a href="#architecture-diagram">Architecture diagram</a></li>
+    <li><a href="#component-catalog">Component catalog</a></li>
+    <li><a href="#named-deviations">Named deviations</a></li>
+    <li><a href="#not-in-scope">What is NOT in scope yet</a></li>
+    <li><a href="#how-to-read-further">How to read further</a></li>
+  </ol>
+</nav>
+
+<section id="product-summary">
+  <h2>1. Product summary</h2>
+  <p>
+    <code>resink-core</code> is an AI-native dim-table maintainer. Given a customer's fact-parquet streams and a synthetic-tenant fixture describing the target dim-table shape, the system uses an LLM-driven orchestrator (AE's <code>nanofab:codegen-scd2-node</code> skill) to generate per-dim Rust SCD2-maintainer "node" crates, compiles them as path-deps of a host supervisor, and runs the supervisor against the fact streams to produce per-dim SCD2-shaped parquets. A sim-farm diff engine then byte-compares the supervisor's output against the fixture and emits a single verdict file. The result is a deployable per-tenant Rust processing pipeline whose output is reproducible against its specification, with a Helm chart skeleton ready for cluster delivery.
+  </p>
+</section>
+
+<section id="what-works-today">
+  <h2>2. What works today (with evidence)</h2>
+  <p>Each bullet is a present-tense capability backed by an on-disk verdict, a test exit code, or a checked-in artifact.</p>
+  <ul>
+    <li>
+      <strong>End-to-end MVP closed loop is GREEN on a multi-dim, multi-shard fixture.</strong>
+      <code>make mvp-loop</code> exits 0 with <code>overall_pass: true</code> on the <code>closed_loop_v0</code> synthetic tenant. The verdict file at <code>repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0/workspace/verdict.json</code> contains, verbatim:
+<pre><code>{
+  "verdict_id": "e2569351-7e5f-461d-b6c3-2080ef0b851e",
+  "mode": "A",
+  "engine_version": "0.2.0",
+  "overall_pass": true,
+  "verdicts": [
+    { "dim_table": "dim_user",    "pass": true, "mismatch_count": 0 },
+    { "dim_table": "dim_account", "pass": true, "mismatch_count": 0 }
+  ],
+  "ran_at": 1778521885912
+}</code></pre>
+    </li>
+    <li>
+      <strong>Real LLM-driven code generation produces compilable, deterministic Rust.</strong>
+      The orchestrator dispatches AE's <code>nanofab:codegen-scd2-node</code> skill via the local <code>claude</code> CLI; the generated crate compiles with <code>cargo build --release</code> exit code 0 and passes its own <code>cargo test</code> exit code 0. Loop 2026-05-16's first end-to-end attempt produced compilable Rust with zero template iterations (~$0.77 in API cost, ~106s wall on a developer laptop). When <code>CLAUDE_DISPATCH=1</code> is not set, the orchestrator falls back to in-process deterministic slot-fill so the loop runs with no API key.
+    </li>
+    <li>
+      <strong>Multi-dim parallel maintenance.</strong>
+      The supervisor processes two dim-tables (<code>dim_user</code> 21 SCD2 rows; <code>dim_account</code> 18 SCD2 rows) in one process driven by three fact streams (<code>fact_sign_up</code>, <code>fact_profile_update</code>, <code>fact_account_open</code>). Per loop 2026-05-23, both dims report <code>pass: true</code> and <code>mismatch_count: 0</code>.
+    </li>
+    <li>
+      <strong>Multi-shard partitioning with byte-stable hash.</strong>
+      Per-key routing uses <code>twox-hash::xxh64(key_bytes, seed=0)</code> against <code>shard_count=4</code>. Byte-stable against DE's reference: <code>xxh64(b"u-001", 0) == 0x571e3e04781b0ff5</code>.
+    </li>
+    <li>
+      <strong>Observable supervisor execution trace.</strong>
+      Each run writes a JSONL trace at <code>workspace/trace.jsonl</code>. The current verdict's trace has <strong>53 records</strong> of supervisor lifecycle events (node init, partition routing, SCD2 mutations, finalize).
+    </li>
+    <li>
+      <strong>Sim-farm Mode-A diff engine, version 0.2.0, multi-dim.</strong>
+      Engine at <code>repos/resink-ai/resink-core/sim-farm/sim_farm/diff_scd2.py</code> (467 lines). Test suite at <code>repos/resink-ai/resink-core/sim-farm/tests/test_diff_scd2_smoke.py</code> (419 lines) reports <strong>9/9 passing</strong> under <code>uv run pytest -q</code>.
+    </li>
+    <li>
+      <strong>Determinism guard end-to-end.</strong>
+      The supervisor's <code>trace.jsonl</code> and output parquet are byte-identical across two consecutive runs; verified via <code>cargo test --release -p nanofab-supervisor --test determinism -- --include-ignored</code> exit code 0.
+    </li>
+    <li>
+      <strong>Helm chart skeleton lints, templates, and dry-runs clean.</strong>
+      <code>deploy/charts/nanofab-supervisor/</code> (<code>Chart.yaml</code> v0.1.0, appVersion 0.1.0; 15 files: 8 templates + 2 values files + chart manifests + <code>Dockerfile</code> + chart <code>Makefile</code> + chart <code>README.md</code>) passes <code>helm lint --strict</code>, <code>helm template</code>, and <code>helm install --dry-run</code> &mdash; all three exit 0 on <code>values/minikube-mvp.yaml</code>.
+    </li>
+  </ul>
+</section>
+
+<section id="architecture-diagram">
+  <h2>3. Architecture diagram</h2>
+  <p>The closed loop is a seven-step pipeline. Each arrow is labeled with the data artifact crossing the boundary.</p>
+<pre class="diagram"><code>+-----------------------+
+|     fixture           |
+|  (synthetic tenant)   |
++-----------------------+
+           |
+           |  schema.json + dim_*_fixture.parquet + fact_*.parquet
+           v
++-----------------------+
+|    orchestrator       |     (Python, training/orchestrator/)
+|  AE codegen skill x N |
++-----------------------+
+           |
+           |  Cargo.toml + src/lib.rs (per-dim node crate)
+           v
++-----------------------+
+|     cargo build       |     (per-node crate, then supervisor host)
+|  (per-dim node x N)   |
++-----------------------+
+           |
+           |  manifest.yaml + .nanofab/release_seal.json
+           v
++-----------------------+
+|     coordinator       |     (nanofab-coordinator binary)
+|    publish-dag        |
++-----------------------+
+           |
+           |  validated release_seal + DAG ready signal
+           v
++-----------------------+
+|     supervisor        |     (nanofab-supervisor binary, --mode=sim)
+|  multi-node, sharded  |
++-----------------------+
+           |
+           |  Event records -&gt; Scd2Row mutations -&gt; trace.jsonl
+           v
++-----------------------+
+|    diff engine        |     (sim-farm, Mode-A, engine_version 0.2.0)
+|   (sim-farm 0.2.0)    |
++-----------------------+
+           |
+           |  dim_*_output.parquet vs dim_*_fixture.parquet (byte-diff)
+           v
++-----------------------+
+|       verdict         |
+|     verdict.json      |
++-----------------------+
+</code></pre>
+</section>
+
+<section id="component-catalog">
+  <h2>4. Component catalog</h2>
+  <p>Every shipped surface, with a one-line purpose and a quantitative anchor where available.</p>
+  <table>
+    <thead>
+      <tr><th>Component</th><th>Path</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>nanofab-node-abi</code> crate</td>
+        <td><code>repos/resink-ai/resink-core/crates/nanofab-node-abi/</code></td>
+        <td>Rust trait surface every codegen-output node implements; the contract between supervisor and node.</td>
+      </tr>
+      <tr>
+        <td><code>nanofab-supervisor</code> crate</td>
+        <td><code>repos/resink-ai/resink-core/crates/nanofab-supervisor/</code></td>
+        <td>Sim-mode driver binary; routes events to per-dim Node instances across logical shards; writes <code>trace.jsonl</code> + <code>dim_*_output.parquet</code>.</td>
+      </tr>
+      <tr>
+        <td><code>nanofab-coordinator</code> crate</td>
+        <td><code>repos/resink-ai/resink-core/crates/nanofab-coordinator/</code></td>
+        <td>Validates <code>release_seal.json</code>; publishes DAG ready signal so the supervisor knows per-node crates passed <code>cargo build</code> + <code>cargo test</code>.</td>
+      </tr>
+      <tr>
+        <td><code>training/orchestrator/</code></td>
+        <td><code>repos/resink-ai/resink-core/training/orchestrator/</code></td>
+        <td>Python module that dispatches AE's codegen skill once per dim, writes <code>manifest.yaml</code> + <code>.nanofab/release_seal.json</code>, runs <code>cargo build</code>/<code>cargo test</code> on each output crate. Entry: <code>src/orchestrator/__main__.py</code> (283 lines).</td>
+      </tr>
+      <tr>
+        <td><code>synthetic_tenants/closed_loop_v0/</code></td>
+        <td><code>repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0/</code></td>
+        <td>End-to-end driver: deterministic fixture generators (<code>fixtures/generate.py</code>, <code>fixtures/derive_facts.py</code>), 7-step <code>Makefile</code>, <code>workspace/</code> output dir.</td>
+      </tr>
+      <tr>
+        <td><code>sim-farm/</code> (Mode-A)</td>
+        <td><code>repos/resink-ai/resink-core/sim-farm/</code></td>
+        <td>Diff engine + verdict-format owner; reads fixture + supervisor-output parquets into DuckDB, emits per-dim PASS/FAIL with one of four mismatch types. <code>diff_scd2.py</code> 467 lines; <strong>9/9</strong> tests passing.</td>
+      </tr>
+      <tr>
+        <td><code>deploy/charts/nanofab-supervisor/</code></td>
+        <td><code>repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/</code></td>
+        <td>Helm chart skeleton (v0.1.0, appVersion 0.1.0; 15 files: 8 templates + 2 values files + chart manifests + <code>Dockerfile</code> + chart <code>Makefile</code> + <code>README.md</code>).</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="named-deviations">
+  <h2>5. Named deviations</h2>
+  <p>The system runs with four named, documented deviations from the long-term target architecture. Each has an explicit multi-loop restoration plan.</p>
+  <ul>
+    <li>
+      <strong>Option A: Cargo path-dep static linking, no <code>dlopen</code>.</strong>
+      The codegen template exports <code>nanofab_node_new</code> / <code>nanofab_node_drop</code> C-ABI symbols but no <code>nanofab_node_process</code> symbol, so pure <code>dlopen</code> is not yet possible. The supervisor links per-tenant node crates as Cargo path-deps, requiring a per-tenant supervisor rebuild rather than hot-swap. Documented in ADR-2026-05-16-001. Restoration: AE template extension to add <code>nanofab_node_process</code> &rarr; supervisor swaps to <code>libloading::Library</code>. AE template extension targeted 2026-05-30 but rescheduled to 2026-06-06 as AE's bandwidth shifted to Bundle C.
+    </li>
+    <li>
+      <strong>Sim-farm diff engine hard-codes join columns.</strong>
+      The engine hard-codes <code>user_id</code> as the join column and <code>(email, country, valid_to, is_current)</code> as payload columns, so the <code>dim_account</code> SCD2 dim ships with an isomorphic-shape compromise (same schema as <code>dim_user</code> so the diff engine works). Flagged in loop 2026-05-23's retro as P1. Restoration: schema-aware join column resolution &mdash; deferred from this loop to 2026-06-06.
+    </li>
+    <li>
+      <strong>Workspace promotion deferred (3rd consecutive loop).</strong>
+      <code>resink-core</code> lives in-tree at <code>repos/resink-ai/resink-core/</code> rather than as a real git submodule. Blocker: the <code>resink-ai/resink-core</code> GitHub remote does not yet exist. Restoration: board creates the remote &mdash; non-tenant action; carries to 2026-06-06 with a 4th-loop deferral flag for retro.
+    </li>
+    <li>
+      <strong>Minikube smoke deferred.</strong>
+      The Helm chart skeleton passes <code>helm lint --strict</code>, <code>helm template</code>, and <code>helm install --dry-run</code>, but no real <code>helm install</code> has run against a minikube cluster. Blocker: developer-laptop toolchain (minikube + docker). Restoration: DevOps owns; carries to 2026-06-06.
+    </li>
+  </ul>
+</section>
+
+<section id="not-in-scope">
+  <h2>6. What is NOT in scope yet</h2>
+  <p>The system <strong>today</strong> does not include the following &mdash; they are roadmap items not present in the current tree:</p>
+  <ul>
+    <li><strong>Real Kafka ingestion.</strong> Supervisor reads parquet event-source files in <code>--mode=sim</code>; the Kafka ingress contract is specified but no Kafka consumer code ships.</li>
+    <li><strong>Real KV state backend.</strong> SCD2 state held in-process per supervisor instance; no Redis/DynamoDB/persistent KV is wired.</li>
+    <li><strong>Multi-tenant isolation.</strong> One supervisor process per tenant is the current single-tenant assumption; cross-tenant supervisor sharing is not implemented.</li>
+    <li><strong>Hot-swap node code.</strong> Replaced by the Option A static-linking trade-off above; restoration depends on the multi-loop ABI plan.</li>
+    <li><strong>Sim Farm Modes B/C.</strong> Only Mode-A (deterministic file-vs-file diff) is shipped. Mode-B (streaming Rust differ) and Mode-C (sidecar comparison) are spec'd but not implemented.</li>
+    <li><strong>Three-layer verdict.</strong> Today the verdict has one layer (per-dim pass/fail with mismatch counts). The fuller engine-layer / contract-layer / data-layer verdict named in the sim-farm spec is not implemented.</li>
+    <li><strong>Product UX surface (sub-project #5).</strong> No customer-facing UI; the system is exercised via CLI/Makefile.</li>
+  </ul>
+</section>
+
+<section id="how-to-read-further">
+  <h2>7. How to read further</h2>
+  <ul>
+    <li><strong>Resink-core's CLAUDE.md</strong> &mdash; <code>repos/resink-ai/resink-core/CLAUDE.md</code> (shipped this loop): one-paragraph product summary, tech stack, common commands, repo layout.</li>
+    <li><strong>Resink-core's docs/</strong> &mdash; <code>repos/resink-ai/resink-core/docs/{architecture,concepts,user-guide,module-catalog}.md</code> (shipped this loop): deeper internal documentation for an IC opening the repo for the first time.</li>
+    <li><strong>Canonical specs (in parent newbase repo)</strong> &mdash; <code>docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md</code>, <code>docs/superpowers/specs/2026-05-10-nanofab-training-pipeline-design.md</code>.</li>
+    <li><strong>ADRs</strong> &mdash; <code>board/decisions/</code>. Every architectural deviation has an ADR; start with ADR-2026-05-16-001 (Option A) and ADR-2026-05-10-001 (Rust runtime).</li>
+    <li><strong>Loop-by-loop history</strong> &mdash; <code>board/exec-summaries/2026-05-16.md</code> (first GREEN end-to-end), <code>board/exec-summaries/2026-05-23.md</code> (widened MVP + 6-ADR batch).</li>
+  </ul>
+</section>
+
+<footer>
+  Generated by the board for loop 2026-05-30. Single-file HTML, inline CSS, no JavaScript, no external assets. Companion markdown source: <code>board/reports/2026-05-30-resink-core-capabilities.md</code>.
+</footer>
+
+</body>
+</html>
