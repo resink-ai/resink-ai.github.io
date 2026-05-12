@@ -1,6 +1,8 @@
 ---
 layout: default
 title: application-resink-core OKR — 2026-06-13
+nav_exclude: true
+render_with_liquid: false
 date: 2026-06-13
 status: active
 type: okr

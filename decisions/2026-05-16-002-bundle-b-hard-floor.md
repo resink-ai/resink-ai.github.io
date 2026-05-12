@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "ADR 2026-05-16-002: bundle b hard floor"
+parent: "Decisions (ADRs)"
+render_with_liquid: false
 date: 2026-05-16
 status: active
 type: adr

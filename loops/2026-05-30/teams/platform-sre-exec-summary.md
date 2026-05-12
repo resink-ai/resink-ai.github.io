@@ -1,6 +1,8 @@
 ---
 layout: default
 title: platform-sre Exec Summary — 2026-05-30
+nav_exclude: true
+render_with_liquid: false
 date: 2026-05-30
 status: active
 type: exec-summary

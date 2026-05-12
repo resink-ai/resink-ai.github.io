@@ -1,6 +1,9 @@
 ---
 layout: default
-title: Design specs
+title: "Design specs"
+nav_order: 5
+has_children: true
+render_with_liquid: false
 ---
 # Design specs
 

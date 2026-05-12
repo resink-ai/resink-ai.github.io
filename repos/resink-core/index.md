@@ -1,6 +1,9 @@
 ---
 layout: default
-title: resink-core (overview)
+title: "resink-core"
+nav_order: 8
+has_children: true
+render_with_liquid: false
 ---
 # resink-core
 

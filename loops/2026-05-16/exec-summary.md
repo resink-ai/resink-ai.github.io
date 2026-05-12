@@ -1,6 +1,10 @@
 ---
 layout: default
-title: Exec Summary — 2026-05-16
+title: "Exec summary"
+nav_order: 2
+parent: "Loop 2026-05-16"
+grand_parent: "Loops"
+render_with_liquid: false
 date: 2026-05-16
 status: active
 type: exec-summary

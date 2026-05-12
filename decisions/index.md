@@ -1,6 +1,10 @@
 ---
 layout: default
-title: Decisions (ADRs)
+title: "Decisions (ADRs)"
+nav_order: 3
+has_children: true
+child_nav_order: reversed
+render_with_liquid: false
 ---
 # Decisions (ADRs)
 

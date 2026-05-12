@@ -1,6 +1,10 @@
 ---
 layout: default
 title: Loops
+nav_order: 2
+has_children: true
+child_nav_order: reversed
+render_with_liquid: false
 ---
 # Loops
 

@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Team: platform-devops"
+parent: "Teams"
+render_with_liquid: false
 ---
 # Team: platform-devops
 

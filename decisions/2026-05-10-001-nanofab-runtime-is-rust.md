@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "ADR 2026-05-10-001: nanofab runtime is rust"
+parent: "Decisions (ADRs)"
+render_with_liquid: false
 date: 2026-05-10
 status: active
 type: adr

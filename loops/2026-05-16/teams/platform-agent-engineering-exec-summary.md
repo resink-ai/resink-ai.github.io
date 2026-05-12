@@ -1,6 +1,8 @@
 ---
 layout: default
 title: platform-agent-engineering Exec Summary — 2026-05-16
+nav_exclude: true
+render_with_liquid: false
 date: 2026-05-16
 status: active
 type: exec-summary

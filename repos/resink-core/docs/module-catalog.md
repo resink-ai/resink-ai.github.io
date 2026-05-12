@@ -1,6 +1,9 @@
 ---
 layout: default
-title: "resink-core: module-catalog"
+title: "Module catalog"
+nav_order: 4
+parent: "resink-core"
+render_with_liquid: false
 date: 2026-05-30
 status: active
 type: doc

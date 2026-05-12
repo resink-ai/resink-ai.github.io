@@ -1,6 +1,8 @@
 ---
 layout: default
 title: application-resink-core Exec Summary — 2026-05-09
+nav_exclude: true
+render_with_liquid: false
 date: 2026-05-09
 status: active
 type: exec-summary

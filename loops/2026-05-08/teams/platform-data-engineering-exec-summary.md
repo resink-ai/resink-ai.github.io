@@ -1,6 +1,8 @@
 ---
 layout: default
 title: platform-data-engineering Exec Summary — 2026-05-08
+nav_exclude: true
+render_with_liquid: false
 date: 2026-05-08
 status: active
 type: exec-summary

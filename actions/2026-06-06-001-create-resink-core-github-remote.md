@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Action 2026-06-06-001: create resink core github remote"
+parent: "Actions"
+render_with_liquid: false
 date: 2026-06-06
 status: open
 type: action

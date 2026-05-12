@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Team: platform-agent-engineering"
+parent: "Teams"
+render_with_liquid: false
 ---
 # Team: platform-agent-engineering
 

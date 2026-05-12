@@ -1,6 +1,8 @@
 ---
 layout: default
 title: application-sim-farm OKR — 2026-06-06
+nav_exclude: true
+render_with_liquid: false
 date: 2026-06-06
 status: active
 type: okr

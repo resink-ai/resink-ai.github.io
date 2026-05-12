@@ -1,6 +1,9 @@
 ---
 layout: default
-title: "resink-core: user-guide"
+title: "User guide"
+nav_order: 5
+parent: "resink-core"
+render_with_liquid: false
 date: 2026-05-30
 status: active
 type: doc

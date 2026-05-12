@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "ADR 2026-05-09-004: onboard application team"
+parent: "Decisions (ADRs)"
+render_with_liquid: false
 date: 2026-05-09
 status: active
 type: adr

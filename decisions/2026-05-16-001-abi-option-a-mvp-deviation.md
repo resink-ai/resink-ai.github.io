@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "ADR 2026-05-16-001: abi option a mvp deviation"
+parent: "Decisions (ADRs)"
+render_with_liquid: false
 date: 2026-05-16
 status: active
 type: adr

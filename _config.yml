@@ -1,4 +1,54 @@
-theme: jekyll-theme-minimal
 title: Resink.ai operations
 description: Public observability surface for Resink.ai's structured org-os work — CEO briefs, executive summaries, retros, decisions, action tickets, contracts, conventions, runbooks, and capabilities reports.
+url: https://blog.resink.ai
+
+remote_theme: just-the-docs/just-the-docs
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-include-cache
+
 markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# just-the-docs settings
+color_scheme: light
+search_enabled: true
+search:
+  heading_level: 3
+  previews: 3
+  preview_words_before: 5
+  preview_words_after: 10
+  tokenizer_separator: /[\s\-/]+/
+  rel_url: true
+  button: false
+heading_anchors: true
+back_to_top: true
+back_to_top_text: "Back to top"
+
+aux_links:
+  "GitHub":
+    - "https://github.com/resink-ai/resink-ai.github.io"
+aux_links_new_tab: true
+
+nav_external_links:
+  - title: resink.ai
+    url: https://resink.ai
+    hide_icon: false
+
+footer_content: 'Resink.ai operations · generated from the in-repo org-os tree'
+
+# Files Jekyll should ignore
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - README.md
+
+# Page content (.md) carries `render_with_liquid: false` in its own frontmatter
+# so `{{` / `}}` in code samples isn't parsed as Liquid. Layouts still use Liquid.

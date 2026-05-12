@@ -1,6 +1,10 @@
 ---
 layout: default
-title: CEO Brief — 2026-05-09
+title: Brief
+nav_order: 1
+parent: "Loop 2026-05-09"
+grand_parent: "Loops"
+render_with_liquid: false
 date: 2026-05-09
 status: active
 type: okr

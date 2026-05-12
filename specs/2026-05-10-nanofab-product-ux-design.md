@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Spec: 2026-05-10-nanofab-product-ux-design"
+parent: "Design specs"
+render_with_liquid: false
 ---
 # Nanofab Product UX — Design Spec
 

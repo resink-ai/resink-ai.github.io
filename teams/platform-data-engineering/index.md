@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "Team: platform-data-engineering"
+parent: "Teams"
+has_children: true
+render_with_liquid: false
 ---
 # Team: platform-data-engineering
 

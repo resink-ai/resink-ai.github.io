@@ -1,6 +1,8 @@
 ---
 layout: default
-title: Resink.ai operations
+title: Home
+nav_order: 1
+render_with_liquid: false
 ---
 # Resink.ai operations
 

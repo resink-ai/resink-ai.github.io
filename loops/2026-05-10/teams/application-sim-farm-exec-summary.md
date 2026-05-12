@@ -1,6 +1,8 @@
 ---
 layout: default
 title: application-sim-farm Exec Summary — 2026-05-10
+nav_exclude: true
+render_with_liquid: false
 date: 2026-05-10
 status: active
 type: exec-summary

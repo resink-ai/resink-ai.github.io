@@ -1,6 +1,9 @@
 ---
 layout: default
-title: resink-core docs
+title: "Docs overview"
+nav_order: 1
+parent: "resink-core"
+render_with_liquid: false
 ---
 # resink-core docs
 

@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "Team: application-sim-farm"
+parent: "Teams"
+has_children: true
+render_with_liquid: false
 ---
 # Team: application-sim-farm
 

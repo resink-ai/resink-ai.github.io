@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "ADR 2026-05-30-001: verify predicted syntax in okrs"
+parent: "Decisions (ADRs)"
+render_with_liquid: false
 date: 2026-05-30
 status: draft
 type: adr

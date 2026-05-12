@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "platform-data-engineering contract: 2026-05-10-kafka-ingress"
+parent: "Team: platform-data-engineering"
+grand_parent: "Teams"
+render_with_liquid: false
 date: 2026-05-10
 status: active
 type: contract

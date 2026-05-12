@@ -1,6 +1,10 @@
 ---
 layout: default
 title: Actions
+nav_order: 4
+has_children: true
+child_nav_order: reversed
+render_with_liquid: false
 ---
 # Actions
 

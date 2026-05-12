@@ -1,6 +1,10 @@
 ---
 layout: default
-title: Retro — 2026-05-30
+title: Retro
+nav_order: 3
+parent: "Loop 2026-05-30"
+grand_parent: "Loops"
+render_with_liquid: false
 date: 2026-05-30
 status: active
 type: retro

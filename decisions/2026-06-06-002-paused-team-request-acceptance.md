@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "ADR 2026-06-06-002: paused team request acceptance"
+parent: "Decisions (ADRs)"
+render_with_liquid: false
 date: 2026-06-06
 status: draft
 type: adr

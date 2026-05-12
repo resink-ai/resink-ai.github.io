@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Spec: 2026-05-09-org-os-bottom-up-flow-design"
+parent: "Design specs"
+render_with_liquid: false
 date: 2026-05-09
 status: active
 type: design

@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Team: application-resink-core"
+parent: "Teams"
+render_with_liquid: false
 ---
 # Team: application-resink-core
 
