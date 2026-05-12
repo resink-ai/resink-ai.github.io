@@ -1,7 +1,7 @@
 ---
 layout: default
 title: platform-devops Exec Summary — 2026-05-11-1113
-date: 2026-05-23
+date: 2026-05-11
 status: active
 type: exec-summary
 loop: 2026-05-11-1113
@@ -11,7 +11,7 @@ owner: teams/platform/devops
 <!-- original-frontmatter:
   type: exec-summary
   owner: teams/platform/devops
-  date: 2026-05-23
+  date: 2026-05-11
   status: active
   loop: 2026-05-11-1113
   links: parent: teams/platform/devops/okrs/2026-05-11-1113-team-okr.md

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: platform-devops OKR — 2026-05-11-1631
-date: 2026-06-06
+date: 2026-05-11
 status: build-complete
 type: okr
 loop: 2026-05-11-1631
@@ -11,7 +11,7 @@ owner: teams/platform/devops
 <!-- original-frontmatter:
   type: okr
   owner: teams/platform/devops
-  date: 2026-06-06
+  date: 2026-05-11
   status: build-complete
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md

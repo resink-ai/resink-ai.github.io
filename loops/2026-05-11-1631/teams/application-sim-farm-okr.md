@@ -1,7 +1,7 @@
 ---
 layout: default
 title: application-sim-farm OKR — 2026-05-11-1631
-date: 2026-06-06
+date: 2026-05-11
 status: active
 type: okr
 loop: 2026-05-11-1631
@@ -11,7 +11,7 @@ owner: teams/application/sim-farm
 <!-- original-frontmatter:
   type: okr
   owner: teams/application/sim-farm
-  date: 2026-06-06
+  date: 2026-05-11
   status: active
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: CEO Brief — 2026-05-11-0958
-date: 2026-05-16
+date: 2026-05-11
 status: active
 type: okr
 loop: 2026-05-11-0958
@@ -11,7 +11,7 @@ owner: board
 <!-- original-frontmatter:
   type: okr
   owner: board
-  date: 2026-05-16
+  date: 2026-05-11
   status: active
   loop: 2026-05-11-0958
   links: parent: ""

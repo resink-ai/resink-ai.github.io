@@ -1,7 +1,7 @@
 ---
 layout: default
 title: platform-data-engineering OKR — 2026-05-10-2227-001
-date: 2026-05-09
+date: 2026-05-10
 status: active
 type: okr
 loop: 2026-05-10-2227-001
@@ -11,7 +11,7 @@ owner: teams/platform/data-engineering
 <!-- original-frontmatter:
   type: okr
   owner: teams/platform/data-engineering
-  date: 2026-05-09
+  date: 2026-05-10
   status: active
   loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md

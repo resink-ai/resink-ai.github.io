@@ -1,7 +1,7 @@
 ---
 layout: default
 title: application-resink-core OKR — 2026-05-10-2227-001
-date: 2026-05-09
+date: 2026-05-10
 status: active
 type: okr
 loop: 2026-05-10-2227-001
@@ -11,7 +11,7 @@ owner: teams/application/resink-core
 <!-- original-frontmatter:
   type: okr
   owner: teams/application/resink-core
-  date: 2026-05-09
+  date: 2026-05-10
   status: active
   loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md
