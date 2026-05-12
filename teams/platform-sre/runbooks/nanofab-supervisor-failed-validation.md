@@ -789,3 +789,7 @@ loop yet.
   [`teams/platform/sre/okrs/2026-05-11-1113-team-okr.md`](../okrs/2026-05-11-1113-team-okr.md).
 - **2026-05-23 CEO brief (O5 is the parent objective):**
   [`board/okrs/2026-05-11-1113-ceo-brief.md`](../../../../board/okrs/2026-05-11-1113-ceo-brief.md).
+
+---
+
+**Post-promotion note (2026-05-12-1254):** `repos/resink-ai/resink-core/` is now a git submodule (URL `git@github.com:resink-ai/resink-core.git`). All cited paths continue to resolve at the same working-tree mount point.

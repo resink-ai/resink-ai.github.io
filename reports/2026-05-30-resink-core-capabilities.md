@@ -155,3 +155,7 @@ The system **today** does not include the following — they are roadmap items n
 - **Canonical specs (in parent newbase repo)** — `docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md`, `docs/superpowers/specs/2026-05-10-nanofab-training-pipeline-design.md`.
 - **ADRs** — `board/decisions/` — every architectural deviation has an ADR; start with [ADR-2026-05-16-001 (Option A)](../decisions/2026-05-16-001-abi-option-a-mvp-deviation.md) and [ADR-2026-05-10-001 (Rust runtime)](../decisions/2026-05-10-001-nanofab-runtime-is-rust.md).
 - **Loop-by-loop history** — `board/exec-summaries/2026-05-11-0958.md` (first GREEN end-to-end), `board/exec-summaries/2026-05-11-1113.md` (widened MVP + 6-ADR batch).
+
+---
+
+**Post-promotion note (2026-05-12-1254):** `repos/resink-ai/resink-core/` is now a git submodule (URL `git@github.com:resink-ai/resink-core.git`). All paths cited in this report continue to resolve at the same working-tree mount point. Future revisions of this report may shift to submodule-relative paths if external consumers need disambiguation.

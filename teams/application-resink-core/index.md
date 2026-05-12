@@ -30,6 +30,7 @@ Deliver the customer-facing realtime data processing product — both the traini
 
 ## Executive summaries
 
+- [2026-05-12-1254](../../loops/2026-05-12-1254/teams/application-resink-core-exec-summary.html)
 - [2026-05-12-0645](../../loops/2026-05-12-0645/teams/application-resink-core-exec-summary.html)
 - [2026-05-11-2153](../../loops/2026-05-11-2153/teams/application-resink-core-exec-summary.html)
 - [2026-05-11-1631](../../loops/2026-05-11-1631/teams/application-resink-core-exec-summary.html)
@@ -41,6 +42,7 @@ Deliver the customer-facing realtime data processing product — both the traini
 
 ## OKRs
 
+- [2026-05-12-1254](../../loops/2026-05-12-1254/teams/application-resink-core-okr.html)
 - [2026-05-12-0645](../../loops/2026-05-12-0645/teams/application-resink-core-okr.html)
 - [2026-05-11-2153](../../loops/2026-05-11-2153/teams/application-resink-core-okr.html)
 - [2026-05-11-1631](../../loops/2026-05-11-1631/teams/application-resink-core-okr.html)
