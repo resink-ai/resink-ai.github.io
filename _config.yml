@@ -1,3 +1,4 @@
 theme: jekyll-theme-minimal
-title: RESINK.AI Home
-description: Bookmark this to keep an eye on my project updates!
+title: Resink.ai operations
+description: Public observability surface for Resink.ai's structured org-os work — CEO briefs, executive summaries, retros, decisions, action tickets, contracts, conventions, runbooks, and capabilities reports.
+markdown: kramdown
