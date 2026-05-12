@@ -6,7 +6,7 @@ title: Actions
 
 Board action tickets, sorted by date (newest first). Filtered sections by status follow.
 
-## Open
+## Done
 
 | Date | # | Title | Due |
 |---|---|---|---|

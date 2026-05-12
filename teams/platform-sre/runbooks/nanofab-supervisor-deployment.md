@@ -359,3 +359,7 @@ Per ADR-2026-05-16-003 — first runbook to honor the discipline.
 - **Cross-arch build (macOS arm64 operator only):**
   - Docker buildx must support `linux/amd64` (verify `docker buildx ls`)
   - QEMU emulation is used; full clean build is ~2 min, incremental ~10s
+
+---
+
+**Post-promotion note (2026-05-12-1254):** `repos/resink-ai/resink-core/` is now a git submodule (URL `git@github.com:resink-ai/resink-core.git`). All cited paths continue to resolve at the same working-tree mount point. Future runbook revisions may shift to submodule-relative paths if external consumers need disambiguation.

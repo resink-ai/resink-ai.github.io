@@ -37,6 +37,7 @@ Build and maintain the AI agent infrastructure for the org. Produces the agent r
 
 ## Executive summaries
 
+- [2026-05-12-1254](../../loops/2026-05-12-1254/teams/platform-agent-engineering-exec-summary.html)
 - [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-agent-engineering-exec-summary.html)
 - [2026-05-11-2153](../../loops/2026-05-11-2153/teams/platform-agent-engineering-exec-summary.html)
 - [2026-05-11-1631](../../loops/2026-05-11-1631/teams/platform-agent-engineering-exec-summary.html)

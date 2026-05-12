@@ -2,7 +2,7 @@
 layout: default
 title: "Action 2026-06-06-001: create resink core github remote"
 date: 2026-06-06
-status: open
+status: done
 type: action
 owner: board
 due: 2026-06-13
@@ -12,10 +12,22 @@ due: 2026-06-13
   type: action
   owner: board
   date: 2026-06-06
-  status: open
+  status: done
   due: 2026-06-13
   links: triggering_retro: ../retros/2026-05-11-1302-ceo-retro.md
 -->
+## Resolution
+
+**Resolved 2026-05-12 (loop 2026-05-12-0645, mid-loop after build phase closed).**
+The `resink-ai/resink-core` GitHub remote was created via `gh repo create
+resink-ai/resink-core --private --description "Resink.ai nanofab runtime,
+training pipeline, sim-farm engine, and orchestrator"`. Repository URL:
+`https://github.com/resink-ai/resink-core` (private). The retro P1 reframing
+from 2026-05-12-0645 — having the brief author run the `gh` command directly
+rather than relying on the human's copy-paste — closed the 7-loop carry on
+its first actual application. resink-core's workspace promotion (in-tree →
+submodule) is now unblocked; pickup at the next loop's build phase.
+
 # Action 2026-06-06-001: Create the `resink-ai/resink-core` GitHub remote
 
 ## Problem
