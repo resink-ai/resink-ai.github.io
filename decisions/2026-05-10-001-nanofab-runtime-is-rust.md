@@ -73,7 +73,7 @@ ADR-002 is superseded effective this loop. The archival edit lands in parallel w
   - The performance ceiling is set by the prototype playbook (3.6× warm vs DuckDB), not by the JVM. Future optimization work is on the productized side of patterns already measured.
   - Hot-swap modes (per-node shadow/canary; per-DAG blue/green) are specified in §6 — the SRE runbook target reshapes from "Spark job restart procedure" to "the supervisor's seven failure modes" (§7).
 - Negative / costs:
-  - resink-core's first build slice as planned in loop 2026-05-09 (a Spark job producing `dim_user_signup`) is cancelled. Replacement build slice is owned by resink-core's 2026-05-10 OKR.
+  - resink-core's first build slice as planned in loop 2026-05-10-2227-001 (a Spark job producing `dim_user_signup`) is cancelled. Replacement build slice is owned by resink-core's 2026-05-10 OKR.
   - DE's deferred "shared streaming primitive contract" (KR2.1 in 2026-05-09) is also cancelled in its Spark-flavored form; it re-shapes into a **Kafka ingress contract** for nanofab, owned by DE this loop (see DE's 2026-05-10 OKR, O2).
   - Team familiarity drops: no one on the team has shipped a distributed Rust application of this scope before. Mitigation: the prototype playbook (`docs/products/prompts.md` + `docs/products/sql-to-realtime.md`) is the on-ramp; Sim Farm is the validation gate (§8) so risky work is checked before it reaches production.
   - No off-the-shelf observability dashboards. Mitigation: §8.5 specifies Prometheus + OpenTelemetry surfaces from day one.
@@ -90,5 +90,5 @@ ADR-002 is superseded effective this loop. The archival edit lands in parallel w
 - Superseded ADR: [2026-05-09-002-streaming-engine-choice](2026-05-09-002-streaming-engine-choice.md)
 - Companion ADR (sub-project ownership): [2026-05-10-002-nanofab-sub-project-decomposition](2026-05-10-002-nanofab-sub-project-decomposition.md)
 - Kafka ingress contract (downstream artifact this loop): [teams/platform/data-engineering/contracts/2026-05-10-kafka-ingress.md](../../teams/platform/data-engineering/contracts/2026-05-10-kafka-ingress.md)
-- Parent CEO brief: [board/okrs/2026-05-10-ceo-brief.md](../okrs/2026-05-10-ceo-brief.md)
-- Triggering retro (carryover): [board/retros/2026-05-09-ceo-retro.md](../retros/2026-05-09-ceo-retro.md)
+- Parent CEO brief: [board/okrs/2026-05-10-2227-002-ceo-brief.md](../okrs/2026-05-10-ceo-brief.md)
+- Triggering retro (carryover): [board/retros/2026-05-10-2227-001-ceo-retro.md](../retros/2026-05-10-2227-001-ceo-retro.md)

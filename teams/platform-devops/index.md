@@ -23,7 +23,7 @@ Bridge dev and ops; own deployment pipelines and cloud infra.
 
 ## Conventions
 
-- **Manifest tool for k8s: Helm** (charter-level default; CEO-confirmed loop 2026-05-10). Rationale: sub-project #4's per-tenant logical-isolation pattern (per-tenant IAM, KV prefix, Kafka ACLs in shared infrastructure) is exactly the per-tenant-parameterization shape Helm charts handle well. Kustomize overlays scale poorly when every tenant needs distinct values; raw YAML is a non-starter for multi-tenant. Charts named after the binary they deploy (e.g., `nanofab-supervisor`); per-tenant values files; chart version bumps independently of the binary's image tag.
+- **Manifest tool for k8s: Helm** (charter-level default; CEO-confirmed loop 2026-05-10-2227-002). Rationale: sub-project #4's per-tenant logical-isolation pattern (per-tenant IAM, KV prefix, Kafka ACLs in shared infrastructure) is exactly the per-tenant-parameterization shape Helm charts handle well. Kustomize overlays scale poorly when every tenant needs distinct values; raw YAML is a non-starter for multi-tenant. Charts named after the binary they deploy (e.g., `nanofab-supervisor`); per-tenant values files; chart version bumps independently of the binary's image tag.
 - **DevOps/SRE seam for sub-project #4:** DevOps stops at "deployable artifact + CI/CD pipeline + IaC modules + secrets plumbing." SRE picks up runbooks, on-call, alerting policy, and capacity tuning. The seam is the rendered chart + the running cluster: anything that has to render or install is DevOps; anything that has to be diagnosed or paged on is SRE.
 
 ## Interfaces
@@ -58,18 +58,18 @@ Bridge dev and ops; own deployment pipelines and cloud infra.
 
 ## Executive summaries
 
-- [2026-06-06](../../loops/2026-06-06/teams/platform-devops-exec-summary.html)
-- [2026-05-30](../../loops/2026-05-30/teams/platform-devops-exec-summary.html)
-- [2026-05-23](../../loops/2026-05-23/teams/platform-devops-exec-summary.html)
-- [2026-05-10](../../loops/2026-05-10/teams/platform-devops-exec-summary.html)
-- [2026-05-09](../../loops/2026-05-09/teams/platform-devops-exec-summary.html)
-- [2026-05-08](../../loops/2026-05-08/teams/platform-devops-exec-summary.html)
+- [2026-06-06](../../loops/2026-05-11-1631/teams/platform-devops-exec-summary.html)
+- [2026-05-30](../../loops/2026-05-11-1302/teams/platform-devops-exec-summary.html)
+- [2026-05-23](../../loops/2026-05-11-1113/teams/platform-devops-exec-summary.html)
+- [2026-05-10](../../loops/2026-05-10-2227-002/teams/platform-devops-exec-summary.html)
+- [2026-05-09](../../loops/2026-05-10-2227-001/teams/platform-devops-exec-summary.html)
+- [2026-05-08](../../loops/2026-05-09-1715/teams/platform-devops-exec-summary.html)
 
 ## OKRs
 
-- [2026-06-13](../../loops/2026-06-13/teams/platform-devops-okr.html)
-- [2026-06-06](../../loops/2026-06-06/teams/platform-devops-okr.html)
-- [2026-05-23](../../loops/2026-05-23/teams/platform-devops-okr.html)
-- [2026-05-10](../../loops/2026-05-10/teams/platform-devops-okr.html)
-- [2026-05-09](../../loops/2026-05-09/teams/platform-devops-okr.html)
-- [2026-05-08](../../loops/2026-05-08/teams/platform-devops-okr.html)
+- [2026-06-13](../../loops/2026-05-11-2153/teams/platform-devops-okr.html)
+- [2026-06-06](../../loops/2026-05-11-1631/teams/platform-devops-okr.html)
+- [2026-05-23](../../loops/2026-05-11-1113/teams/platform-devops-okr.html)
+- [2026-05-10](../../loops/2026-05-10-2227-002/teams/platform-devops-okr.html)
+- [2026-05-09](../../loops/2026-05-10-2227-001/teams/platform-devops-okr.html)
+- [2026-05-08](../../loops/2026-05-09-1715/teams/platform-devops-okr.html)

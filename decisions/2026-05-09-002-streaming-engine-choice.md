@@ -21,7 +21,7 @@ owner: board
 
 ## Context
 
-Carryover from loop 2026-05-08: DE drafted a Spark Structured Streaming vs. Flink comparison but did not commit a recommendation. The CEO brief for 2026-05-09 confirms `fact_sign_up.parquet` as the first demo target, which gives the engine choice concrete grounding constraints. Resink-core's surfaced streaming requirements (in `teams/application/resink-core/okrs/2026-05-09-team-okr.md` § Plan, KR1.2) are: sub-minute latency acceptable, per-key ordering preferred but not required, stream-table joins only, late-data tolerance up to 1 hour with dead-letter handling, exactly-once for `dim_user_signup`.
+Carryover from loop 2026-05-09-1715: DE drafted a Spark Structured Streaming vs. Flink comparison but did not commit a recommendation. The CEO brief for 2026-05-09 confirms `fact_sign_up.parquet` as the first demo target, which gives the engine choice concrete grounding constraints. Resink-core's surfaced streaming requirements (in `teams/application/resink-core/okrs/2026-05-10-2227-001-team-okr.md` § Plan, KR1.2) are: sub-minute latency acceptable, per-key ordering preferred but not required, stream-table joins only, late-data tolerance up to 1 hour with dead-letter handling, exactly-once for `dim_user_signup`.
 
 ## Decision
 
@@ -42,6 +42,6 @@ Adopt **Spark Structured Streaming** for the first `fact_sign_up.parquet` demo p
 
 ## Links
 
-- Triggering retro: [2026-05-08-ceo-retro](../retros/2026-05-08-ceo-retro.md) (DE engine-choice carryover)
+- Triggering retro: [2026-05-08-ceo-retro](../retros/2026-05-09-1715-ceo-retro.md) (DE engine-choice carryover)
 - Related ADRs: [2026-05-09-003-deployment-target](2026-05-09-003-deployment-target.md), [2026-05-08-002-tenant-tree-restructure](2026-05-08-002-tenant-tree-restructure.md)
-- Surfaced constraints: [resink-core OKR § Plan](../../teams/application/resink-core/okrs/2026-05-09-team-okr.md)
+- Surfaced constraints: [resink-core OKR § Plan](../../teams/application/resink-core/okrs/2026-05-10-2227-001-team-okr.md)

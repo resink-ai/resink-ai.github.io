@@ -16,7 +16,7 @@ owner: board
   date: 2026-05-30
   status: active
   audience: technical reviewer (engineer, investor, prospective hire)
-  links: parent: board/okrs/2026-05-30-ceo-brief.md
+  links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
 # Resink.ai · resink-core capabilities — 2026-05-30
 
@@ -46,9 +46,9 @@ Each bullet is a present-tense capability backed by an on-disk verdict, a test e
   }
   ```
 
-- **Real LLM-driven code generation produces compilable, deterministic Rust.** The orchestrator dispatches AE's `nanofab:codegen-scd2-node` skill via the local `claude` CLI; the generated Rust crate compiles with `cargo build --release` exit code 0 and passes its own per-node `cargo test` exit code 0. Loop 2026-05-16's first end-to-end attempt produced compilable Rust with zero template iterations (~$0.77 in API cost, ~106s wall on a developer laptop) — see [`board/exec-summaries/2026-05-16.md`](../exec-summaries/2026-05-16.md). When `CLAUDE_DISPATCH=1` is not set, the orchestrator falls back to in-process deterministic slot-fill so the loop runs with no API key.
+- **Real LLM-driven code generation produces compilable, deterministic Rust.** The orchestrator dispatches AE's `nanofab:codegen-scd2-node` skill via the local `claude` CLI; the generated Rust crate compiles with `cargo build --release` exit code 0 and passes its own per-node `cargo test` exit code 0. Loop 2026-05-11-0958's first end-to-end attempt produced compilable Rust with zero template iterations (~$0.77 in API cost, ~106s wall on a developer laptop) — see [`board/exec-summaries/2026-05-11-0958.md`](../exec-summaries/2026-05-11-0958.md). When `CLAUDE_DISPATCH=1` is not set, the orchestrator falls back to in-process deterministic slot-fill so the loop runs with no API key.
 
-- **Multi-dim parallel maintenance.** The supervisor processes two dim-tables (`dim_user` 21 SCD2 rows; `dim_account` 18 SCD2 rows) in one process driven by three fact streams (`fact_sign_up`, `fact_profile_update`, `fact_account_open`). Per loop 2026-05-23, verdict shows both `dim_user` and `dim_account` with `pass: true` and `mismatch_count: 0`.
+- **Multi-dim parallel maintenance.** The supervisor processes two dim-tables (`dim_user` 21 SCD2 rows; `dim_account` 18 SCD2 rows) in one process driven by three fact streams (`fact_sign_up`, `fact_profile_update`, `fact_account_open`). Per loop 2026-05-11-1113, verdict shows both `dim_user` and `dim_account` with `pass: true` and `mismatch_count: 0`.
 
 - **Multi-shard partitioning with byte-stable hash.** Per-key routing uses `twox-hash::xxh64(key_bytes, seed=0)` against `shard_count=4`. The hash is byte-stable against DE's reference worked example: `xxh64(b"u-001", 0) == 0x571e3e04781b0ff5`.
 
@@ -133,9 +133,9 @@ The system runs with four named, documented deviations from the long-term target
 
 - **Option A: Cargo path-dep static linking, no `dlopen`.** The codegen template exports `nanofab_node_new` / `nanofab_node_drop` C-ABI symbols but no `nanofab_node_process` symbol, so pure `dlopen` is not yet possible. The supervisor links per-tenant node crates as Cargo path-deps, which means a per-tenant supervisor rebuild rather than hot-swap. Documented in [ADR-2026-05-16-001](../decisions/2026-05-16-001-abi-option-a-mvp-deviation.md). Restoration plan: AE's codegen template extension to add `nanofab_node_process` → resink-core supervisor swaps to `libloading::Library` (multi-loop; AE template extension was targeted 2026-05-30 but rescheduled to 2026-06-06 as AE's bandwidth shifted to Bundle C).
 
-- **Sim-farm diff engine hard-codes join columns.** The Mode-A diff engine hard-codes `user_id` as the join column and `(email, country, valid_to, is_current)` as payload columns, so the `dim_account` SCD2 dim is currently filed with an **isomorphic-shape compromise** (same schema as `dim_user` so the diff engine works). Flagged in loop 2026-05-23's retro as P1. Restoration plan: schema-aware join column resolution — deferred from this loop, carries to 2026-06-06.
+- **Sim-farm diff engine hard-codes join columns.** The Mode-A diff engine hard-codes `user_id` as the join column and `(email, country, valid_to, is_current)` as payload columns, so the `dim_account` SCD2 dim is currently filed with an **isomorphic-shape compromise** (same schema as `dim_user` so the diff engine works). Flagged in loop 2026-05-11-1113's retro as P1. Restoration plan: schema-aware join column resolution — deferred from this loop, carries to 2026-06-06.
 
-- **Workspace promotion deferred (3rd consecutive loop).** `resink-core` lives in-tree at `repos/resink-ai/resink-core/` rather than as a real git submodule. Blocker: the `resink-ai/resink-core` GitHub remote does not yet exist. The promotion is gated on a non-tenant action (board creates the remote). Carries to loop 2026-06-06 with a 4th-loop deferral flag for retro.
+- **Workspace promotion deferred (3rd consecutive loop).** `resink-core` lives in-tree at `repos/resink-ai/resink-core/` rather than as a real git submodule. Blocker: the `resink-ai/resink-core` GitHub remote does not yet exist. The promotion is gated on a non-tenant action (board creates the remote). Carries to loop 2026-05-11-1631 with a 4th-loop deferral flag for retro.
 
 - **Minikube smoke deferred.** The Helm chart skeleton passes `helm lint --strict`, `helm template`, and `helm install --dry-run`, but no real `helm install` has run against a minikube cluster. Blocker: developer-laptop toolchain (minikube + docker). DevOps owns; carries to 2026-06-06.
 
@@ -157,4 +157,4 @@ The system **today** does not include the following — they are roadmap items n
 - **Resink-core's docs/** — `repos/resink-ai/resink-core/docs/{architecture,concepts,user-guide,module-catalog}.md` (shipped this loop): deeper internal documentation, target audience is an IC opening the repo for the first time.
 - **Canonical specs (in parent newbase repo)** — `docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md`, `docs/superpowers/specs/2026-05-10-nanofab-training-pipeline-design.md`.
 - **ADRs** — `board/decisions/` — every architectural deviation has an ADR; start with [ADR-2026-05-16-001 (Option A)](../decisions/2026-05-16-001-abi-option-a-mvp-deviation.md) and [ADR-2026-05-10-001 (Rust runtime)](../decisions/2026-05-10-001-nanofab-runtime-is-rust.md).
-- **Loop-by-loop history** — `board/exec-summaries/2026-05-16.md` (first GREEN end-to-end), `board/exec-summaries/2026-05-23.md` (widened MVP + 6-ADR batch).
+- **Loop-by-loop history** — `board/exec-summaries/2026-05-11-0958.md` (first GREEN end-to-end), `board/exec-summaries/2026-05-11-1113.md` (widened MVP + 6-ADR batch).

@@ -20,7 +20,7 @@ owner: board
 
 ## Context
 
-Carryover from loop 2026-05-08: DevOps enumerated three deployment-target options (local Docker, minikube, cloud) but did not commit a recommendation. The CEO brief for 2026-05-09 confirms this is on the critical path for resink-core's first product-shaped OKR. Resink-core's surfaced deployment-shape requirements (in its OKR § Plan) are: a single Spark job in a pod, outputs to a persistent volume, manifest-driven so the same pipeline definition runs in dev and (eventually) production.
+Carryover from loop 2026-05-09-1715: DevOps enumerated three deployment-target options (local Docker, minikube, cloud) but did not commit a recommendation. The CEO brief for 2026-05-09 confirms this is on the critical path for resink-core's first product-shaped OKR. Resink-core's surfaced deployment-shape requirements (in its OKR § Plan) are: a single Spark job in a pod, outputs to a persistent volume, manifest-driven so the same pipeline definition runs in dev and (eventually) production.
 
 ## Decision
 
@@ -42,6 +42,6 @@ Adopt **minikube** (single-node local Kubernetes) as the deployment target for t
 
 ## Links
 
-- Triggering retro: [2026-05-08-ceo-retro](../retros/2026-05-08-ceo-retro.md) (DevOps deployment-target carryover)
+- Triggering retro: [2026-05-08-ceo-retro](../retros/2026-05-09-1715-ceo-retro.md) (DevOps deployment-target carryover)
 - Related ADRs: [2026-05-09-002-streaming-engine-choice](2026-05-09-002-streaming-engine-choice.md)
-- Surfaced constraints: [resink-core OKR § Plan](../../teams/application/resink-core/okrs/2026-05-09-team-okr.md)
+- Surfaced constraints: [resink-core OKR § Plan](../../teams/application/resink-core/okrs/2026-05-10-2227-001-team-okr.md)

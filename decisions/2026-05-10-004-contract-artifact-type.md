@@ -20,7 +20,7 @@ owner: board
 
 ## Context
 
-Surfaced by DE during build of loop 2026-05-10. The Kafka ingress contract at `teams/platform/data-engineering/contracts/2026-05-10-kafka-ingress.md` is a hand-off document with named consumer sections (resink-core supervisor, sim-farm, SRE, serving/deployment). The current `type` enum in `org-os/conventions.md` does not include `contract` (or any hand-off-document type), so the document was filed as `type: rfc` with `proposer: teams/platform/data-engineering (EM)` as a workaround. Across loops 2026-05-10 and 2026-05-16 the workaround compounded: the DE in-memory-event-source contract (2026-05-16) and the sim-farm MVP-loop-verdict contract (2026-05-16) both filed as `type: rfc` with in-body notes explaining the workaround. Three loops of contracts-filed-as-RFC ends here. Hand-off documents have a recognizable shape — named consumers, named producers, normative sections that downstream teams rely on — that deserves its own type rather than borrowing `rfc` (which is semantically a proposal, not a decision).
+Surfaced by DE during build of loop 2026-05-10-2227-002. The Kafka ingress contract at `teams/platform/data-engineering/contracts/2026-05-10-kafka-ingress.md` is a hand-off document with named consumer sections (resink-core supervisor, sim-farm, SRE, serving/deployment). The current `type` enum in `org-os/conventions.md` does not include `contract` (or any hand-off-document type), so the document was filed as `type: rfc` with `proposer: teams/platform/data-engineering (EM)` as a workaround. Across loops 2026-05-10-2227-002 and 2026-05-16 the workaround compounded: the DE in-memory-event-source contract (2026-05-16) and the sim-farm MVP-loop-verdict contract (2026-05-16) both filed as `type: rfc` with in-body notes explaining the workaround. Three loops of contracts-filed-as-RFC ends here. Hand-off documents have a recognizable shape — named consumers, named producers, normative sections that downstream teams rely on — that deserves its own type rather than borrowing `rfc` (which is semantically a proposal, not a decision).
 
 ## Decision
 
@@ -58,9 +58,9 @@ Each migration drops the `proposer:` field, adds `consumers:` and `producers:`, 
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-10-ceo-retro.md](../retros/2026-05-10-ceo-retro.md) (P2)
+- Triggering retro: [board/retros/2026-05-10-2227-002-ceo-retro.md](../retros/2026-05-10-2227-002-ceo-retro.md) (P2)
 - Surfacing artifact: [teams/platform/data-engineering/contracts/2026-05-10-kafka-ingress.md](../../teams/platform/data-engineering/contracts/2026-05-10-kafka-ingress.md)
 - Conventions updated: [org-os/conventions.md](../../org-os/conventions.md) (`type` enum + additional-fields-per-type row)
 - Migrated contracts (this loop): [2026-05-10-kafka-ingress](../../teams/platform/data-engineering/contracts/2026-05-10-kafka-ingress.md), [2026-05-16-in-memory-event-source](../../teams/platform/data-engineering/contracts/2026-05-16-in-memory-event-source.md), [2026-05-16-mvp-loop-verdict](../../teams/application/sim-farm/contracts/2026-05-16-mvp-loop-verdict.md)
-- Predecessor pattern: P3 from [board/retros/2026-05-09-ceo-retro.md](../retros/2026-05-09-ceo-retro.md)
+- Predecessor pattern: P3 from [board/retros/2026-05-10-2227-001-ceo-retro.md](../retros/2026-05-10-2227-001-ceo-retro.md)
 - Related ADRs: [2026-05-09-005-carryover-load-in-brief](2026-05-09-005-carryover-load-in-brief.md), [2026-05-09-006-org-os-change-routing](2026-05-09-006-org-os-change-routing.md)

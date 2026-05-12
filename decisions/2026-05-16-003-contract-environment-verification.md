@@ -65,7 +65,7 @@ The placement: `org-os/conventions.md` (rather than `org-os/rituals/build.md`) b
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-16-ceo-retro.md](../retros/2026-05-16-ceo-retro.md) — P3.
+- Triggering retro: [board/retros/2026-05-11-0958-ceo-retro.md](../retros/2026-05-11-0958-ceo-retro.md) — P3.
 - Sister ADR: [2026-05-10-003-verify-state-claims-at-ritual-transitions](2026-05-10-003-verify-state-claims-at-ritual-transitions.md) (same family, different scope).
 - Companion ADR ratified same loop: [2026-05-16-004-focus-loop-pattern](2026-05-16-004-focus-loop-pattern.md).
 - Conventions edit landed alongside this ratification: [org-os/conventions.md](../../org-os/conventions.md).

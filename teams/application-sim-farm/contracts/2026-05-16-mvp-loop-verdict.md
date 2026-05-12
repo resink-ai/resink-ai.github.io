@@ -17,7 +17,7 @@ owner: teams/application/sim-farm
   status: active
   producers: teams/application/sim-farm
   consumers: - teams/application/resink-core
-  links: parent: teams/application/sim-farm/okrs/2026-05-16-team-okr.md
+  links: parent: teams/application/sim-farm/okrs/2026-05-11-0958-team-okr.md
 -->
 # MVP Loop Verdict Contract — Mode A (Batch SCD2 Diff)
 
@@ -33,7 +33,7 @@ Semver discipline: additive top-level fields and additive `Mismatch.type` enum e
 
 ## Purpose
 
-Defines the verdict JSON shape produced by the MVP closed-loop **Mode-A** diff engine (`repos/resink-ai/resink-core/sim-farm/diff_scd2.py`). The engine is the verification authority that closes step 5 of the MVP loop per Sim Farm spec [§1.3](../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md) and the [2026-05-16 CEO brief](../../../board/okrs/2026-05-16-ceo-brief.md) O2.
+Defines the verdict JSON shape produced by the MVP closed-loop **Mode-A** diff engine (`repos/resink-ai/resink-core/sim-farm/diff_scd2.py`). The engine is the verification authority that closes step 5 of the MVP loop per Sim Farm spec [§1.3](../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md) and the [2026-05-16 CEO brief](../../../board/okrs/2026-05-11-0958-ceo-brief.md) O2.
 
 **Consumers this loop:**
 
@@ -69,7 +69,7 @@ The verdict is a single top-level JSON object. Every field is required unless ex
 | `mismatch_count` | int (≥ 0)                         | no       | The length of `mismatches`. Materialized so consumers can branch without parsing the array.                                                                |
 | `mismatches`     | array&lt;Mismatch&gt;             | no       | Empty when `pass == true`. Each entry is one of the three non-match cases (see below). `match` rows are not enumerated in the MVP.                         |
 | `ran_at`         | int64 (unix ms, UTC)              | no       | Engine invocation time, milliseconds since epoch. Used for ordering, not for correctness.                                                                  |
-| `engine_version` | string (semver)                   | no       | The engine's own version. MVP value is `"0.1.0"` (loop 2026-05-16); bumped to `"0.2.0"` (additive multi-dim extension, loop 2026-05-23); bumped to `"0.3.0"` (additive schema-aware columns, loop 2026-06-06). No field changes in this shape across any of the bumps. Future bumps follow the additivity rules in "Future modes" below.                           |
+| `engine_version` | string (semver)                   | no       | The engine's own version. MVP value is `"0.1.0"` (loop 2026-05-11-0958); bumped to `"0.2.0"` (additive multi-dim extension, loop 2026-05-11-1113); bumped to `"0.3.0"` (additive schema-aware columns, loop 2026-05-11-1631). No field changes in this shape across any of the bumps. Future bumps follow the additivity rules in "Future modes" below.                           |
 | `engine_error`   | string                            | yes      | Present **only** in the engine-failure best-effort verdict (exit code 2 path). Carries `<ExceptionClass>: <message>`. Absent on every normal run.          |
 
 ### `Mismatch` object
@@ -120,7 +120,7 @@ Worked examples:
 }
 ```
 
-Path placement convention (proposed; resink-core orchestrator opts in or files an addendum): `<workspace>/<dim_table>_schema.json` and `<fixtures>/<dim_table>_schema.json`, matching the existing `<dim_table>_output.parquet` / `<dim_table>_fixture.parquet` convention from loop 2026-05-23.
+Path placement convention (proposed; resink-core orchestrator opts in or files an addendum): `<workspace>/<dim_table>_schema.json` and `<fixtures>/<dim_table>_schema.json`, matching the existing `<dim_table>_output.parquet` / `<dim_table>_fixture.parquet` convention from loop 2026-05-11-1113.
 
 Backward compatibility:
 
@@ -138,7 +138,7 @@ Emitted when the engine is invoked with two-or-more `--fixture` / `--output` pai
 |------------------|-------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `verdict_id`     | string (UUID v4)              | no       | Unique per engine invocation. One UUID per combined verdict file, not per per-dim entry.                                                                                   |
 | `mode`           | string (enum)                 | no       | MVP value is `"A"`. Same enum as the single-dim shape.                                                                                                                     |
-| `engine_version` | string (semver)               | no       | The engine's own version. MVP+1 value is `"0.2.0"`; MVP+2 (loop 2026-06-06) is `"0.3.0"` for the schema-aware-columns additive bump. The multi-dim shape itself is unchanged across the bump.                                                                                                                       |
+| `engine_version` | string (semver)               | no       | The engine's own version. MVP+1 value is `"0.2.0"`; MVP+2 (loop 2026-05-11-1631) is `"0.3.0"` for the schema-aware-columns additive bump. The multi-dim shape itself is unchanged across the bump.                                                                                                                       |
 | `overall_pass`   | bool                          | no       | `true` iff every `verdicts[i].pass` is `true` (equivalently, iff every `verdicts[i].mismatch_count == 0`). The single load-bearing field consumers gate on.                |
 | `verdicts`       | array&lt;PerDimVerdict&gt;    | no       | One entry per `(fixture, output, dim_table)` triple, in invocation order. Length ≥ 1 — a single-pair invocation prefers the single-dim shape (see "Invocation contract"). |
 | `ran_at`         | int64 (unix ms, UTC)          | no       | Engine invocation time, milliseconds since epoch. One timestamp per combined verdict.                                                                                       |
@@ -489,7 +489,7 @@ Modes B/C will likely add: `coverage_layer` (node coverage / scenarios / toleran
 
 Per [ADR-2026-05-16-003](../../../board/decisions/2026-05-16-003-contract-environment-verification.md), this contract carries a Verified-against-environment subsection naming the toolchain, runtime deps, OS surface, and auth-mode prerequisites it was exercised against. The 2026-06-06 update is the **first cross-team contract** to receive this subsection going forward; the contract's prior body (engine `0.1.0` / `0.2.0` worked examples) grandfathers under the ADR's transition clause and is not retroactively required.
 
-- **Verification date:** 2026-06-06 (loop 2026-06-06).
+- **Verification date:** 2026-06-06 (loop 2026-05-11-1631).
 - **Engine under test:** `repos/resink-ai/resink-core/sim-farm/sim_farm/diff_scd2.py` at `ENGINE_VERSION = "0.3.0"`.
 - **Toolchain versions exercised:**
   - Python `>=3.11` (CI / developer-laptop exercised against Python 3.12).

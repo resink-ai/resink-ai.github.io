@@ -53,19 +53,19 @@ Uptime, SLOs, incident response. As of 2026-05-10, SRE also owns the **operation
 
 ## Executive summaries
 
-- [2026-06-06](../../loops/2026-06-06/teams/platform-sre-exec-summary.html)
-- [2026-05-30](../../loops/2026-05-30/teams/platform-sre-exec-summary.html)
-- [2026-05-23](../../loops/2026-05-23/teams/platform-sre-exec-summary.html)
-- [2026-05-10](../../loops/2026-05-10/teams/platform-sre-exec-summary.html)
-- [2026-05-09](../../loops/2026-05-09/teams/platform-sre-exec-summary.html)
-- [2026-05-08](../../loops/2026-05-08/teams/platform-sre-exec-summary.html)
+- [2026-06-06](../../loops/2026-05-11-1631/teams/platform-sre-exec-summary.html)
+- [2026-05-30](../../loops/2026-05-11-1302/teams/platform-sre-exec-summary.html)
+- [2026-05-23](../../loops/2026-05-11-1113/teams/platform-sre-exec-summary.html)
+- [2026-05-10](../../loops/2026-05-10-2227-002/teams/platform-sre-exec-summary.html)
+- [2026-05-09](../../loops/2026-05-10-2227-001/teams/platform-sre-exec-summary.html)
+- [2026-05-08](../../loops/2026-05-09-1715/teams/platform-sre-exec-summary.html)
 
 ## OKRs
 
-- [2026-05-23](../../loops/2026-05-23/teams/platform-sre-okr.html)
-- [2026-05-10](../../loops/2026-05-10/teams/platform-sre-okr.html)
-- [2026-05-09](../../loops/2026-05-09/teams/platform-sre-okr.html)
-- [2026-05-08](../../loops/2026-05-08/teams/platform-sre-okr.html)
+- [2026-05-23](../../loops/2026-05-11-1113/teams/platform-sre-okr.html)
+- [2026-05-10](../../loops/2026-05-10-2227-002/teams/platform-sre-okr.html)
+- [2026-05-09](../../loops/2026-05-10-2227-001/teams/platform-sre-okr.html)
+- [2026-05-08](../../loops/2026-05-09-1715/teams/platform-sre-okr.html)
 
 ## Runbooks
 

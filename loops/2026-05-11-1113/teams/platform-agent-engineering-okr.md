@@ -1,0 +1,128 @@
+---
+layout: default
+title: platform-agent-engineering OKR — 2026-05-23
+nav_exclude: true
+render_with_liquid: false
+date: 2026-05-23
+status: active
+type: okr
+loop: 2026-05-11-1113
+owner: teams/platform/agent-engineering
+---
+
+<!-- original-frontmatter:
+  type: okr
+  owner: teams/platform/agent-engineering
+  date: 2026-05-23
+  status: active
+  loop: 2026-05-23
+  links: parent: board/okrs/2026-05-11-1113-ceo-brief.md
+-->
+# Agent Engineering OKR — 2026-05-23
+
+## Context
+
+Bundle B finally lands. Two consecutive single-loop slips (2026-05-10's mid-loop ADR-gate slip → 2026-05-16's CEO MVP-focus call) are closed by [ADR-2026-05-16-002](../../../../board/decisions/2026-05-16-002-bundle-b-hard-floor.md), which ratifies this loop with Bundle B as AE's hard floor. The CEO brief ([`board/okrs/2026-05-11-1113-ceo-brief.md`](../../../../board/okrs/2026-05-11-1113-ceo-brief.md)) names AE under O3 in full and is explicit on the discipline: **AE refuses all non-Bundle-B floor pulls this loop** — no codegen pattern expansion (`scd1_first_event` / `window_stats_with_decrement` / etc.), no DISPATCH.md `--bare` addendum (the brief explicitly defers it to 2026-05-30 alongside Bundle C), no charter work beyond housekeeping, no new skills or template changes for resink-core's two-dim widening (resink-core consolidates against AE's existing `scd2_maintainer` skill — the brief is explicit that no new pattern is needed from AE this loop).
+
+The work is seven atomic ritual edits from the 17-task plan in [`docs/superpowers/plans/2026-05-09-org-os-bottom-up-flow.md`](../../../../docs/superpowers/plans/2026-05-09-org-os-bottom-up-flow.md): T6 (`team-intake.md` new file) and T7–T12 (one edit each to `executive-loop.md`, `ceo-brief.md`, `team-planning.md`, `exec-summary.md`, `ceo-consolidation.md`, `retro.md`). Bundle A (T1–T5) landed at 2026-05-10; Bundle C (T13–T17) carries to 2026-05-30 after Bundle B.
+
+The wrinkle: the **board** owns O2 KR2.2 this loop, which ratifies ADR-2026-05-10-003 (verify-state-claims) and ADR-2026-05-09-005 (carryover load in brief), both of which mandate edits to `org-os/rituals/ceo-brief.md`. AE's T8 also edits `ceo-brief.md`. Per brief O3 KR3.3, AE splits Bundle B into two merge waves so the same file is edited once at the end with all three streams folded in, not three times with rebase pain. A dated mid-loop sync (2026-05-27) with the board confirms Wave-2 timing.
+
+## Decisions made this loop (recorded here so the board can sequence against them)
+
+- **Two-wave merge ordering, mid-loop sync 2026-05-27.** Wave 1 lands six tasks that don't overlap with the board's O2 KR2.2 edits: T6 (new file `team-intake.md`), T7 (`executive-loop.md`), T9 (`team-planning.md`), T10 (`exec-summary.md`), T11 (`ceo-consolidation.md`), T12 (`retro.md`). Wave 2 lands the single task that does collide: T8 (`ceo-brief.md` ratification step) — AE holds T8 until **after** the board's ADR-003 + ADR-005 edits to `ceo-brief.md` land, then folds Bundle B's ratification step into the same file in a single commit. The mid-loop sync on **2026-05-27** is the explicit coordination point: AE pings the board for Wave-2 green-light, board confirms its `ceo-brief.md` edits are committed, AE proceeds with T8.
+- **Strict ADR-002 floor.** AE does not take the `--bare` addendum, ADR-003 drafting (board owns ADR-003 ratification this loop), codegen pattern expansion, or any other floor pull. The brief defers the `--bare` addendum to 2026-05-30 by name; AE inherits that deferral without renegotiation. Resink-core's consolidation work continues to use the non-`--bare` invocation form as a named-not-fixed deviation; AE will produce the addendum next loop alongside Bundle C.
+- **No code outside `org-os/rituals/*.md` and the one new `org-os/rituals/team-intake.md` file.** No tenant-tree edits this loop; no marketplace plugin edits; no charter / status edits beyond mechanical date bumps and a Bundle-B-shipped backlink on close. Tenant-isolation invariant is dry-run-checked after each task, not just at loop close, per O3 KR3.2.
+- **The 17-task plan is the authoritative spec for each task's content.** Each Bundle B task in the plan has a numbered step list with exact diffs (e.g., T7 has 5 steps including the exact Find/Replace blocks; T6 has a fenced-code-block of the full file content). AE applies those diffs verbatim where the plan specifies exact text; minor textual cleanup is allowed but the section structure, the four escalation tokens (`effort | scope | interface | fan-out`), the three source values (`ceo-brief | team-initiated | cross-team-request`), and the seven request lifecycle states must be spelled identically across all seven files.
+
+## Objectives
+
+### O1: Ship Bundle B as the activated hard floor per ADR-002 — seven ritual edits in two merge waves
+
+source: ceo-brief
+
+Why it matters: ADR-2026-05-16-002 ratifies this loop with Bundle B as AE's hard floor; the very ADR Bundle B is unblocking the ratification of. Three loops of single-loop slips end here. Maps to brief O3 → KR3.1 (all 7 tasks ship), KR3.2 (each file passes existence + frontmatter + section check; tenant-isolation dry-run after each task), KR3.3 (two-wave merge ordering with board O2 KR2.2), KR3.4 (no new owned surfaces — hygiene only).
+
+Bundle B's value lives in textual consistency across the seven files: the executive-loop description on disk matches the actual flow agents will run next loop only if every ritual references the same vocabulary. The plan's `## Cross-Cutting Conventions for Every Task` section is the consistency contract — AE re-reads it before each task and re-checks it before each commit.
+
+**Key results** (one KR per Bundle B task; KR numbering follows task numbering for traceability to the plan and to brief O3 KR3.1)
+
+- KR1.1 (T6, Wave 1): **`org-os/rituals/team-intake.md` is created** with the exact content from plan §Task 6 Step 2. Five sections present (When, Inputs, Steps, Outputs, Acceptance) using the same headings as `team-planning.md`. The four escalation triggers spelled `effort | scope | interface | fan-out` and described one-by-one in Step 1. The proposals-doc body's four sections (team-initiated objectives, accepted cross-team requests, escalations for CEO, outbound requests filed) match the `team-proposals.md` template. Acceptance includes the "no inbox left open" rule and the "no silent absorption" rule. Plan §Task 6 Step 3 verify checklist walked clean. Tenant-isolation dry-run after commit: zero new matches.
+- KR1.2 (T7, Wave 1): **`org-os/rituals/executive-loop.md` carries the plan §Task 7 diff.** Inputs gains the new bullet about request inboxes and prior proposals docs. Steps list is now 8 numbered entries (was 7) with team-intake as step 2, ceo-brief renumbered to step 3, the `source` field + `links.source` threaded through team-planning (step 4), request-lifecycle closure threaded through exec-summary (step 6), the two new roll-ups in ceo-consolidation (step 7), and request-flow input in retro (step 8). Outputs gains two new bullets (team-proposals docs; updated request files). Plan §Task 7 Step 4 verify checklist walked clean. Tenant-isolation dry-run after commit: zero new matches.
+- KR1.3 (T9, Wave 1): **`org-os/rituals/team-planning.md` carries the plan §Task 9 diff.** The team's own `<date>-team-proposals.md` is added to Inputs. The decomposition step is modified to carry through ratified bottom-up objectives with the right `source` (`ceo-brief | team-initiated | cross-team-request`) and `links.source`. Bidirectional link bookkeeping for `cross-team-request` objectives is named (the linked request file's `links.fulfilled_by` must point back at this OKR). Plan §Task 9 verify checklist walked clean. Tenant-isolation dry-run after commit: zero new matches.
+- KR1.4 (T10, Wave 1): **`org-os/rituals/exec-summary.md` carries the plan §Task 10 diff.** Request-lifecycle closure is added: every cross-team-request objective in the team OKR resolves the source `request` file's `status` to `fulfilled` (shipped) or `dropped` (not shipped this loop). Summary body is grouped by `source` so the capacity split across `ceo-brief | team-initiated | cross-team-request` is readable in one pass. Plan §Task 10 verify checklist walked clean. Tenant-isolation dry-run after commit: zero new matches.
+- KR1.5 (T11, Wave 1): **`org-os/rituals/ceo-consolidation.md` carries the plan §Task 11 diff.** Two new roll-ups land: the **capacity-by-source roll-up** (per team, what fraction of completed work fell in `ceo-brief | team-initiated | cross-team-request`, surfaced as the trend signal for stewardship being squeezed out) and the **request-flow roll-up** (every request resolved this loop with its from→to teams + state transitions, surfaced as input to retro's "what didn't work"). Plan §Task 11 verify checklist walked clean. Tenant-isolation dry-run after commit: zero new matches.
+- KR1.6 (T12, Wave 1): **`org-os/rituals/retro.md` carries the plan §Task 12 one-line addition.** Retro reads the request-flow roll-up from `ceo-consolidation` as one of its inputs to "what didn't work this loop." Plan §Task 12 verify checklist walked clean. Tenant-isolation dry-run after commit: zero new matches.
+- KR1.7 (T8, Wave 2 — gated on board O2 KR2.2): **`org-os/rituals/ceo-brief.md` carries the plan §Task 8 diff,** committed AFTER the board's ADR-2026-05-10-003 verifiable-git-location step + ADR-2026-05-09-005 carryover-load-by-team subsection edits to `ceo-brief.md` are visible on the working branch. The diff adds: updated When clause referencing the team-intake gating condition; new Inputs bullet for team-proposals docs; new ratification step (Step 5) with all four sub-bullets (team-initiated, accepted cross-team requests, escalations, capacity split); renumbered Steps 6 and 7; new Acceptance bullets for source declaration, `links.source`, escalation handling, capacity split. AE's T8 commit is the third edit to `ceo-brief.md` this loop, not the first; the file is left clean (no merge-conflict markers, no redundant Inputs bullets, no duplicated Acceptance lines). Plan §Task 8 verify checklist walked clean. Tenant-isolation dry-run after commit: zero new matches.
+
+**Loop-close meta-acceptance (covering KR1.1–KR1.7 collectively):**
+
+- **Cross-file consistency greps pass** after all seven tasks land. The four greps from the plan's `## Cross-Cutting Conventions for Every Task` section return identical strings across files: (a) `effort | scope | interface | fan-out` in `team-intake.md`, `team-proposals.md` template, `ceo-brief.md`; (b) `ceo-brief | team-initiated | cross-team-request` in `okr.md` template, `team-planning.md`, `ceo-brief.md`, `exec-summary.md`, `ceo-consolidation.md`; (c) `open | triaged | accepted | declined | escalated | fulfilled | dropped` in `conventions.md`, `team-intake.md`, `exec-summary.md`, `ceo-consolidation.md`; (d) the proposals-doc body's four section headings match between `team-proposals.md` template and `team-intake.md` ritual's Step 4. The exec summary records the four grep commands and their outputs.
+- **Two-wave coordination with board succeeds on 2026-05-27.** AE EM pings the board on the mid-loop sync date with the explicit ask: "Are O2 KR2.2's edits to `ceo-brief.md` committed? If yes, AE proceeds with T8 today; if not, AE waits and pings end-of-day." The board's response (yes/no/eta) is captured in this OKR's mid-loop update and in the loop's exec summary. If the board's `ceo-brief.md` edits slip past 2026-05-28, AE escalates to CEO consolidation rather than committing T8 onto unfolded changes.
+- **Cumulative tenant-isolation results** recorded in the exec summary (seven lines, one per task, each `CLEAN: no new tenant/product names`).
+- **No new AE-owned surfaces** per brief O3 KR3.4. The hygiene work is concentrated in Bundle B; `status.md` gains a backlink to Bundle B's shipped artifacts at loop close (handled in O2).
+
+**Tasks**
+
+- [x] **T6** — Create `org-os/rituals/team-intake.md` with the full content from plan §Task 6 Step 2. Walk plan §Task 6 Step 3 verify checklist before committing. Commit message per plan §Task 6 Step 4 — owner: agent-engineering/ic-rituals-1
+  - Created `org-os/rituals/team-intake.md` with all 5 canonical sections (When, Inputs, Steps, Outputs, Acceptance). Six numbered steps: list inbox, triage size (S/M/L), decide accept/decline/escalate, mutate request file in place, thread `accepted` into next OKR with bidirectional `links.source`/`links.fulfilled_by`, carry `escalated` into team-proposals doc. References the 7-state lifecycle (`open | triaged | accepted | declined | escalated | fulfilled | dropped`) and cites `org-os/conventions.md` for both lifecycle and validation hints. Acceptance: no stale `open`, no silent absorption, every escalation visible. Tenant-isolation dry-run: CLEAN.
+- [x] **T7** — Modify `org-os/rituals/executive-loop.md` per plan §Task 7 Steps 1–3 (Inputs bullet add; Steps section full replacement to 8-step list; Outputs bullets add). Walk plan §Task 7 Step 4 verify checklist before committing — owner: agent-engineering/ic-rituals-1
+  - Added Inputs bullet for `requests/` directories + prior loop's `proposals/<date>-team-proposals.md`. Steps list now 8 entries: team-intake inserted as new step 3, ceo-brief stays at step 2, team-planning renumbered to step 4, build→5, exec-summary→6 (with request-lifecycle closure note), ceo-consolidation→7 (with request-flow roll-up note), retro→8 (with escalation-carry note). Outputs gained two bullets (team-proposals docs; mutated request files). Tenant-isolation dry-run: CLEAN.
+- [x] **T9** — Modify `org-os/rituals/team-planning.md` per plan §Task 9 (Inputs add proposals doc; Steps section gains three-source decomposition + bidirectional links.source bookkeeping for cross-team-request objectives) — owner: agent-engineering/ic-rituals-2
+  - Added two Inputs bullets: team's own `<date>-team-proposals.md` and `requests/` directory after `team-intake` runs. Added "Three-source decomposition" subsection under step 2 enumerating `source: ceo-brief | team-initiated | cross-team-request` with `links.source` rules for each. Bidirectional link bookkeeping (request file's `links.fulfilled_by` must point back at OKR) is named explicitly. Did not collide with board's edit at step 1 (Team-initiated objectives paragraph). Tenant-isolation dry-run: CLEAN.
+- [x] **T10** — Modify `org-os/rituals/exec-summary.md` per plan §Task 10 (request-lifecycle closure: cross-team-request objectives close the source request file to `fulfilled` or `dropped`; source-grouped sections in the summary body) — owner: agent-engineering/ic-rituals-2
+  - Inserted new step 5 "Close the request lifecycle" between step 4 (CEO asks) and step 5 (refresh status.md). For every `cross-team-request` objective, resolve source request to `fulfilled` (with `verified-at` ref/sha consistent with board's step 1 state-claim verification) or `dropped` (with one-line reason). Step also requires grouping summary body by `source`. Renumbered refresh→6, write→7. Outputs gained mutated `request` files bullet; Acceptance gained no-lingering-accepted bullet. Did not collide with board's step 1 state-claim verification. Tenant-isolation dry-run: CLEAN.
+- [x] **T11** — Modify `org-os/rituals/ceo-consolidation.md` per plan §Task 11 (capacity-by-source roll-up across all teams; request-flow roll-up showing what crossed team boundaries this loop) — owner: agent-engineering/ic-rituals-3
+  - Inserted new step 4 "Roll up request-flow metrics" between step 3 (cross-cutting wins/blockers) and step 4 (CEO asks). Four counts surfaced: shipped (`fulfilled`), dropped, declined, escalated. Renumbered CEO asks→5, write→6. Did not collide with board's step 1 flag-unverified-state-claims edit. Tenant-isolation dry-run: CLEAN.
+- [x] **T12** — Modify `org-os/rituals/retro.md` per plan §Task 12 (one-line addition: read the request-flow roll-up as input to "what didn't work") — owner: agent-engineering/ic-rituals-3
+  - Appended single sentence to end of step 3 (Generate evolution proposals): "Carry every `escalated` request (per [team-intake](team-intake.md)) into the next brief's evolution-proposal candidates." Tenant-isolation dry-run: CLEAN.
+- [x] **T8** — Modify `org-os/rituals/ceo-brief.md` per plan §Task 8 Steps 1–4 (When-clause team-intake gating; Inputs bullet for proposals docs; ratification step insertion with all four sub-bullets; Acceptance bullets for source/links.source/escalations/capacity split). **Commit only after** board's ADR-003 + ADR-005 edits to `ceo-brief.md` are visible — owner: agent-engineering/ic-rituals-2
+  - Inserted NEW step 5 "Ratification step" (NOT a sub-step of step 2 — board already occupies 2a/2b/2c there) after step 4 "Assign ownership". Three named ratification categories: retro proposals from prior loops flipping `draft → active`; contracts migrating types; conventions updates. Cites the 2026-05-23 brief as the worked example. Renumbered Flag risks→6, Write the file→7. No collision with board's 2a/2b/2c edits inside step 2. Tenant-isolation dry-run: CLEAN.
+
+### O2: Housekeeping — refresh status.md on Bundle B close
+
+source: ceo-brief
+
+Why it matters: Per brief O3 KR3.4, AE's owned surfaces don't change this loop — but `status.md` still needs the closure note that Bundle B shipped and Bundle C is now the next earliest target. Kept as a separate small objective so it isn't silently dropped under O1's cadence, and so the `--bare` addendum's "carried" status gets explicit acknowledgement of the brief's named 2026-05-30 deferral target.
+
+Maps to brief O3 → KR3.4 (status/charter discipline — no new owned surfaces this loop).
+
+**Key results**
+
+- KR2.1: `teams/platform/agent-engineering/status.md` "Recent shipments" gains a 2026-05-23 entry naming Bundle B's seven tasks shipped (with the two-wave merge ordering called out). "Carrying into next loop" is updated: Bundle B is removed from the carry list; Bundle C remains with earliest target 2026-05-30; DISPATCH.md `--bare` addendum stays carried with the **brief-named** 2026-05-30 target (not AE-inferred); ADR-003 is removed from AE's carry list (board owns its ratification this loop). `date:` bumped to 2026-05-23.
+- KR2.2: `teams/platform/agent-engineering/charter.md` unchanged. No new owned products land this loop; the charter's `date:` is not bumped (mechanical refresh is only justified when content changes).
+
+**Tasks**
+
+- [ ] Update `teams/platform/agent-engineering/status.md` "Recent shipments" + "Carrying into next loop" + `date:` once Bundle B closes — owner: AE EM
+- [ ] Confirm charter.md unchanged; record in exec summary — owner: AE EM
+
+## Cross-team asks
+
+- **From board, mid-loop 2026-05-27:** confirm whether O2 KR2.2's edits to `org-os/rituals/ceo-brief.md` (ADR-2026-05-10-003 verifiable-git-location step + ADR-2026-05-09-005 carryover-load-by-team subsection) are committed to the working branch. AE's T8 commit is **gated on this confirmation**: AE will not commit T8 against unfolded board edits. If the board's edits are not in by 2026-05-27 end-of-day, AE re-pings 2026-05-28; if they slip past 2026-05-28, AE escalates the timing to CEO consolidation so T8's slippage is a recorded coordination outcome, not a silent miss. Form of confirmation: a comment in the board's mid-loop status update or a one-line reply to AE's ping is sufficient.
+- **From board, end-of-loop (informational):** acknowledge in CEO consolidation that Bundle B landed and the three-loop deferral pattern is closed; future bottom-up flow work (Bundle C) routes to AE on the brief-named 2026-05-30 target without renegotiation.
+- **From `teams/application/resink-core`, no this-loop ask.** Resink-core's consolidation work (brief O1) does not consume Bundle B's ritual edits — the rituals are agent-runtime artifacts that take effect starting loop 2026-05-11-1302. The non-`--bare` invocation form remains unchanged this loop per the brief's strict ADR-002 floor; the addendum that documents it is brief-deferred to 2026-05-30.
+- **From `teams/platform/data-engineering`, no this-loop ask.** No DE artifact is consumed by Bundle B.
+- **From `teams/application/sim-farm`, no this-loop ask.**
+- **From `teams/platform/devops` / `teams/platform/sre`, no this-loop ask.** Both teams' first build-mode loops since 2026-05-08 do not depend on Bundle B's ritual edits.
+
+## Risks
+
+- **Wave-2 merge collision with board O2 KR2.2.** Both AE T8 and the board's ADR-003 + ADR-005 ratifications edit `org-os/rituals/ceo-brief.md` this loop. Mitigation: the two-wave merge ordering above (Wave 1 has six tasks that don't touch `ceo-brief.md`; Wave 2 holds T8 until board's edits land) + the dated 2026-05-27 mid-loop sync. If the sync surfaces the board hasn't landed its edits, AE waits, not commits — silent merge attempts would create the collision the wave ordering exists to prevent.
+- **Board slip past 2026-05-28 forces a T8 escalation.** If the board's `ceo-brief.md` edits slip past mid-loop, AE has two choices: commit T8 onto unfolded board state (creates the collision later) or escalate to CEO consolidation with T8 as a recorded carry. Mitigation: AE escalates rather than commits silently; the brief explicitly names "merge ordering with O3 KR3.3" as the worked example, so the board has visibility into the dependency from day one.
+- **Cross-file consistency drift across the seven tasks.** Three different ICs touch six different files; the four escalation triggers / three source values / seven request lifecycle states could drift in spelling. Mitigation: KR1.3's four cross-file consistency greps are run after Wave 1 closes and again after T8 lands; any drift is caught and fixed before the loop closes. The plan's `## Cross-Cutting Conventions for Every Task` section is re-read by each IC before their task starts.
+- **Plan-text drift from the 2026-05-09 plan to 2026-05-23 reality.** The 17-task plan was authored at 2026-05-09 against the org-os state at that date. Bundle A's landing may have introduced small textual changes that make the plan's Find/Replace blocks not match byte-stably. Mitigation: each IC validates the Find blocks against the current ritual file before applying; if a Find block doesn't match, the IC adapts to the current text while preserving the structural intent (the plan's Verify checklist remains the source of truth, not the literal Find/Replace text).
+- **Tenant-isolation leak in a Bundle B edit.** A new `team-intake.md` file plus six modified rituals = real surface area for accidental tenant names. Mitigation: per-task dry-run (KR1.4); the AE EM also reviews each commit's diff for tenant strings before pushing. Plan's `## Cross-Cutting Conventions for Every Task` explicitly enumerates the allowed placeholders (`<TENANT>`, `<team>`, `<layer>`, `<receiver>`, `<requester>`, `<slug>`).
+- **AE bandwidth pull from non-Bundle-B work.** Resink-core may surface a real DISPATCH.md mismatch mid-loop (especially given the non-`--bare` invocation deviation noted in the 2026-05-16 exec summary); the temptation to write the addendum will be real. Mitigation: ADR-002 is the strict floor and the brief is explicit. AE EM gates: any non-Bundle-B work that isn't a same-day correctness fix to AE's existing skills is deferred with a one-line note for the 2026-05-30 OKR.
+
+## Out of scope this loop
+
+- **Bundle C (5 tasks: T13–T17 — roles + README + worked-flow walks).** Earliest target loop 2026-05-11-1302 per the 2026-05-16 OKR's framing and this loop's brief deferral.
+- **DISPATCH.md `--bare` addendum.** Brief-named deferral to **2026-05-30** alongside Bundle C per strict ADR-002 reading. Resink-core's non-`--bare` invocation form remains a known-not-fixed-yet deviation this loop; AE does not write the addendum this loop.
+- **ADR-003 (verify-state-claims) drafting / authoring.** The board owns ADR-003 ratification this loop as O2 KR2.1 + KR2.2; AE does not draft, edit, or merge any ADR-003 artifact. AE removes ADR-003 from its carry list at loop close.
+- **Codegen pattern expansion beyond `scd2_maintainer`.** No `scd1_first_event`, `window_stats_with_decrement`, `sweep_line_pair_count`, etc. — the brief's strict ADR-002 floor and Out-of-scope section explicitly defer these to post-Bundle-B loops.
+- **New skill or template changes for resink-core's two-dim widening (brief O1).** Resink-core consolidates against AE's existing `scd2_maintainer` skill — the brief is explicit that no new pattern or template edit is needed from AE this loop. The orchestrator dispatches the existing `nanofab:codegen-scd2-node` skill twice with two `schema_json` payloads; AE does not touch the skill, template, or DISPATCH.md.
+- **Marketplace plugin edits.** Zero edits to `repos/resink-ai/resink-marketplace/plugins/nanofab/` or to marketplace tooling this loop.
+- **Charter work beyond housekeeping.** No new owned surfaces; the charter's `date:` stays at 2026-05-16 unless other content changes (none expected this loop).
+- **Tenant-tree edits.** Zero edits anywhere under `repos/resink-ai/` this loop. AE's work is entirely within `org-os/rituals/` + a single status.md refresh under `teams/platform/agent-engineering/`.
+- **Bundle B reshape / re-slice.** The brief has ratified Bundle B as a 7-task unit landing this loop. AE does not re-slice into smaller chunks; if Wave 2 slips, T8 carries as a single unit, not as a partial edit.

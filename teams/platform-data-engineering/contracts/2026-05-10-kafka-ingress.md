@@ -23,7 +23,7 @@ owner: teams/platform/data-engineering
 -->
 # Kafka Ingress Contract — Nanofab Runtime
 
-**Format note:** Named hand-off sections per P3 of the [2026-05-09 retro](../../../../board/retros/2026-05-09-ceo-retro.md). Every normative section is labeled with the consumer that relies on it. If two consumers diverge on a single section, that is the signal to split it — until then, one document.
+**Format note:** Named hand-off sections per P3 of the [2026-05-09 retro](../../../../board/retros/2026-05-10-2227-001-ceo-retro.md). Every normative section is labeled with the consumer that relies on it. If two consumers diverge on a single section, that is the signal to split it — until then, one document.
 
 **Scope:** the Kafka surface between the customer's fact streams and the nanofab runtime supervisor fleet, plus the runtime-internal cross-shard Kafka surface. Grounded in [runtime spec §3 (architecture overview)](../../../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md) and [§7 (failure handling, idempotency, ordering)](../../../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md). Out of scope: KV-layer contract, plugin-ABI contract, coordinator protocol — these are resink-core's surfaces under the runtime spec.
 
@@ -249,7 +249,7 @@ schema_json payload), in-memory event-source contract §1 (sibling restatement)*
 The `fact_account_open` event stream is the second fact stream registered on the
 nanofab runtime alongside the existing `fact_post_publish` / `fact_user_signup`
 streams named in §2. It feeds the new `dim_account_scd2` node introduced by
-[CEO brief 2026-05-23 O1 KR1.1](../../../../board/okrs/2026-05-23-ceo-brief.md).
+[CEO brief 2026-05-23 O1 KR1.1](../../../../board/okrs/2026-05-11-1113-ceo-brief.md).
 This section is **additive** to §1–§8: every normative rule there (topic naming,
 partitioning hash, consumer-group naming, DLQ shape, SASL, broker bootstrap,
 offset/idempotency, tenant-isolation invariant) applies to `fact_account_open`
@@ -375,8 +375,8 @@ carries a sibling section that cross-links here for the in-memory parquet-replay
 path. The two sections together pin the `fact_account_open` schema across the
 in-memory → Kafka swap surface.
 
-Grounded in: [CEO brief 2026-05-23 O1 KR1.1 + KR1.6](../../../../board/okrs/2026-05-23-ceo-brief.md),
-[DE team OKR 2026-05-23 KR1.1](../okrs/2026-05-23-team-okr.md), runtime spec §5.4.
+Grounded in: [CEO brief 2026-05-23 O1 KR1.1 + KR1.6](../../../../board/okrs/2026-05-11-1113-ceo-brief.md),
+[DE team OKR 2026-05-23 KR1.1](../okrs/2026-05-11-1113-team-okr.md), runtime spec §5.4.
 
 ---
 
@@ -384,8 +384,8 @@ Grounded in: [CEO brief 2026-05-23 O1 KR1.1 + KR1.6](../../../../board/okrs/2026
 
 - Runtime spec (primary ground): [docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md](../../../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md) (§3, §4.5, §5.3, §5.7, §6.3, §7, §8)
 - Adopting ADR: [board/decisions/2026-05-10-001-nanofab-runtime-is-rust](../../../../board/decisions/2026-05-10-001-nanofab-runtime-is-rust.md)
-- Superseded contract precedent (Spark-flavored, never landed): the deferred KR2.1 from [DE 2026-05-09 team OKR](../okrs/2026-05-09-team-okr.md)
-- Format-pattern source: P3 in [2026-05-09 CEO retro](../../../../board/retros/2026-05-09-ceo-retro.md)
+- Superseded contract precedent (Spark-flavored, never landed): the deferred KR2.1 from [DE 2026-05-09 team OKR](../okrs/2026-05-10-2227-001-team-okr.md)
+- Format-pattern source: P3 in [2026-05-09 CEO retro](../../../../board/retros/2026-05-10-2227-001-ceo-retro.md)
 - Consumers this loop:
   - `teams/application/resink-core/` — supervisor fleet implementation
   - `teams/application/sim-farm/` — `--mode=sim` equivalence harness

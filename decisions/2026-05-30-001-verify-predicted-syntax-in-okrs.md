@@ -20,13 +20,13 @@ owner: board
 
 ## Context
 
-The `claude --skill` flag was named in three consecutive team OKRs (loops 2026-05-10 / 2026-05-16 / 2026-05-23) as the dispatch invocation shape for AE's codegen skill. AE caught at build time that the local CLI doesn't expose it; the canonical form is `claude --bare --plugin-dir <plugin> --print "/<plugin>:<skill> {json}"`. The OKRs were authored against ideal-shape and verified only at build time, which means three loops of downstream consumers planned against a prediction.
+The `claude --skill` flag was named in three consecutive team OKRs (loops 2026-05-10-2227-002 / 2026-05-16 / 2026-05-23) as the dispatch invocation shape for AE's codegen skill. AE caught at build time that the local CLI doesn't expose it; the canonical form is `claude --bare --plugin-dir <plugin> --print "/<plugin>:<skill> {json}"`. The OKRs were authored against ideal-shape and verified only at build time, which means three loops of downstream consumers planned against a prediction.
 
 ADR-2026-05-16-003 (ratified this loop) requires contracts to include a Verified-against-environment subsection. OKRs are not subject to the same discipline.
 
 ## Decision
 
-(Placeholder — to be expanded loop 2026-06-13.) Update `org-os/rituals/team-planning.md` step 3 ("Break key results into tasks with owners") or step 4 ("Flag cross-team asks"): when an OKR mentions a CLI flag, file path, or environment variable that doesn't yet exist on the team's working branch, the OKR carries an explicit "not yet verified — predicted shape" marker (e.g., `<predicted: claude --skill <name>>` in the OKR text). The build phase converts the marker into a confirmed reference (drop the marker) or files an addendum (replace with the actual shape).
+(Placeholder — to be expanded loop 2026-05-11-2153.) Update `org-os/rituals/team-planning.md` step 3 ("Break key results into tasks with owners") or step 4 ("Flag cross-team asks"): when an OKR mentions a CLI flag, file path, or environment variable that doesn't yet exist on the team's working branch, the OKR carries an explicit "not yet verified — predicted shape" marker (e.g., `<predicted: claude --skill <name>>` in the OKR text). The build phase converts the marker into a confirmed reference (drop the marker) or files an addendum (replace with the actual shape).
 
 Update `org-os/rituals/build.md` step 3 ("Surface blockers inline"): predicted-syntax markers that fail at build time are recorded as "predicted-but-divergent" addenda rather than silent corrections.
 
@@ -44,6 +44,6 @@ Update `org-os/rituals/build.md` step 3 ("Surface blockers inline"): predicted-s
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-30-ceo-retro.md](../retros/2026-05-30-ceo-retro.md) — P2.
+- Triggering retro: [board/retros/2026-05-11-1302-ceo-retro.md](../retros/2026-05-11-1302-ceo-retro.md) — P2.
 - Sister ADR: [2026-05-16-003-contract-environment-verification](2026-05-16-003-contract-environment-verification.md) — same discipline, different artifact type.
-- Worked-example failure: three loops of `claude --skill` prediction culminated in AE's DISPATCH.md addendum at loop 2026-05-30.
+- Worked-example failure: three loops of `claude --skill` prediction culminated in AE's DISPATCH.md addendum at loop 2026-05-11-1302.

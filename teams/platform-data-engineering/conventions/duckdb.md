@@ -51,7 +51,7 @@ include `TIMESTAMPTZ` columns.
 ## Links
 
 - Canonical example: [sim-farm pyproject.toml](../../../../repos/resink-ai/resink-core/sim-farm/pyproject.toml)
-- Triggering retro item: [2026-05-16 CEO retro](../../../../board/retros/2026-05-16-ceo-retro.md)
-- Driving CEO brief: [2026-05-23 CEO brief — O6 KR6.2](../../../../board/okrs/2026-05-23-ceo-brief.md)
-- DE team OKR for this loop: [2026-05-23 team OKR — KR1.3](../okrs/2026-05-23-team-okr.md)
+- Triggering retro item: [2026-05-16 CEO retro](../../../../board/retros/2026-05-11-0958-ceo-retro.md)
+- Driving CEO brief: [2026-05-23 CEO brief — O6 KR6.2](../../../../board/okrs/2026-05-11-1113-ceo-brief.md)
+- DE team OKR for this loop: [2026-05-23 team OKR — KR1.3](../okrs/2026-05-11-1113-team-okr.md)
 - Adopting ADR (pending this loop): [ADR-2026-05-10-004 — `contract` artifact type](../../../../board/decisions/2026-05-10-004-contract-artifact-type.md)

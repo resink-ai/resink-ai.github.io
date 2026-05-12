@@ -32,7 +32,7 @@ AE's status.md (refreshed at 2026-05-30) names the pattern as a standing practic
 
 ## Decision
 
-(Placeholder — to be expanded loop 2026-06-13.) Author a new playbook at `org-os/playbooks/provisional-and-migrate.md` with `type: playbook` codifying the pattern:
+(Placeholder — to be expanded loop 2026-05-11-2153.) Author a new playbook at `org-os/playbooks/provisional-and-migrate.md` with `type: playbook` codifying the pattern:
 
 - **When to use:** When team A's work depends on team B's same-loop or future-loop output (typically a conventions change, contract change, enum extension, or new convention admission). Team A's deliverable would be malformed under current rules but well-formed under the upcoming change.
 
@@ -59,6 +59,6 @@ AE's status.md (refreshed at 2026-05-30) names the pattern as a standing practic
 
 ## Links
 
-- Triggering retro: [board/retros/2026-06-06-ceo-retro.md](../retros/2026-06-06-ceo-retro.md) — P2.
+- Triggering retro: [board/retros/2026-05-11-1631-ceo-retro.md](../retros/2026-05-11-1631-ceo-retro.md) — P2.
 - Sister ADR (drafted same loop): [2026-06-06-002-paused-team-request-acceptance](2026-06-06-002-paused-team-request-acceptance.md) — same retro, different pattern.
-- Prior worked examples: AE `rfc → role` at [board/exec-summaries/2026-05-30.md](../exec-summaries/2026-05-30.md); board `type: action` at [board/actions/2026-06-06-001-create-resink-core-github-remote.md](../actions/2026-06-06-001-create-resink-core-github-remote.md).
+- Prior worked examples: AE `rfc → role` at [board/exec-summaries/2026-05-11-1302.md](../exec-summaries/2026-05-11-1302.md); board `type: action` at [board/actions/2026-06-06-001-create-resink-core-github-remote.md](../actions/2026-06-06-001-create-resink-core-github-remote.md).

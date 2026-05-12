@@ -26,9 +26,9 @@ owner: teams/platform/sre
 > in [§ Severity tiers](#severity-tiers). The SRE-local extension noted at
 > first authoring is no longer needed.
 >
-> Historical note: this runbook was first filed (loop 2026-05-23) under
+> Historical note: this runbook was first filed (loop 2026-05-11-1113) under
 > `type: runbook` as a SRE-local extension because the enum did not yet
-> include it. ADR-2026-05-23-001 (ratified loop 2026-05-30) made the type
+> include it. ADR-2026-05-23-001 (ratified loop 2026-05-11-1302) made the type
 > canonical; this frontmatter is unchanged in structure, only canonical in
 > meaning.
 
@@ -197,9 +197,9 @@ This section covers exit codes `1` and `2`. Exit code `0` is the green
 path and is not an alert surface.
 
 **Version reference.** The contract referenced throughout this section is
-`type: contract`, `engine_version: 0.2.0` (loop 2026-05-23). The single-dim
+`type: contract`, `engine_version: 0.2.0` (loop 2026-05-11-1113). The single-dim
 shape is preserved byte-identically from `engine_version: 0.1.0`
-(loop 2026-05-16) except for the `engine_version` field itself. The
+(loop 2026-05-11-0958) except for the `engine_version` field itself. The
 multi-dim shape (top-level `overall_pass` + `verdicts[]`) is new in
 `0.2.0`. Subsections below use the multi-dim shape's `verdicts[i].mismatches[]`
 path; for single-dim runs, drop the `verdicts[i].` prefix.
@@ -558,7 +558,7 @@ yq '.dags[].nodes[].fact_streams[].op' <workspace>/manifest.yaml
    Interfaces](../charter.md)). If the manifest is correct and the
    supervisor's binary is stale, redeploy the supervisor.
 3. **Multi-dim widening note.** O1 of the
-   [2026-05-23 CEO brief](../../../../board/okrs/2026-05-23-ceo-brief.md)
+   [2026-05-23 CEO brief](../../../../board/okrs/2026-05-11-1113-ceo-brief.md)
    commits the orchestrator to emit multi-node manifests this loop. If
    the supervisor's `main.rs` is still at the single-node check
    (`nodes.len() != 1`), the rejection is expected for multi-node
@@ -651,7 +651,7 @@ resolve with a clean re-checkout.
 
 The runbook deliberately does not cover the following classes; these
 land as separate runbooks in future loops, per the 2026-05-23 SRE OKR's
-[§ Out of scope](../okrs/2026-05-23-team-okr.md):
+[§ Out of scope](../okrs/2026-05-11-1113-team-okr.md):
 
 - **KV cluster failures** (the in-memory `MemKv` is MVP; production
   uses a persistent KV — separate runbook when that lands).
@@ -789,6 +789,6 @@ loop yet.
   runbook storage convention (`teams/platform/sre/runbooks/<slug>.md`)
   and the SRE/DevOps boundary at the metric-emission seam.
 - **2026-05-23 SRE OKR:**
-  [`teams/platform/sre/okrs/2026-05-23-team-okr.md`](../okrs/2026-05-23-team-okr.md).
+  [`teams/platform/sre/okrs/2026-05-11-1113-team-okr.md`](../okrs/2026-05-11-1113-team-okr.md).
 - **2026-05-23 CEO brief (O5 is the parent objective):**
-  [`board/okrs/2026-05-23-ceo-brief.md`](../../../../board/okrs/2026-05-23-ceo-brief.md).
+  [`board/okrs/2026-05-11-1113-ceo-brief.md`](../../../../board/okrs/2026-05-11-1113-ceo-brief.md).

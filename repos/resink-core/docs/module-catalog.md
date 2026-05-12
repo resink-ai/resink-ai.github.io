@@ -67,7 +67,7 @@ One entry per top-level code module. Each entry names the path, the one-sentence
 ## `deploy/charts/nanofab-supervisor/`
 
 - **Path:** `deploy/charts/nanofab-supervisor/`
-- **Purpose:** Helm 3 chart skeleton wrapping the `nanofab-supervisor` binary for MVP single-tenant, single-shard, in-memory sim-mode deployment — 15 files (8 templates: `_helpers.tpl`, `configmap.yaml`, `deployment.yaml`, `role.yaml`, `rolebinding.yaml`, `secret.yaml`, `service.yaml`, `serviceaccount.yaml`; 2 minikube values files: `minikube-mvp.yaml`, `minikube-bluegreen.yaml`; plus `Chart.yaml`, `values.yaml`, `Dockerfile`, `Makefile`, `README.md`); `helm lint --strict`, `helm template`, `helm install --dry-run` all exit 0; minikube smoke is deferred to loop 2026-06-06.
+- **Purpose:** Helm 3 chart skeleton wrapping the `nanofab-supervisor` binary for MVP single-tenant, single-shard, in-memory sim-mode deployment — 15 files (8 templates: `_helpers.tpl`, `configmap.yaml`, `deployment.yaml`, `role.yaml`, `rolebinding.yaml`, `secret.yaml`, `service.yaml`, `serviceaccount.yaml`; 2 minikube values files: `minikube-mvp.yaml`, `minikube-bluegreen.yaml`; plus `Chart.yaml`, `values.yaml`, `Dockerfile`, `Makefile`, `README.md`); `helm lint --strict`, `helm template`, `helm install --dry-run` all exit 0; minikube smoke is deferred to loop 2026-05-11-1631.
 - **Who depends on it:** **DevOps** owns and maintains this chart; resink-core ships the supervisor binary the chart wraps; **SRE** consumes the deployment surface (signal handling, env-var convention, port convention) for runbook authoring; future-loop production deploy targets read this chart as the canonical wrapping shape.
 - **Entry point:** `deploy/charts/nanofab-supervisor/Chart.yaml`
 

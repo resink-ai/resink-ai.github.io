@@ -22,7 +22,7 @@ owner: board
 
 Phase 1 produces dozens of artifacts with YAML frontmatter across `board/`, `teams/platform/<team>/`, and `teams/application/<team>/`. The frontmatter is the contract for mechanical rollup — it drives consolidation, retros, onboarding, and cross-team coordination. Without an automated check, there is no enforcement barrier against drift: a file can be committed with missing or incorrect keys, silently breaking the rollup machinery.
 
-No automated frontmatter validation exists in Phase 1, which is markdown-only by spec. This decision establishes the validation requirement and its Phase 1 implementation. Triggered by retro proposal P1 in `board/retros/2026-05-08-ceo-retro.md`.
+No automated frontmatter validation exists in Phase 1, which is markdown-only by spec. This decision establishes the validation requirement and its Phase 1 implementation. Triggered by retro proposal P1 in `board/retros/2026-05-09-1715-ceo-retro.md`.
 
 ## Decision
 
@@ -41,5 +41,5 @@ All artifacts under `board/`, `teams/platform/<team>/`, and `teams/application/<
 
 ## Links
 
-- Triggering retro: [`board/retros/2026-05-08-ceo-retro.md`](../retros/2026-05-08-ceo-retro.md)
+- Triggering retro: [`board/retros/2026-05-09-1715-ceo-retro.md`](../retros/2026-05-09-1715-ceo-retro.md)
 - Affected playbook: [`org-os/playbooks/onboard-team.md`](../../org-os/playbooks/onboard-team.md)

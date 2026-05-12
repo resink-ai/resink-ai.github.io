@@ -16,11 +16,11 @@ due: 2026-06-13
   date: 2026-06-06
   status: open
   due: 2026-06-13
-  links: triggering_retro: ../retros/2026-06-06-ceo-retro.md
+  links: triggering_retro: ../retros/2026-05-11-1631-ceo-retro.md
 -->
 # Action 2026-06-06-002: Install minikube CLI on the developer machine
 
-> **Frontmatter `type: action` is provisional.** Same provisional-and-migrate as `2026-06-06-001`; admission to the org-os conventions enum deferred to loop 2026-06-13 alongside ADR-2026-05-30-001 (P2) batched org-os changes.
+> **Frontmatter `type: action` is provisional.** Same provisional-and-migrate as `2026-06-06-001`; admission to the org-os conventions enum deferred to loop 2026-05-11-2153 alongside ADR-2026-05-30-001 (P2) batched org-os changes.
 
 ## Problem
 
@@ -43,7 +43,7 @@ minikube version    # should print the installed version
 minikube start --driver=docker --wait=all   # one-time cluster bootstrap
 ```
 
-The chart's `Makefile` `minikube-smoke` target then runs the in-cluster smoke per DevOps's loop 2026-06-06 KR1.2.
+The chart's `Makefile` `minikube-smoke` target then runs the in-cluster smoke per DevOps's loop 2026-05-11-1631 KR1.2.
 
 ## Forcing function
 
@@ -80,7 +80,7 @@ P5 from the 2026-06-06 retro asks the meta-question: should every external-toolc
 
 ## Links
 
-- Triggering retro: [board/retros/2026-06-06-ceo-retro.md](../retros/2026-06-06-ceo-retro.md) — P1.
+- Triggering retro: [board/retros/2026-05-11-1631-ceo-retro.md](../retros/2026-05-11-1631-ceo-retro.md) — P1.
 - Worked-example blocker: 3-loop carry in [teams/platform/devops/status.md](../../teams/platform/devops/status.md).
 - Sibling ticket: [board/actions/2026-06-06-001-create-resink-core-github-remote.md](2026-06-06-001-create-resink-core-github-remote.md).
 - Chart prerequisites doc: [repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md](../../repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md) — § Prerequisites already names `brew install minikube`.

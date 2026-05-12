@@ -169,7 +169,7 @@ type: okr            # one of: charter | okr | exec-summary | retro | adr | rfc 
 owner: platform/ae   # team path or "company"
 date: 2026-05-08
 status: draft        # draft | active | archived
-loop: 2026-05-08     # which executive loop this artifact belongs to (if any)
+loop: 2026-05-09-1715     # which executive loop this artifact belongs to (if any)
 links:
   parent: company/okrs/2026-05-08-ceo-brief.md
 ---

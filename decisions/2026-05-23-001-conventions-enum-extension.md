@@ -20,11 +20,11 @@ owner: board
 
 ## Context
 
-The `type` enum in `org-os/conventions.md` has been growing one ADR per type as owned-artifact surfaces have emerged. ADR-2026-05-10-004 added `contract` (loop 2026-05-23 ratification). The pattern of adding owned-artifact types one ADR at a time produces a workaround backlog: each team that needs a new type either files under `type: rfc` as a temporary workaround or adopts a local extension and flags it for later canonicalization. By the time loop 2026-05-30 opens, five separate owned-artifact surfaces are pending or have just landed:
+The `type` enum in `org-os/conventions.md` has been growing one ADR per type as owned-artifact surfaces have emerged. ADR-2026-05-10-004 added `contract` (loop 2026-05-11-1113 ratification). The pattern of adding owned-artifact types one ADR at a time produces a workaround backlog: each team that needs a new type either files under `type: rfc` as a temporary workaround or adopts a local extension and flags it for later canonicalization. By the time loop 2026-05-11-1302 opens, five separate owned-artifact surfaces are pending or have just landed:
 
-- **SRE filed** `teams/platform/sre/runbooks/nanofab-supervisor-failed-validation.md` with `type: runbook` as an SRE-local extension (loop 2026-05-23). Flagged in SRE's exec summary for canonicalization.
+- **SRE filed** `teams/platform/sre/runbooks/nanofab-supervisor-failed-validation.md` with `type: runbook` as an SRE-local extension (loop 2026-05-11-1113). Flagged in SRE's exec summary for canonicalization.
 - **DE filed** `teams/platform/data-engineering/conventions/duckdb.md` as `type: rfc` because `convention` is not in the enum.
-- **The new `org-os/playbooks/out-of-retro-org-os-change.md`** (per ADR-2026-05-09-006, loop 2026-05-23) lives at a playbooks path but has no frontmatter — the enum doesn't admit `playbook`.
+- **The new `org-os/playbooks/out-of-retro-org-os-change.md`** (per ADR-2026-05-09-006, loop 2026-05-11-1113) lives at a playbooks path but has no frontmatter — the enum doesn't admit `playbook`.
 - **This loop (2026-05-30)** introduces `board/reports/` as a new artifact tree to host the HTML capabilities report; the path is conventions-illegal without a `report` type.
 - **AE's Bundle C this loop** is creating `org-os/roles/{EM,CEO,IC}.md` — three role definitions filed under a directory the conventions table already references ("What does role Z do? → `org-os/roles/Z.md`") but with no enum entry for `role`.
 
@@ -58,7 +58,7 @@ For each added type, add a row to the "Additional fields per type" table with th
 4. `board/reports/2026-05-30-resink-core-capabilities.md` and `.html` — file as `type: report` from creation (both produced this loop).
 5. `org-os/roles/{EM,CEO,IC}.md` — AE owns authorship; AE files with `type: role` from creation (per the conventions-legal path established by this ADR).
 
-**Why batch five.** Three of the five (`runbook`, `convention`, `playbook`) are observed-and-pending from loop 2026-05-23; two (`report`, `role`) are observed-and-pending from loop 2026-05-30. Filing five separate ADRs over the next two loops would burn six ratification cycles to land what is mechanically one enum extension. The batch is bounded — the conventions table has finite type-space, and after this ratification the workaround pool is essentially drained.
+**Why batch five.** Three of the five (`runbook`, `convention`, `playbook`) are observed-and-pending from loop 2026-05-11-1113; two (`report`, `role`) are observed-and-pending from loop 2026-05-11-1302. Filing five separate ADRs over the next two loops would burn six ratification cycles to land what is mechanically one enum extension. The batch is bounded — the conventions table has finite type-space, and after this ratification the workaround pool is essentially drained.
 
 ## Alternatives considered
 
@@ -78,8 +78,8 @@ For each added type, add a row to the "Additional fields per type" table with th
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-23-ceo-retro.md](../retros/2026-05-23-ceo-retro.md) — P4.
-- Triggering CEO brief (further extension to five types): [board/okrs/2026-05-30-ceo-brief.md](../okrs/2026-05-30-ceo-brief.md).
+- Triggering retro: [board/retros/2026-05-11-1113-ceo-retro.md](../retros/2026-05-11-1113-ceo-retro.md) — P4.
+- Triggering CEO brief (further extension to five types): [board/okrs/2026-05-11-1302-ceo-brief.md](../okrs/2026-05-30-ceo-brief.md).
 - Sister ADR (same family — `contract` type added): [2026-05-10-004-contract-artifact-type](2026-05-10-004-contract-artifact-type.md).
 - Companion ADRs ratified same loop: [2026-05-16-003-contract-environment-verification](2026-05-16-003-contract-environment-verification.md), [2026-05-16-004-focus-loop-pattern](2026-05-16-004-focus-loop-pattern.md).
 - Conventions edit landed alongside this ratification: [org-os/conventions.md](../../org-os/conventions.md).

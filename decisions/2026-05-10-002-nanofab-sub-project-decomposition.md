@@ -30,7 +30,7 @@ owner: board
 | 4 | Nanofab Serving & Deployment | [2026-05-10-nanofab-serving-deployment-design.md](../../docs/superpowers/specs/2026-05-10-nanofab-serving-deployment-design.md) | v1 multi-tenant SaaS on resink-managed AWS, logical isolation; CI/CD for AI-generated code gated by Sim Farm seal + manifest signature; per-tenant secrets via IRSA; usage-based billing. |
 | 5 | Nanofab Product UX | [2026-05-10-nanofab-product-ux-design.md](../../docs/superpowers/specs/2026-05-10-nanofab-product-ux-design.md) | Customer-facing surfaces: web app + power-user CLI + Slack/email notifications. Hybrid chat + sidebar during training; eight-tab operations dashboard; three-role RBAC plus Auditor. |
 
-Loop 2026-05-09 had committed plans against a different shape (Spark Structured Streaming via ADR-002, a Spark Job → `dim_user_signup` first-build slice). The pivot to a purpose-built Rust runtime supersedes ADR-002 (recorded separately in `board/decisions/2026-05-10-001-nanofab-runtime-is-rust.md`, owned by DE). This ADR records the *organizational* consequence: the product is no longer one monolithic effort; it is five sub-projects with explicit team owners. Without this recording, every team OKR for loop 2026-05-10 onward operates under implicit, undocumented ownership — exactly the gap retros 2026-05-08 and 2026-05-09 said the org-OS should prevent.
+Loop 2026-05-10-2227-001 had committed plans against a different shape (Spark Structured Streaming via ADR-002, a Spark Job → `dim_user_signup` first-build slice). The pivot to a purpose-built Rust runtime supersedes ADR-002 (recorded separately in `board/decisions/2026-05-10-001-nanofab-runtime-is-rust.md`, owned by DE). This ADR records the *organizational* consequence: the product is no longer one monolithic effort; it is five sub-projects with explicit team owners. Without this recording, every team OKR for loop 2026-05-10-2227-002 onward operates under implicit, undocumented ownership — exactly the gap retros 2026-05-08 and 2026-05-09 said the org-OS should prevent.
 
 ## Decision
 
@@ -42,7 +42,7 @@ Recognize five nanofab sub-projects and assign team ownership as follows:
 - **#4 Nanofab Serving & Deployment → `teams/platform/devops/` + `teams/platform/sre/`** (split):
   - DevOps owns: deployment topology, IaC, CI/CD gate (Sim Farm seal + manifest signature), secrets, cost accounting.
   - SRE owns: operational shape, runbooks, on-call rotation, capacity planning, availability response.
-- **#5 Nanofab Product UX → ownership deferred** to a future loop. No team is named this loop. Standing up a dedicated Product UX team is itself a decision worth its own ADR (and likely an `onboard-team.md` execution); deferring keeps loop 2026-05-10 to a re-baseline scope.
+- **#5 Nanofab Product UX → ownership deferred** to a future loop. No team is named this loop. Standing up a dedicated Product UX team is itself a decision worth its own ADR (and likely an `onboard-team.md` execution); deferring keeps loop 2026-05-10-2227-002 to a re-baseline scope.
 
 The two existing platform teams that are *not* assigned a sub-project — Data Engineering and Agent Engineering — retain their existing charters. **DE** continues to own streaming-data platform concerns; under the nanofab vision its most immediate work is the Kafka ingress contract for the runtime (see DE's 2026-05-10 OKR § O2). **AE** continues to own org-OS evolution and agent infrastructure (see AE's 2026-05-10 OKR — bottom-up flow implementation).
 
@@ -60,7 +60,7 @@ The two existing platform teams that are *not* assigned a sub-project — Data E
   - The platform/application split is preserved: platform teams own infrastructure (#4); application teams own the data product (#1, #2, #3).
   - Future Product UX team standup is queued without forcing a decision under the time pressure of this loop.
 - **Negative / costs:**
-  - Resink-core's stretch covers two large sub-projects. The plan-only framing of loop 2026-05-10 mitigates near-term risk, but resink-core will need to scope an internal seam (likely two crates under `repos/resink-ai/resink-core/`) and may eventually split into two teams.
+  - Resink-core's stretch covers two large sub-projects. The plan-only framing of loop 2026-05-10-2227-002 mitigates near-term risk, but resink-core will need to scope an internal seam (likely two crates under `repos/resink-ai/resink-core/`) and may eventually split into two teams.
   - DevOps + SRE share #4. The team-planning artifacts for both teams must record the seam explicitly (DevOps: deployable artifact + IaC + gate; SRE: runbooks + on-call + capacity); both teams' charters are updated this loop to do so.
   - #5 (Product UX) work is paused — the spec exists but no team owns it. Customer-facing surface work cannot begin until ownership lands.
 - **Follow-ups required:**
@@ -74,4 +74,4 @@ The two existing platform teams that are *not* assigned a sub-project — Data E
 - **Engine-choice pivot ADR (same loop):** [2026-05-10-001-nanofab-runtime-is-rust](2026-05-10-001-nanofab-runtime-is-rust.md) (owned by DE).
 - **Superseded ADR:** [2026-05-09-002-streaming-engine-choice](2026-05-09-002-streaming-engine-choice.md) (now `archived`).
 - **Related ADRs:** [2026-05-09-003-deployment-target](2026-05-09-003-deployment-target.md) (minikube — survives the pivot for local dev under #4 work), [2026-05-09-004-onboard-application-team](2026-05-09-004-onboard-application-team.md) (the playbook that will be used when #5's team is stood up).
-- **Loop CEO brief:** [board/okrs/2026-05-10-ceo-brief.md](../okrs/2026-05-10-ceo-brief.md).
+- **Loop CEO brief:** [board/okrs/2026-05-10-2227-002-ceo-brief.md](../okrs/2026-05-10-ceo-brief.md).

@@ -20,7 +20,7 @@ owner: board
 
 ## Context
 
-Loop 2026-06-06: DE was paused per CEO brief, accepted an in-loop request from sim-farm (`teams/platform/data-engineering/requests/2026-06-06-001-schema-json-shape-ack.md`), and committed to act at loop+1 (= 2026-06-13). The commitment was recorded in three places:
+Loop 2026-05-11-1631: DE was paused per CEO brief, accepted an in-loop request from sim-farm (`teams/platform/data-engineering/requests/2026-06-06-001-schema-json-shape-ack.md`), and committed to act at loop+1 (= 2026-06-13). The commitment was recorded in three places:
 
 1. DE's exec summary (paragraph form, with deadline)
 2. DE's `status.md` § "Carrying into next loop" (one-line)
@@ -32,7 +32,7 @@ This is a minor bookkeeping friction today, but the pattern is recurring: at 202
 
 ## Decision
 
-(Placeholder — to be expanded loop 2026-06-13.) Extend `org-os/rituals/team-intake.md` (and possibly the request-template frontmatter at `org-os/templates/request.md`):
+(Placeholder — to be expanded loop 2026-05-11-2153.) Extend `org-os/rituals/team-intake.md` (and possibly the request-template frontmatter at `org-os/templates/request.md`):
 
 - **The request file is source-of-truth** for any request's status and any acceptance/decline/deferral record.
 - **New optional field in request frontmatter:** `deferred_to_loop: <YYYY-MM-DD>`. Used when a paused team accepts a request but defers action to a specific named loop.
@@ -60,7 +60,7 @@ Open question for 2026-06-13 expansion: do we want a forcing function on `deferr
 
 ## Links
 
-- Triggering retro: [board/retros/2026-06-06-ceo-retro.md](../retros/2026-06-06-ceo-retro.md) — P3.
+- Triggering retro: [board/retros/2026-05-11-1631-ceo-retro.md](../retros/2026-05-11-1631-ceo-retro.md) — P3.
 - Sister ADR (drafted same loop): [2026-06-06-001-provisional-and-migrate-playbook](2026-06-06-001-provisional-and-migrate-playbook.md) — same retro, different pattern.
 - Related: [ADR-2026-05-09-006](2026-05-09-006-org-os-change-routing.md) — request-flow lifecycle this ADR extends.
 - Worked example trigger: [teams/platform/data-engineering/requests/2026-06-06-001-schema-json-shape-ack.md](../../teams/platform/data-engineering/requests/2026-06-06-001-schema-json-shape-ack.md) — DE's pending paused-team acceptance.

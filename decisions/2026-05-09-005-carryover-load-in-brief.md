@@ -20,11 +20,11 @@ owner: board
 
 ## Context
 
-P1 from the 2026-05-09 CEO retro. Loop 2026-05-09 closed with four teams carrying deferred work into the next loop (DE shared-primitive contract; DevOps frontmatter-lint script; SRE runbook draft; AE bottom-up flow sizing). The deferrals were deliberate CEO scope decisions, but the brief authored at the start of the next loop did not surface cumulative deferred load before committing new objectives. The pattern risk is that each loop's brief silently inherits last loop's overhang while sizing new work as if from a clean slate; over three or four loops this compounds into capacity that is overcommitted on paper and underdelivered in practice. The CEO brief ritual already requires reading every team's most recent exec summary (step 2 "Score the gap"); what is missing is a structured artifact the brief must produce so the carryover is visible at commit time rather than discovered at exec-summary time.
+P1 from the 2026-05-09 CEO retro. Loop 2026-05-10-2227-001 closed with four teams carrying deferred work into the next loop (DE shared-primitive contract; DevOps frontmatter-lint script; SRE runbook draft; AE bottom-up flow sizing). The deferrals were deliberate CEO scope decisions, but the brief authored at the start of the next loop did not surface cumulative deferred load before committing new objectives. The pattern risk is that each loop's brief silently inherits last loop's overhang while sizing new work as if from a clean slate; over three or four loops this compounds into capacity that is overcommitted on paper and underdelivered in practice. The CEO brief ritual already requires reading every team's most recent exec summary (step 2 "Score the gap"); what is missing is a structured artifact the brief must produce so the carryover is visible at commit time rather than discovered at exec-summary time.
 
 ## Decision
 
-Every CEO brief MUST include a "Carryover load by team" subsection inside its Context section, structured as a table with four columns: **Team**, **Carried items** (one-line summaries of deferred or in-flight items entering the loop), **Sized** (S / M / L T-shirt size — L items get re-shape scrutiny), and **Re-shape note** (how the carryover is being folded into this loop's objectives, or "carries again" if it slips further). The table is produced by reading each team's most recent exec summary and `status.md` during step 2 of the CEO-brief ritual. The brief's Risks and Out-of-scope sections must reference this tally when committing new work or deferring further. The 2026-05-23 CEO brief (`board/okrs/2026-05-23-ceo-brief.md`) is the worked example: it carries the full six-team table inline and references it in the per-objective shaping. The ritual file `org-os/rituals/ceo-brief.md` is updated to add this subsection requirement to step 2.
+Every CEO brief MUST include a "Carryover load by team" subsection inside its Context section, structured as a table with four columns: **Team**, **Carried items** (one-line summaries of deferred or in-flight items entering the loop), **Sized** (S / M / L T-shirt size — L items get re-shape scrutiny), and **Re-shape note** (how the carryover is being folded into this loop's objectives, or "carries again" if it slips further). The table is produced by reading each team's most recent exec summary and `status.md` during step 2 of the CEO-brief ritual. The brief's Risks and Out-of-scope sections must reference this tally when committing new work or deferring further. The 2026-05-23 CEO brief (`board/okrs/2026-05-11-1113-ceo-brief.md`) is the worked example: it carries the full six-team table inline and references it in the per-objective shaping. The ritual file `org-os/rituals/ceo-brief.md` is updated to add this subsection requirement to step 2.
 
 ## Alternatives considered
 
@@ -41,7 +41,7 @@ Every CEO brief MUST include a "Carryover load by team" subsection inside its Co
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-09-ceo-retro.md](../retros/2026-05-09-ceo-retro.md) (P1)
+- Triggering retro: [board/retros/2026-05-10-2227-001-ceo-retro.md](../retros/2026-05-10-2227-001-ceo-retro.md) (P1)
 - Ritual updated: [org-os/rituals/ceo-brief.md](../../org-os/rituals/ceo-brief.md)
-- Worked example: [board/okrs/2026-05-23-ceo-brief.md](../okrs/2026-05-23-ceo-brief.md) § "Carryover load by team"
+- Worked example: [board/okrs/2026-05-11-1113-ceo-brief.md](../okrs/2026-05-23-ceo-brief.md) § "Carryover load by team"
 - Related ADRs: [2026-05-08-001-frontmatter-validation](2026-05-08-001-frontmatter-validation.md), [2026-05-09-006-org-os-change-routing](2026-05-09-006-org-os-change-routing.md)
