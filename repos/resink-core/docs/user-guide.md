@@ -115,6 +115,43 @@ cargo build --release -p nanofab-plugin-dim-user
 
 Hot-swap (loading a new plugin version into a running supervisor without restart) is the joint AE + resink-core deliverable for ADR-2026-05-16-001 step 3 (target loop 2026-06-20).
 
+## Deploying to the home cluster
+
+First exercised at loop 2026-05-12-0645. The supervisor image (`nanofab-supervisor:0.3.0`) is built from this repo via the chart-owned Dockerfile, distributed to the 4 home-cluster nodes via `ctr import`, and installed via the Helm chart at `deploy/charts/nanofab-supervisor/`. The full SOP (prerequisites, install / verify / delete, failure modes) lives in the SRE runbook at `teams/platform/sre/runbooks/nanofab-supervisor-deployment.md`. Headline recipe:
+
+```bash
+# 1. Build (cross-arch from macOS/arm64 to linux/amd64).
+docker buildx build --platform linux/amd64 --load \
+  -f deploy/charts/nanofab-supervisor/Dockerfile \
+  -t nanofab-supervisor:0.3.0 .
+
+# 2. Save and distribute to all 4 nodes (k8s-0..k8s-3).
+docker save nanofab-supervisor:0.3.0 -o /tmp/nanofab-supervisor.tar
+for ip in 192.168.1.162 192.168.1.160 192.168.1.163 192.168.1.164; do
+  scp -i ~/.ssh/id_ed25519_hwmgmt /tmp/nanofab-supervisor.tar lsj@$ip:/tmp/
+  ssh -i ~/.ssh/id_ed25519_hwmgmt lsj@$ip \
+    'sudo ctr -n=k8s.io images import /tmp/nanofab-supervisor.tar'
+done
+
+# 3. Install + verify via kubectl logs (Deployment kind makes kubectl cp
+#    unreliable for one-shot supervisor; logs carry the success marker).
+helm install nanofab-supervisor-mvp deploy/charts/nanofab-supervisor \
+  --values deploy/charts/nanofab-supervisor/values/home-cluster-mvp.yaml \
+  --namespace nanofab --create-namespace
+kubectl logs -n nanofab -l app.kubernetes.io/name=nanofab-supervisor --tail=10
+# Expected: "[supervisor] [...] wrote N rows..." x 2, "supervisor: ok".
+
+# 4. Delete.
+helm uninstall nanofab-supervisor-mvp -n nanofab
+kubectl delete namespace nanofab
+```
+
+**Image-tag convention:** the image tag aligns with `crates/nanofab-supervisor/Cargo.toml` `[package].version` (currently `0.3.0`). When the supervisor crate's version bumps, rebuild + redistribute with the new tag and update `deploy/charts/nanofab-supervisor/values/home-cluster-mvp.yaml`'s `image.tag`. The chart's `Chart.appVersion` is informational; the values' `image.tag` is the authoritative pull target.
+
+**Deployment vs Job kind:** the current chart renders a `kind: Deployment` resource. The MVP supervisor exits 0 after one pass, so the Deployment cycles between Running and BackOff. This is the expected MVP shape; a future loop ships a `kind: Job` variant for clean one-shot semantics + reliable `kubectl cp` of `/workspace/trace.jsonl`. Until then, treat `kubectl logs` as the canonical verification surface.
+
+**No image registry yet:** the per-node `ctr import` distribution is the current bootstrap path. A future home-cluster loop adds an in-cluster registry (per the home-cluster roadmap Phase 1); until then, every image rebuild re-distributes.
+
 ## Environment variables
 
 - **`CLAUDE_DISPATCH`** — defaults to unset. When `CLAUDE_DISPATCH=1`, the Makefile's `ORCH_FLAGS` toggles from `--skip-dispatch` to empty, which makes the orchestrator route codegen through `claude` CLI (LLM-driven dispatch via AE's `nanofab:codegen-scd2-node` skill) instead of the deterministic in-process slot-fill. Note: the live env var is `CLAUDE_DISPATCH=1` to **enable** dispatch; there is no `CLAUDE_SKIP_DISPATCH` env var (the negation lives on the orchestrator CLI as `--skip-dispatch`, which the Makefile passes by default).

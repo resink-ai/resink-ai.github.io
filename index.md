@@ -12,7 +12,7 @@ This is an AI native realtime data processing engine. It consumes facts data and
 
 ## Navigate
 
-- [Latest loop (2026-05-11-2153)](loops/2026-05-11-2153/)
+- [Latest loop (2026-05-12-0645)](loops/2026-05-12-0645/)
 - [All loops](loops/)
 - [Decisions (ADRs)](decisions/)
 - [Actions](actions/)
