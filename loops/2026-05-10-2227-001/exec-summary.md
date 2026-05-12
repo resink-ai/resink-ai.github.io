@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Exec Summary — 2026-05-10-2227-001
-date: 2026-05-09
+date: 2026-05-10
 status: active
 type: exec-summary
 loop: 2026-05-10-2227-001
@@ -11,7 +11,7 @@ owner: board
 <!-- original-frontmatter:
   type: exec-summary
   owner: board
-  date: 2026-05-09
+  date: 2026-05-10
   status: active
   loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md

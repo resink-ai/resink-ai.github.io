@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Retro — 2026-05-10-2227-001
-date: 2026-05-09
+date: 2026-05-10
 status: active
 type: retro
 loop: 2026-05-10-2227-001
@@ -11,7 +11,7 @@ owner: board
 <!-- original-frontmatter:
   type: retro
   owner: board
-  date: 2026-05-09
+  date: 2026-05-10
   status: active
   loop: 2026-05-10-2227-001
   links: parent: board/exec-summaries/2026-05-10-2227-001.md

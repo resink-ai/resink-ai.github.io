@@ -1,7 +1,7 @@
 ---
 layout: default
 title: platform-sre OKR — 2026-05-09-1715
-date: 2026-05-08
+date: 2026-05-09
 status: active
 type: okr
 loop: 2026-05-09-1715
@@ -11,7 +11,7 @@ owner: teams/platform/sre
 <!-- original-frontmatter:
   type: okr
   owner: teams/platform/sre
-  date: 2026-05-08
+  date: 2026-05-09
   status: active
   loop: 2026-05-09-1715
   links: parent: board/okrs/2026-05-09-1715-ceo-brief.md

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: platform-data-engineering Exec Summary — 2026-05-11-0958
-date: 2026-05-16
+date: 2026-05-11
 status: active
 type: exec-summary
 loop: 2026-05-11-0958
@@ -11,7 +11,7 @@ owner: teams/platform/data-engineering
 <!-- original-frontmatter:
   type: exec-summary
   owner: teams/platform/data-engineering
-  date: 2026-05-16
+  date: 2026-05-11
   status: active
   loop: 2026-05-11-0958
   links: parent: teams/platform/data-engineering/okrs/2026-05-11-0958-team-okr.md

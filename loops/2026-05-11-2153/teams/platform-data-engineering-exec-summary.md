@@ -1,7 +1,7 @@
 ---
 layout: default
 title: platform-data-engineering Exec Summary — 2026-05-11-2153
-date: 2026-06-13
+date: 2026-05-11
 status: active
 type: exec-summary
 loop: 2026-05-11-2153
@@ -11,7 +11,7 @@ owner: teams/platform/data-engineering
 <!-- original-frontmatter:
   type: exec-summary
   owner: teams/platform/data-engineering
-  date: 2026-06-13
+  date: 2026-05-11
   status: active
   loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md

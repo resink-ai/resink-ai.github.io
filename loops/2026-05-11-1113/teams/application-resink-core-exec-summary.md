@@ -1,7 +1,7 @@
 ---
 layout: default
 title: application-resink-core Exec Summary — 2026-05-11-1113
-date: 2026-05-23
+date: 2026-05-11
 status: active
 type: exec-summary
 loop: 2026-05-11-1113
@@ -11,7 +11,7 @@ owner: teams/application/resink-core
 <!-- original-frontmatter:
   type: exec-summary
   owner: teams/application/resink-core
-  date: 2026-05-23
+  date: 2026-05-11
   status: active
   loop: 2026-05-11-1113
   links: parent: teams/application/resink-core/okrs/2026-05-11-1113-team-okr.md
