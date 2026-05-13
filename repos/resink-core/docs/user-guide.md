@@ -302,12 +302,13 @@ If the helm job fails:
 
 ### Scope follow-up (cargo CI job)
 
-The supervisor's `Cargo.toml` has path-deps on codegen-output crates under `synthetic_tenants/closed_loop_v0/workspace/nodes/` which are materialised at `make orchestrate` time. The orchestrator's in-process slot-fill reads templates from `../resink-marketplace/plugins/nanofab/` — a private sibling repo. CI's checkout of resink-core alone can't `git clone` it without a deploy-key or PAT secret configured. Cargo CI lands in a follow-up loop after either:
+The supervisor's `Cargo.toml` has path-deps on codegen-output crates under `synthetic_tenants/closed_loop_v0/workspace/nodes/` which are materialised at `make orchestrate` time. The orchestrator's in-process slot-fill reads templates from `../resink-marketplace/plugins/nanofab/` — a private sibling repo. CI's checkout of resink-core alone can't `git clone` it without auth. Cargo CI lands in a follow-up loop after one of:
 
-1. The resink-marketplace repo is made public, OR
-2. A deploy-key / PAT is configured on the resink-core remote enabling cross-repo clone.
+1. A read-only deploy key on resink-marketplace + a corresponding `MARKETPLACE_DEPLOY_KEY` secret on resink-core, used in the CI workflow's clone step.
+2. A fine-scoped PAT with cross-repo read access, stored as a resink-core secret and used in the CI clone step.
+3. Committing a minimal test fixture of the codegen-output crates into resink-core itself (bypasses the cross-repo dependency in CI; production runtime still uses `make orchestrate` against the sibling).
 
-Until then, all cargo build/test verification (including the `hot_swap_correctness` integration test) is operator-driven locally. See the team OKR for the local verification recipes.
+All three options preserve both repos' privacy. Until one is in place, all cargo build/test verification (including the `hot_swap_correctness` integration test) is operator-driven locally. See the team OKR for the local verification recipes.
 
 <!-- rit-docs-init:end -->
 {% endraw %}

@@ -41,13 +41,13 @@ owner: board
   - Triggers on PR + push-to-master; concurrency-grouped on ref.
 - **First post-merge run on master: GREEN.** Workflow runs cleanly in 6s.
 - **`docs/user-guide.md`** gained a "## Continuous integration" section honest about the scoping: helm gates only this loop; cargo gates pending cross-repo marketplace access.
-- **Branch protection deferred** — the resink-core repo is private on a free GitHub plan, which doesn't permit branch protection rules or rulesets (paid feature for private repos). Configured via `gh api` once either (a) the repo is made public, or (b) the org upgrades to GitHub Pro. Same precondition as the cargo CI deferral (option b — make marketplace public — partially overlaps).
+- **Branch protection deferred** — the resink-core repo is private on a free GitHub plan, which doesn't permit branch protection rules or rulesets (paid feature for private repos). The repo stays private (visibility decision reserved per memory `feedback-no-public-repo.md`); paths forward are (a) GitHub Pro upgrade, or (b) indefinite defer until contributor count > 1. See retro § P6.
 
 #### Mid-loop scope discoveries (informed the partial shape)
 
 1. **`helm install --dry-run` requires a reachable k8s API server.** Default mode is `--dry-run=server`; GitHub Actions runner has no cluster. Dropped from the workflow. Operators run it locally against the home cluster before deploying. Documented as such.
 2. **Supervisor's `Cargo.toml` path-deps need `make orchestrate` to materialize.** The orchestrator reads templates from `../resink-marketplace/` — a private sibling repo. CI checkout of resink-core alone can't `git clone` the marketplace without a deploy-key or PAT secret.
-3. **GitHub free plan blocks branch protection on private repos.** Both `/repos/{owner}/{repo}/branches/{branch}/protection` and `/repos/{owner}/{repo}/rulesets` return `403 — Upgrade to GitHub Pro or make this repository public to enable this feature`. Awareness only; surfaces in retro for org-level decision.
+3. **GitHub free plan blocks branch protection on private repos.** Both `/repos/{owner}/{repo}/branches/{branch}/protection` and `/repos/{owner}/{repo}/rulesets` return `403` with an upgrade prompt. The repo stays private; surfaces in retro for paid-plan decision OR indefinite defer.
 
 ### O3: `make bootstrap` for submodule-deinit recovery — ✅ PASS
 

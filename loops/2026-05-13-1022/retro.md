@@ -79,26 +79,26 @@ owner: board
 
 ### P5: Cargo CI gate — unblock cross-repo marketplace access (class: **tenant**)
 
-- **Problem it solves:** "What didn't" #1 first sub-bullet. The cargo CI job is deferred until CI can clone the resink-marketplace sibling. Two unblocking paths:
+- **Problem it solves:** "What didn't" #1 first sub-bullet. The cargo CI job is deferred until CI can clone the resink-marketplace sibling. Both unblocking paths preserve **private** for both repos (repo visibility is a user-only decision and is out of scope for retro proposals; see memory note `feedback-no-public-repo.md`):
 - **Options:**
-  - **(a) Make resink-marketplace public.** Simplest; matches the marketplace's intent (shared agentic plugins compatible with Claude Code, Codex, Gemini, OpenCode — these are meant to be public anyway). Also unblocks branch protection on resink-core (option b in P6) since GitHub Pro features are unlocked for public repos.
-  - **(b) Configure a deploy-key (read-only) on resink-marketplace, store the private key as a `MARKETPLACE_DEPLOY_KEY` secret on resink-core, use it in the CI workflow's clone step.** Keeps both repos private; ~5 minutes of GitHub UI setup.
-  - **(c) Configure a fine-scoped PAT (Personal Access Token) with cross-repo read access, store as a secret on resink-core, use in CI.** Similar to (b) but org-wide rather than per-repo.
-- **Recommendation:** **(a) make marketplace public.** The marketplace is the canonical home of public-facing plugins (per the existing description); making it public matches the artifact's intent. Pleasant side-effect: unblocks P6 too.
-- **Review path:** Tenant decision (no ADR — repo visibility is an operational choice, not an architecture one).
-- **Owner:** board (decides); resink-core (uncomments the deferred cargo job in `.github/workflows/ci.yml` once unblocked).
+  - **(a) Configure a deploy-key (read-only) on resink-marketplace; store the private key as a `MARKETPLACE_DEPLOY_KEY` secret on resink-core; use it in the CI workflow's clone step.** Per-repo scoped; ~5 minutes of GitHub UI setup.
+  - **(b) Configure a fine-scoped PAT (Personal Access Token) with cross-repo read access; store as a secret on resink-core; use in CI.** Similar to (a) but org-wide rather than per-repo. Slightly broader blast-radius than a deploy key.
+  - **(c) Bypass cross-repo entirely.** Commit a minimal test fixture of the codegen-output crates into resink-core itself (e.g., under `crates/test-fixtures/dim_user_scd2/` + `dim_account_scd2/`), used as the CI-only path-dep targets; production runtime path continues to use the orchestrator-generated `workspace/nodes/` outputs. Largest change but removes the cross-repo dependency from CI entirely.
+- **Recommendation:** **(a) deploy key.** Smallest blast-radius (read-only, scoped to the one repo); the secret config is the user's manual GitHub UI work, well-bounded.
+- **Review path:** Tenant decision (no ADR — secret configuration is an operational choice).
+- **Owner:** board (decides + sets up the secret); resink-core (uncomments the deferred cargo job in `.github/workflows/ci.yml` once the secret is in place).
 - **Timing:** **Next loop OR opportunistic** when the user is in GitHub admin UI anyway.
 
-### P6: Branch protection on resink-core master — same precondition class as P5 (class: **tenant**)
+### P6: Branch protection on resink-core master — paid-feature precondition (class: **tenant**)
 
-- **Problem it solves:** "What didn't" #1 second sub-bullet. Free GitHub plan blocks branch protection and rulesets on private repos. Two unblocking paths:
+- **Problem it solves:** "What didn't" #1 second sub-bullet. Free GitHub plan blocks branch protection and rulesets on private repos. The repo stays private (per memory note `feedback-no-public-repo.md`), so the only path is the paid-plan upgrade:
 - **Options:**
-  - **(a) Make resink-core public** (parallels P5 (a) — pleasant overlap).
-  - **(b) Upgrade the org to GitHub Pro / Team / Enterprise.** Paid; standard for orgs with private CI requirements.
-- **Recommendation:** **Bundle with P5's decision.** If P5(a) is picked (make marketplace public), consider whether resink-core can also be public — different decision (different content; the resink-core repo includes synthetic-tenant fixtures + tenant-specific values, while the marketplace is pure plugin code). If resink-core stays private, P6(b) is the answer.
+  - **(a) Upgrade the org to GitHub Pro / Team / Enterprise.** Paid; standard for orgs with private CI requirements.
+  - **(b) Defer indefinitely.** Operator manually verifies green helm CI in the PR UI before merging until/unless the org plan changes. Acceptable for single-contributor reality.
+- **Recommendation:** **(b) defer indefinitely** while the contributor model is single-operator; revisit when a second contributor lands and unverified-master becomes a real risk surface.
 - **Review path:** Tenant decision.
 - **Owner:** board.
-- **Timing:** **Next loop OR opportunistic.**
+- **Timing:** **Indefinite; reevaluate when contributor count > 1.**
 
 ### P4: Make `post-publish-CI-verification` standing practice formal (class: **deferred**)
 
