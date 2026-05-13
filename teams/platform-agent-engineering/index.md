@@ -15,6 +15,7 @@ Build and maintain the AI agent infrastructure for the org. Produces the agent r
 - Internal agent library — common tools, prompts, and orchestration primitives used across teams.
 - Agent runtime conventions — the contract between `org-os/templates/agent-spec.md` and runnable agents.
 - Nanofab codegen plugin (`repos/resink-ai/resink-marketplace/plugins/nanofab/`) — pattern-library skills the training-pipeline orchestrator dispatches; pattern set tracked against training spec §4.10.
+- Observability plugin (`repos/resink-ai/resink-marketplace/plugins/observability/`) — AI-readable HTML snapshots of operator-visible system state (cluster snapshot, …) for inclusion in agent transcripts and gitbook reports.
 
 ## Interfaces
 
@@ -38,6 +39,7 @@ Build and maintain the AI agent infrastructure for the org. Produces the agent r
 
 ## Executive summaries
 
+- [2026-05-13-0859](../../loops/2026-05-13-0859/teams/platform-agent-engineering-exec-summary.html)
 - [2026-05-12-1826](../../loops/2026-05-12-1826/teams/platform-agent-engineering-exec-summary.html)
 - [2026-05-12-1254](../../loops/2026-05-12-1254/teams/platform-agent-engineering-exec-summary.html)
 - [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-agent-engineering-exec-summary.html)
@@ -52,6 +54,7 @@ Build and maintain the AI agent infrastructure for the org. Produces the agent r
 
 ## OKRs
 
+- [2026-05-13-0859](../../loops/2026-05-13-0859/teams/platform-agent-engineering-okr.html)
 - [2026-05-11-1631](../../loops/2026-05-11-1631/teams/platform-agent-engineering-okr.html)
 - [2026-05-11-1302](../../loops/2026-05-11-1302/teams/platform-agent-engineering-okr.html)
 - [2026-05-11-1113](../../loops/2026-05-11-1113/teams/platform-agent-engineering-okr.html)
