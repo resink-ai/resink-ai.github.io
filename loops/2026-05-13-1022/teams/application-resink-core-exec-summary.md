@@ -40,7 +40,7 @@ Three-objective bundle close-out, all shipped clean. **O1 closes ADR-2026-05-16-
 **O2 — CI/CD bootstrap on the resink-core remote (PARTIAL):**
 
 - KR2.1 ⚠️ **PARTIAL**: `.github/workflows/ci.yml` ships with the **helm job only**. Mid-loop scope-back on cargo job (see Surprises). Helm job: helm v3.16.0; `helm lint --strict -f values/home-cluster-mvp.yaml`; `helm template`. Server-side `helm install --dry-run` dropped (requires reachable k8s API). Triggers: `on: pull_request` + `on: push: branches: [master]`.
-- KR2.2 ⚠️ **DEFERRED**: Branch protection on master cannot be enabled — the resink-core repo is private on a free GitHub plan, which doesn't permit branch-protection rules or rulesets on private repos (paid feature). Both `/branches/{branch}/protection` and `/rulesets` endpoints return `403 — Upgrade to GitHub Pro or make this repository public`. Configure once either (a) the repo is made public, or (b) the org upgrades to GitHub Pro.
+- KR2.2 ⚠️ **DEFERRED**: Branch protection on master cannot be enabled — the resink-core repo is private on a free GitHub plan, which doesn't permit branch-protection rules or rulesets on private repos (paid feature). Both `/branches/{branch}/protection` and `/rulesets` endpoints return `403`. The repo stays private (visibility decision reserved per memory `feedback-no-public-repo.md`); paths forward are (a) GitHub Pro upgrade, or (b) indefinite defer.
 - KR2.3 ✅: First post-merge run on master is GREEN. Helm lint + template, 6s.
 - KR2.4 ✅: `docs/user-guide.md` gained a "## Continuous integration" section honest about the scoping: helm gates only this loop; cargo gates + branch protection pending prerequisites.
 
@@ -82,7 +82,7 @@ Three-objective bundle close-out, all shipped clean. **O1 closes ADR-2026-05-16-
 - [x] Verify bootstrap by simulating recovery (`rm -rf sim-farm/.venv` → `make bootstrap` → `make mvp-loop` → `verdict=pass`).
 - [x] Tenant-isolation grep — CLEAN (single canonical placeholder at `org-os/conventions.md:121`).
 - [x] Verify first post-merge GREEN status check on master (helm job, 6s).
-- [⚠️] Enable branch protection on master via `gh api` — **deferred**; private repo on free plan blocks the feature. Awaiting either Pro upgrade or public-repo decision.
+- [⚠️] Enable branch protection on master via `gh api` — **deferred**; private repo on free plan blocks the feature. Either Pro upgrade or indefinite defer (the repo stays private).
 - [⚠️] Cargo CI job — **deferred** pending cross-repo marketplace access (deploy-key/PAT secret OR public marketplace).
 
 ## Risks (now-closed or carried)
