@@ -56,6 +56,7 @@ Bridge dev and ops; own deployment pipelines and cloud infra.
 
 ## Executive summaries
 
+- [2026-05-12-1826](../../loops/2026-05-12-1826/teams/platform-devops-exec-summary.html)
 - [2026-05-12-1254](../../loops/2026-05-12-1254/teams/platform-devops-exec-summary.html)
 - [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-devops-exec-summary.html)
 - [2026-05-11-2153](../../loops/2026-05-11-2153/teams/platform-devops-exec-summary.html)
