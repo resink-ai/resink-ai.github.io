@@ -9,6 +9,7 @@ Chronological list of loops. Each loop links to its CEO brief, executive summary
 
 | Date | Headline |
 |---|---|
+| [2026-05-13-1303](2026-05-13-1303/) | **Headline.** Fourth loop on the same calendar date. After three product loops (org-os ratification → observability skill + hot-swap AE-side → resink-core bundle close-out), this loop closes the showcase gap: the work on disk is now substantial enough to show somebody, and the... |
 | [2026-05-13-1022](2026-05-13-1022/) | **Headline.** Three-objective resink-core bundle close-out — all shipped clean. **O1 closes ADR-2026-05-16-001's five-loop, three-step dlopen restoration plan.** New in-tree `crates/nanofab-plugin-dim-user-v2/` cdylib + `tests/hot_swap_correctness.rs` integration test exercise... |
 | [2026-05-13-0859](2026-05-13-0859/) | **Headline.** Two AE-owned objectives both shipped clean. **O1: First operator-observability surface.** New `observability` marketplace plugin + `cluster-snapshot` skill v1 — a stdlib-Python generator that wraps kubectl and emits a self-contained HTML cluster snapshot (inline... |
 | [2026-05-13-0056](2026-05-13-0056/) | **Headline.** Org-os ratification bundle shipped — 2 draft ADRs flipped to active alongside their newly-authored playbooks; 1 ADR's scope extended in-place (V-a-E discipline now admits `runbook` + `convention` + `playbook` alongside `contract` + `rfc`); 1 in-place sibling sect... |

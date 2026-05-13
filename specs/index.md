@@ -14,4 +14,5 @@ Multi-page design documents authored under `docs/superpowers/specs/` in the sour
 - [2026-05-10-nanofab-serving-deployment-design](2026-05-10-nanofab-serving-deployment-design.html)
 - [2026-05-10-nanofab-sim-farm-design](2026-05-10-nanofab-sim-farm-design.html)
 - [2026-05-10-nanofab-training-pipeline-design](2026-05-10-nanofab-training-pipeline-design.html)
+- [2026-05-13-resink-ai-walkthrough](2026-05-13-resink-ai-walkthrough.html)
 {% endraw %}

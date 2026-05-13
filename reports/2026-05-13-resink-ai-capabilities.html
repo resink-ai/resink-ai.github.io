@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="type" content="report">
+<meta name="owner" content="board">
+<meta name="date" content="2026-05-13">
+<meta name="status" content="active">
+<meta name="audience" content="external — potential users / investors">
+<title>Resink.ai &middot; what we&rsquo;ve built &mdash; 2026-05-13</title>
+<style>
+  :root {
+    --fg: #1a1a1a;
+    --muted: #5a5a5a;
+    --rule: #d8d8d8;
+    --bg: #ffffff;
+    --code-bg: #f4f4f4;
+    --accent: #1d4e89;
+    --warn-bg: #fff7e0;
+    --warn-rule: #e6c558;
+    --good: #1c6b3c;
+  }
+  html { background: var(--bg); }
+  body {
+    color: var(--fg);
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    margin: 0 0 0.4rem 0;
+  }
+  header .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  header .meta span { margin-right: 1.2rem; }
+  header .lede {
+    margin-top: 0.8rem;
+    font-size: 1.05rem;
+    color: #333;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 2.4rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-size: 1.0rem;
+    margin-top: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+  p, ul, ol { margin: 0.6rem 0; }
+  ul, ol { padding-left: 1.4rem; }
+  li { margin: 0.3rem 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    background: var(--code-bg);
+    padding: 0.05rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--rule);
+    padding: 0.8rem 1rem;
+    overflow-x: auto;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: 0.83em;
+    line-height: 1.45;
+  }
+  pre.diagram { font-size: 0.78em; line-height: 1.3; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9em;
+    margin: 0.6rem 0 1rem 0;
+  }
+  th, td {
+    border: 1px solid var(--rule);
+    padding: 0.4rem 0.6rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #fafafa; }
+  nav.toc {
+    background: #fafafa;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 0.8rem 1.2rem;
+    margin: 1rem 0 2rem 0;
+    font-size: 0.95rem;
+  }
+  nav.toc ol { margin: 0.3rem 0; padding-left: 1.2rem; }
+  .pill {
+    display: inline-block;
+    background: #fafafa;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+    font-size: 0.78em;
+    margin-right: 0.4rem;
+    color: var(--muted);
+  }
+  .pill-good {
+    background: #e9f5ee;
+    border-color: #b9dac8;
+    color: var(--good);
+  }
+  .pill-warn {
+    background: var(--warn-bg);
+    border-color: var(--warn-rule);
+    color: #6b4f00;
+  }
+  blockquote.callout {
+    background: var(--warn-bg);
+    border-left: 4px solid var(--warn-rule);
+    margin: 1rem 0;
+    padding: 0.6rem 1rem;
+    color: #4a3a00;
+  }
+  footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 3rem;
+    padding-top: 1rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Resink.ai &middot; what we&rsquo;ve built</h1>
+  <div class="meta">
+    <span><strong>Type:</strong> report</span>
+    <span><strong>Owner:</strong> board</span>
+    <span><strong>Date:</strong> 2026-05-13</span>
+    <span><strong>Status:</strong> active</span>
+    <span><strong>Audience:</strong> external &mdash; potential users / investors</span>
+  </div>
+  <p class="lede">
+    Resink.ai is an <strong>AI-managed data-pipeline platform</strong>: you describe the dim-tables you need (or hand us a fact-data sample), the system produces, deploys, and operates the per-tenant data pipeline that maintains them &mdash; in real time, with auditable verdicts. This report is what runs in our codebase <strong>today</strong>, with verifiable evidence. It is not aspirational; every claim links to a checked-in artifact you can read, run, or diff.
+  </p>
+</header>
+
+<nav class="toc" aria-label="Table of contents">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#what-we-do">What Resink.ai does</a></li>
+    <li><a href="#whats-running">What&rsquo;s running today (with evidence)</a></li>
+    <li><a href="#architecture">Architecture in one diagram</a></li>
+    <li><a href="#components">Component catalog</a></li>
+    <li><a href="#closed-arcs">Closed engineering arcs</a></li>
+    <li><a href="#honest-deferrals">Honest deferrals</a></li>
+    <li><a href="#read-further">How to read further</a></li>
+  </ol>
+</nav>
+
+<section id="what-we-do">
+  <h2>1. What Resink.ai does</h2>
+  <p>
+    Data teams everywhere face the same problem: <em>fact</em> events arrive constantly (sign-ups, profile updates, account opens, trades) and need to be projected into <em>dimension</em> tables (a current snapshot of who each user is, what each account holds, etc.) with full history preserved. The classical solution is hand-authored SCD2 (slowly-changing-dimension type 2) maintainer code per dim, hand-tuned per tenant, hand-deployed per cluster &mdash; weeks of engineering per new dim table.
+  </p>
+  <p>
+    Resink.ai compresses that to <strong>minutes</strong>. The flow:
+  </p>
+  <ol>
+    <li>A customer hands us a sample of fact parquets (or describes the dim shape).</li>
+    <li>An <strong>LLM-driven orchestrator</strong> proposes the dim-table design, asks clarifying questions when there are trade-offs, and on confirmation <strong>generates the per-dim Rust maintainer code</strong> deterministically from a hand-authored template + the schema.</li>
+    <li>The generated crates compile (verified by <code>cargo build</code> + <code>cargo test</code>); a <strong>multi-tenant Rust supervisor</strong> loads them, routes the fact streams through per-key shards, and emits the SCD2 dim-table output.</li>
+    <li>A <strong>diff engine</strong> byte-compares the output against the customer&rsquo;s fixture and emits a single <code>verdict.json</code>: pass or fail, with per-key mismatch records on fail.</li>
+    <li>The validated pipeline ships to a real Kubernetes cluster via a per-tenant Helm chart.</li>
+  </ol>
+  <p>
+    The differentiation isn&rsquo;t &ldquo;use AI to write code&rdquo;; it&rsquo;s <strong>AI-generated code under a deterministic, verifiable, multi-tenant runtime</strong>. The generated Rust is byte-identical for identical inputs, the runtime is Rust (no JVM, no GC stalls), and every claim about the pipeline is backed by an on-disk verdict file the operator can audit.
+  </p>
+</section>
+
+<section id="whats-running">
+  <h2>2. What&rsquo;s running today (with evidence)</h2>
+  <p>Each bullet is a present-tense capability backed by an on-disk verdict, a test exit code, or a checked-in artifact. Every file path resolves in our public-mirror gitbook at <a href="https://blog.resink.ai/">blog.resink.ai</a>.</p>
+  <ul>
+    <li>
+      <strong>The full closed loop is GREEN.</strong>
+      <code>make mvp-loop</code> runs the entire training pipeline against a synthetic tenant fixture and exits 0 with <code>verdict=pass mismatches=0</code>. Two dim-tables (<code>dim_user</code>, <code>dim_account</code>) processed through one supervisor binary; three fact streams (<code>fact_sign_up</code>, <code>fact_profile_update</code>, <code>fact_account_open</code>); 4 logical shards per dim; byte-stable hashing.
+      <span class="pill pill-good">verified</span>
+    </li>
+    <li>
+      <strong>LLM-generated Rust compiles deterministically.</strong>
+      The orchestrator dispatches our <code>nanofab:codegen-scd2-node</code> Claude Code skill, which slot-fills a hand-authored Rust template against the schema. Given identical <code>(schema, pattern_name)</code> inputs, the skill produces byte-identical Rust source (the content-hash dedup property the runtime relies on). First end-to-end LLM-driven attempt (loop 2026-05-16) produced compilable Rust with zero template iterations &mdash; ~$0.77 in API cost, ~106s wall-clock on a developer laptop.
+      <span class="pill pill-good">verified</span>
+    </li>
+    <li>
+      <strong>The supervisor runs on a real Kubernetes cluster.</strong>
+      The Helm chart has been <code>helm install</code>-ed on our home cluster (4 nodes, k8s v1.33.11) at loop 2026-05-12-0645. Pods schedule, exercise the canonical happy path, and uninstall cleanly. Two latent chart bugs surfaced + were fixed in flight; both became failure-mode entries in our SRE deployment runbook.
+      <span class="pill pill-good">verified</span>
+    </li>
+    <li>
+      <strong>Hot-swap correctness verified at the supervisor level.</strong>
+      Our long-running ABI restoration plan (ADR-2026-05-16-001) closed on 2026-05-13: the supervisor can load plugin library v1, process events, unload, load v2, and continue &mdash; verified by a supervisor-integrated test that exercises the production <code>plugin_loader::PluginNode</code> code path against two AE-template-derived cdylibs with a documented one-line behavioral deviation between them. Five-loop, three-step engineering arc complete.
+      <span class="pill pill-good">verified</span>
+    </li>
+    <li>
+      <strong>Operator-readable cluster observability shipped.</strong>
+      A new <code>observability</code> Claude Code plugin emits a self-contained HTML snapshot of the cluster&rsquo;s state on demand (node table, per-namespace pod table with status colorising, recent warning events). The first run (2026-05-13) is committed at <code>board/reports/2026-05-13-cluster-snapshot.html</code> &mdash; 4 nodes ready, 21 pods running, zero warning events.
+      <span class="pill pill-good">verified</span>
+    </li>
+    <li>
+      <strong>A power-user CLI ships.</strong>
+      The <code>resink</code> binary (5 read-only subcommands: <code>workspace status</code>, <code>verdict latest</code>, <code>manifest get</code>, <code>table head</code>, <code>trace tail</code>) gives a developer first-class access to the tenant workspace produced by <code>make mvp-loop</code>. Sized for v1; written in Rust; ~6 unit tests passing.
+      <span class="pill pill-good">verified</span>
+    </li>
+    <li>
+      <strong>Marketplace of 4 cross-platform plugins.</strong>
+      Our internal plugin marketplace at <code>resink-ai/resink-marketplace</code> ships per-platform manifests (Claude Code, Codex CLI, Gemini CLI, OpenCode) for: <code>agent-forge</code> (the skill-authoring toolkit), <code>org-os</code> (the rituals our internal operations run on), <code>nanofab</code> (the codegen skill), <code>observability</code> (cluster snapshots). 89 manifest-shape tests passing.
+      <span class="pill pill-good">verified</span>
+    </li>
+    <li>
+      <strong>First CI gate on a private-by-default infrastructure repo.</strong>
+      The <code>resink-core</code> remote now runs a GitHub Actions helm-lint + helm-template gate on every PR + push-to-master. First post-merge run on master: GREEN. Two private-compatible cargo-CI extension paths are documented (deploy key, scoped PAT, or in-repo test fixtures) for the next iteration.
+      <span class="pill pill-good">verified</span>
+    </li>
+    <li>
+      <strong>Operator-recovery automation.</strong>
+      A new <code>make bootstrap</code> target regenerates the gitignored Python venvs after a submodule deinit + re-init cycle. Verified by simulating the exact failure: delete the venv, run bootstrap, run mvp-loop, observe <code>verdict=pass mismatches=0</code>.
+      <span class="pill pill-good">verified</span>
+    </li>
+  </ul>
+</section>
+
+<section id="architecture">
+  <h2>3. Architecture in one diagram</h2>
+  <p>The closed loop is a seven-step pipeline. Each arrow is labelled with the data artifact crossing the boundary.</p>
+<pre class="diagram"><code>+-----------------------+
+|     fixture           |   (synthetic tenant or customer-provided)
+|   schema + facts      |
++-----------------------+
+           |
+           |  schema.json + fact_*.parquet
+           v
++-----------------------+
+|    orchestrator       |   (Python; dispatches AE's claude skill)
+|  AE codegen skill x N |   nanofab:codegen-scd2-node
++-----------------------+
+           |
+           |  per-dim Cargo crate (lib.rs + Cargo.toml + STATUS.json)
+           v
++-----------------------+
+|     cargo build       |   (per-node crate, then supervisor host)
+|   per-dim node x N    |
++-----------------------+
+           |
+           |  manifest.yaml + .nanofab/release_seal.json
+           v
++-----------------------+
+|     coordinator       |   (nanofab-coordinator binary)
+|   validates seal      |
++-----------------------+
+           |
+           |  validated release_seal + DAG ready signal
+           v
++-----------------------+
+|     supervisor        |   (nanofab-supervisor binary)
+|  multi-node, sharded  |   xxHash64(key, seed=0) % shard_count
++-----------------------+
+           |
+           |  dim_*_output.parquet + trace.jsonl
+           v
++-----------------------+
+|    diff engine        |   (sim-farm, Mode-A, engine_version 0.2.0)
+|  byte-compare output  |
++-----------------------+
+           |
+           |  verdict.json (pass | fail + mismatch records)
+           v
++-----------------------+
+|       deploy          |   (helm chart -> real k8s cluster)
+|   per-tenant chart    |
++-----------------------+
+</code></pre>
+  <p>The pipeline runs end-to-end on a developer laptop (<code>make mvp-loop</code>) without any cloud credentials or LLM API key in the default path. <code>CLAUDE_DISPATCH=1</code> opts in to LLM-driven dispatch for the codegen step; the default uses in-process deterministic slot-fill so the loop is reproducible offline.</p>
+</section>
+
+<section id="components">
+  <h2>4. Component catalog</h2>
+  <p>Every shipped surface, with a one-line purpose. Paths resolve at <a href="https://blog.resink.ai/">blog.resink.ai</a>; the corresponding source lives in private repos available for evaluation on request.</p>
+
+  <h3>Per-tenant runtime (Rust)</h3>
+  <table>
+    <thead>
+      <tr><th>Component</th><th>Path</th><th>What it does</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>nanofab-node-abi</code></td>
+        <td><code>repos/resink-ai/resink-core/crates/nanofab-node-abi/</code></td>
+        <td>The Rust trait surface every generated maintainer-node implements. The contract between supervisor and node.</td>
+      </tr>
+      <tr>
+        <td><code>nanofab-supervisor</code></td>
+        <td><code>repos/resink-ai/resink-core/crates/nanofab-supervisor/</code></td>
+        <td>Multi-node driver binary. Routes events to per-dim node instances across logical shards; writes <code>trace.jsonl</code> + <code>dim_*_output.parquet</code>. Now also hosts the <code>plugin_loader::PluginNode</code> for hot-swap-capable dlopen.</td>
+      </tr>
+      <tr>
+        <td><code>nanofab-coordinator</code></td>
+        <td><code>repos/resink-ai/resink-core/crates/nanofab-coordinator/</code></td>
+        <td>Validates the release seal; publishes the DAG-ready signal so the supervisor only loads node crates that passed compile + test.</td>
+      </tr>
+      <tr>
+        <td><code>nanofab-plugin-dim-user</code> + <code>-v2</code></td>
+        <td><code>repos/resink-ai/resink-core/crates/nanofab-plugin-dim-user{,-v2}/</code></td>
+        <td>In-tree reference plugins for the hot-swap integration test. v1 + v2 share the C-ABI surface with one documented behavioral deviation; the supervisor swap test loads both.</td>
+      </tr>
+      <tr>
+        <td><code>resink-cli</code></td>
+        <td><code>repos/resink-ai/resink-core/crates/resink-cli/</code></td>
+        <td>The <code>resink</code> power-user binary. 5 read-only subcommands against the local workspace.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Training pipeline (Python)</h3>
+  <table>
+    <thead>
+      <tr><th>Component</th><th>Path</th><th>What it does</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>training/orchestrator/</code></td>
+        <td><code>repos/resink-ai/resink-core/training/orchestrator/</code></td>
+        <td>Python entrypoint that dispatches the codegen skill (real LLM or in-process slot-fill); writes <code>manifest.yaml</code> + the release seal; runs <code>cargo build</code> + <code>cargo test</code> on each output crate.</td>
+      </tr>
+      <tr>
+        <td><code>sim-farm/</code></td>
+        <td><code>repos/resink-ai/resink-core/sim-farm/</code></td>
+        <td>The diff engine + verdict-format owner. Reads fixture + supervisor-output parquets into DuckDB; emits per-dim PASS/FAIL with mismatch-typed records. <strong>9/9</strong> unit tests passing.</td>
+      </tr>
+      <tr>
+        <td><code>synthetic_tenants/closed_loop_v0/</code></td>
+        <td><code>repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0/</code></td>
+        <td>The end-to-end driver: deterministic fixture generators, the 7-step Makefile, the workspace output directory. Now includes <code>make bootstrap</code> for venv recovery.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Operations + deployment</h3>
+  <table>
+    <thead>
+      <tr><th>Component</th><th>Path</th><th>What it does</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Helm chart</td>
+        <td><code>repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/</code></td>
+        <td>Per-tenant deployment skeleton. Lint+template gates in CI; one verified <code>helm install</code> against the home cluster.</td>
+      </tr>
+      <tr>
+        <td>GitHub Actions CI</td>
+        <td><code>repos/resink-ai/resink-core/.github/workflows/ci.yml</code></td>
+        <td>helm lint + template gate on every PR + push-to-master. Cargo gate in a follow-up iteration (the path-deps require cross-repo marketplace access; options documented).</td>
+      </tr>
+      <tr>
+        <td>SRE deployment runbook</td>
+        <td><code>teams/platform/sre/runbooks/nanofab-supervisor-deployment.md</code></td>
+        <td>Authored alongside the first real deploy. 6 failure-mode subsections sourced from in-flight discoveries.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Marketplace (Claude Code / Codex / Gemini / OpenCode plugins)</h3>
+  <table>
+    <thead>
+      <tr><th>Plugin</th><th>What it does</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>nanofab</code></td>
+        <td>Houses <code>codegen-scd2-node</code> + the v1/v2 template variants. Per-platform manifests for all four agent CLIs.</td>
+      </tr>
+      <tr>
+        <td><code>observability</code></td>
+        <td><code>cluster-snapshot</code> skill wraps kubectl, emits self-contained HTML cluster reports. Authored 2026-05-13.</td>
+      </tr>
+      <tr>
+        <td><code>org-os</code></td>
+        <td>Eight ritual skills wrapping our internal operations (the executive loop, ceo brief, team planning, build, exec summary, ceo consolidation, retro, decision review). This is how the company itself is run.</td>
+      </tr>
+      <tr>
+        <td><code>agent-forge</code></td>
+        <td>Toolkit for forging new agent skills, subagents, slash commands, hooks. Cross-platform.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="closed-arcs">
+  <h2>5. Closed engineering arcs</h2>
+  <p>Two multi-loop engineering arcs closed cleanly. Each demonstrates that named technical debt + a time-boxed restoration plan works in practice.</p>
+
+  <h3>ADR-2026-05-16-001: dlopen restoration (five loops, three steps)</h3>
+  <p>
+    The MVP supervisor took a deliberate deviation from the runtime spec: it linked per-tenant node crates as Cargo path-deps rather than loading them via <code>dlopen</code>. The trade-off: simpler v1, no hot-swap capability. The ADR named the deviation, time-boxed the restoration to three engineering loops, and committed to closure.
+  </p>
+  <p>
+    Closed at loop 2026-05-13-1022. Step 1 (AE template extension to add the <code>nanofab_node_process</code> C-ABI symbol) landed 2026-06-06. Step 2 (supervisor swap to <code>libloading::Library</code> with a feature-gated static-linking fallback) landed 2026-05-11-2153. Step 3 (hot-swap correctness test against two distinct plugin libraries) landed 2026-05-13-1022 with one mid-arc planning re-shape (the third-consecutive slip resolved via a split into AE-only + resink-core-only sub-deliverables). The runtime spec&rsquo;s hot-swap property is now verified at the supervisor&rsquo;s production load path.
+  </p>
+
+  <h3>ADR-2026-05-09-001: bottom-up flow (17 tasks, three bundles)</h3>
+  <p>
+    Our internal operations process (the &ldquo;org-os&rdquo;) was scaffolded over three loops as 17 named tasks: Bundle A (rituals foundation, 5 tasks, 2026-05-10); Bundle B (executive loop + team-intake + retro shapes, 7 tasks, 2026-05-23); Bundle C (roles + walks + README, 5 tasks, 2026-05-30). Full discharge of the original plan. The org-os process is now self-describing &mdash; the docs that explain how we operate are themselves authored under the process they describe.
+  </p>
+</section>
+
+<section id="honest-deferrals">
+  <h2>6. Honest deferrals</h2>
+  <p>What the system does not yet do, named explicitly so the boundary is clear.</p>
+
+  <ul>
+    <li>
+      <strong>Real Kafka / event-stream ingestion.</strong> The supervisor reads parquet event-source files; the Kafka contract is specified but the consumer code does not ship.
+    </li>
+    <li>
+      <strong>Persistent state backend.</strong> SCD2 state is held in-process per supervisor instance; the path to a real KV (Redis / DynamoDB / similar) is named but not implemented.
+    </li>
+    <li>
+      <strong>Multi-tenant supervisor sharing.</strong> One supervisor process per tenant today; cross-tenant supervisor sharing is on the roadmap, not the codebase.
+    </li>
+    <li>
+      <strong>Cross-swap state observability.</strong> The hot-swap test (closed above) verifies the load + unload + reload cycle through the production code path. The full DEVIATION.md contract specifies a richer read-back (assert that v2&rsquo;s row-close behavior is observably active after the swap) which requires a supervisor-side NodeCtx bridge &mdash; named as step 3.5 follow-up to the closed ADR. Demand-driven; no specific loop scheduled.
+    </li>
+    <li>
+      <strong>Sim-farm Modes B and C.</strong> Mode A (file-vs-file diff) is shipped; Mode B (streaming Rust differ) and Mode C (sidecar comparison) are spec&rsquo;d but not implemented.
+    </li>
+    <li>
+      <strong>Customer-facing UI.</strong> The system is exercised via CLI + Makefile + a power-user binary. A web UI is not in tree.
+    </li>
+    <li>
+      <strong>Branch protection / required-CI on the private engineering remote.</strong> Helm CI runs on every PR; making the helm gate a required check requires a paid GitHub plan (free plan blocks branch protection on private repos). Tracked as a contributor-count-driven decision.
+    </li>
+    <li>
+      <strong>Cargo CI cross-repo step.</strong> The supervisor&rsquo;s codegen path-deps depend on the marketplace repo as a sibling; CI clone needs a deploy key, scoped PAT, or in-repo test fixtures. Three private-compatible options documented; no public-repo conversion required.
+    </li>
+  </ul>
+
+  <blockquote class="callout">
+    <strong>Note on honesty.</strong> Every deferral above corresponds to a named follow-up in our internal artifacts (ADRs, retros, exec summaries). We surface them here because hidden deferrals turn into hidden surprises; the engineering trade-offs are clearer when they&rsquo;re visible.
+  </blockquote>
+</section>
+
+<section id="read-further">
+  <h2>7. How to read further</h2>
+  <ul>
+    <li><strong>Live walkthrough (companion to this report).</strong> <a href="../specs/2026-05-13-resink-ai-walkthrough.html">A reader-followable narrative</a> &mdash; what we do, how to run it yourself, where every component lives. Sized to a 30-minute review.</li>
+    <li><strong>Architecture &amp; design specs.</strong> <code>docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md</code> (per-tenant compute), <code>...nanofab-training-pipeline-design.md</code> (orchestrator + codegen), <code>...nanofab-serving-deployment-design.md</code> (multi-tenant operations).</li>
+    <li><strong>Component documentation.</strong> <code>repos/resink-ai/resink-core/docs/{architecture,concepts,user-guide,module-catalog}.md</code> &mdash; internal-engineering documentation.</li>
+    <li><strong>Engineering decisions.</strong> <a href="../decisions/">All ADRs</a>, especially <a href="../decisions/2026-05-16-001-abi-option-a-mvp-deviation.html">ADR-2026-05-16-001</a> (the just-closed dlopen restoration arc) and <a href="../decisions/2026-05-10-001-nanofab-runtime-is-rust.html">ADR-2026-05-10-001</a> (Rust runtime decision).</li>
+    <li><strong>Loop history.</strong> <a href="../loops/">Per-loop briefs, exec summaries, and retros</a> &mdash; every two-week-equivalent slice of work, with the same evidence-citation discipline as this report.</li>
+    <li><strong>Most recent capability snapshot.</strong> The 2026-05-30 <a href="2026-05-30-resink-core-capabilities.html">resink-core-only capabilities report</a> &mdash; technical-reviewer-shaped predecessor of this document; scoped to the per-tenant runtime.</li>
+  </ul>
+</section>
+
+<footer>
+  Generated by the board for loop 2026-05-13-1303. Single-file HTML, inline CSS, no JavaScript, no external assets. The companion narrative walkthrough is at <code>docs/superpowers/specs/2026-05-13-resink-ai-walkthrough.md</code>. Companion to this report&rsquo;s technical predecessor: <code>board/reports/2026-05-30-resink-core-capabilities.html</code>.
+</footer>
+
+</body>
+</html>
