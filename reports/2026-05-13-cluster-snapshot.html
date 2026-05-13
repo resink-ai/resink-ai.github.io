@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Cluster snapshot — kubernetes-admin@kubernetes</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 24px; color: #1c1c1c; background: #fafafa; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 16px; margin: 24px 0 8px; padding-bottom: 4px; border-bottom: 1px solid #ddd; }
+.fingerprint { color: #555; font-size: 13px; margin-bottom: 8px; }
+.fingerprint code { background: #f0f0f0; padding: 1px 4px; border-radius: 3px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid #eee; vertical-align: top; }
+th { background: #f6f6f6; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: #555; }
+tr:hover { background: #fbfbfb; }
+.ns { font-weight: 600; color: #444; background: #f3f3f3 !important; }
+.ok { color: #207520; }
+.warn { color: #b07300; }
+.err { color: #b50e0e; font-weight: 600; }
+.mono { font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace; font-size: 12px; }
+.empty { color: #888; font-style: italic; padding: 12px; }
+.summary-bar { display: flex; gap: 16px; flex-wrap: wrap; margin: 12px 0; }
+.summary-bar .pill { background: #fff; border: 1px solid #ddd; border-radius: 999px; padding: 4px 12px; font-size: 12px; }
+.summary-bar .pill strong { color: #1c1c1c; margin-right: 4px; }
+</style>
+</head><body>
+<h1>Cluster snapshot</h1>
+<div class="fingerprint">Context <code>kubernetes-admin@kubernetes</code> · snapshot <code>2026-05-13T16:09:32Z</code> · kubectl <code>v1.33.9</code> · kubelet v1.33.11</div>
+<div class="summary-bar">
+<span class="pill"><strong>4</strong> nodes</span>
+<span class="pill"><strong>21</strong> pods</span>
+<span class="pill"><strong>0</strong> warning events</span>
+<span class="pill"><strong class="ok">21</strong> Running</span>
+</div>
+<h2>Nodes</h2>
+<table><thead><tr>
+<th>Name</th>
+<th>Status</th>
+<th>Roles</th>
+<th>Age</th>
+<th>Version</th>
+<th>Internal IP</th>
+<th>OS</th>
+</tr></thead><tbody>
+<tr>
+<td class="mono">k8s-0</td>
+<td class="ok">Ready</td>
+<td>control-plane</td>
+<td>8d</td>
+<td class="mono">v1.33.11</td>
+<td class="mono">192.168.1.162</td>
+<td>Ubuntu 24.04.4 LTS</td>
+</tr>
+<tr>
+<td class="mono">k8s-1</td>
+<td class="ok">Ready</td>
+<td>&lt;none&gt;</td>
+<td>8d</td>
+<td class="mono">v1.33.11</td>
+<td class="mono">192.168.1.160</td>
+<td>Ubuntu 24.04.4 LTS</td>
+</tr>
+<tr>
+<td class="mono">k8s-2</td>
+<td class="ok">Ready</td>
+<td>&lt;none&gt;</td>
+<td>8d</td>
+<td class="mono">v1.33.11</td>
+<td class="mono">192.168.1.163</td>
+<td>Ubuntu 24.04.4 LTS</td>
+</tr>
+<tr>
+<td class="mono">k8s-3</td>
+<td class="ok">Ready</td>
+<td>&lt;none&gt;</td>
+<td>8d</td>
+<td class="mono">v1.33.11</td>
+<td class="mono">192.168.1.164</td>
+<td>Ubuntu 24.04.4 LTS</td>
+</tr>
+</tbody></table>
+<h2>Pods</h2>
+<table><thead><tr>
+<th>Namespace</th>
+<th>Name</th>
+<th>Ready</th>
+<th>Status</th>
+<th>Restarts</th>
+<th>Age</th>
+<th>Image</th>
+<th>Node</th>
+</tr></thead><tbody>
+<tr class="ns"><td colspan="8">kube-system</td></tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">calico-kube-controllers-5947598c79-prdfb</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">docker.io/calico/kube-controllers:v3.28.1</td>
+<td class="mono">k8s-0</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">calico-node-f2vsm</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">docker.io/calico/node:v3.28.1</td>
+<td class="mono">k8s-3</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">calico-node-p7b2k</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">docker.io/calico/node:v3.28.1</td>
+<td class="mono">k8s-1</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">calico-node-qdfjd</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">docker.io/calico/node:v3.28.1</td>
+<td class="mono">k8s-2</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">calico-node-ssgbj</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">docker.io/calico/node:v3.28.1</td>
+<td class="mono">k8s-0</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">coredns-674b8bbfcf-2f46v</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">registry.k8s.io/coredns/coredns:v1.12.0</td>
+<td class="mono">k8s-0</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">coredns-674b8bbfcf-mpwms</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">registry.k8s.io/coredns/coredns:v1.12.0</td>
+<td class="mono">k8s-0</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">etcd-k8s-0</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">registry.k8s.io/etcd:3.5.24-0</td>
+<td class="mono">k8s-0</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">kube-apiserver-k8s-0</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">registry.k8s.io/kube-apiserver:v1.33.0</td>
+<td class="mono">k8s-0</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">kube-controller-manager-k8s-0</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">registry.k8s.io/kube-controller-manager:v1.33.0</td>
+<td class="mono">k8s-0</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">kube-proxy-6q59s</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">registry.k8s.io/kube-proxy:v1.33.0</td>
+<td class="mono">k8s-2</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">kube-proxy-cgwjk</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">registry.k8s.io/kube-proxy:v1.33.0</td>
+<td class="mono">k8s-3</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">kube-proxy-n7zrs</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">registry.k8s.io/kube-proxy:v1.33.0</td>
+<td class="mono">k8s-1</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">kube-proxy-xldgd</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">registry.k8s.io/kube-proxy:v1.33.0</td>
+<td class="mono">k8s-0</td>
+</tr>
+<tr>
+<td>kube-system</td>
+<td class="mono">kube-scheduler-k8s-0</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">registry.k8s.io/kube-scheduler:v1.33.0</td>
+<td class="mono">k8s-0</td>
+</tr>
+<tr class="ns"><td colspan="8">local-path-storage</td></tr>
+<tr>
+<td>local-path-storage</td>
+<td class="mono">local-path-provisioner-74f9666bc9-xttj9</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">rancher/local-path-provisioner:v0.0.31</td>
+<td class="mono">k8s-1</td>
+</tr>
+<tr class="ns"><td colspan="8">metallb-system</td></tr>
+<tr>
+<td>metallb-system</td>
+<td class="mono">controller-865d8c9c64-6lg98</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">quay.io/metallb/controller:v0.14.8</td>
+<td class="mono">k8s-1</td>
+</tr>
+<tr>
+<td>metallb-system</td>
+<td class="mono">speaker-bsfdh</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">quay.io/metallb/speaker:v0.14.8</td>
+<td class="mono">k8s-2</td>
+</tr>
+<tr>
+<td>metallb-system</td>
+<td class="mono">speaker-bwfsl</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">quay.io/metallb/speaker:v0.14.8</td>
+<td class="mono">k8s-1</td>
+</tr>
+<tr>
+<td>metallb-system</td>
+<td class="mono">speaker-cjhh7</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">quay.io/metallb/speaker:v0.14.8</td>
+<td class="mono">k8s-3</td>
+</tr>
+<tr>
+<td>metallb-system</td>
+<td class="mono">speaker-t5w6p</td>
+<td>1/1</td>
+<td class="ok">Running</td>
+<td>0</td>
+<td>8d</td>
+<td class="mono">quay.io/metallb/speaker:v0.14.8</td>
+<td class="mono">k8s-0</td>
+</tr>
+</tbody></table>
+<h2>Recent warning events (latest 50)</h2>
+<table><thead><tr>
+<th>Namespace</th>
+<th>Last seen</th>
+<th>Reason</th>
+<th>Object</th>
+<th>Message</th>
+</tr></thead><tbody>
+<tr><td colspan="5" class="empty">no warning events in the last reporting window</td></tr>
+</tbody></table>
+</body></html>
