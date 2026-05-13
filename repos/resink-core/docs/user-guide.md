@@ -152,6 +152,123 @@ kubectl delete namespace nanofab
 
 **No image registry yet:** the per-node `ctr import` distribution is the current bootstrap path. A future home-cluster loop adds an in-cluster registry (per the home-cluster roadmap Phase 1); until then, every image rebuild re-distributes.
 
+## Power-user CLI (`resink`)
+
+A Rust binary that gives operators a friendly read-only view of the local filesystem workspace produced by `make mvp-loop`. Sub-project #5 (Product UX) per the spec at `docs/superpowers/specs/2026-05-10-nanofab-product-ux-design.md` § 3.2. Shipped v1 at loop 2026-05-12-1826.
+
+### Install
+
+```bash
+cargo install --path crates/resink-cli
+# binary lands at $CARGO_HOME/bin/resink (typically ~/.cargo/bin/resink)
+```
+
+Or for in-tree use without install:
+
+```bash
+cargo build --release -p resink-cli
+# binary at target/release/resink
+```
+
+### Workspace resolution
+
+`resink` needs to locate a workspace directory (the one `make mvp-loop` writes to: `synthetic_tenants/closed_loop_v0/workspace/`). Resolution order:
+
+1. Explicit `--workspace <path>` flag.
+2. `$RESINK_WORKSPACE` env var.
+3. Walk up from cwd looking for `synthetic_tenants/<tenant>/workspace/`.
+4. Error with a helpful message naming the alternatives.
+
+### Subcommands (v1)
+
+All v1 commands are read-only.
+
+#### `resink workspace status`
+
+Prints the workspace path, its git revision (if available), and clean/dirty status, plus a checklist of expected artifacts.
+
+```
+$ resink workspace status
+workspace: /.../synthetic_tenants/closed_loop_v0/workspace
+git rev: f8b5f5da994f723d739e080434ebb894bb0ff3f8
+status: clean
+
+artifacts:
+  ✓ manifest.yaml
+  ✓ verdict.json
+  ✓ trace.jsonl
+  ✓ dim_user_output.parquet
+  ✓ dim_account_output.parquet
+```
+
+#### `resink verdict latest [--json]`
+
+Pretty-prints the latest `verdict.json`. `--json` outputs the raw JSON for `jq`-friendly piping.
+
+```
+$ resink verdict latest
+overall: PASS
+engine_version: 0.3.0
+
+per-dim:
+  PASS dim_user             mismatches=0
+  PASS dim_account          mismatches=0
+```
+
+#### `resink manifest get [--json]`
+
+Pretty-prints `manifest.yaml`. `--json` converts to JSON.
+
+```
+$ resink manifest get
+version: 1
+shard_count: 4
+dags:
+  - name: closed_loop_dag
+    nodes:
+      - id: dim_user_scd2
+        table: dim_user
+        pk: [user_id]
+        ...
+```
+
+#### `resink table head <dim> [--limit N]`
+
+Prints the first N rows of a dim-table parquet (default limit: 10). Supported dims in v1: `dim_user`, `dim_account`.
+
+```
+$ resink table head dim_user --limit 3
++---------+-------------------+------------+---------+---------------+---------------+
+| country | email             | is_current | user_id | valid_from    | valid_to      |
++---------+-------------------+------------+---------+---------------+---------------+
+| US      | alice@example.com | false      | u-001   | 1715300000000 | 1715700000000 |
+| CA      | alice@example.com | true       | u-001   | 1715700000000 |               |
+| GB      | bob@example.com   | false      | u-002   | 1715300000000 | 1715400000000 |
++---------+-------------------+------------+---------+---------------+---------------+
+
+(3 rows shown)
+```
+
+#### `resink trace tail [--lines N] [--raw]`
+
+Prints the last N lines of `trace.jsonl` (default: 20), pretty-formatted JSON unless `--raw`.
+
+```
+$ resink trace tail --lines 1
+{
+  "after": { ... },
+  "before": null,
+  "event_id": "fact_account_open:a-015:...",
+  "key": { "account_id": "a-015" },
+  "node_id": "dim_account_scd2_maintainer",
+  ...
+}
+```
+
+### Out of scope for v1
+
+Write commands (`resink retrain ...`, `resink hot-swap rollback`), remote commands + OAuth, Homebrew tap distribution, additional dims beyond `dim_user`/`dim_account` — all future-loop work. v1 ships the smallest scope that gives a real user experience without requiring a backend API.
+
 ## Environment variables
 
 - **`CLAUDE_DISPATCH`** — defaults to unset. When `CLAUDE_DISPATCH=1`, the Makefile's `ORCH_FLAGS` toggles from `--skip-dispatch` to empty, which makes the orchestrator route codegen through `claude` CLI (LLM-driven dispatch via AE's `nanofab:codegen-scd2-node` skill) instead of the deterministic in-process slot-fill. Note: the live env var is `CLAUDE_DISPATCH=1` to **enable** dispatch; there is no `CLAUDE_SKIP_DISPATCH` env var (the negation lives on the orchestrator CLI as `--skip-dispatch`, which the Makefile passes by default).

@@ -50,6 +50,7 @@ Uptime, SLOs, incident response. As of 2026-05-10, SRE also owns the **operation
 
 ## Executive summaries
 
+- [2026-05-12-1826](../../loops/2026-05-12-1826/teams/platform-sre-exec-summary.html)
 - [2026-05-12-1254](../../loops/2026-05-12-1254/teams/platform-sre-exec-summary.html)
 - [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-sre-exec-summary.html)
 - [2026-05-11-1631](../../loops/2026-05-11-1631/teams/platform-sre-exec-summary.html)
@@ -61,6 +62,7 @@ Uptime, SLOs, incident response. As of 2026-05-10, SRE also owns the **operation
 
 ## OKRs
 
+- [2026-05-12-1826](../../loops/2026-05-12-1826/teams/platform-sre-okr.html)
 - [2026-05-12-1254](../../loops/2026-05-12-1254/teams/platform-sre-okr.html)
 - [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-sre-okr.html)
 - [2026-05-11-1113](../../loops/2026-05-11-1113/teams/platform-sre-okr.html)

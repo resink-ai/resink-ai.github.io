@@ -8,6 +8,7 @@ Chronological list of loops. Each loop links to its CEO brief, executive summary
 
 | Date | Headline |
 |---|---|
+| [2026-05-12-1826](2026-05-12-1826/) | **Headline.** First user-facing surface shipped — the `resink` power-user CLI v1. New Rust crate `crates/resink-cli/` in the resink-core submodule; 5 read-only subcommands (`workspace status`, `verdict latest`, `manifest get`, `table head <dim>`, `trace tail`); pretty-prints f... |
 | [2026-05-12-1254](2026-05-12-1254/) | **Headline.** The 8-loop saga closes. `repos/resink-ai/resink-core/` is now a real git submodule at `git@github.com:resink-ai/resink-core.git` (master HEAD `f8b5f5d`, 7-commit linear history split from newbase's 19 in-tree commits via `git subtree split`). Parent newbase's `.g... |
 | [2026-05-12-0645](2026-05-12-0645/) | **Headline.** Resink.ai's first product workload shipped to real Kubernetes infrastructure. `nanofab-supervisor:0.3.0` built cross-arch (linux/amd64 from darwin/arm64), distributed to all 4 home-cluster nodes via `sudo ctr -n=k8s.io images import`, installed via Helm against `... |
 | [2026-05-11-2153](2026-05-11-2153/) | **Headline.** This loop closed two multi-loop deviations (ADR-2026-05-16-001 step 2 dlopen swap full execution; the first end-to-end cross-team request lifecycle), shipped the company's first AI-observability surface (GitBook publishing pipeline at `repos/resink-ai/resink-ai.g... |
