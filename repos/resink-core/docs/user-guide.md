@@ -285,5 +285,29 @@ Write commands (`resink retrain ...`, `resink hot-swap rollback`), remote comman
 - **`claude` CLI authentication errors (only with `CLAUDE_DISPATCH=1`).** If you see `Not logged in` or auth-related stderr from `claude`, the dispatch path can't reach Anthropic's API. Two fixes: (a) set `ANTHROPIC_API_KEY` in your shell; or (b) run `claude` interactively once to populate the OAuth keychain. The default `--skip-dispatch` path bypasses this entirely.
 - **Supervisor terminal failure / panic.** See the SRE runbook at `teams/platform/sre/runbooks/nanofab-supervisor-failed-validation.md` (in parent newbase). The supervisor uses `panic::catch_unwind` and emits the panic message into `trace.jsonl`; the runbook is the triage entry-point for any non-success terminal state.
 
+## Continuous integration
+
+GitHub Actions workflow at `.github/workflows/ci.yml` (added 2026-05-13, loop `2026-05-13-1022`) runs on every PR and every push to master.
+
+**This loop's scope: helm gates only.** The cargo job is deferred until cross-repo marketplace access is configured (see "Scope follow-up" below). Locally, cargo build/test and the hot-swap correctness test run against the materialised workspace produced by `make mvp-loop` / `make orchestrate`.
+
+- **helm** — `helm lint --strict` + `helm template` against `deploy/charts/nanofab-supervisor` with `values/home-cluster-mvp.yaml`. (`helm install --dry-run` is not run in CI because it requires a reachable kubernetes API server; operators run it locally against the home cluster before deploying.)
+
+Branch protection on master will be configured via `gh api` to require the helm job to pass before merge.
+
+If the helm job fails:
+
+- **helm lint failure.** Most common cause: `values.schema.json` schema enforcement (the chart's `tenant` field has `minLength: 1`; the CI passes `-f values/home-cluster-mvp.yaml` so the lint sees the actual tenant value). To reproduce locally: `helm lint --strict -f deploy/charts/nanofab-supervisor/values/home-cluster-mvp.yaml deploy/charts/nanofab-supervisor`.
+- **helm template failure.** Typically a template-render bug (a `{{ .Values.* }}` reference is missing or malformed). Reproduce locally with the same `-f` arguments the workflow uses.
+
+### Scope follow-up (cargo CI job)
+
+The supervisor's `Cargo.toml` has path-deps on codegen-output crates under `synthetic_tenants/closed_loop_v0/workspace/nodes/` which are materialised at `make orchestrate` time. The orchestrator's in-process slot-fill reads templates from `../resink-marketplace/plugins/nanofab/` — a private sibling repo. CI's checkout of resink-core alone can't `git clone` it without a deploy-key or PAT secret configured. Cargo CI lands in a follow-up loop after either:
+
+1. The resink-marketplace repo is made public, OR
+2. A deploy-key / PAT is configured on the resink-core remote enabling cross-repo clone.
+
+Until then, all cargo build/test verification (including the `hot_swap_correctness` integration test) is operator-driven locally. See the team OKR for the local verification recipes.
+
 <!-- rit-docs-init:end -->
 {% endraw %}
