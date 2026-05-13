@@ -18,7 +18,7 @@ This is an AI native realtime data processing engine. It consumes facts data and
 
 ## Deep dive
 
-- [Latest loop (2026-05-13-1303)](loops/2026-05-13-1303/)
+- [Latest loop (2026-05-13-1422)](loops/2026-05-13-1422/)
 - [All loops](loops/)
 - [Decisions (ADRs)](decisions/)
 - [Actions](actions/)
