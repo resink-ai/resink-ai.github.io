@@ -2,7 +2,7 @@
 layout: default
 title: "ADR 2026-05-12-001: reframe vs act playbook"
 date: 2026-05-12
-status: draft
+status: active
 type: adr
 owner: board
 ---
@@ -11,7 +11,7 @@ owner: board
   type: adr
   owner: board
   date: 2026-05-12
-  status: draft
+  status: active
   decision: Author an org-os playbook codifying the "reframe-vs-act" pattern for multi-loop blockers whose framing itself may be wrong.
   links: parent: board/retros/2026-05-12-0645-ceo-retro.md
 -->
@@ -19,7 +19,7 @@ owner: board
 
 ## Status
 
-Draft as of loop 2026-05-12-0645 retro § P3. Ratification target: next loop (one-loop-out, sister precedent to ADR-2026-06-06-001's draft-and-ratify cycle).
+**Ratified at loop 2026-05-13-0056** alongside the org-os ratification bundle. Drafted at loop 2026-05-12-0645 retro § P3; one-loop-out ratification per the bundled-org-os-batch pattern. The mandated edit landed: `org-os/playbooks/reframe-vs-act.md` authored with `type: playbook`, `status: active`.
 
 ## Context
 
