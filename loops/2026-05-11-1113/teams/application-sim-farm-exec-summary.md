@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-11-1113
   links: parent: teams/application/sim-farm/okrs/2026-05-11-1113-team-okr.md
 -->
+{% raw %}
+
 # Sim Farm Exec Summary — 2026-05-23
 
 **Headline:** Mode-A diff engine extended to multi-dim (`engine_version: 0.2.0`); 9/9 pytest green; the widened MVP closed-loop verdict reads GREEN via sim-farm's gate. `make mvp-loop`'s `workspace/verdict.json` reads `overall_pass: true`, both per-dim `pass: true`, both `mismatch_count: 0`. One known engine limitation surfaced during resink-core's Wave-2 build and is named below as a retro candidate.
@@ -77,3 +79,4 @@ OKR key results, end-of-loop state:
 - **KR2.2** (post-run procedure note documenting forced-red-path for future regression): **NOT MET** — depends on KR2.1; no observation to record.
 
 **Loop adherence: mixed.** O1 (the new objective) closed clean — 6/6 KRs PASS, multi-dim Mode-A widening fully shipped, contract migration landed in the same wave as the ADR. O2 (the carryover from 2026-05-16) did **not** close — 0/2 KRs met; the forced-red-path is now a two-loop carryover and the single-dim-fallback path is the prudent next move. Net: the new objective shipped clean and the headline (multi-dim Mode-A green) is true; the unfinished business is the same unfinished business as last loop, plus the newly-surfaced schema-aware-join-columns architectural debt.
+{% endraw %}

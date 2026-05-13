@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: "AE's Bundle B (7 org-os rituals tasks) becomes the hard floor for loop 2026-05-11-1113; AE refuses other loop-floor work until Bundle B ships or is explicitly blocked"
 -->
+{% raw %}
+
 # ADR 2026-05-16-002: Bundle B Hard Floor at Loop 2026-05-11-1113
 
 ## Context
@@ -54,3 +56,4 @@ Coordination: ADR-2026-05-10-003 (verify-state-claims) also ratifies this loop a
 - Related ADRs: [2026-05-09-001-org-os-bottom-up-flow](2026-05-09-001-org-os-bottom-up-flow.md) (the 17-task plan B implements); [2026-05-10-003-verify-state-claims-at-ritual-transitions](2026-05-10-003-verify-state-claims-at-ritual-transitions.md) (sibling 2026-05-23 ritual edit).
 - AE's status carrying Bundle B context: [`teams/platform/agent-engineering/status.md`](../../teams/platform/agent-engineering/status.md).
 - AE's 2026-05-16 exec summary flagging the pattern: [`teams/platform/agent-engineering/exec-summaries/2026-05-11-0958.md`](../../teams/platform/agent-engineering/exec-summaries/2026-05-11-0958.md).
+{% endraw %}

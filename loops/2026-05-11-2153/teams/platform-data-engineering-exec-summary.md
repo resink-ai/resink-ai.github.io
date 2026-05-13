@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md
 -->
+{% raw %}
+
 # Data Engineering Exec Summary — 2026-06-13
 
 **Headline.** First end-to-end cross-team request lifecycle fulfilled on the org-os tree — `teams/platform/data-engineering/requests/2026-06-06-001-schema-json-shape-ack.md` flipped `status: open → status: fulfilled` after one loop's deferral, with `links.fulfilled_by` populated and the new `deferred_to_loop: 2026-06-13` field added per ADR-2026-06-06-002 (ratified mid-loop today). The fulfillment artifact is the new canonical convention at `teams/platform/data-engineering/conventions/dim-schema-json.md` (`type: convention`, not provisional — the `convention` type was admitted at 2026-05-30; no `type: rfc` workaround needed) — sister to `conventions/duckdb.md` in shape and depth. The convention is also the **second contract/convention to honor ADR-2026-05-16-003's `Verified-against-environment` discipline** (after sim-farm's 2026-06-06 verdict-contract update), establishing the pattern for DE-owned `conventions/` files going forward. Opportunistic Kafka §2.1 tag flip also landed (clean standalone XS edit, not piggybacked on a board gitbook touch as originally framed). All five KRs done; tenant-isolation invariant held.
@@ -52,3 +54,4 @@ owner: teams/platform/data-engineering
 ## Tenant-isolation invariant
 
 **Held.** Dry-run command: `grep -nrE "(resink|nanofab|acme\.ai)" /Users/shijinglu/Workspace/resink.ai/newbase/org-os/`. Result: one match — `org-os/conventions.md:107: placeholder names like 'acme.ai'.` — pre-existing placeholder. No DE writes leaked under `org-os/`. All edits confined to the DE tenant tree per KR1.5.
+{% endraw %}

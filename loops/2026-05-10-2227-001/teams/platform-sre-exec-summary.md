@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-10-2227-001
   links: parent: teams/platform/sre/okrs/2026-05-10-2227-001-team-okr.md
 -->
+{% raw %}
+
 # SRE Exec Summary — 2026-05-09
 
 ## What we shipped
@@ -39,3 +41,4 @@ owner: teams/platform/sre
 
 - KR1.1 (first runbook draft): deferred to next loop.
 - KR1.2 (status.md cross-link): deferred to next loop.
+{% endraw %}

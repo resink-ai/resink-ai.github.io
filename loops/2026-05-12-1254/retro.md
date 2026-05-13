@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-12-1254
   links: parent: board/exec-summaries/2026-05-12-1254.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-05-12-1254
 
 ## What worked
@@ -101,3 +103,4 @@ Actually — I'm drafting this ADR placeholder *this* loop so the next loop's br
 ## Tenant-isolation dry-run
 
 `org-os/playbooks/extract-org-os.md` dry-run: **passed**. Final tenant-isolation grep: `grep -nrE "(resink|nanofab|home-cluster|acme\.ai)" org-os/` returns only the canonical `acme.ai` placeholder at `org-os/conventions.md:121`. **Second consecutive loop with zero `org-os/` writes by any team.** Pass.
+{% endraw %}

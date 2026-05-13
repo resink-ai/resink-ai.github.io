@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-11-0958
   links: parent: teams/platform/agent-engineering/okrs/2026-05-11-0958-team-okr.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — 2026-05-16
 
 ## Headline
@@ -78,3 +80,4 @@ The skill was dispatched via the real `claude` CLI by resink-core's orchestrator
 - **KR1.6** (tenant-isolation invariant holds; dry-run recorded): **MET.** `grep -rEi "resink|nanofab|acme\.ai" /Users/shijinglu/Workspace/resink.ai/newbase/org-os/` returned exactly one pre-existing match (`org-os/conventions.md` placeholder block); zero new matches introduced this loop. Zero `org-os/` edits this loop.
 - **KR2.1** (charter "Owned products" gains nanofab line; `date:` bumped): **MET.** Fourth bullet added; `date: 2026-05-16`.
 - **End-to-end MVP closed-loop verdict (downstream consumer signal):** **GREEN.** `repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0/workspace/verdict.json` → `pass: true, mismatch_count: 0`.
+{% endraw %}

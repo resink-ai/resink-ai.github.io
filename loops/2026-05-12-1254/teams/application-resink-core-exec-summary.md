@@ -17,6 +17,8 @@ owner: teams/application/resink-core
   links: parent: board/okrs/2026-05-12-1254-ceo-brief.md
   team_okr: teams/application/resink-core/okrs/2026-05-12-1254-team-okr.md
 -->
+{% raw %}
+
 # Resink Core Exec Summary — Loop 2026-05-12-1254
 
 **Headline.** The 8-loop saga ends. `repos/resink-ai/resink-core/` is now a real git submodule pointing at `git@github.com:resink-ai/resink-core.git` (master HEAD `f8b5f5d`). `git subtree split --prefix=repos/resink-ai/resink-core master` walked 19 newbase commits and produced a clean 7-commit linear history of resink-core-only changes, pushed to the new remote as `master`. Parent newbase index removed the in-tree directory and re-attached it via `git submodule add`. Working-tree integrity verified — only the gitignored runtime artifacts (fixtures parquet, workspace directory) differed; restored those for operator continuity. `.gitmodules` gained a fourth entry. No path rewrites required across the 75 parent files that reference the submodule's path — they all resolve identically.
@@ -59,3 +61,4 @@ owner: teams/application/resink-core
 ## Tenant-isolation invariant
 
 Held throughout. Zero `org-os/` writes by resink-core this loop. All edits landed under `repos/resink-ai/resink-core/` (no parent-relative `org-os/` paths touched), parent newbase index, `.gitmodules`, `board/reports/`, and `teams/application/resink-core/`. Final dry-run clean.
+{% endraw %}

@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-11-1302
   links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
+{% raw %}
+
 # SRE Exec Summary — 2026-05-30 (paused team — review-ack)
 
 **Loop status:** paused per CEO brief 2026-05-30. No build deliverables this loop; single light "review the resink-core docs PR" ask.
@@ -47,3 +49,4 @@ No corrections needed. The runbook's MVP scope (7 named failure-mode subsections
 ## Asks
 
 None this loop. The `type: runbook` ADR carryover closes via the board's ratification wave (no SRE action required beyond confirming the frontmatter flip lands when the migration runs).
+{% endraw %}

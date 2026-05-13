@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-11-1302
   links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core OKR — 2026-05-30
 
 ## Context
@@ -116,3 +118,4 @@ Resink-core-specific additions (explicitly NOT in this loop):
 - **No new ADRs from resink-core.** The 2026-05-30 ADR batch is board-owned (ratifications of three already-drafted ADRs); we have no proposal to add this loop.
 - **No `teams/application/resink-core/resink-core/` symlink cleanup** — non-load-bearing; flagged for retro consideration carried since 2026-05-23.
 - **No update to `repos/resink-ai/resink-core/README.md`** beyond what the `rit-docs-init` skill writes; the existing README content is preserved verbatim outside the skill's auto-generated fences.
+{% endraw %}

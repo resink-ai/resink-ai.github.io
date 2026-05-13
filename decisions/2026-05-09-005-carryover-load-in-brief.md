@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: Every CEO brief includes a "Carryover load by team" tally so brief commitments visibly account for deferred work entering the loop.
 -->
+{% raw %}
+
 # ADR 2026-05-09-005: Carryover-load tally in the CEO brief
 
 ## Context
@@ -43,3 +45,4 @@ Every CEO brief MUST include a "Carryover load by team" subsection inside its Co
 - Ritual updated: [org-os/rituals/ceo-brief.md](../../org-os/rituals/ceo-brief.md)
 - Worked example: [board/okrs/2026-05-11-1113-ceo-brief.md](../okrs/2026-05-23-ceo-brief.md) § "Carryover load by team"
 - Related ADRs: [2026-05-08-001-frontmatter-validation](2026-05-08-001-frontmatter-validation.md), [2026-05-09-006-org-os-change-routing](2026-05-09-006-org-os-change-routing.md)
+{% endraw %}

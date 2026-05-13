@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-12-1254
   links: parent: board/okrs/2026-05-12-1254-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps OKR — 2026-05-12 (loop 2026-05-12-1254)
 
 ## Context
@@ -53,3 +55,4 @@ Why it matters: The chart is the most direct live consumer of the resink-core wo
 - Job-kind chart variant (last loop's P2; pickup in a future deployment-focused loop).
 - Image registry (home-cluster roadmap Phase 1; deferred).
 - pyinfra wrapper at `services/nanofab_supervisor/` (deferred).
+{% endraw %}

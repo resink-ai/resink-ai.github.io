@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-11-1302
   links: parent: teams/application/resink-core/okrs/2026-05-11-1302-team-okr.md
 -->
+{% raw %}
+
 # Resink Core Exec Summary — 2026-05-30
 
 **Headline: `rit-docs-init` scaffold + bodies shipped for `repos/resink-ai/resink-core/`.** A documentation-only loop: zero code edits, full docs surface. Landed: `CLAUDE.md` (76 lines, well under the 500-line cap) at the repo root, `AGENTS.md` as a relative symlink to `CLAUDE.md` (`readlink AGENTS.md` → `CLAUDE.md`), and four `docs/` files — `architecture.md` (1747 words across 5 sections), `concepts.md` (1261 words across 14 vocabulary terms with source-file citations), `user-guide.md` (1240 words covering prereqs / steps 1–7 / clean / env vars / troubleshooting), `module-catalog.md` (745 words across 7 module entries). All four `docs/` files carry `status: active` frontmatter and ≥200 words of non-TODO body per section per KR1.2–KR1.5. Companion cross-loop closure: the HTML capabilities report at `board/reports/2026-05-30-resink-core-capabilities.html` (18KB, board-authored as a deliverable on top of our docs surface — not a resink-core KR, cited here as cross-loop closure that this loop's docs surface enabled). All shipped items are `on-branch: master` since the loop has not yet merged to canonical integration; ADR-2026-05-10-003 status-claim hygiene observed throughout. O1: 5/6 KRs landed by end-of-build; KR1.6 (4 paused-team review-acks) lands in the exec-summary phase and is tracked below. O2: 1/4 KRs landed in build (KR2.1 + KR2.2 baked into `docs/architecture.md` § "Named deviations" as part of KR1.2); KR2.3 + KR2.4 land here.
@@ -97,3 +99,4 @@ owner: teams/application/resink-core
 - `wc -w repos/resink-ai/resink-core/docs/module-catalog.md` → 745 words
 - Total docs body: 4993 words across 4 files
 - Current branch: `master` (per `git rev-parse --abbrev-ref HEAD`); all shipped items `on-branch: master` since the loop has not yet merged
+{% endraw %}

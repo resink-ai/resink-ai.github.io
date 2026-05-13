@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 > **Build-phase outcome (2026-06-06):**
 > - KR1.4 (5 resink-core hand-off responses absorbed) — ✅ done.
 > - KR1.5 (3 DE Kafka hand-off responses absorbed) — ✅ done.
@@ -113,3 +115,4 @@ Why it matters: The chart has been lint-tested but not actually-tested for two l
 - **From `teams/application/resink-core` (this loop):** ack the 5 hand-off response choices DevOps makes concrete in KR1.4 — Dockerfile ownership at chart-side for MVP, `healthz.enabled=false` for this loop with `loop+1` flip target, SIGTERM best-effort `--timeout 30`, CLI flags primary (env vars deferred), `nodePluginManifestUri` as config-map mount. Filed via `teams/application/resink-core/requests/2026-06-06-handoff-response-ack.md` (one-line each). Acceptable acks: a one-line confirmation in resink-core's 2026-06-06 exec summary, or a counter-proposal that lands in 2026-06-13.
 - **From `teams/platform/data-engineering` (this loop):** ack the 3 Kafka hand-off response choices DevOps makes concrete in KR1.5 — SASL secret-key layout (`kafka-sasl-username` / `kafka-sasl-password`), bootstrap-servers source-of-truth (Helm values), min-3-entries enforcement via `values.schema.json` at `helm install` time. Filed via `teams/platform/data-engineering/requests/2026-06-06-handoff-response-ack.md` (one-line each). DE is paused this loop per the CEO brief; a one-paragraph ack in DE's paused-team format is sufficient.
 - **From `board` (contingent — only if minikube fails):** approval to file a follow-up hand-off to the next loop (2026-06-13) for the specific minikube failure surfaced, with the known-recovery-path text in this OKR's § Risks as the canonical hand-off content. No board action needed if the smoke passes.
+{% endraw %}

@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-12-1826
   links: parent: board/okrs/2026-05-12-1826-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — Loop 2026-05-12-1826 (paused, silent)
 
 **Headline.** Paused this loop. The CLI doesn't touch AE's marketplace or template surface. **Hot-swap correctness test (ADR-2026-05-16-001 step 3) slipped again to loop+4** — second consecutive slip; surfaces in the retro for evaluation. AE awaits scheduling signal in the next CEO brief.
@@ -29,3 +31,4 @@ owner: teams/platform/agent-engineering
 ## Tenant-isolation
 
 Held. Zero writes by AE this loop except this exec summary.
+{% endraw %}

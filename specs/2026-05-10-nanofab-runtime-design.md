@@ -2,6 +2,7 @@
 layout: default
 title: "Spec: 2026-05-10-nanofab-runtime-design"
 ---
+{% raw %}
 # Nanofab Runtime — Design Spec
 
 **Date:** 2026-05-10
@@ -398,3 +399,4 @@ Beyond that, no special test harness — Sim Farm runs the same supervisor binar
 - **ADS:** Application Data Store — high-quality dim/feature tables ready for downstream use.
 - **Sim Farm:** the synthetic-data + diff harness that validates DAG versions before they go live.
 - **`live_version`:** per-tenant pointer in the coordinator that tells the query gateway which KV namespace to read from. Atomic flip = atomic blue/green cutover.
+{% endraw %}

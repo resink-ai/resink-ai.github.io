@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering OKR — 2026-05-09
 
 ## Context
@@ -55,3 +57,4 @@ Why it matters: The plan exists but no team has yet committed to a delivery shap
 
 - Any actual execution of the bottom-up flow tasks (deferred to loop 2026-05-11-0958).
 - New plugin or marketplace work; bootstrap-loop priorities have shifted to the bottom-up flow rollout.
+{% endraw %}

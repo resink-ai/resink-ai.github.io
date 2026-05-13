@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: Decompose the resink.ai product into five named nanofab sub-projects (Runtime, Training Pipeline, Sim Farm, Serving & Deployment, Product UX) and assign team ownership; resink-core stretches to own #1 and #2; sim-farm owns #3; DevOps + SRE split #4; #5 ownership is deferred to a future loop.
 -->
+{% raw %}
+
 # ADR 2026-05-10-002: Nanofab sub-project decomposition and team ownership
 
 ## Context
@@ -73,3 +75,4 @@ The two existing platform teams that are *not* assigned a sub-project — Data E
 - **Superseded ADR:** [2026-05-09-002-streaming-engine-choice](2026-05-09-002-streaming-engine-choice.md) (now `archived`).
 - **Related ADRs:** [2026-05-09-003-deployment-target](2026-05-09-003-deployment-target.md) (minikube — survives the pivot for local dev under #4 work), [2026-05-09-004-onboard-application-team](2026-05-09-004-onboard-application-team.md) (the playbook that will be used when #5's team is stood up).
 - **Loop CEO brief:** [board/okrs/2026-05-10-2227-002-ceo-brief.md](../okrs/2026-05-10-ceo-brief.md).
+{% endraw %}

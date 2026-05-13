@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-10-2227-002
   links: parent: board/okrs/2026-05-10-2227-002-ceo-brief.md
 -->
+{% raw %}
+
 # SRE OKR — 2026-05-10
 
 ## Context
@@ -103,3 +105,4 @@ Why it matters: Per CEO brief [O3 KR3.3](../../../../board/okrs/2026-05-10-2227-
 - Runbooks for failure modes outside the sim-farm seven (e.g., KV cluster failures, Kafka broker loss, Iceberg snapshot replication lag) — those land as separate runbooks in future loops; this loop scopes only the validation-failure class.
 - Wiring alerts to a paging system (no production sub-project #4 deployment yet; DevOps's first slice is Helm-chart-shaped, not full prod).
 - Any work on sub-project #5 (Product UX) operational surfaces — ownership for #5 is deferred per CEO brief.
+{% endraw %}

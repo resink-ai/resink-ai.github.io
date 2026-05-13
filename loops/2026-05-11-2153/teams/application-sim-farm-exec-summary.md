@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm Exec Summary — 2026-06-13 (paused, review-ack)
 
 **Loop status.** Paused per CEO brief 2026-06-13. Single light review-ack ask in the brief covering resink-core's dlopen swap (board O3) and DE's new schema-JSON conventions doc (board O4). No build-phase work; no carryovers requiring code-bearing this loop. Sim-farm's engine 0.3.0 baseline holds (last touched 2026-06-06; 13/13 pytest green; verdict shape stable).
@@ -32,3 +34,4 @@ owner: teams/application/sim-farm
 - **Sim-farm own product repo decision** — long-standing carry; trigger ("first non-Python sim-farm component") not met this loop.
 - **Three-layer verdict** (Sim Farm spec §4.7) — long-standing carry; load-bearing when training-pipeline gate stage 3 adopts coverage-spec-driven verdicts.
 - **Broader §6 failure-mode coverage** (panic events, write-trace overrun, sidecar pair-orphans, mode-A timeout, sidecar restart, coordinator crash) — long-standing carry; properties of the missing control plane.
+{% endraw %}

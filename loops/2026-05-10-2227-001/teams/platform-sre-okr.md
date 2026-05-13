@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md
 -->
+{% raw %}
+
 # SRE OKR — 2026-05-09
 
 ## Context
@@ -54,3 +56,4 @@ Why it matters: Carryover from 2026-05-08 — runbook needed the demo pipeline t
 - Wiring alerts to a paging system (no pipeline yet).
 - Runbooks for failure modes other than "validation failed."
 - Documenting SLOs for the demo pipeline (the bootstrap-loop notes a smaller-than-expected SLO surface; revisit when the pipeline is live).
+{% endraw %}

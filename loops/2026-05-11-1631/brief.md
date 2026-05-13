@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-1631
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-06-06
 
 ## Context
@@ -212,3 +214,4 @@ Why it matters: Two retro-class carries from 2026-05-30 land structurally this l
 - **No contract migrations this loop** (all `type: rfc → contract` migrations completed at 2026-05-23; all `type: rfc → role`/`playbook`/`runbook`/`convention` migrations completed at 2026-05-30).
 - **No conventions enum changes this loop** (`action` deferred to 2026-06-13).
 - **Multi-loop plan slippage absorption (not a new ratification):** ADR-2026-05-16-001 plan dates slide one loop: step 1 = 2026-06-06, step 2 = 2026-06-13, step 3 = 2026-06-20. Recorded here; the ADR body stays as-authored (per the convention being ratified this loop, this is the kind of slippage that loop+N dating would have prevented going-forward).
+{% endraw %}

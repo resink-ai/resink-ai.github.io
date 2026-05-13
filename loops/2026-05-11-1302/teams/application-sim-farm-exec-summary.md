@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-11-1302
   links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm Exec Summary — 2026-05-30 (paused team — review-ack)
 
 **Loop status:** paused per CEO brief 2026-05-30. No build deliverables this loop; single light "review the resink-core docs PR" ask.
@@ -45,3 +47,4 @@ No corrections needed. The three-layer verdict (Sim Farm spec §4.7) and Modes B
 ## Asks
 
 None this loop.
+{% endraw %}

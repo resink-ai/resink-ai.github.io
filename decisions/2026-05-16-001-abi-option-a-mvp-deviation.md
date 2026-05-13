@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: "Ratify ABI Option A (Cargo path-dep, no dlopen) as the named MVP runtime-spec deviation; name the multi-loop plan to restore dlopen via a `nanofab_node_process` C-ABI export"
 -->
+{% raw %}
+
 # ADR 2026-05-16-001: ABI Option A — MVP Runtime-Spec Deviation + dlopen Restoration Plan
 
 ## Context
@@ -48,3 +50,4 @@ Until step 2 lands, every new codegen pattern (post-`scd2_maintainer`) MUST be a
 - Related ADRs: [2026-05-10-001-nanofab-runtime-is-rust](2026-05-10-001-nanofab-runtime-is-rust.md), [2026-05-10-002-nanofab-sub-project-decomposition](2026-05-10-002-nanofab-sub-project-decomposition.md).
 - Codegen template: [`repos/resink-ai/resink-marketplace/plugins/nanofab/skills/codegen-scd2-node/templates/scd2_maintainer/lib.rs.tmpl`](../../repos/resink-ai/resink-marketplace/plugins/nanofab/skills/codegen-scd2-node/templates/scd2_maintainer/lib.rs.tmpl).
 - MVP supervisor: [`repos/resink-ai/resink-core/crates/nanofab-supervisor/`](../../repos/resink-ai/resink-core/crates/nanofab-supervisor/).
+{% endraw %}

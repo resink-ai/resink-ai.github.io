@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-11-0958
   links: parent: board/okrs/2026-05-11-0958-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core OKR — 2026-05-16
 
 ## Context
@@ -328,3 +330,4 @@ The clean-then-loop smoke also passed (using `CLAUDE_SKIP_DISPATCH=1` for speed;
 - **DE in-memory event-source contract (Wave 1):** consumed at face value. The supervisor's `event_source.rs` materializes Events conforming to DE contract §1 (single-key map, `op` enum, optional `before`/`after`, deterministic `event_id`). Sort order per §2 (event_ts ASC, event_id ASC tiebreak). Hash-by-PK partition function from §4 documented as `partition()` in code, single-shard for MVP so the function is unused but named for next-loop swap parity. **One open question:** DE's contract §4 names `xxHash64(seed=0)`; the MVP supervisor's `partition()` uses a placeholder fold-and-mod (correct for `shard_count=1` but not byte-stable with xxHash64 for `shard_count>1`). Replacing with `twox-hash::xxh64::xxh64(bytes, 0)` is a next-loop one-liner.
 - **Sim-farm Mode-A diff (Wave 1):** worked exactly as documented. The bare-script form of `python -m sim_farm.diff_scd2 --fixture <p> --output <p> --verdict <p>` invoked via the Makefile prints `verdict=pass mismatches=0` on the green path. The verdict.json shape matches `teams/application/sim-farm/contracts/2026-05-16-mvp-loop-verdict.md` byte-for-byte.
 - **No peer-team integrations broke.** Every Wave-1 artifact this Wave-2 build consumed conformed to its published contract.
+{% endraw %}

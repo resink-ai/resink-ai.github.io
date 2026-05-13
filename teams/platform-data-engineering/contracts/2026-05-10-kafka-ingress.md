@@ -18,6 +18,8 @@ owner: teams/platform/data-engineering
   - teams/platform/devops
   - teams/platform/sre
 -->
+{% raw %}
+
 # Kafka Ingress Contract — Nanofab Runtime
 
 **Format note:** Named hand-off sections per P3 of the [2026-05-09 retro](../../../../board/retros/2026-05-10-2227-001-ceo-retro.md). Every normative section is labeled with the consumer that relies on it. If two consumers diverge on a single section, that is the signal to split it — until then, one document.
@@ -390,3 +392,4 @@ Grounded in: [CEO brief 2026-05-23 O1 KR1.1 + KR1.6](../../../../board/okrs/2026
   - `teams/application/resink-core/` — supervisor fleet implementation
   - `teams/application/sim-farm/` — `--mode=sim` equivalence harness
 - MVP companion (in-memory parquet-replay path; field-for-field parity per its §3): [2026-05-16 in-memory event source](2026-05-16-in-memory-event-source.md)
+{% endraw %}

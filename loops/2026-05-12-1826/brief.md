@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-12-1826
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-05-12 (loop 2026-05-12-1826)
 
 ## Context
@@ -166,3 +168,4 @@ Why it matters: The CLI's invocation pattern (`resink ...` from the operator's m
 **Multi-loop plan slippage absorbed:**
 
 - **ADR-2026-05-16-001 step 3 (hot-swap correctness test):** was loop+3 (= this loop), **slipped to loop+4** (= the loop after next). Slip reason: UX focus this loop. **Second consecutive slip** for step 3. If it slips a third time, retro should evaluate whether the scheduling assumption needs revision. Per ADR-2026-05-30-002's loop+N convention; ADR body grandfathers.
+{% endraw %}

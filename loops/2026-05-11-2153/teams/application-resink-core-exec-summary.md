@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core Exec Summary — 2026-06-13
 
 **Headline.** ADR-2026-05-16-001 step 2 closed — supervisor dlopen swap full execution against AE's template. New in-tree `crates/nanofab-plugin-dim-user/` workspace member (manual slot-fill of AE's `scd2_maintainer/lib.rs.tmpl` against the `dim_user` schema) builds as a `cdylib` at `target/release/libnanofab_plugin_dim_user.{so,dylib}` (455 KB on macOS) and exports `nanofab_node_new` / `nanofab_node_process` / `nanofab_node_drop`. New integration test `crates/nanofab-supervisor/tests/dlopen_integration.rs` opens the cdylib via `libloading::Library::new`, invokes `nanofab_node_process` on a known `dim_user` insert event (`user_id="u-001"`, `event_ts=1700000000000`), asserts return code `NANOFAB_NODE_OK = 0`, and cross-checks the wrong-table → `NANOFAB_NODE_BLOCKED = 2` mapping under the dlopen path. Both tests passed on first attempt — the loop-1 shim test pre-locked the symbol shape, so the contract held under real load. `make mvp-loop` is GREEN under both feature configurations: default `static-plugins` (existing baseline) AND new `make mvp-loop-dlopen` (rebuilds supervisor under `--no-default-features --features dlopen-plugins` plus the in-tree plugin cdylib). `verdict.json` shape is byte-identical across both runs (`overall_pass: true`, `engine_version: 0.3.0`, both per-dim `pass: true`, `mismatch_count: 0`). Step 3 (hot-swap correctness test) targets loop+1 (= 2026-06-20) per the existing multi-loop plan; tenant-isolation invariant held; one orthogonal concern carries — workspace promotion 5th-loop carry, now 6th by close (see § Asks).
@@ -65,3 +67,4 @@ Still blocked — **sixth-consecutive carry** (was 5th-loop at start; closes as 
 ## Tenant-isolation invariant
 
 **Held.** Dry-run command: `grep -nrE "(resink|nanofab|acme\.ai)" /Users/shijinglu/Workspace/resink.ai/newbase/org-os/`. Result: one match — `org-os/conventions.md:107: placeholder names like 'acme.ai'.` — pre-existing placeholder. No resink-core writes leaked under `org-os/`. All edits landed under `repos/resink-ai/resink-core/` (new plugin crate + supervisor lib.rs + plugin_loader.rs gate change + integration test + Makefile + both docs) and `teams/application/resink-core/` (status.md + this exec summary + the 2026-06-13 OKR). Per KR1.7, invariant satisfied for the loop.
+{% endraw %}

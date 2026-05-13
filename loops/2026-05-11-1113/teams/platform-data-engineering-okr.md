@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-11-1113
   links: parent: board/okrs/2026-05-11-1113-ceo-brief.md
 -->
+{% raw %}
+
 # Data Engineering OKR — 2026-05-23
 
 ## Context
@@ -83,3 +85,4 @@ Why it matters: Resink-core's O1 widening introduces `dim_account_scd2` and a ne
 - **Authoring `fact_account_open` as a new standalone contract file** (e.g., `teams/platform/data-engineering/contracts/2026-05-23-fact-account-open.md`). Considered and rejected: the fact stream is one schema fragment, not a new event-source pattern; the existing Kafka contract is the canonical home, and a new file would proliferate single-fact contracts.
 - **Sim-farm pyproject body edits.** Sim-farm's `pytz` dep is already shipped (per 2026-05-16 retro); DE's conventions doc just links sim-farm's pyproject as the canonical example. No edit to sim-farm's pyproject is requested.
 - **Real Kafka path, real KV, multi-shard partitioning runtime concurrency.** All still in the CEO brief's Out of scope; DE's ratification entry pins the hash semantics for the eventual swap but ships no transport code.
+{% endraw %}

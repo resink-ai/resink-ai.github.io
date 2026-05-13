@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-10-2227-002
   links: parent: teams/platform/data-engineering/okrs/2026-05-10-2227-002-team-okr.md
 -->
+{% raw %}
+
 # Data Engineering Exec Summary — 2026-05-10
 
 ## What we shipped
@@ -53,3 +55,4 @@ Nothing was blocked or deferred. All six tasks in the OKR (O1 T1–T3, O2 T1–T
 - **KR1.2** (ADR-002 flipped to `archived` with `superseded_by`): **met** — [`../../../../board/decisions/2026-05-09-002-streaming-engine-choice.md`](../../../../board/decisions/2026-05-09-002-streaming-engine-choice.md).
 - **KR2.1** (Kafka ingress contract exists, `status: active`, all seven named hand-off sections present with consumer labels): **met** — eight sections landed (seven required + tenant-isolation closing invariant). [`../contracts/2026-05-10-kafka-ingress.md`](../contracts/2026-05-10-kafka-ingress.md).
 - **KR2.2** (new ADR and Kafka ingress contract cross-reference each other; contract grounded in runtime spec §3 with explicit citations): **met** — bidirectional links in place; contract cites §3, §4.5, §5.3, §5.7, §6.3, §7, §8.
+{% endraw %}

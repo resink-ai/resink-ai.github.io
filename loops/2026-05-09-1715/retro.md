@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-09-1715
   links: parent: board/exec-summaries/2026-05-09-1715.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-05-08
 
 ## What worked
@@ -57,3 +59,4 @@ owner: board
 
 - ADR-001 from P1: "Org-OS docs require frontmatter validation before merge." Goes in `board/decisions/`.
 - (P2's ADR drafted next loop.)
+{% endraw %}

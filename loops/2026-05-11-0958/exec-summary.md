@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-0958
   links: parent: board/okrs/2026-05-11-0958-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-11-0958 — Company Exec Summary
 
 **Headline: the company's first end-to-end MVP closed loop is GREEN.** `make mvp-loop` exits 0 with `verdict=pass mismatches=0` against `synthetic_tenants/closed_loop_v0/`. Real fixture → real LLM codegen ($0.77, ~106s on developer laptop) → real Rust compile → real supervisor execution → real diff → PASS. Crossing the binary `board/charter.md` success-metric — "End-to-end customer journey (training → serving) works on at least one fact-table fixture" — is no longer aspirational. Verdict file: [`workspace/verdict.json`](../../repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0/workspace/verdict.json).
@@ -88,3 +90,4 @@ No new ADRs landed this loop (board decisions space stayed quiet to keep team ba
 ## Tenant-isolation invariant
 
 Held across the loop. AE re-ran `grep -rEi "resink|nanofab|acme\.ai" org-os/` after this loop's edits and confirmed: zero new matches introduced; the only hit is the pre-existing `acme.ai` placeholder in `org-os/conventions.md`. No `org-os/` files were edited this loop (Bundle B + ADR-003 deferred per CEO brief). Pass.
+{% endraw %}

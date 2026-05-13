@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-11-1113
   links: parent: board/okrs/2026-05-11-1113-ceo-brief.md
 -->
+{% raw %}
+
 # SRE OKR — 2026-05-23
 
 ## Context
@@ -134,3 +136,4 @@ The runbook is one document; the named subsections inside it are:
 - Runbooks for failure-mode classes outside the supervisor-failed-validation umbrella — KV cluster failures, Kafka broker loss, Iceberg snapshot replication lag, region failover — these land as separate runbooks in future loops (KR2.2 records the deferral list in the runbook itself).
 - The one-vs-seven runbook granularity question — CEO answered "one runbook" (brief "Standing CEO answers"); no further deliberation.
 - Any sub-project #5 (Product UX) operational surfaces — ownership deferred per CEO brief.
+{% endraw %}

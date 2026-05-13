@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: Org-OS docs require frontmatter validation before merge
 -->
+{% raw %}
+
 # ADR 001: Org-OS docs require frontmatter validation before merge
 
 ## Context
@@ -41,3 +43,4 @@ All artifacts under `board/`, `teams/platform/<team>/`, and `teams/application/<
 
 - Triggering retro: [`board/retros/2026-05-09-1715-ceo-retro.md`](../retros/2026-05-09-1715-ceo-retro.md)
 - Affected playbook: [`org-os/playbooks/onboard-team.md`](../../org-os/playbooks/onboard-team.md)
+{% endraw %}

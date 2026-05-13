@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-1113
   links: parent: board/exec-summaries/2026-05-11-1113.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-05-23
 
 ## What worked
@@ -103,3 +105,4 @@ The 2026-05-30 batch is now: ADR-2026-05-16-003 + ADR-2026-05-16-004 (extended) 
 ## Tenant-isolation dry-run
 
 `org-os/playbooks/extract-org-os.md` dry-run: **passed**. The board ran `grep -rEi "resink|nanofab|acme\.ai" org-os/` after each ADR-mandated ritual edit; AE ran it after each of the 7 Bundle B task edits. Combined: only the pre-existing `acme.ai` placeholder reference in `org-os/conventions.md` matched. Zero new tenant/product names introduced anywhere in `org-os/` this loop. The new `org-os/playbooks/out-of-retro-org-os-change.md` (created per ADR-2026-05-09-006) and the new `org-os/rituals/team-intake.md` (created per AE Bundle B T6) both inspected as part of the dry-run. Pass.
+{% endraw %}

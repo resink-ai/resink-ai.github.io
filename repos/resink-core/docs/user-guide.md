@@ -13,6 +13,8 @@ owner: teams/application/resink-core
   date: 2026-05-30
   status: active
 -->
+{% raw %}
+
 # User Guide — resink-core
 
 How to get the MVP closed loop running locally, what artifacts it produces, how to reset, and how to triage the common failure modes. Every command in this document is read directly off the `synthetic_tenants/closed_loop_v0/Makefile` and the orchestrator's `__main__.py`; if the Makefile or orchestrator changes, this doc changes with it.
@@ -284,3 +286,4 @@ Write commands (`resink retrain ...`, `resink hot-swap rollback`), remote comman
 - **Supervisor terminal failure / panic.** See the SRE runbook at `teams/platform/sre/runbooks/nanofab-supervisor-failed-validation.md` (in parent newbase). The supervisor uses `panic::catch_unwind` and emits the panic message into `trace.jsonl`; the runbook is the triage entry-point for any non-success terminal state.
 
 <!-- rit-docs-init:end -->
+{% endraw %}

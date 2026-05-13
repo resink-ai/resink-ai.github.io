@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-11-1113
   links: parent: board/okrs/2026-05-11-1113-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm OKR — 2026-05-23
 
 ## Context
@@ -216,3 +218,4 @@ Invoking via the legacy `--fixture / --output / --dim-table` flags emits the 0.1
 ```
 
 The four `Mismatch.type` enum values (`match`, `missing`, `extra`, `diverged`) remain the closed enum, unchanged from 0.1.0. The `Mismatch` sub-schema is unchanged. Future modes (B/C) extend the per-dim entry with mode-specific fields (`coverage_layer`, `divergence_rate`, `sampled_diffs`, `sidecar_session_id`) per the contract's "Future modes" section; none are present in 0.2.0.
+{% endraw %}

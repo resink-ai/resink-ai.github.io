@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-11-1113
   links: parent: teams/platform/sre/okrs/2026-05-11-1113-team-okr.md
 -->
+{% raw %}
+
 # SRE Exec Summary — 2026-05-23
 
 ## What we shipped
@@ -69,3 +71,4 @@ First build-mode loop in four weeks. One artifact, planned and shipped end-to-en
 - **KR2.2** (runbook § Out of scope lists deferred classes verbatim from 2026-05-10 list): **shipped** — § 5.
 
 **Verification-point tally:** 2 of 3 landed clean (sim-farm enum names, DevOps `tenant` label); 1 landed as the planned `TODO: verify against impl` marker (resink-core `BLOCKED` observable). All three accounted for in-loop. Tenant-isolation invariant: N/A — no `org-os/` edits.
+{% endraw %}

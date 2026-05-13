@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-12-1254
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-05-12 (loop 2026-05-12-1254)
 
 ## Context
@@ -165,3 +167,4 @@ Why it matters: Most parent-repo references to `repos/resink-ai/resink-core/` ar
 
 **Multi-loop plan slippage absorbed** (not a new ratification):
 - **ADR-2026-05-16-001 step 3 (hot-swap correctness test):** was loop+2 (= this loop), **slipped to loop+3** (= the loop after this one). Joint AE + resink-core deliverable; slip reason: workspace promotion focus this loop. Per ADR-2026-05-30-002's loop+N convention; ADR body grandfathers under absolute-date authoring.
+{% endraw %}

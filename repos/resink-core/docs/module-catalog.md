@@ -13,6 +13,8 @@ owner: teams/application/resink-core
   date: 2026-05-30
   status: active
 -->
+{% raw %}
+
 # Module Catalog — resink-core
 
 One entry per top-level code module. Each entry names the path, the one-sentence purpose, who depends on it (resink-core internal teams + named peer teams via cross-team contracts), and the entry point file path a future agent should open first.
@@ -69,3 +71,4 @@ One entry per top-level code module. Each entry names the path, the one-sentence
 - **Entry point:** `deploy/charts/nanofab-supervisor/Chart.yaml`
 
 <!-- rit-docs-init:end -->
+{% endraw %}

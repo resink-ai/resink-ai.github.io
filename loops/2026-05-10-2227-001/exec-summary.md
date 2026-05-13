@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-10-2227-001 — Company Exec Summary
 
 ## Per-team rollup
@@ -73,3 +75,4 @@ Sim-farm shipped its first product-shaped OKR with a complete validation contrac
 - **[ADR-003](../decisions/2026-05-09-003-deployment-target.md):** minikube as the deployment target for the first demo, with a portable-manifest migration path to cloud k8s.
 - **[ADR-004](../decisions/2026-05-09-004-onboard-application-team.md):** Adopt `org-os/playbooks/onboard-application-team.md` as the canonical playbook for an application team's first product-shaped OKR.
 - **Bottom-up flow ADR — approved as written.** The design at `docs/superpowers/specs/2026-05-09-org-os-bottom-up-flow-design.md` and its accompanying draft ADR (`board/decisions/2026-05-09-001-org-os-bottom-up-flow.md`, on the `org-os-bottom-up-flow-design` branch) were reviewed by the board this loop. No material changes requested. AE owns the 17-task implementation (`docs/superpowers/plans/2026-05-09-org-os-bottom-up-flow.md`) in loop 2026-05-11-0958. The ADR will be merged to master via the design branch's PR; once merged it will live at `board/decisions/2026-05-09-001-org-os-bottom-up-flow.md` (the slot is reserved on master).
+{% endraw %}

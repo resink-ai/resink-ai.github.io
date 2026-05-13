@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-2153
   links: parent: board/exec-summaries/2026-05-11-2153.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-06-13
 
 ## What worked
@@ -113,3 +115,4 @@ Multi-loop plan adjustments (not new ADRs, just plan-side updates):
 ## Tenant-isolation dry-run
 
 `org-os/playbooks/extract-org-os.md` dry-run: **passed**. Board ran per-edit dry-runs after each of the ~6 `org-os/` edits across the 4 ADR ratifications + 1 cumulative final sweep. AE made zero `org-os/` writes (paused). Resink-core, DE, DevOps, sim-farm: zero `org-os/` writes. Combined: only the pre-existing `acme.ai` placeholder reference in `org-os/conventions.md` matched. **The largest concentration of `org-os/` writes since 2026-05-30 (Bundle C + 3 ADR ratification at that loop) completed with zero tenant-isolation violations.** The new playbook `org-os/playbooks/provisional-and-migrate.md` (authored fresh per ADR-2026-06-06-001) was authored carefully against the regex-inlining anti-pattern from 2026-05-30 (references `conventions.md § Linking` rather than spelling tenant strings out). Pass.
+{% endraw %}

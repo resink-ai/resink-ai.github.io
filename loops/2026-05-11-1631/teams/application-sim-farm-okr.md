@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm OKR — 2026-06-06
 
 ## Context
@@ -81,3 +83,4 @@ Why it matters: This is retro P1 from loop 2026-05-11-1113 — the highest-prior
 - **Surface to `teams/platform/sre` (informational, no response required):** the schema-aware engine adds no new `Mismatch.type` enum values — the four values (`match`, `missing`, `extra`, `diverged`) remain the closed enum unchanged from engine 0.1.0. SRE's runbook references to verdict-layer field names stay accurate. The only addition SRE may want to reference is that per-dim `mismatches[].key` now carries the **natural** join-column names for `dim_account` (`account_id`, `valid_from`) rather than the synthetic `user_id` from engine 0.2.0 — a diagnostic improvement, not a breaking change.
 
 - **Surface to `teams/platform/agent-engineering` (informational, no response required):** the schema-aware engine adds nothing AE has to know — AE's `nanofab:codegen-scd2-node` skill output is exercised through resink-core's supervisor against parquet fixtures with the natural column shape; the engine reads the schema from the orchestrator-written `schema.json`, not from any AE artifact. Named here so AE's template-extension work (board O1) is unambiguously not pulled into sim-farm's sphere.
+{% endraw %}

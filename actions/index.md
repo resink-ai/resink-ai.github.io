@@ -2,6 +2,7 @@
 layout: default
 title: Actions
 ---
+{% raw %}
 # Actions
 
 Board action tickets, sorted by date (newest first). Filtered sections by status follow.
@@ -17,3 +18,4 @@ Board action tickets, sorted by date (newest first). Filtered sections by status
 | Date | # | Title | Due |
 |---|---|---|---|
 | 2026-06-06 | 002 | [Action 2026-06-06-002: Install minikube CLI on the developer machine](2026-06-06-002-install-minikube-on-dev-machine.html) | 2026-06-13 |
+{% endraw %}

@@ -2,6 +2,7 @@
 layout: default
 title: Decisions (ADRs)
 ---
+{% raw %}
 # Decisions (ADRs)
 
 All architectural decision records, sorted by date (newest first). Both `draft` and `active` ADRs appear here.
@@ -32,3 +33,4 @@ All architectural decision records, sorted by date (newest first). Both `draft` 
 | 2026-05-09 | 001 | [Adopt the org-os bottom-up flow design (team-initiated work + cross-team requests) as specified in docs/superpowers/specs/2026-05-09-org-os-bottom-up-flow-design.md; AE owns implementation via the 17-task plan in docs/superpowers/plans/2026-05-09-org-os-bottom-up-flow.md.](2026-05-09-001-org-os-bottom-up-flow.html) | active |
 | 2026-05-08 | 002 | [Tenant tree restructured — board/ for executive desk, teams/{platform,application}/ for workforce, agent-engineering/data-engineering full-name slugs, application/realtime-pipeline → teams/application/resink-core](2026-05-08-002-tenant-tree-restructure.html) | active |
 | 2026-05-08 | 001 | [Org-OS docs require frontmatter validation before merge](2026-05-08-001-frontmatter-validation.html) | active |
+{% endraw %}

@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: Add `contract` to the `type` enum in `org-os/conventions.md` with required `consumers:` and `producers:` fields; migrate existing rfc-typed contracts to `type: contract` same loop.
 -->
+{% raw %}
+
 # ADR 2026-05-10-004: Contract (hand-off-document) artifact type
 
 ## Context
@@ -62,3 +64,4 @@ Each migration drops the `proposer:` field, adds `consumers:` and `producers:`, 
 - Migrated contracts (this loop): [2026-05-10-kafka-ingress](../../teams/platform/data-engineering/contracts/2026-05-10-kafka-ingress.md), [2026-05-16-in-memory-event-source](../../teams/platform/data-engineering/contracts/2026-05-16-in-memory-event-source.md), [2026-05-16-mvp-loop-verdict](../../teams/application/sim-farm/contracts/2026-05-16-mvp-loop-verdict.md)
 - Predecessor pattern: P3 from [board/retros/2026-05-10-2227-001-ceo-retro.md](../retros/2026-05-10-2227-001-ceo-retro.md)
 - Related ADRs: [2026-05-09-005-carryover-load-in-brief](2026-05-09-005-carryover-load-in-brief.md), [2026-05-09-006-org-os-change-routing](2026-05-09-006-org-os-change-routing.md)
+{% endraw %}

@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-10-2227-001
   links: parent: teams/platform/devops/okrs/2026-05-10-2227-001-team-okr.md
 -->
+{% raw %}
+
 # DevOps Exec Summary — 2026-05-09
 
 ## What we shipped
@@ -41,3 +43,4 @@ owner: teams/platform/devops
 - KR1.1 (deployment-target ADR with recommendation + migration path): met — `status: active`.
 - KR2.1 (frontmatter-lint script in CI): deferred to next loop.
 - KR2.2 (script location + invocation documented): deferred to next loop.
+{% endraw %}

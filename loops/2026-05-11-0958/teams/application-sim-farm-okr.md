@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-11-0958
   links: parent: board/okrs/2026-05-11-0958-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm OKR — 2026-05-16
 
 ## Context
@@ -157,3 +159,4 @@ A failing example with one missing and one diverged row:
 ```
 
 The four `type` values (`match`, `missing`, `extra`, `diverged`) are a closed enum for this loop's verdict. `match` rows are not enumerated in `mismatches` (count = total fixture rows − `mismatch_count`); they appear in the array only if a future caller opts in to a `verbose` mode (post-MVP). Future modes (B/C) extend the schema with additional fields (e.g., `divergence_rate` for streaming) but never remove or rename the MVP fields. The `engine_version` field is bumped on any backwards-incompatible change.
+{% endraw %}

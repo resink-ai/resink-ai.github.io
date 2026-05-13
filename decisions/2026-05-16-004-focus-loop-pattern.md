@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: "Codify the focus-loop pattern AND its consolidation-loop sibling as a single playbook at org-os/playbooks/focus-and-consolidation-loops.md; both patterns are CEO-invocable, both have explicit preconditions, both have explicit exit criteria, and they form a paired rhythm (focus loops produce structural deviations; consolidation loops close them)"
 -->
+{% raw %}
+
 # ADR 2026-05-16-004: Codify the Focus-Loop Pattern (Extended with Consolidation-Loop Sibling)
 
 ## Context
@@ -78,3 +80,4 @@ The single-playbook framing (both patterns in one document) is deliberate: the p
 - Worked example (consolidation): [board/okrs/2026-05-11-1113-ceo-brief.md](../okrs/2026-05-23-ceo-brief.md), [board/exec-summaries/2026-05-11-1113.md](../exec-summaries/2026-05-11-1113.md).
 - Companion ADR ratified same loop: [2026-05-16-003-contract-environment-verification](2026-05-16-003-contract-environment-verification.md), [2026-05-23-001-conventions-enum-extension](2026-05-23-001-conventions-enum-extension.md).
 - Playbook landed alongside this ratification: [org-os/playbooks/focus-and-consolidation-loops.md](../../org-os/playbooks/focus-and-consolidation-loops.md).
+{% endraw %}

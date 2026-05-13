@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-10-2227-001
   links: parent: teams/platform/data-engineering/okrs/2026-05-10-2227-001-team-okr.md
 -->
+{% raw %}
+
 # Data Engineering Exec Summary — 2026-05-09
 
 ## What we shipped
@@ -40,3 +42,4 @@ owner: teams/platform/data-engineering
 - KR1.1 (engine ADR with recommendation): met — `status: active`.
 - KR1.2 (one-page comparison appendix in the ADR): met — comparison covers latency, ordering, joins, operational footprint as scoped to the demo.
 - KR2.1 (shared primitive contract): deferred to next loop.
+{% endraw %}

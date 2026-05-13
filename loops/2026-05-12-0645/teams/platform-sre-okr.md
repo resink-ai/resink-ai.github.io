@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-12-0645
   links: parent: board/okrs/2026-05-12-0645-ceo-brief.md
 -->
+{% raw %}
+
 # SRE OKR — 2026-05-12
 
 ## Context
@@ -63,3 +65,4 @@ Why it matters: The deployment procedure DevOps exercises this loop needs a writ
 - **On-call rotation policy, alert paging wiring** — depend on staffing decisions + metric-emission seam being wired.
 - **Refresh pass on the existing failed-validation runbook** — non-load-bearing this loop; the new SOP is the additive deliverable.
 - **Re-execution of the SOP by a second operator** — first iteration is author-executes; second-operator validation is a future loop's call.
+{% endraw %}

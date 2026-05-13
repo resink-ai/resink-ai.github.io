@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-09-1715
   links: parent: board/okrs/2026-05-09-1715-ceo-brief.md
 -->
+{% raw %}
+
 # SRE Team OKR — 2026-05-08
 
 ## Context
@@ -47,3 +49,4 @@ Why it matters: Production-grade data pipelines need SLOs and a runbook from day
 - Chaos scripts or fault-injection testing.
 - The runbook content itself (only the runbook target is identified this loop).
 - Any work for application teams (`resink-core`, `sim-farm`) — deferred to next loop.
+{% endraw %}

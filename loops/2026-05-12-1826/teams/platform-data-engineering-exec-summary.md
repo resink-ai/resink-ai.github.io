@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-12-1826
   links: parent: board/okrs/2026-05-12-1826-ceo-brief.md
 -->
+{% raw %}
+
 # DE Exec Summary — Loop 2026-05-12-1826 (paused, silent)
 
 **Headline.** Paused. The CLI's `table head <dim>` subcommand reads from `<workspace>/<dim>_output.parquet` — i.e., consumer of the supervisor's parquet outputs. The schemas of those parquets (per DE's `dim-schema-json.md` convention) determine what columns the CLI's tabular output shows. No DE surface touched; conventions unchanged.
@@ -29,3 +31,4 @@ owner: teams/platform/data-engineering
 ## Tenant-isolation
 
 Held. Zero writes by DE this loop except this exec summary.
+{% endraw %}

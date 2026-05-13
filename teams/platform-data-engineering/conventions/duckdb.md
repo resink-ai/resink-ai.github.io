@@ -13,6 +13,8 @@ owner: teams/platform/data-engineering
   date: 2026-05-23
   status: active
 -->
+{% raw %}
+
 <!--
 Type note: conventions.md (as of 2026-05-23) does not include `contract`
 or `convention` in the type enum; the closest fit is `rfc` (per the same
@@ -52,3 +54,4 @@ include `TIMESTAMPTZ` columns.
 - Driving CEO brief: [2026-05-23 CEO brief — O6 KR6.2](../../../../board/okrs/2026-05-11-1113-ceo-brief.md)
 - DE team OKR for this loop: [2026-05-23 team OKR — KR1.3](../okrs/2026-05-11-1113-team-okr.md)
 - Adopting ADR (pending this loop): [ADR-2026-05-10-004 — `contract` artifact type](../../../../board/decisions/2026-05-10-004-contract-artifact-type.md)
+{% endraw %}

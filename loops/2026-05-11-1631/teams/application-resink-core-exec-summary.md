@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core Exec Summary — 2026-06-06
 
 **Headline.** Code-bearing build loop returns clean after the 2026-05-30 documentation pause: the supervisor dlopen swap is pre-staged behind dual Cargo feature flags (`static-plugins` default-on / `dlopen-plugins` default-off, libloading-driven), `claude --bare` is re-introduced to `dispatch.py` with `ANTHROPIC_API_KEY` env-var auto-detect and `trace.jsonl` logging, and the `dim_account` isomorphic-shape compromise is fully lifted alongside sim-farm engine 0.3.0 — natural `account_id`/`account_type`/`status` columns restored end-to-end. `make mvp-loop` exits 0 with `overall_pass: true`, `engine_version: 0.3.0`, both per-dim `pass: true`, `mismatch_count: 0`; determinism test exits 0; tenant-isolation invariant held.
@@ -66,3 +68,4 @@ Still blocked — **fifth-consecutive carry**. This loop we attempted `git ls-re
 ## Tenant-isolation invariant
 
 **Held.** Dry-run command: `grep -nrE "(resink|nanofab|acme\.ai)" org-os/`. Result: one match — `org-os/conventions.md:94: placeholder names like \`acme.ai\`.` — the pre-existing placeholder. No resink-core writes leaked under `org-os/`. All edits landed under `repos/resink-ai/resink-core/` and `teams/application/resink-core/`. Per KR1.7, invariant satisfied for the loop.
+{% endraw %}

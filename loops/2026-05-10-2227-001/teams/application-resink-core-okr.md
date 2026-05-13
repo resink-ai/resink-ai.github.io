@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core OKR — 2026-05-09
 
 ## Context
@@ -139,3 +141,4 @@ For SRE's runbook draft:
 - Pipeline runs as a single Spark job in a minikube pod.
 - Liveness signal: pod ready + Spark driver UI reachable on its k8s service.
 - Validation-failure detection: sim-farm's assertions are run as a separate post-job step; failures surface as a Job exit code + a structured log line.
+{% endraw %}

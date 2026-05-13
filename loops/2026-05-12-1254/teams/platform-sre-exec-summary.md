@@ -17,6 +17,8 @@ owner: teams/platform/sre
   links: parent: board/okrs/2026-05-12-1254-ceo-brief.md
   team_okr: teams/platform/sre/okrs/2026-05-12-1254-team-okr.md
 -->
+{% raw %}
+
 # SRE Exec Summary — Loop 2026-05-12-1254
 
 **Headline.** Light supporting role. Both SRE runbooks (`nanofab-supervisor-deployment.md` and `nanofab-supervisor-failed-validation.md`) gained a 1-line post-promotion footer note acknowledging resink-core's new submodule status. Working-tree mount point is unchanged so cited paths continue to resolve; no body rewrites. Status.md refreshed to 2026-05-12.
@@ -49,3 +51,4 @@ owner: teams/platform/sre
 ## Tenant-isolation invariant
 
 Held. Edits landed in `teams/platform/sre/runbooks/` and `teams/platform/sre/status.md` and this exec summary. Zero `org-os/` writes.
+{% endraw %}

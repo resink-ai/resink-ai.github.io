@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-12-1254
   links: parent: board/okrs/2026-05-12-1254-ceo-brief.md
 -->
+{% raw %}
+
 # SRE OKR — 2026-05-12 (loop 2026-05-12-1254)
 
 ## Context
@@ -56,3 +58,4 @@ Why it matters: The SOP is the canonical deploy reference. If submodule-add brea
 - `dlopen-plugins` failure modes in the failed-validation runbook (depends on CI integration; future loop).
 - `BLOCKED` observable verification (multi-loop wait on resink-core).
 - Observability-stack-aware SOPs (depend on Phase 1.3 home-cluster roadmap).
+{% endraw %}

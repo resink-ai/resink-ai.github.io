@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-11-0958
   links: parent: teams/platform/data-engineering/okrs/2026-05-11-0958-team-okr.md
 -->
+{% raw %}
+
 # Data Engineering Exec Summary — 2026-05-16
 
 ## What we shipped
@@ -47,3 +49,4 @@ owner: teams/platform/data-engineering
 - **KR1.3** (per-fact partitioning restated: xxHash64 seed=0 over canonical UTF-8 PK bytes, modulo shard count; MVP `shard_count=1`): **met** — §4 restates the convention verbatim against Kafka contract §2 and pins the MVP shard count.
 - **KR1.4** (named "Consumer hand-off: resink-core" section surfaces supervisor-side constraints; resink-core confirms or pushes back by mid-loop 2026-05-19): **partially met** — §5 names all three constraints (sorted-on-load by `event_ts`; deterministic non-empty `event_id` derived as `<fact_stream>:<pk_col>=<pk_value>:<event_ts>`; SCD2-shaped `before`/`after` row schema). Mid-loop formal confirmation deferred (see Asks); MVP build implicitly confirmed.
 - **KR1.5** (contract cross-links Kafka contract, runtime spec §5.4, CEO brief O4; Kafka contract gets a one-line back-link with no body edit): **met** — addendum's Links section cites all three; Kafka contract's Links section gained one back-reference bullet, no body edit.
+{% endraw %}

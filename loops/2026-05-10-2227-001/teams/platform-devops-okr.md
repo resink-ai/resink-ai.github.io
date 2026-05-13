@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps OKR — 2026-05-09
 
 ## Context
@@ -69,3 +71,4 @@ Why it matters: ADR-001 (`board/decisions/2026-05-08-001-frontmatter-validation.
 - Building the actual deployment automation; this loop only commits the target.
 - Lint coverage beyond YAML frontmatter (markdown-style, link-validity, etc.).
 - Migration to the production target — only the path is documented.
+{% endraw %}

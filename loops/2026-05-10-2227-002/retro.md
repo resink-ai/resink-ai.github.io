@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-10-2227-002
   links: parent: board/exec-summaries/2026-05-10-2227-002.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-05-10
 
 ## What worked
@@ -87,3 +89,4 @@ ADR-005 + ADR-006 + this retro's ADR-004 batch cleanly at loop 2026-05-11-1113 (
 ## Tenant-isolation dry-run
 
 `org-os/playbooks/extract-org-os.md` dry-run: **passed.** AE ran `grep -rEi "resink|nanofab|acme\.ai" org-os/` after Bundle A landed; no tenant or product names appear inside `org-os/` outside placeholder contexts. The two new template files (`request.md`, `team-proposals.md`) and the conventions changes were inspected as part of the dry-run.
+{% endraw %}

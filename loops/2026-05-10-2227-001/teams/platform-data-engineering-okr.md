@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md
 -->
+{% raw %}
+
 # Data Engineering OKR — 2026-05-09
 
 ## Context
@@ -66,3 +68,4 @@ Why it matters: Carryover from 2026-05-08 — DE identified a candidate but did 
 - Engines beyond Spark Structured Streaming and Flink.
 - Multi-fact-table generalization of the shared primitive.
 - Production-grade operational tooling for the chosen engine.
+{% endraw %}

@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-10-2227-002
   links: parent: board/okrs/2026-05-10-2227-002-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps OKR — 2026-05-10
 
 ## Context
@@ -156,3 +158,4 @@ Walk the four spec sections most likely to surface a Helm-incompatibility blocke
 - Frontmatter-lint script — deferred again per brief.
 - Cloud k8s deployment target ADR — lives inside #4 work, not this loop.
 - The DevOps/SRE seam for runbooks and on-call — surfaced in O1 KR1.2 at the charter level, but the operational shape is SRE's OKR, not ours.
+{% endraw %}

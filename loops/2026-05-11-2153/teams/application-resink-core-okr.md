@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core OKR — 2026-06-13
 
 ## Context
@@ -78,3 +80,4 @@ Why it matters: This is resink-core's slice of CEO O3 — the load-bearing integ
 - **SRE BLOCKED observable verification** — multi-loop wait; this loop closes step 2 but not step 3.
 - **Modes B / C, real Kafka, real KV, multi-tenant deployment** — unchanged from prior loops.
 - **New ADRs from resink-core** — board owns the 4-ADR ratification batch this loop; resink-core has no proposal to add (any FFI-design surprises file as an addendum to ADR-2026-05-16-001, not a new ADR).
+{% endraw %}

@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-10-2227-002
   links: parent: teams/application/resink-core/okrs/2026-05-10-2227-002-team-okr.md
 -->
+{% raw %}
+
 # Resink Core Exec Summary — 2026-05-10
 
 ## What we shipped
@@ -63,3 +65,4 @@ owner: teams/application/resink-core
 - **KR2.2** (README with layout + spec links + "no Spark/JVM/SQL engine"): **met**.
 - **KR2.3** (`crates/.gitkeep`): **met**.
 - **KR2.4** (submodule promotion deferred, no `.gitmodules` edits): **met** — README flags it; no edits to newbase `.gitmodules`.
+{% endraw %}

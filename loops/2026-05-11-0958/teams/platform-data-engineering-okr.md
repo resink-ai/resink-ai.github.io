@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-11-0958
   links: parent: board/okrs/2026-05-11-0958-ceo-brief.md
 -->
+{% raw %}
+
 # Data Engineering OKR — 2026-05-16
 
 ## Context
@@ -112,3 +114,4 @@ In-memory source semantics:
 - **No replay, no DLQ, no quarantine.** The in-memory source is deterministic and finite; failure surfaces are sim-farm Mode-B/C concerns.
 
 Production parity (preview — full table in the contract body): every field above maps 1:1 to the [Kafka ingress contract](../contracts/2026-05-10-kafka-ingress.md) §2 (partitioning), §7 (idempotency key includes `event_id`), and the schema-registry-defined message shape. The swap from in-memory to Kafka is "change the source plugin, keep every field."
+{% endraw %}

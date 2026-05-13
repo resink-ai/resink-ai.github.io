@@ -17,6 +17,8 @@ owner: teams/application/resink-core
   links: parent: board/okrs/2026-05-12-0645-ceo-brief.md
   team_okr: teams/application/resink-core/okrs/2026-05-12-0645-team-okr.md
 -->
+{% raw %}
+
 # Resink Core Exec Summary — Loop 2026-05-12-0645
 
 **Headline.** First production container image of the supervisor binary built + shipped + executed on a real Kubernetes cluster. `nanofab-supervisor:0.3.0` (linux/amd64, 154 MB, multi-stage `rust:1.85-slim-bookworm → debian:12-slim`) ran successfully on the home cluster, processed 21 dim_user + 18 dim_account events from baked-in fixtures, wrote both output parquets, and exited `supervisor: ok`. The chart's R1–R5 hand-off acks closed end-to-end this loop — `requests/2026-06-06-handoff-response-ack.md` flipped `accepted → fulfilled`. **Second end-to-end fulfilled cross-team request lifecycle on the org-os tree** (first was DE's schema-JSON at 2026-05-11-2153). Workspace promotion 7th-loop carry (the GitHub remote was not created in-loop). ADR-2026-05-16-001 step 3 (hot-swap correctness test) slipped one loop per the brief's deployment focus.
@@ -58,3 +60,4 @@ owner: teams/application/resink-core
 ## Tenant-isolation invariant
 
 Held throughout. Edits landed under `repos/resink-ai/resink-core/` (`docs/user-guide.md`, `docs/architecture.md`, `deploy/charts/nanofab-supervisor/Dockerfile` patched alongside DevOps) and `teams/application/resink-core/` (OKR, exec summary, request fulfillment). Zero `org-os/` writes. Final tenant-isolation dry-run clean.
+{% endraw %}

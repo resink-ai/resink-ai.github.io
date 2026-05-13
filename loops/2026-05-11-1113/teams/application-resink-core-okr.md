@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-11-1113
   links: parent: board/okrs/2026-05-11-1113-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core OKR — 2026-05-23
 
 ## Context
@@ -276,3 +278,4 @@ A FAIL run remains an informative outcome from the CEO brief's perspective; a lo
 **Permitted pivot:** defer to loop 2026-05-11-1302 with a single recorded blocker. The blocker must be specific (e.g., "remote URL not yet approved by 2026-05-26" or "submodule add conflicts with $X CI step"). README continues to carry the deferral note. The pivot is mechanically the same shape as 2026-05-16's; we explicitly do not pivot a second time without flagging the cumulative cost to the board at retro.
 
 **Why we attempt promotion this loop (again):** three real crates landed last loop and two more are being meaningfully extended this loop. Deferring a second time accrues another loop of in-tree drift before any cross-repo concern surfaces. Attempting day-1 surfaces any blocker with margin.
+{% endraw %}

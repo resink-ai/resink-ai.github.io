@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-13-0056
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-05-13 (loop 2026-05-13-0056)
 
 ## Context
@@ -208,3 +210,4 @@ Why it matters: The 2026-05-12-1826 loop picked the CLI (no backend prereq) over
 **Multi-loop plan slippage absorbed (not new ratifications):**
 
 - **ADR-2026-05-16-001 step 3 (hot-swap correctness test):** was loop+4 (= this loop), **slipped to loop+5** (= the loop after this one). **Third consecutive slip.** Decision point surfaced in this loop's retro per 2026-05-12-1826 retro P2's options.
+{% endraw %}

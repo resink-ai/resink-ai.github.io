@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-09-1715
   links: parent: teams/platform/devops/okrs/2026-05-09-1715-team-okr.md
 -->
+{% raw %}
+
 # DevOps Exec Summary — 2026-05-08
 
 ## What we shipped
@@ -40,3 +42,4 @@ None this loop.
 ## Metrics
 
 - KR1.1 (deployment-target ADR): partial — options enumerated, recommendation not yet committed.
+{% endraw %}

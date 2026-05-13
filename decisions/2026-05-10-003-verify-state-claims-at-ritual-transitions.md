@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: State-claims (shipped / merged / reserved on master) at exec-summary, ceo-brief, and ceo-consolidation ritual transitions must carry a verifiable git location, or be re-phrased as "shipped to branch <X>, awaiting merge."
 -->
+{% raw %}
+
 # ADR 2026-05-10-003: Verify state-claims at ritual transitions
 
 ## Context
@@ -48,3 +50,4 @@ The light-touch text convention is the chosen path; automated git-state lint via
 - Driving incident: loop 2026-05-10-2227-002 mid-loop ADR-001-on-master gate slip — see [board/exec-summaries/2026-05-10-2227-002.md](../exec-summaries/2026-05-10-2227-002.md) § "Cross-cutting blockers"
 - Rituals updated: [org-os/rituals/exec-summary.md](../../org-os/rituals/exec-summary.md), [org-os/rituals/ceo-brief.md](../../org-os/rituals/ceo-brief.md), [org-os/rituals/ceo-consolidation.md](../../org-os/rituals/ceo-consolidation.md)
 - Related ADRs: [2026-05-09-005-carryover-load-in-brief](2026-05-09-005-carryover-load-in-brief.md), [2026-05-09-006-org-os-change-routing](2026-05-09-006-org-os-change-routing.md), [2026-05-10-004-contract-artifact-type](2026-05-10-004-contract-artifact-type.md), [2026-05-16-003-contract-environment-verification](2026-05-16-003-contract-environment-verification.md)
+{% endraw %}

@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 # SRE Exec Summary — 2026-06-06 (paused, review-ack)
 
 **Loop status:** Paused per CEO brief 2026-06-06. Single light review-ack ask in the brief covering the supervisor swap pre-staging — confirm the runbook still cross-links cleanly once the WIP lands.
@@ -41,3 +43,4 @@ owner: teams/platform/sre
 ## Asks
 
 None this loop. The runbook continues to cross-link the supervisor cleanly post-pre-staging; no action requested from resink-core or DevOps. The `dlopen-plugins`-specific failure-mode authoring at `loop+1` is SRE-internal and surfaces in the 2026-06-13 brief as a candidate when that loop's CEO brief activates SRE.
+{% endraw %}

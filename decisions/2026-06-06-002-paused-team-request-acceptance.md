@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: "Paused teams accepting in-loop requests record the acceptance canonically in the request file's frontmatter (status field + deferred_to_loop), not in status.md; status.md may reference the request file by path but is not source-of-truth"
 -->
+{% raw %}
+
 # ADR 2026-06-06-002: Paused-Team Request Acceptance Canonicalization
 
 ## Context
@@ -69,3 +71,4 @@ Three ritual/template edits land alongside this ratification:
 - Sister ADR (drafted same loop): [2026-06-06-001-provisional-and-migrate-playbook](2026-06-06-001-provisional-and-migrate-playbook.md) — same retro, different pattern.
 - Related: [ADR-2026-05-09-006](2026-05-09-006-org-os-change-routing.md) — request-flow lifecycle this ADR extends.
 - Worked example trigger: [teams/platform/data-engineering/requests/2026-06-06-001-schema-json-shape-ack.md](../../teams/platform/data-engineering/requests/2026-06-06-001-schema-json-shape-ack.md) — DE's pending paused-team acceptance.
+{% endraw %}

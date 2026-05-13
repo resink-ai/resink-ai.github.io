@@ -2,6 +2,7 @@
 layout: default
 title: Loop 2026-05-11-0958
 ---
+{% raw %}
 # Loop 2026-05-11-0958
 
 - [CEO Brief](brief.md)
@@ -14,3 +15,4 @@ title: Loop 2026-05-11-0958
 - **application-sim-farm** — [OKR](teams/application-sim-farm-okr.md) · [exec summary](teams/application-sim-farm-exec-summary.md)
 - **platform-agent-engineering** — [OKR](teams/platform-agent-engineering-okr.md) · [exec summary](teams/platform-agent-engineering-exec-summary.md)
 - **platform-data-engineering** — [OKR](teams/platform-data-engineering-okr.md) · [exec summary](teams/platform-data-engineering-exec-summary.md)
+{% endraw %}

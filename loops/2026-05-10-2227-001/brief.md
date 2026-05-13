@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-10-2227-001
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-05-09
 
 ## Context
@@ -97,3 +99,4 @@ Why it matters: P1's product portion (the frontmatter-lint CI script) is owed to
 - Product code beyond OKR-level plans for application teams; resink-core's pipeline is planned this loop, not built.
 - Phase 2 automation work (P3 from 2026-05-08 retro).
 - Broader fact-table coverage; only `fact_sign_up.parquet` this loop.
+{% endraw %}

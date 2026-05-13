@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-10-2227-001
   links: parent: board/okrs/2026-05-10-2227-001-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm OKR — 2026-05-09
 
 ## Context
@@ -96,3 +98,4 @@ The actual generator is not implemented this loop. Sketch:
 
 - **To resink-core (KR1.2):** this contract document — referenced from resink-core's OKR § Plan KR1.1.e.
 - **To SRE (KR1.3):** the failure-mode list above — drives the scenarios SRE's "demo pipeline failed validation" runbook will cover.
+{% endraw %}

@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-10-2227-002
   links: parent: teams/platform/sre/okrs/2026-05-10-2227-002-team-okr.md
 -->
+{% raw %}
+
 # SRE Exec Summary — 2026-05-10
 
 ## What we shipped
@@ -60,3 +62,4 @@ owner: teams/platform/sre
 - KR2.2 (next-loop runbook scope named: seven failure modes, supervisor + hot-swap surface): shipped — `teams/platform/sre/okrs/2026-05-10-2227-002-team-okr.md` § Runbook plan.
 - KR2.3 (operational signals named per failure mode): shipped — same § Runbook plan, failure-mode-to-signal table + cross-cutting sections.
 - KR2.4 (three cross-team verification points named): shipped — same § Runbook plan, "Verification points."
+{% endraw %}

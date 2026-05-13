@@ -2,6 +2,7 @@
 layout: default
 title: "Team: platform-agent-engineering"
 ---
+{% raw %}
 # Team: platform-agent-engineering
 
 ## Mission
@@ -58,3 +59,4 @@ Build and maintain the AI agent infrastructure for the org. Produces the agent r
 - [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/platform-agent-engineering-okr.html)
 - [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/platform-agent-engineering-okr.html)
 - [2026-05-09-1715](../../loops/2026-05-09-1715/teams/platform-agent-engineering-okr.html)
+{% endraw %}

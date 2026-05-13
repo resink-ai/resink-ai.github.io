@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-12-1826
   links: parent: board/okrs/2026-05-12-1826-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core OKR — 2026-05-12 (loop 2026-05-12-1826)
 
 ## Context
@@ -78,3 +80,4 @@ Why it matters: First user-facing surface in the company. Validates the multi-cr
 - Additional dims beyond `dim_user` and `dim_account`.
 - CI/CD setup on the new remote.
 - Cargo MSRV bump (bookkeeping).
+{% endraw %}

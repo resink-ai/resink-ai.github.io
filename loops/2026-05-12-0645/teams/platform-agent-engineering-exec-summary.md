@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-12-0645
   links: parent: board/okrs/2026-05-12-0645-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — Loop 2026-05-12-0645 (paused, review-ack)
 
 **Headline.** Paused this loop per CEO brief. Reviewed the deployed binary for ABI/plugin contract impact under containerized execution — **none.** The home-cluster deploy exercises the supervisor's `static-plugins` feature path (the chart's default values don't toggle `dlopen-plugins`); the C-ABI surface AE shipped at loop 2026-05-11-1631 (Step 1 of ADR-2026-05-16-001) is not exercised by this deployment. When `dlopen-plugins` does land in CI / production deploys at a later loop, the ABI contract held under containerization concerns (`.so` path resolution at `/usr/local/lib/...` or workspace-relative, glibc symbol compatibility between the rust-builder stage and the debian:12-slim runtime) will surface for the first time. **Not blocking; flagged for the loop where dlopen-on shipping CI lands.** No template revisions needed; ABI contract held.
@@ -37,3 +39,4 @@ owner: teams/platform/agent-engineering
 ## Tenant-isolation invariant
 
 Held. Zero `org-os/` writes by AE this loop.
+{% endraw %}

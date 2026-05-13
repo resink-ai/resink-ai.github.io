@@ -15,6 +15,8 @@ owner: board
   decision: The nanofab runtime is a purpose-built distributed Rust application; no JVM, no general SQL execution layer. Spark Structured Streaming (ADR-002) is superseded.
   supersedes: 2026-05-09-002-streaming-engine-choice
 -->
+{% raw %}
+
 # ADR 2026-05-10-001: Nanofab runtime is Rust
 
 ## Context
@@ -90,3 +92,4 @@ ADR-002 is superseded effective this loop. The archival edit lands in parallel w
 - Kafka ingress contract (downstream artifact this loop): [teams/platform/data-engineering/contracts/2026-05-10-kafka-ingress.md](../../teams/platform/data-engineering/contracts/2026-05-10-kafka-ingress.md)
 - Parent CEO brief: [board/okrs/2026-05-10-2227-002-ceo-brief.md](../okrs/2026-05-10-ceo-brief.md)
 - Triggering retro (carryover): [board/retros/2026-05-10-2227-001-ceo-retro.md](../retros/2026-05-10-2227-001-ceo-retro.md)
+{% endraw %}

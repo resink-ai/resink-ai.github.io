@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps Exec Summary — 2026-06-13
 
 **Headline.** Board-action `2026-06-06-002` (install minikube on dev machine) closed `status: superseded` per CEO brief 2026-06-13's working answer to retro P5 — toolchain installs are per-team Prerequisite docs, not board-action tickets. Probe (`which minikube`) returned exit 1 in this loop's build phase, matching brief-authoring-time state; default supersession action fired as predicted. Chart README `§ Prerequisites` refreshed with a top-line blockquote policy note + ADR-2026-06-06-001 forward-link; existing `brew install minikube` invocation preserved verbatim. Minikube smoke remains carry (4th loop) via the chart README's existing Prerequisites surface — **no new board-action ticket** (pattern shift). GitBook publishing scope response delivered to board O1: chart README IN scope; `values.schema.json` OUT (JSON not markdown; transitively discoverable); `values.yaml` + templates OUT (deployment-time configuration, not user-facing docs). Per ADR-2026-06-13-001 (admit `action` to conventions enum, ratified mid-loop by board O2), `superseded` is now a canonical valid `status` for `type: action` artifacts; no provisional in-body note needed. Tenant-isolation invariant held.
@@ -57,3 +59,4 @@ owner: teams/platform/devops
 - **R2 `/healthz` + `/readyz` flip target.** Still waits on resink-core's long-running supervisor (`loop+1` per ADR-2026-05-16-001). This loop's resink-core O3 is step 2 (full execution against the dlopen template), not the long-running shape. Forward-compat values pre-wired in chart.
 - **Frontmatter-lint CI script** — fifth consecutive defer per the 2026-06-13 brief § Out of scope. Manual ADR-2026-05-08-001 enforcement continues.
 - **Supervisor-binary resource-budget doc** — still deprioritized; sized once a real (non-sim) workload runs.
+{% endraw %}

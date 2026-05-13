@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-11-0958
   links: parent: board/okrs/2026-05-11-0958-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering OKR — 2026-05-16
 
 ## Context
@@ -172,3 +174,4 @@ The skill is considered correct iff: (a) `STATUS.json.status == "ok"`, AND (b) `
 - **Sub-agent dispatch via anything other than the local `claude` CLI.** No Python wrapper, no background job queue, no gRPC. The training spec §4.1 invocation surface is in AE's view the right long-term shape, but for one-skill / one-consumer this loop, CLI is the smallest surface that works.
 - **Multi-tenant or multi-pattern dispatch.** The skill takes one `(schema, pattern, output_dir)` per invocation; the orchestrator is responsible for parallelizing across nodes per training spec §4.7.
 - **Marketplace plugin documentation beyond the per-skill SKILL.md and DISPATCH.md.** No top-level `plugins/nanofab/README.md` this loop; the plugin's purpose is documented in the marketplace root's plugin entry and in the skill's SKILL.md frontmatter.
+{% endraw %}

@@ -2,6 +2,7 @@
 layout: default
 title: "Spec: 2026-05-08-ai-native-org-os-design"
 ---
+{% raw %}
 # AI-Native Org-OS — Design Spec
 
 **Date:** 2026-05-08
@@ -291,3 +292,4 @@ Phase 1 is complete when:
   *Mitigation:* `README.md` foregrounds the Executive Loop; the first real loop is run as part of acceptance.
 - **Risk: evolution path used to bypass review.** "Org-OS changes" smuggled in as "tenant changes".
   *Mitigation:* the classification rule in §6 is in `merge-evolution-proposal.md`; every `org-os/` edit is checked at retro time.
+{% endraw %}

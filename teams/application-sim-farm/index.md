@@ -2,6 +2,7 @@
 layout: default
 title: "Team: application-sim-farm"
 ---
+{% raw %}
 # Team: application-sim-farm
 
 ## Mission
@@ -57,3 +58,4 @@ Internal product — execute candidate nanofab DAGs against synthetic or shadowe
 ## Contracts
 
 - [2026-05-16-mvp-loop-verdict](contracts/2026-05-16-mvp-loop-verdict.html)
+{% endraw %}

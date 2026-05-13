@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: "Multi-loop plans inside ADRs name dates as `loop+N` relative to the ADR's ratification loop, with an explicit 'subject to team capacity at that loop's brief' qualifier; absolute calendar dates only when external commitments require them"
 -->
+{% raw %}
+
 # ADR 2026-05-30-002: Multi-Loop Plan Relative Dating
 
 ## Context
@@ -63,3 +65,4 @@ When an ADR records a multi-loop plan, every step inside that plan names its loo
 - Triggering retro: [board/retros/2026-05-11-1302-ceo-retro.md](../retros/2026-05-11-1302-ceo-retro.md) — P4.
 - Worked-example slippage: [ADR-2026-05-16-001](2026-05-16-001-abi-option-a-mvp-deviation.md) — AE template extension at named 2026-05-30 slipped one loop to 2026-06-06.
 - Sister convention: this ADR + ADR-2026-05-16-003 + ADR-2026-05-30-001 form the "verify-and-honest-about-dates" family.
+{% endraw %}

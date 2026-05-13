@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm Exec Summary — 2026-06-06
 
 **Headline:** Engine 0.3 GREEN with schema-aware join + payload columns; retro P1 from 2026-05-23 closed; 13/13 pytest green; verdict contract gains its first `Verified-against-environment` subsection per ADR-2026-05-16-003.
@@ -56,3 +58,4 @@ owner: teams/application/sim-farm
 ## Tenant-isolation invariant
 
 - **Held.** Dry-run after the engine + contract edits: the engine module, the new test additions, the verdict contract body, and the DE request are tenant-only artifacts (sim-farm-owned subtree under `repos/resink-ai/resink-core/sim-farm/` + `teams/application/sim-farm/` + `teams/platform/data-engineering/requests/`); no `org-os/` strings introduced, no cross-tenant identifiers leaked, no `resink.ai` literals embedded in engine code or test fixtures.
+{% endraw %}

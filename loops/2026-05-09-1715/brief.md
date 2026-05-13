@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-09-1715
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-05-08
 
 ## Context
@@ -78,3 +80,4 @@ Why it matters: Self-evolution requires inspectable history. The consolidation a
 - Product code.
 - Automation wiring (`/loop`, slash commands, scheduled agents).
 - Agent runtime implementation.
+{% endraw %}

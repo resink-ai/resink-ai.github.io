@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-12-0645
   links: parent: board/okrs/2026-05-12-0645-ceo-brief.md
 -->
+{% raw %}
+
 # DE Exec Summary — Loop 2026-05-12-0645 (paused, review-ack)
 
 **Headline.** Paused this loop per CEO brief. Reviewed the home-cluster deployment for any schema-JSON consumer surface that surfaces during deployment — none did (the MVP supervisor's runtime config doesn't consume the schema-JSON shape from the chart's values; the schema-JSON is read at orchestrator-time from `synthetic_tenants/closed_loop_v0/sim-farm-schemas/*.json`, which is baked into the image at build time, not deploy time). DE's `Verified-against-environment` discipline in `conventions/dim-schema-json.md` generalizes cleanly to the runbook artifact type (SRE's deployment SOP this loop is the third adopter overall). The K1–K3 cross-team request (`requests/2026-06-06-handoff-response-ack.md`) closed end-to-end this loop in paused-team format — `status: accepted → status: fulfilled`. **Third end-to-end fulfilled cross-team request lifecycle on the org-os tree** (after DE's own schema-JSON at 2026-05-11-2153 and resink-core's R1–R5 at this loop).
@@ -47,3 +49,4 @@ owner: teams/platform/data-engineering
 ## Tenant-isolation invariant
 
 Held. Zero `org-os/` writes; zero `teams/.../*` writes beyond DE's own requests/ + exec-summaries/. Final tenant-isolation dry-run clean.
+{% endraw %}

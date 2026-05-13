@@ -2,6 +2,7 @@
 layout: default
 title: "Spec: 2026-05-10-nanofab-serving-deployment-design"
 ---
+{% raw %}
 # Nanofab Serving & Deployment — Design Spec
 
 **Date:** 2026-05-10
@@ -190,3 +191,4 @@ Specific dollar values are intentionally not in this spec — those depend on CO
 - **Release seal:** the `release_seal.json` Sim Farm produces (training spec §4.9) — required for the runtime coordinator to accept a DAG version.
 - **Manifest signature:** signature on the CI-built manifest using `nanofab-ci-signer` KMS key — also required at the runtime coordinator gate.
 - **IRSA (IAM Roles for Service Accounts):** the EKS mechanism that lets a pod assume a specific IAM role without static credentials.
+{% endraw %}

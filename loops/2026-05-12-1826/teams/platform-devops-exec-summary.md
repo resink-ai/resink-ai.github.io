@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-12-1826
   links: parent: board/okrs/2026-05-12-1826-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps Exec Summary — Loop 2026-05-12-1826 (paused, silent)
 
 **Headline.** Paused this loop per CEO brief. The CLI is a developer surface; doesn't touch the chart or deployment surface. No review-ack ask. **No carry change** — Job-kind chart variant, in-cluster image registry, pyinfra wrapper, observability stack all remain pending.
@@ -23,3 +25,4 @@ owner: teams/platform/devops
 ## Tenant-isolation
 
 Held. Zero writes by DevOps this loop except this exec summary.
+{% endraw %}

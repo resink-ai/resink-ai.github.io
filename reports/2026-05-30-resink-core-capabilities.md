@@ -15,6 +15,8 @@ owner: board
   audience: technical reviewer (engineer, investor, prospective hire)
   links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai · resink-core capabilities — 2026-05-30
 
 This report describes what `repos/resink-ai/resink-core/` can do **today**, with verdicts and test counts cited as evidence. It does not describe aspirations or roadmap.
@@ -159,3 +161,4 @@ The system **today** does not include the following — they are roadmap items n
 ---
 
 **Post-promotion note (2026-05-12-1254):** `repos/resink-ai/resink-core/` is now a git submodule (URL `git@github.com:resink-ai/resink-core.git`). All paths cited in this report continue to resolve at the same working-tree mount point. Future revisions of this report may shift to submodule-relative paths if external consumers need disambiguation.
+{% endraw %}

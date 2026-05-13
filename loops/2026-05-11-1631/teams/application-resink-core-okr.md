@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core OKR — 2026-06-06
 
 ## Context
@@ -80,3 +82,4 @@ Why it matters: This is resink-core's slice of CEO O2 — step 2 of the ADR-2026
 - **SRE BLOCKED observable verification** — multi-loop wait on dlopen restoration step 2/3; not this loop.
 - **`EnterWorktree` discipline restoration** — situational; we proceed in-place under `repos/resink-ai/resink-core/` unless a worktree becomes load-bearing mid-loop.
 - **New ADRs from resink-core** — board owns the 2026-05-30-002 ratification this loop; we have no proposal to add.
+{% endraw %}

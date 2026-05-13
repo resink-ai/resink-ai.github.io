@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-10-2227-001
   links: parent: teams/platform/agent-engineering/okrs/2026-05-10-2227-001-team-okr.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — 2026-05-09
 
 ## What we shipped
@@ -41,3 +43,4 @@ owner: teams/platform/agent-engineering
 - KR1.1 (per-task estimate for 17-task plan): deferred to next loop.
 - KR1.2 (milestone bundles): deferred to next loop.
 - KR1.3 (scope-readiness note): deferred to next loop (and reduced in scope, since no changes were requested by the board).
+{% endraw %}

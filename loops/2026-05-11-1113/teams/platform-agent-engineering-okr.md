@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-11-1113
   links: parent: board/okrs/2026-05-11-1113-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering OKR — 2026-05-23
 
 ## Context
@@ -124,3 +126,4 @@ Maps to brief O3 → KR3.4 (status/charter discipline — no new owned surfaces 
 - **Charter work beyond housekeeping.** No new owned surfaces; the charter's `date:` stays at 2026-05-16 unless other content changes (none expected this loop).
 - **Tenant-tree edits.** Zero edits anywhere under `repos/resink-ai/` this loop. AE's work is entirely within `org-os/rituals/` + a single status.md refresh under `teams/platform/agent-engineering/`.
 - **Bundle B reshape / re-slice.** The brief has ratified Bundle B as a 7-task unit landing this loop. AE does not re-slice into smaller chunks; if Wave 2 slips, T8 carries as a single unit, not as a partial edit.
+{% endraw %}

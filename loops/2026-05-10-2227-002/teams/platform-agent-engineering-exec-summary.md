@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-10-2227-002
   links: parent: teams/platform/agent-engineering/okrs/2026-05-10-2227-002-team-okr.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — 2026-05-10
 
 ## What we shipped
@@ -80,3 +82,4 @@ CLEAN: no resink/nanofab names
 - **Brief O4 KR4.1**: floor met (Bundle A); stretch not reached (Bundle B carried).
 - **Brief O4 KR4.2**: met (this document).
 - **Brief O4 KR4.3**: met (dry-run CLEAN).
+{% endraw %}

@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-11-2153 — Company Exec Summary
 
 **Headline.** This loop closed two multi-loop deviations (ADR-2026-05-16-001 step 2 dlopen swap full execution; the first end-to-end cross-team request lifecycle), shipped the company's first AI-observability surface (GitBook publishing pipeline at `repos/resink-ai/resink-ai.github.io` with first publication of all 7 loops' artifacts), and ratified a 4-ADR batch (3 carries from prior retros + 1 NEW same-loop draft-and-ratify for the `action` enum admission). Workspace promotion remained blocked (5th-loop carry; 5 named downstream blockers; ticket carries another loop). The DevOps minikube smoke deferral pattern shifted: board-action `2026-06-06-002` closed `superseded` per the new working-answer (toolchain installs are per-team Prerequisite docs, not board-action tickets) — the policy shift consumed a recurring blocker class.
@@ -103,3 +105,4 @@ Deduplicated from per-team summaries. Each names originating team and required a
 ## Tenant-isolation invariant
 
 Held across the loop. Board ran per-edit dry-runs after each `org-os/` edit (6+ edits across 4 ADRs); resink-core / DE / DevOps / sim-farm / AE made zero `org-os/` writes (all team work in tenant paths). Combined: only the pre-existing `acme.ai` placeholder reference matched. **The largest concentration of `org-os/` writes since 2026-05-30 (Bundle C + 3 ADR ratification) completed with zero tenant-isolation violations.** Pass.
+{% endraw %}

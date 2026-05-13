@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering OKR — 2026-06-06
 
 ## Context
@@ -77,3 +79,4 @@ Maps to brief O1 → KR1.1 (template extension), KR1.2 (ABI crate declaration + 
 - **To board, end-of-loop (informational):** ADR ratification documentation at O5 (the loop+N convention being ratified this loop via ADR-2026-05-30-002, with the worked example being ADR-2026-05-16-001's rescheduling) implicitly covers AE's plan-continuation work. AE asks that the board's exec summary explicitly name ADR-2026-05-16-001 step 1 as completed-in-loop under the new loop+N convention, so future briefs can cite "step 1 closed at loop+1 relative to the original ADR ratification" cleanly. No new artifact required; one paragraph in board's exec summary suffices.
 - **To `teams/application/sim-farm` and `teams/platform/data-engineering`, no this-loop ask.** AE's work touches neither sim-farm's engine 0.3 nor DE's contract surface this loop. Both teams' loop-level coordination is with resink-core (sim-farm via O3, DE paused per brief). AE notes their work in passing only; no consumption or production by AE.
 - **From CEO (informational, escalation path only):** if the C-ABI design surprise (Risks §1) requires a same-loop ADR addendum (rather than a fold-into-O5 mention), AE EM surfaces the addendum filing at the mid-loop checkpoint so it can be ratified alongside ADR-2026-05-30-002 if both land cleanly. No action required from CEO unless this escalation fires; the default path is no addendum and step 1 ships per the original ADR shape.
+{% endraw %}

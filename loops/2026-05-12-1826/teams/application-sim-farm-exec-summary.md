@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-12-1826
   links: parent: board/okrs/2026-05-12-1826-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm Exec Summary — Loop 2026-05-12-1826 (paused, silent)
 
 **Headline.** Paused. The new `resink verdict latest` CLI reads `verdict.json` directly — the canonical sim-farm engine output shape (`engine_version: 0.3.0`, `overall_pass`, `verdicts[].pass`, `verdicts[].mismatch_count`). The CLI's verdict shape matches the contract verbatim (sim-farm verified the deserialization in resink-cli's unit test `deserialize_minimal_verdict`). **The verdict contract is now consumed by 3 surfaces:** the supervisor SOP, the chart (indirectly via container logs), and the `resink` CLI.
@@ -30,3 +32,4 @@ owner: teams/application/sim-farm
 ## Tenant-isolation
 
 Held. Zero writes by sim-farm this loop except this exec summary.
+{% endraw %}

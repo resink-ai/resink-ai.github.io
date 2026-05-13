@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-11-1113
   links: parent: board/okrs/2026-05-11-1113-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps OKR — 2026-05-23
 
 ## Context
@@ -225,3 +227,4 @@ This subsection is the [CEO brief O4 KR4.4](../../../../board/okrs/2026-05-11-11
 - **Terraform / IaC modules** — the chart is the entire deliverable this loop; Terraform modules for IAM roles + S3 artifact buckets are a later sub-slice of #4.
 - **Secrets Manager rotation Lambda + 90d rotation logic** — chart references externally-provisioned `Secret`s only; rotation is a later sub-slice.
 - **DevOps/SRE seam runbook content** — SRE owns the runbook per CEO brief O5; DevOps's only deliverable into the runbook this loop is the `tenant` label confirmation (Cross-team asks above).
+{% endraw %}

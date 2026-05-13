@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-11-1113
   links: parent: teams/platform/devops/okrs/2026-05-11-1113-team-okr.md
 -->
+{% raw %}
+
 # DevOps Exec Summary — 2026-05-23
 
 **Headline:** `nanofab-supervisor` Helm chart skeleton shipped (15 files); `helm lint`, `helm template`, and `helm install --dry-run --debug` all exit 0. Minikube smoke target authored but DEFERRED with a recorded blocker (no docker / minikube on the IC's developer machine this loop) — fallback `helm install --dry-run` validation path was executed and passed per OKR § Risks.
@@ -99,3 +101,4 @@ Confirm the three hand-off items in OKR § Hand-off to DE:
 **Exit codes recorded (KR4.3 mechanical proof):** `helm lint` = 0; `helm lint --strict` = 0; `helm template values/minikube-mvp.yaml` = 0 (190 lines, 6 kinds); `helm template values/minikube-bluegreen.yaml` = 0 (fleet-color flip verified); `helm install --dry-run --debug` = 0; missing-tenant assertion = non-zero (correct).
 
 **Loop adherence:** on-track. First build-mode loop after 4 weeks of plan-only landed mechanically without scope creep; only deferral is the smoke execution (recorded blocker, fallback executed).
+{% endraw %}

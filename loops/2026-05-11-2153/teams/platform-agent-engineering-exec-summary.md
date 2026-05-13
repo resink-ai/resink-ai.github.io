@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — 2026-06-13 (paused, review-ack)
 
 **Loop status.** Paused per CEO brief 2026-06-13. Single light review-ack ask in the brief covering resink-core's consumption of the template extension under real dlopen — confirms the ABI contract held. No build-phase work; no carryovers requiring code-bearing this loop. AE's template baseline (loop 2026-05-11-1631's `nanofab_node_process` C-ABI export + four `NANOFAB_NODE_*` status code constants) holds; marketplace tests stable at 98 pass / 0 fail / 3 skip baseline.
@@ -32,3 +34,4 @@ owner: teams/platform/agent-engineering
 - **Hot-swap correctness test (ADR-2026-05-16-001 step 3) — joint AE + resink-core deliverable, loop+1 (= 2026-06-20).** AE awaits scheduling signal in the next CEO brief.
 - **Template refinement when upstream `nanofab-node-abi` crate ships** — long-standing carry; no this-loop signal that the crate has shipped.
 - **DISPATCH `--skill` flag follow-up** — long-standing carry; no this-loop signal that `claude` CLI has shipped the flag.
+{% endraw %}

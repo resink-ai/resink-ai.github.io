@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-13-0056
   links: parent: board/exec-summaries/2026-05-13-0056.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-05-13-0056
 
 ## What worked
@@ -106,3 +108,4 @@ New ADR placeholders this loop: **None.**
 ## Tenant-isolation dry-run
 
 `org-os/playbooks/extract-org-os.md` dry-run: **passed**. Final tenant-isolation grep: `grep -nrE "(resink|nanofab|home-cluster|acme\.ai)" org-os/` returns only the canonical `acme.ai` placeholder at `org-os/conventions.md:121`. **Largest org-os write concentration since 2026-05-30 (Bundle C: 5 ritual + role edits) completed with zero tenant-isolation violations on commit.** Two violations were caught and fixed at per-edit dry-run stages (worked-example tenant names in playbooks); the per-edit discipline pays off at this scale. Pass.
+{% endraw %}

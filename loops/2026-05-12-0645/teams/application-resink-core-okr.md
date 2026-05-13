@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-12-0645
   links: parent: board/okrs/2026-05-12-0645-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core OKR — 2026-05-12
 
 ## Context
@@ -88,3 +90,4 @@ Why it matters: The request has been open since 2026-06-06 and operationally hon
 - **Supervisor determinism test under containerization** — out of scope; deferred to whichever loop wants to ratify the trace's byte-stability discipline across hosts.
 - **In-cluster image registry consumer integration** — out per brief's "no image registry this loop" framing; future loop concern.
 - **Future codegen patterns / template extensions** — out per AE's paused status.
+{% endraw %}
