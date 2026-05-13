@@ -64,13 +64,12 @@ Maps to brief O2 → KR2.1 (ci.yml workflow), KR2.2 (branch protection), KR2.3 (
 
 **Key results** (KR numbering preserves traceability to brief O2)
 
-- KR2.1: `.github/workflows/ci.yml` lands at the resink-core repo root with two jobs:
-  - **cargo:** Sets up Rust 1.85 (matches the Dockerfile), runs `cargo build --workspace --release`, runs `cargo test --workspace --release`.
-  - **helm:** Sets up helm v3, runs `helm lint --strict deploy/charts/nanofab-supervisor`; runs `helm template deploy/charts/nanofab-supervisor -f deploy/charts/nanofab-supervisor/values/home-cluster-mvp.yaml`; runs `helm install --dry-run --debug nanofab-supervisor-test deploy/charts/nanofab-supervisor -f deploy/charts/nanofab-supervisor/values/home-cluster-mvp.yaml`.
+- KR2.1: `.github/workflows/ci.yml` lands at the resink-core repo root. **Mid-loop scope-back: helm job ships in CI; cargo job deferred** until cross-repo marketplace access is configured (the supervisor's path-deps need `make orchestrate` which reads templates from the private `../resink-marketplace/`; CI can't clone it without a deploy-key or PAT). Helm job:
+  - Sets up helm v3.16; runs `helm lint --strict -f values/home-cluster-mvp.yaml deploy/charts/nanofab-supervisor`; runs `helm template`. Server-side `helm install --dry-run` dropped (default `--dry-run=server` mode requires a reachable k8s API; runner has no cluster).
   - Triggers: `on: pull_request` + `on: push: branches: [master]`.
-- KR2.2: Branch protection on master enabled via `gh api`. Settings: require PR before merge; require at least 1 status check passing (the workflow's combined `cargo` + `helm` aggregate). No "require review" rule.
-- KR2.3: First post-merge run on master is GREEN (proves the workflow itself is well-formed and the gates pass against the current codebase). Failure-mode notes captured inline as workflow comments where non-obvious.
-- KR2.4: `docs/` gains a short section (in an existing doc file like `docs/user-guide.md` or `docs/operations.md` — append, don't create a new doc) naming the CI workflow's gates and how to interpret a failed status.
+- KR2.2: ⚠️ **Deferred.** Branch protection on master cannot be enabled — the resink-core repo is private on a free GitHub plan, which doesn't permit branch-protection rules or rulesets on private repos (paid feature). Both `/branches/{branch}/protection` and `/rulesets` endpoints return `403 — Upgrade to GitHub Pro or make this repository public to enable this feature`. Configure once either (a) the repo is made public, or (b) the org upgrades to GitHub Pro. Until then the helm CI runs but isn't a required gate; the operator manually verifies green-CI in the PR UI before merging.
+- KR2.3: ✅ First post-merge run on master is GREEN (helm lint + template, 6s). Proves the workflow is well-formed and the gates pass against the current codebase.
+- KR2.4: ✅ `docs/user-guide.md` gained a "## Continuous integration" section naming the helm gates, the failure modes with local-repro commands, and the scope follow-up (cargo CI deferred + branch protection deferred).
 
 **Tasks**
 

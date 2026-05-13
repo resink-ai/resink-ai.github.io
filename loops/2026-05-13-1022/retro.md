@@ -34,7 +34,13 @@ owner: board
 
 ## What didn't
 
-- **Branch protection enable + first-post-merge-CI-verification both push to the publish phase.** The workflow's first CI run on master can only happen after the PR merges; branch protection's "require this status check" rule can only reference a check that has already run at least once. Both are mechanical post-PR-merge steps but they're not in the in-loop deliverable checklist. **Mild:** sequencing artifact, not a slip. Surface as a "where in the ritual does post-merge work live?" question — currently it's implicit in the publish step; could be explicit.
+- **CI scope-back: cargo job + branch protection both deferred mid-loop.** Two mid-loop discoveries forced honest scope reduction on O2:
+  - **Cargo CI requires cross-repo marketplace access.** Supervisor's `Cargo.toml` path-deps point at `synthetic_tenants/closed_loop_v0/workspace/nodes/` crates which are materialised by `make orchestrate` — and the orchestrator reads templates from `../resink-marketplace/` (private sibling repo). CI checkout of resink-core alone can't `git clone` the marketplace without a deploy-key or PAT secret on the resink-core remote.
+  - **Branch protection requires GitHub Pro for private repos.** Both `/branches/{branch}/protection` and `/rulesets` return `403 — Upgrade to GitHub Pro or make this repository public` on the free plan. Free plan only allows protection on public repos.
+  
+  Both deferrals are honest scope rather than slippage — neither was knowable from the brief without doing the work. The helm job ships green in CI; the operator manually verifies green helm CI in the PR UI before merging until protection lands. **Moderate:** the CI gate is partial. Carries forward as P5/P6 below.
+
+- **`helm install --dry-run` requires a reachable k8s API server.** Default `--dry-run` is server-side; GitHub Actions runners have no cluster. Dropped from the workflow. Operators run it locally against the home cluster before deploying. **Trivial:** discovery + fix in one mid-loop iteration; documented in workflow comments + user-guide.md. Not a slip, just a contract surprise from helm v3.16's default mode.
 
 - **`uv sync` package reinstallation on idempotent re-run.** `make bootstrap` re-run on a "clean" tree still produced install output (`+ duckdb==1.5.2`, etc.) — because `uv sync` reconciles the venv with the lockfile, not "no-op if directory exists." End state is correct; operator might be surprised. Documented in the Makefile comment block. **Trivial:** behavior, not bug; documentation cost was zero.
 
@@ -71,6 +77,29 @@ owner: board
 - **Owner:** board.
 - **Timing:** **Deferred; revisit when motivated.**
 
+### P5: Cargo CI gate — unblock cross-repo marketplace access (class: **tenant**)
+
+- **Problem it solves:** "What didn't" #1 first sub-bullet. The cargo CI job is deferred until CI can clone the resink-marketplace sibling. Two unblocking paths:
+- **Options:**
+  - **(a) Make resink-marketplace public.** Simplest; matches the marketplace's intent (shared agentic plugins compatible with Claude Code, Codex, Gemini, OpenCode — these are meant to be public anyway). Also unblocks branch protection on resink-core (option b in P6) since GitHub Pro features are unlocked for public repos.
+  - **(b) Configure a deploy-key (read-only) on resink-marketplace, store the private key as a `MARKETPLACE_DEPLOY_KEY` secret on resink-core, use it in the CI workflow's clone step.** Keeps both repos private; ~5 minutes of GitHub UI setup.
+  - **(c) Configure a fine-scoped PAT (Personal Access Token) with cross-repo read access, store as a secret on resink-core, use in CI.** Similar to (b) but org-wide rather than per-repo.
+- **Recommendation:** **(a) make marketplace public.** The marketplace is the canonical home of public-facing plugins (per the existing description); making it public matches the artifact's intent. Pleasant side-effect: unblocks P6 too.
+- **Review path:** Tenant decision (no ADR — repo visibility is an operational choice, not an architecture one).
+- **Owner:** board (decides); resink-core (uncomments the deferred cargo job in `.github/workflows/ci.yml` once unblocked).
+- **Timing:** **Next loop OR opportunistic** when the user is in GitHub admin UI anyway.
+
+### P6: Branch protection on resink-core master — same precondition class as P5 (class: **tenant**)
+
+- **Problem it solves:** "What didn't" #1 second sub-bullet. Free GitHub plan blocks branch protection and rulesets on private repos. Two unblocking paths:
+- **Options:**
+  - **(a) Make resink-core public** (parallels P5 (a) — pleasant overlap).
+  - **(b) Upgrade the org to GitHub Pro / Team / Enterprise.** Paid; standard for orgs with private CI requirements.
+- **Recommendation:** **Bundle with P5's decision.** If P5(a) is picked (make marketplace public), consider whether resink-core can also be public — different decision (different content; the resink-core repo includes synthetic-tenant fixtures + tenant-specific values, while the marketplace is pure plugin code). If resink-core stays private, P6(b) is the answer.
+- **Review path:** Tenant decision.
+- **Owner:** board.
+- **Timing:** **Next loop OR opportunistic.**
+
 ### P4: Make `post-publish-CI-verification` standing practice formal (class: **deferred**)
 
 - **Problem it solves:** Last loop's retro § P1 codified this as memory'd standing practice (not ADR, not playbook). This loop didn't trigger it (resink-core changes didn't touch gitbook). When a future loop's publish step lands, the practice runs; if it surfaces as load-bearing across multiple loops, then it earns a playbook entry.
@@ -87,6 +116,8 @@ owner: board
 - P1 (multi-loop-blocker-arc report-type) drafts next loop, not this one.
 - P2 (NodeCtx bridge) is demand-driven.
 - P3 (contract preconditions convention) is deferred.
+- P5 (cargo CI cross-repo access) is tenant-class (repo visibility / secrets / Pro decision); no ADR.
+- P6 (branch protection on private repo) is tenant-class; bundled with P5's decision.
 - P4 (post-publish-CI-verification) is standing practice; no ADR.
 
 **Net new ADR drafts this retro: 0.** The trend (zero new ADRs since 2026-05-13-0056's ratification bundle) continues. Org-os process surface is stable; product work is closing planned arcs without spawning new authoring debt.

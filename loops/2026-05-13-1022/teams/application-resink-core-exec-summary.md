@@ -37,15 +37,12 @@ Three-objective bundle close-out, all shipped clean. **O1 closes ADR-2026-05-16-
 - KR1.4 ✅: `cargo test --workspace --release` regression-free — all suites pass. `cd synthetic_tenants/closed_loop_v0 && make mvp-loop` produces `verdict=pass mismatches=0`.
 - KR1.5 ✅: `board/decisions/2026-05-16-001-abi-option-a-mvp-deviation.md` gained a "## Status (2026-05-13, loop 2026-05-13-1022)" section naming the three-step plan complete + the "step 3.5" follow-up (supervisor-side NodeCtx bridge) for future-loop pickup.
 
-**O2 — CI/CD bootstrap on the resink-core remote:**
+**O2 — CI/CD bootstrap on the resink-core remote (PARTIAL):**
 
-- KR2.1 ✅: `.github/workflows/ci.yml` (new file at the resink-core repo root). Two jobs:
-  - **cargo:** Sets up Rust 1.85 (matches `Dockerfile`); `cargo build --workspace --release`; `cargo test --workspace --release`; **plus** a second test pass with `--no-default-features --features dlopen-plugins -p nanofab-supervisor` so the hot-swap test exercises the real libloading path.
-  - **helm:** Sets up helm v3.16.0; `helm lint --strict -f values/home-cluster-mvp.yaml`; `helm template`; `helm install --dry-run --debug`.
-  - Triggers: `on: pull_request` + `on: push: branches: [master]`; concurrency-grouped on `ref`.
-- KR2.2 (deferred to post-PR-merge step): Branch protection on master will be configured via `gh api` once the workflow is on master and has produced a first GREEN status check. Tracked in the loop's publish phase. Settings: require PR before merge + require 1 status check passing (the combined `cargo` + `helm` jobs).
-- KR2.3 (deferred to first post-merge run): First post-merge run on master will verify the workflow itself is well-formed. Local sanity check passed (helm gates green with `-f home-cluster-mvp.yaml`).
-- KR2.4 ✅: `docs/user-guide.md` gained a "## Continuous integration" section naming the two jobs, the branch protection rule, and the three most common failure modes (cargo build / test failure, helm lint failure, helm template / dry-run failure) with local-repro commands.
+- KR2.1 ⚠️ **PARTIAL**: `.github/workflows/ci.yml` ships with the **helm job only**. Mid-loop scope-back on cargo job (see Surprises). Helm job: helm v3.16.0; `helm lint --strict -f values/home-cluster-mvp.yaml`; `helm template`. Server-side `helm install --dry-run` dropped (requires reachable k8s API). Triggers: `on: pull_request` + `on: push: branches: [master]`.
+- KR2.2 ⚠️ **DEFERRED**: Branch protection on master cannot be enabled — the resink-core repo is private on a free GitHub plan, which doesn't permit branch-protection rules or rulesets on private repos (paid feature). Both `/branches/{branch}/protection` and `/rulesets` endpoints return `403 — Upgrade to GitHub Pro or make this repository public`. Configure once either (a) the repo is made public, or (b) the org upgrades to GitHub Pro.
+- KR2.3 ✅: First post-merge run on master is GREEN. Helm lint + template, 6s.
+- KR2.4 ✅: `docs/user-guide.md` gained a "## Continuous integration" section honest about the scoping: helm gates only this loop; cargo gates + branch protection pending prerequisites.
 
 **O3 — `make bootstrap` target for submodule-deinit recovery:**
 
@@ -84,8 +81,9 @@ Three-objective bundle close-out, all shipped clean. **O1 closes ADR-2026-05-16-
 - [x] Add `bootstrap` target to `synthetic_tenants/closed_loop_v0/Makefile`; add to `.PHONY`.
 - [x] Verify bootstrap by simulating recovery (`rm -rf sim-farm/.venv` → `make bootstrap` → `make mvp-loop` → `verdict=pass`).
 - [x] Tenant-isolation grep — CLEAN (single canonical placeholder at `org-os/conventions.md:121`).
-- [ ] Enable branch protection on master via `gh api` (post-PR-merge step).
-- [ ] Verify first post-merge GREEN status check on master (post-PR-merge step).
+- [x] Verify first post-merge GREEN status check on master (helm job, 6s).
+- [⚠️] Enable branch protection on master via `gh api` — **deferred**; private repo on free plan blocks the feature. Awaiting either Pro upgrade or public-repo decision.
+- [⚠️] Cargo CI job — **deferred** pending cross-repo marketplace access (deploy-key/PAT secret OR public marketplace).
 
 ## Risks (now-closed or carried)
 

@@ -287,18 +287,27 @@ Write commands (`resink retrain ...`, `resink hot-swap rollback`), remote comman
 
 ## Continuous integration
 
-GitHub Actions workflow at `.github/workflows/ci.yml` (added 2026-05-13, loop `2026-05-13-1022`) runs on every PR and every push to master. Two jobs gate merges:
+GitHub Actions workflow at `.github/workflows/ci.yml` (added 2026-05-13, loop `2026-05-13-1022`) runs on every PR and every push to master.
 
-- **cargo** — `cargo build --workspace --release` + `cargo test --workspace --release`, then a second pass with `--no-default-features --features dlopen-plugins` for the supervisor crate so the `hot_swap_correctness` integration test exercises the real libloading path.
-- **helm** — `helm lint --strict`, `helm template`, and `helm install --dry-run --debug` against `deploy/charts/nanofab-supervisor` with `values/home-cluster-mvp.yaml`.
+**This loop's scope: helm gates only.** The cargo job is deferred until cross-repo marketplace access is configured (see "Scope follow-up" below). Locally, cargo build/test and the hot-swap correctness test run against the materialised workspace produced by `make mvp-loop` / `make orchestrate`.
 
-Branch protection on master requires both jobs pass before merge (configured via `gh api`; single-status-check rule, no required reviewer). Direct pushes to master are rejected. To merge, open a PR; the workflow runs automatically on the PR branch; once both jobs are green, the PR is mergeable.
+- **helm** — `helm lint --strict` + `helm template` against `deploy/charts/nanofab-supervisor` with `values/home-cluster-mvp.yaml`. (`helm install --dry-run` is not run in CI because it requires a reachable kubernetes API server; operators run it locally against the home cluster before deploying.)
 
-If a job fails:
+Branch protection on master will be configured via `gh api` to require the helm job to pass before merge.
 
-- **cargo build / test failure.** Inspect the run log; the workspace builds clean as of the bootstrap loop, so a failure points at a regression in the changed code. The `dlopen-plugins` pass requires both v1 + v2 cdylib codegen artifacts to exist on disk (see `crates/nanofab-supervisor/tests/hot_swap_correctness.rs` for the setup).
+If the helm job fails:
+
 - **helm lint failure.** Most common cause: `values.schema.json` schema enforcement (the chart's `tenant` field has `minLength: 1`; the CI passes `-f values/home-cluster-mvp.yaml` so the lint sees the actual tenant value). To reproduce locally: `helm lint --strict -f deploy/charts/nanofab-supervisor/values/home-cluster-mvp.yaml deploy/charts/nanofab-supervisor`.
-- **helm template / dry-run failure.** Typically a template-render bug or a Kubernetes API schema rejection. Reproduce locally with the same `-f` arguments the workflow uses.
+- **helm template failure.** Typically a template-render bug (a `{{ .Values.* }}` reference is missing or malformed). Reproduce locally with the same `-f` arguments the workflow uses.
+
+### Scope follow-up (cargo CI job)
+
+The supervisor's `Cargo.toml` has path-deps on codegen-output crates under `synthetic_tenants/closed_loop_v0/workspace/nodes/` which are materialised at `make orchestrate` time. The orchestrator's in-process slot-fill reads templates from `../resink-marketplace/plugins/nanofab/` — a private sibling repo. CI's checkout of resink-core alone can't `git clone` it without a deploy-key or PAT secret configured. Cargo CI lands in a follow-up loop after either:
+
+1. The resink-marketplace repo is made public, OR
+2. A deploy-key / PAT is configured on the resink-core remote enabling cross-repo clone.
+
+Until then, all cargo build/test verification (including the `hot_swap_correctness` integration test) is operator-driven locally. See the team OKR for the local verification recipes.
 
 <!-- rit-docs-init:end -->
 {% endraw %}

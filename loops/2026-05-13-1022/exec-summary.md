@@ -34,15 +34,20 @@ owner: board
 - **Result:** 3/3 tests pass under `--no-default-features --features dlopen-plugins`. `cargo test --workspace --release` regression-free. `make mvp-loop` `verdict=pass mismatches=0`.
 - **ADR closing-section.** `board/decisions/2026-05-16-001-abi-option-a-mvp-deviation.md` body gained "## Status (2026-05-13, loop 2026-05-13-1022)" naming the three-step plan complete + the step-3.5 follow-up. The five-loop arc (start: 2026-05-16; close: this loop) ends.
 
-### O2: CI/CD bootstrap on the resink-core remote — ✅ PASS (workflow + docs landed; branch protection post-merge)
+### O2: CI/CD bootstrap on the resink-core remote — ⚠️ PARTIAL (helm gate landed + green; cargo gate + branch protection deferred)
 
-- **`.github/workflows/ci.yml`** (new file at the resink-core repo root). Two jobs:
-  - **cargo:** Rust 1.85 (matches Dockerfile); cache cargo registry + target/; `cargo build --workspace --release`; `cargo test --workspace --release`; second test pass with `--no-default-features --features dlopen-plugins -p nanofab-supervisor` so the hot-swap test exercises the real libloading code path in CI.
-  - **helm:** helm v3.16.0; `helm lint --strict -f values/home-cluster-mvp.yaml`; `helm template`; `helm install --dry-run --debug`.
+- **`.github/workflows/ci.yml`** (new file at the resink-core repo root). **helm job lives in CI; cargo job scoped out this loop** (see What we didn't ship). Helm job:
+  - helm v3.16.0; `helm lint --strict -f values/home-cluster-mvp.yaml`; `helm template`. Server-side `helm install --dry-run` dropped because GitHub Actions runner has no kubernetes cluster (the default `--dry-run` mode is `--dry-run=server`).
   - Triggers on PR + push-to-master; concurrency-grouped on ref.
-- **Helm-gate sanity** verified locally — all three commands exit 0 with `-f home-cluster-mvp.yaml`. (Local helm is v4.1.4; required `-f` to satisfy `values.schema.json`'s `tenant: minLength: 1`. CI uses v3.16 which enforces the same schema; the `-f` flag is the right shape.)
-- **`docs/user-guide.md`** gained a "## Continuous integration" section naming the two jobs, the branch-protection rule, and local-repro commands for the three most common failure modes.
-- **Branch protection deferred** to the publish phase: configured via `gh api` once the PR merges and the first GREEN status check exists to require. Settings: require PR before merge + require 1 status check passing (the workflow's combined cargo + helm jobs).
+- **First post-merge run on master: GREEN.** Workflow runs cleanly in 6s.
+- **`docs/user-guide.md`** gained a "## Continuous integration" section honest about the scoping: helm gates only this loop; cargo gates pending cross-repo marketplace access.
+- **Branch protection deferred** — the resink-core repo is private on a free GitHub plan, which doesn't permit branch protection rules or rulesets (paid feature for private repos). Configured via `gh api` once either (a) the repo is made public, or (b) the org upgrades to GitHub Pro. Same precondition as the cargo CI deferral (option b — make marketplace public — partially overlaps).
+
+#### Mid-loop scope discoveries (informed the partial shape)
+
+1. **`helm install --dry-run` requires a reachable k8s API server.** Default mode is `--dry-run=server`; GitHub Actions runner has no cluster. Dropped from the workflow. Operators run it locally against the home cluster before deploying. Documented as such.
+2. **Supervisor's `Cargo.toml` path-deps need `make orchestrate` to materialize.** The orchestrator reads templates from `../resink-marketplace/` — a private sibling repo. CI checkout of resink-core alone can't `git clone` the marketplace without a deploy-key or PAT secret.
+3. **GitHub free plan blocks branch protection on private repos.** Both `/repos/{owner}/{repo}/branches/{branch}/protection` and `/repos/{owner}/{repo}/rulesets` return `403 — Upgrade to GitHub Pro or make this repository public to enable this feature`. Awareness only; surfaces in retro for org-level decision.
 
 ### O3: `make bootstrap` for submodule-deinit recovery — ✅ PASS
 
@@ -53,7 +58,7 @@ owner: board
 
 ### resink-core (active, primary)
 
-Three objectives shipped: new in-tree v2 plugin crate + new supervisor integration test + new CI workflow + branch-protection plan + new Makefile target + ADR closing-section + docs section. Six task buckets in the team OKR; all closed (two CI sub-tasks deferred to the publish phase post-PR-merge: branch-protection enable + first-post-merge-CI-verification). Workspace tests all green. `make mvp-loop` `verdict=pass mismatches=0`.
+Three objectives addressed: new in-tree v2 plugin crate + new supervisor integration test + new CI workflow (helm only this loop) + new Makefile target + ADR closing-section + docs section. O1 and O3 are fully closed; O2 is partial (helm CI lives + green; cargo CI + branch protection deferred — see "What we didn't ship"). Workspace tests all green locally. `make mvp-loop` `verdict=pass mismatches=0`.
 
 ### All other teams (paused, silent)
 
@@ -67,7 +72,7 @@ Brief + this consolidation + retro. No ADR drafts; no `org-os/` edits. The brief
 
 - **ADR-2026-05-16-001 arc closes.** The five-loop, three-step dlopen restoration plan ran from 2026-05-16 to this loop; closes cleanly. Step 1 (AE template extension) + Step 2 (resink-core supervisor swap) + Step 3 (hot-swap correctness test, split into AE-side last loop + resink-core-side this loop). The arc demonstrates the named-deviation + multi-loop-restoration pattern at full closure — the deviation was time-boxed, the time-box held (with one split mid-arc), and the runtime spec §4.3's hot-swap property is now verified at the supervisor's production code path.
 - **Bundling worked.** Three carryover items in one loop, all shipped without scope creep. The bundling rationale (single submodule, single CI bootstrap, single workstation context) predicted the cost reduction and the prediction held. **Reproducibility:** when 2-3 carryover items are all co-located in the same submodule's product surface and none is L alone, bundling reduces per-loop coordination cost vs scheduling separate loops.
-- **First CI gate on the resink-core remote.** The remote went from "direct-push-to-master, no checks" to "PR-gated with cargo + helm verification." The dlopen-plugins feature test runs in CI so the hot-swap test exercises the real libloading path in the CI environment, not just on the operator workstation. Branch protection (require PR + 1 status check) goes live post-PR-merge.
+- **First CI gate on the resink-core remote.** The remote went from "no checks" to "helm gate green on every PR + push-to-master." Cargo gate + branch protection deferred — both blocked on prerequisites (cross-repo marketplace access; GitHub Pro for branch protection on private repo). The partial shape is the right ship-call: the helm gate alone catches chart regressions that have bit prior loops (the 2026-05-12-0645 first-deploy surfaced two latent chart bugs that strict-lint would catch).
 - **Operator-recovery automation > documentation.** `make bootstrap` is one Makefile target, replacing the unwritten "run `uv sync --extra dev` in two dirs" recipe. Verified end-to-end. The pattern (automation over documentation when the recovery is mechanical) reproduces.
 - **Post-publish CI verification as standing practice held its first follow-on test.** The prior loop's retro § P1 codified `gh run list` on gitbook main after every publish as memory'd standing practice. Hasn't triggered this loop (resink-core changes don't touch gitbook directly), but the discipline is in place for the loop's publish step.
 - **Tenant-isolation invariant trivially held.** Zero `org-os/` edits this loop. All changes under `repos/resink-ai/resink-core/` + `teams/application/resink-core/` + `board/decisions/`. The grep returns only the canonical `acme.ai` placeholder.
