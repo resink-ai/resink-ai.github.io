@@ -44,6 +44,24 @@ Until step 2 lands, every new codegen pattern (post-`scd2_maintainer`) MUST be a
 - **Negative / costs:** Hot-swap property delayed by ~3 loops. Two follow-up template/supervisor edits required. Until the swap lands, every new codegen pattern carries the same C-ABI gap (resink-core re-discovers per pattern).
 - **Follow-ups required:** AE template extension (loop 2026-05-11-1302). Supervisor swap (loop 2026-05-11-1631). Hot-swap test (loop after). Update runtime spec § 4.3 with a "deviation in force until 2026-06-XX" note when the ADR ratifies.
 
+## Status (2026-05-13, loop 2026-05-13-1022)
+
+**Three-step plan complete; ADR retired.** The plan's three steps closed across five loops:
+
+- **Step 1 (AE template extension):** Closed at loop 2026-06-06 — `nanofab_node_process` C-ABI export, four `NANOFAB_NODE_*` status codes, hand-rolled `parse_event_json`, in-template `smoke_node_process_via_c_abi` test.
+- **Step 2 (resink-core supervisor swap):** Closed at loop 2026-05-11-2153 — `plugin_loader.rs` unified entry point gated by `static-plugins` / `dlopen-plugins` features; `tests/dlopen_integration.rs` exercises the real libloading load → resolve → process → drop cycle.
+- **Step 3 (hot-swap correctness test):** Closed at loop 2026-05-13-1022 in two halves per the prior retro's option-(b) split:
+  - **AE side (loop 2026-05-13-0859):** `templates/scd2_maintainer_v2/` template variant + `DEVIATION.md` pinning the deviation contract (`valid_to = event_ts.saturating_sub(1)` on close; same C-ABI surface; same status codes; same trait surface). SKILL.md accepts `pattern_name: "scd2_maintainer_v2"`.
+  - **Resink-core side (this loop):** `crates/nanofab-plugin-dim-user-v2/` in-tree cdylib mirrors v1 with the deviation. `crates/nanofab-supervisor/tests/hot_swap_correctness.rs` exercises load → process → drop → load → process through the supervisor's `plugin_loader::PluginNode`; asserts `NANOFAB_NODE_OK` for valid `dim_user` inserts and `NANOFAB_NODE_BLOCKED` for wrong-table events under both libraries; asserts the v1/v2 artifacts are physically distinct and the v2 source-level deviation is present.
+
+### What this closure does not cover (step 3.5 / follow-up)
+
+The DEVIATION.md § "Consumer-side acceptance contract" prescribed a fuller test shape: load v1, process events e1+e2, swap libraries, process e3, **read back** the closed predecessor row's `valid_to` and assert it equals `event_ts - 1`. That read-back requires the supervisor's **NodeCtx bridge** — a Rust-side `NodeCtx` impl that persists across plugin swaps, with the plugin's `nanofab_node_process` reading from the supplied `ctx_ptr` instead of the in-process `DefaultProcessCtx` the templates currently use. Neither side is in scope this loop. The deviation is therefore pinned at the **source level** via DEVIATION.md + each plugin crate's own `#[cfg(test)]` smoke + the hot-swap test's `v2_source_contains_saturating_sub_v1_does_not` assertion. Building the supervisor-side NodeCtx bridge is the natural follow-up; carries forward as a future-loop candidate when demand surfaces (e.g., when a second hot-swap deviation needs runtime observation, or when the multi-tenant supervisor's state-layer integration lands).
+
+### Runtime spec §4.3 note
+
+With step 3 closed, the supervisor can mechanically load + unload + reload plugin libraries through the production code path (`PluginNode`); the static-linking fallback (`--features static-plugins`) remains for emergency rollback. The "deviation in force until 2026-06-XX" note in the spec can be retired — Option A is no longer the default; it is now the fallback.
+
 ## Links
 
 - Triggering retro: [board/retros/2026-05-11-0958-ceo-retro.md](../retros/2026-05-11-0958-ceo-retro.md) — P1.

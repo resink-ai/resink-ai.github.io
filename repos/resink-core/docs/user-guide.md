@@ -285,5 +285,20 @@ Write commands (`resink retrain ...`, `resink hot-swap rollback`), remote comman
 - **`claude` CLI authentication errors (only with `CLAUDE_DISPATCH=1`).** If you see `Not logged in` or auth-related stderr from `claude`, the dispatch path can't reach Anthropic's API. Two fixes: (a) set `ANTHROPIC_API_KEY` in your shell; or (b) run `claude` interactively once to populate the OAuth keychain. The default `--skip-dispatch` path bypasses this entirely.
 - **Supervisor terminal failure / panic.** See the SRE runbook at `teams/platform/sre/runbooks/nanofab-supervisor-failed-validation.md` (in parent newbase). The supervisor uses `panic::catch_unwind` and emits the panic message into `trace.jsonl`; the runbook is the triage entry-point for any non-success terminal state.
 
+## Continuous integration
+
+GitHub Actions workflow at `.github/workflows/ci.yml` (added 2026-05-13, loop `2026-05-13-1022`) runs on every PR and every push to master. Two jobs gate merges:
+
+- **cargo** — `cargo build --workspace --release` + `cargo test --workspace --release`, then a second pass with `--no-default-features --features dlopen-plugins` for the supervisor crate so the `hot_swap_correctness` integration test exercises the real libloading path.
+- **helm** — `helm lint --strict`, `helm template`, and `helm install --dry-run --debug` against `deploy/charts/nanofab-supervisor` with `values/home-cluster-mvp.yaml`.
+
+Branch protection on master requires both jobs pass before merge (configured via `gh api`; single-status-check rule, no required reviewer). Direct pushes to master are rejected. To merge, open a PR; the workflow runs automatically on the PR branch; once both jobs are green, the PR is mergeable.
+
+If a job fails:
+
+- **cargo build / test failure.** Inspect the run log; the workspace builds clean as of the bootstrap loop, so a failure points at a regression in the changed code. The `dlopen-plugins` pass requires both v1 + v2 cdylib codegen artifacts to exist on disk (see `crates/nanofab-supervisor/tests/hot_swap_correctness.rs` for the setup).
+- **helm lint failure.** Most common cause: `values.schema.json` schema enforcement (the chart's `tenant` field has `minLength: 1`; the CI passes `-f values/home-cluster-mvp.yaml` so the lint sees the actual tenant value). To reproduce locally: `helm lint --strict -f deploy/charts/nanofab-supervisor/values/home-cluster-mvp.yaml deploy/charts/nanofab-supervisor`.
+- **helm template / dry-run failure.** Typically a template-render bug or a Kubernetes API schema rejection. Reproduce locally with the same `-f` arguments the workflow uses.
+
 <!-- rit-docs-init:end -->
 {% endraw %}
