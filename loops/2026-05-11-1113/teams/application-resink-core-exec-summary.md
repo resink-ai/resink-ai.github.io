@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-11-1113
   links: parent: teams/application/resink-core/okrs/2026-05-11-1113-team-okr.md
 -->
+{% raw %}
+
 # Resink Core Exec Summary — 2026-05-23
 
 **Headline: the widened MVP closed loop is GREEN.** `make mvp-loop` exits 0 with `verdict=pass mismatches=0` against `synthetic_tenants/closed_loop_v0/` — now widened to **2 dims (`dim_user` 21 rows, `dim_account` 18 rows), 3 facts (`fact_sign_up`, `fact_profile_update`, `fact_account_open`), and 4 logical shards**. `workspace/verdict.json` reports `overall_pass: true` AND both per-dim entries at `pass: true, mismatch_count: 0`. Real LLM-template-driven codegen (deterministic slot-fill path), real multi-node supervisor, real multi-shard xxHash64 partitioning, real multi-dim diff. O1 closed in full (6/6 KRs passed). O2 closed 3/4 KRs; KR2.1 workspace promotion deferred again (single recorded blocker; second consecutive deferral — flagged for retro).
@@ -114,3 +116,4 @@ owner: teams/application/resink-core
 | KR2.4 | `status.md` rewritten end-of-loop with three-item carryover deviation list | **passed** |
 
 **Tally: 9/10 passed, 1/10 deferred (permitted pivot, second consecutive), 0/10 blocked, 0/10 dropped.**
+{% endraw %}

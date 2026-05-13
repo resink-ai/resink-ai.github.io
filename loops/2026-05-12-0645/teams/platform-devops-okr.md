@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-12-0645
   links: parent: board/okrs/2026-05-12-0645-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps OKR — 2026-05-12
 
 ## Context
@@ -70,3 +72,4 @@ Why it matters: First product workload on real Kubernetes infrastructure. Valida
 - **Minikube smoke** — structurally superseded by the home-cluster deploy; minikube section in chart README marked legacy.
 - **Multi-tenant fanout, ResourceQuota/LimitRange, IRSA, CI/CD chart publishing** — out per long-standing chart posture.
 - **Re-attempt of board-action 2026-06-06-002 minikube install** — closed `superseded` last loop; not re-opened.
+{% endraw %}

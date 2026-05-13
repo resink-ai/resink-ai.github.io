@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-10-2227-002
   links: parent: board/okrs/2026-05-10-2227-002-ceo-brief.md
 -->
+{% raw %}
+
 # Data Engineering OKR — 2026-05-10
 
 ## Context
@@ -96,3 +98,4 @@ One line per task, in OKR order:
 
 - Board approval of `2026-05-10-001-nanofab-runtime-is-rust.md` (existing ask).
 - Mid-loop consumer-constraint check from resink-core and sim-farm (existing asks).
+{% endraw %}

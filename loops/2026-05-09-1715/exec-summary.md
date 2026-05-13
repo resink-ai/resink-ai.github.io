@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-09-1715
   links: parent: board/okrs/2026-05-09-1715-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-09-1715 — Company Exec Summary
 
 ## Per-team rollup
@@ -59,3 +61,4 @@ SRE shipped Charter v1, the loop OKR, and a first metric-list draft for the demo
 
 - Confirm `fact_sign_up.parquet` as the first demo target (DE asked) — DE's shared-primitive work and the engine-choice ADR recommendation will be shaped by this confirmation.
 - Confirm "demo pipeline failed validation" as the first runbook to write (SRE asked) — SRE has the candidate identified and is ready to draft once the scope is locked.
+{% endraw %}

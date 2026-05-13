@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-1302
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-05-30
 
 ## Context
@@ -151,3 +153,4 @@ Why it matters: Three ADRs have been in `draft` across the last two retros (one 
 - **Sim-farm Modes B/C** — full deferral; the HTML report names these explicitly as "not in scope yet."
 - **Frontmatter-lint CI script** (DevOps) — still deferred per loop 2026-05-09-1715 ADR-001.
 - **Resink-core stretch capacity decision** (sub-project #5 Product UX team standup vs internal split) — still deferred; revisit when the next MVP-class deliverable surfaces.
+{% endraw %}

@@ -15,6 +15,8 @@ owner: board
   decision: Author an org-os playbook codifying the "reframe-vs-act" pattern for multi-loop blockers whose framing itself may be wrong.
   links: parent: board/retros/2026-05-12-0645-ceo-retro.md
 -->
+{% raw %}
+
 # ADR 2026-05-12-001 — Reframe-vs-act playbook
 
 ## Status
@@ -75,3 +77,4 @@ One-loop-out draft-and-ratify. This ADR's `status: draft` at 2026-05-12-0645; th
 ## Decision
 
 **(Draft.)** Author `org-os/playbooks/reframe-vs-act.md` per the body shape above; ratify at next loop.
+{% endraw %}

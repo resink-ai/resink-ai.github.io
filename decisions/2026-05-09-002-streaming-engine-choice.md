@@ -15,6 +15,8 @@ owner: board
   superseded_by: 2026-05-10-001-nanofab-runtime-is-rust
   decision: Adopt Spark Structured Streaming as the streaming engine for the first fact_sign_up.parquet demo; revisit if a future demo surfaces a constraint Spark cannot meet.
 -->
+{% raw %}
+
 # ADR 2026-05-09-002: Streaming engine choice for the first demo
 
 ## Context
@@ -43,3 +45,4 @@ Adopt **Spark Structured Streaming** for the first `fact_sign_up.parquet` demo p
 - Triggering retro: [2026-05-08-ceo-retro](../retros/2026-05-09-1715-ceo-retro.md) (DE engine-choice carryover)
 - Related ADRs: [2026-05-09-003-deployment-target](2026-05-09-003-deployment-target.md), [2026-05-08-002-tenant-tree-restructure](2026-05-08-002-tenant-tree-restructure.md)
 - Surfaced constraints: [resink-core OKR § Plan](../../teams/application/resink-core/okrs/2026-05-10-2227-001-team-okr.md)
+{% endraw %}

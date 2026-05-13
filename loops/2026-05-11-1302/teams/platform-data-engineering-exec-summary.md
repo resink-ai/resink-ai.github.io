@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-11-1302
   links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
+{% raw %}
+
 # Data Engineering Exec Summary — 2026-05-30 (paused team — review-ack)
 
 **Loop status:** paused per CEO brief 2026-05-30. No build deliverables this loop; single light "review the resink-core docs PR" ask.
@@ -46,3 +48,4 @@ Net: one section-number inaccuracy with two occurrences (architecture.md "Multi-
 ## Asks
 
 None this loop. The §4 → §2 / §2.1 correction in resink-core's `architecture.md` + `CLAUDE.md` is filed here as a review-ack note rather than a separate ask; resink-core can fold it into their next docs touch or a peer-team PR comment.
+{% endraw %}

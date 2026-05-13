@@ -2,6 +2,7 @@
 layout: default
 title: Resink.ai operations
 ---
+{% raw %}
 # Resink.ai operations
 
 > Public observability surface for Resink.ai's structured org-os work — CEO briefs, executive summaries, retros, decisions, action tickets, contracts, conventions, runbooks, and capabilities reports. Generated from the in-repo org-os tree by `scripts/publish-to-gitbook.py`.
@@ -20,3 +21,4 @@ This is an AI native realtime data processing engine. It consumes facts data and
 - [Teams](teams/)
 - [Design specs](specs/)
 - [resink-core](repos/resink-core/)
+{% endraw %}

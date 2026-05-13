@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-11-1631 — Company Exec Summary
 
 **Headline.** The loop closed three multi-loop deviations and pre-staged the fourth. ADR-2026-05-16-001 dlopen-restoration step 1 done (AE template extension + four status code constants); retro P1 from 2026-05-23 closed (sim-farm engine 0.3 schema-aware); DevOps absorbed 5+3 hand-off responses with Helm gates green; ADR-2026-05-30-002 (loop+N relative dating) ratified with the worked example demonstrated in-brief. Workspace promotion remains blocked but now has a forcing-function board-action ticket at [`board/actions/2026-06-06-001-create-resink-core-github-remote.md`](../actions/2026-06-06-001-create-resink-core-github-remote.md) due 2026-06-13.
@@ -98,3 +100,4 @@ Deduplicated from per-team summaries. Each names originating team and required a
 ## Tenant-isolation invariant
 
 Held. Board edited `org-os/templates/adr.md` (single edit, "Multi-loop plan note" subsection); 1 dry-run after the edit; clean (only pre-existing `acme.ai` placeholder at `org-os/conventions.md:94`). AE did NOT edit `org-os/` this loop (work bounded to the marketplace submodule + `teams/platform/agent-engineering/`). Resink-core, sim-farm, DevOps, DE, SRE did not edit `org-os/`. Combined: single org-os edit, zero violations. Pass.
+{% endraw %}

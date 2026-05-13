@@ -17,6 +17,8 @@ owner: teams/platform/sre
   links: parent: board/okrs/2026-05-12-0645-ceo-brief.md
   team_okr: teams/platform/sre/okrs/2026-05-12-0645-team-okr.md
 -->
+{% raw %}
+
 # SRE Exec Summary — Loop 2026-05-12-0645
 
 **Headline.** SRE's second owned-surface runbook shipped: `nanofab-supervisor-deployment.md` (`type: runbook`, `severity_tiers: [S1, S2, S3]`, `status: active`). Companion to the existing failed-validation runbook; covers install / verify / delete against the home cluster with 6 failure-mode subsections (F1–F6) and a full `Verified-against-environment` subsection — **SRE's first runbook to adopt ADR-2026-05-16-003's discipline** (third adopter overall after sim-farm's verdict contract and DE's schema-JSON convention). Home-cluster operator runbook (`repos/resink-ai/home-cluster/docs/k8s-cluster.md` § Smoke-test workloads) registered the supervisor as the cluster's first product workload. Status.md refreshed (was 2026-06-06; now 2026-05-12).
@@ -50,3 +52,4 @@ owner: teams/platform/sre
 ## Tenant-isolation invariant
 
 Held throughout. Zero `org-os/` writes. All edits under `teams/platform/sre/` and `repos/resink-ai/home-cluster/docs/`. Final dry-run clean.
+{% endraw %}

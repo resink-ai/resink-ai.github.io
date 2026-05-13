@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-12-1826
   links: parent: board/okrs/2026-05-12-1826-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-12-1826 — Company Exec Summary
 
 **Headline.** First user-facing surface shipped — the `resink` power-user CLI v1. New Rust crate `crates/resink-cli/` in the resink-core submodule; 5 read-only subcommands (`workspace status`, `verdict latest`, `manifest get`, `table head <dim>`, `trace tail`); pretty-prints filesystem workspace artifacts produced by `make mvp-loop`. All subcommands exercised against the live workspace; `verdict=pass mismatches=0` end-to-end. Build green; 6 unit tests pass. Commit `057a18b` pushed to the resink-core remote — **first non-promotion content on the new submodule** since last loop's bootstrap. Implements sub-project #5 (Product UX) § 3.2 from the canonical spec. SRE light-review-acked.
@@ -100,3 +102,4 @@ Three patterns worth recording:
 1. **Single-focus loop discipline works for product-surface work too.** Last loop's single-focus discipline (workspace promotion) carried over to this loop's CLI focus. The discipline produces clean, contained deliverables; the cost is a slower org-os process evolution (backlog growth).
 2. **The product UX spec is now load-bearing.** Sub-project #5's spec at `docs/superpowers/specs/2026-05-10-nanofab-product-ux-design.md` § 3.2 was the canonical reference for this loop's CLI scope. Future product UX work follows the same pattern (read the spec; ship the smallest slice).
 3. **Submodule-deinit-then-regenerate is a recovery pattern that needs documentation.** Surfaced this loop's early build phase; recoverable but unobvious. Candidate for `docs/user-guide.md § Troubleshooting` or a `make bootstrap` target.
+{% endraw %}

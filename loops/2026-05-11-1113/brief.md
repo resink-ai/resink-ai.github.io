@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-1113
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-05-23
 
 ## Context
@@ -203,3 +205,4 @@ Why it matters: A consolidation loop's value is in turning prior-loop named devi
 - Frontmatter-lint CI script (DevOps) — still deferred; manual ADR-2026-05-08-001 enforcement continues.
 - DevOps supervisor-binary resource-budget doc — deprioritized per 2026-05-10 status.
 - Production-shape error handling, retries, observability beyond `panic::catch_unwind` + JSONL trace + DuckDB verdict.
+{% endraw %}

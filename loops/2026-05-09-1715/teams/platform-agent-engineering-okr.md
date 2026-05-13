@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-09-1715
   links: parent: board/okrs/2026-05-09-1715-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering Team OKR — 2026-05-08
 
 ## Context
@@ -59,3 +61,4 @@ Why it matters: The plugin marketplace is the AE charter's marquee product and t
 - Building or deploying the marketplace itself.
 - Spawning real agents (only a hypothetical dry-run is required).
 - Any work for application teams (`resink-core`, `sim-farm`), whose OKRs are deferred to next loop.
+{% endraw %}

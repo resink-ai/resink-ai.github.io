@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-12-1826
   links: parent: board/exec-summaries/2026-05-12-1826.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-05-12-1826
 
 ## What worked
@@ -92,3 +94,4 @@ New ADR placeholders this loop: **None.** P4's playbook is small enough to be dr
 ## Tenant-isolation dry-run
 
 `org-os/playbooks/extract-org-os.md` dry-run: **passed**. **Fourth consecutive loop with zero `org-os/` writes by any team.** Final tenant-isolation grep returns only the canonical `acme.ai` placeholder at `org-os/conventions.md:121`. Pass.
+{% endraw %}

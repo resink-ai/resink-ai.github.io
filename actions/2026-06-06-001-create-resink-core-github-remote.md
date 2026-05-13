@@ -16,6 +16,8 @@ due: 2026-06-13
   due: 2026-06-13
   links: triggering_retro: ../retros/2026-05-11-1302-ceo-retro.md
 -->
+{% raw %}
+
 ## Resolution
 
 **Resolved 2026-05-12 (loop 2026-05-12-0645, mid-loop after build phase closed).**
@@ -88,3 +90,4 @@ This file is read at every CEO brief authoring step (per ADR-2026-05-09-005's ca
 - Worked-example blocker: workspace promotion in [teams/application/resink-core/status.md](../../teams/application/resink-core/status.md) — third-consecutive-loop carry.
 - Sister artifact: this is the first `board/actions/` ticket; the second is [`board/actions/2026-06-06-002-install-minikube-on-dev-machine.md`](2026-06-06-002-install-minikube-on-dev-machine.md). Both filed under provisional `type: action`; both migrated to canonical at 2026-06-13.
 - ADR admitting the convention: [ADR-2026-06-13-001](../decisions/2026-06-13-001-admit-action-to-conventions-enum.md) (admit `action` to the conventions enum; ratified 2026-06-13).
+{% endraw %}

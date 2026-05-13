@@ -2,6 +2,7 @@
 layout: default
 title: resink-core (overview)
 ---
+{% raw %}
 # resink-core
 
 resink-core is the Rust Cargo workspace plus Python training-pipeline that hosts the **Nanofab Runtime** (sub-project #1) and the **Nanofab Training Pipeline** (sub-project #2) of the resink.ai product family. It is consumed by other resink.ai teams (sim-farm, data-engineering, devops, sre) and is the primary code surface owned by `teams/application/resink-core/`. The MVP closed loop ships an end-to-end demo where a synthetic tenant's CDC fact streams are routed through orchestrator-generated SCD2-maintainer nodes inside a multi-node supervisor and the resulting per-dim parquets are byte-diffed against a deterministic fixture — `make mvp-loop` exits 0 with `verdict=pass mismatches=0` on the widened 2-dim / 3-fact / 4-shard fixture as of loop 2026-05-23. This repo does not target Spark, the JVM, or a general SQL engine; analytical query is delegated to Trino/DuckDB over the (future) Iceberg CDC sink.
@@ -78,3 +79,4 @@ target/                   # cargo build output (gitignored)
 - **SRE runbook for supervisor-failed validation (in parent newbase repo)** — `teams/platform/sre/runbooks/nanofab-supervisor-failed-validation.md`.
 
 <!-- rit-docs-init:end -->
+{% endraw %}

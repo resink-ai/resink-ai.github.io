@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: "Admit type: action to the org-os conventions enum so board-action tickets become canonical artifacts; migrate the two existing 2026-06-06-001 and 2026-06-06-002 board-action tickets from provisional to canonical in the same loop"
 -->
+{% raw %}
+
 # ADR 2026-06-13-001: Admit `action` to the conventions type enum
 
 ## Context
@@ -68,3 +70,4 @@ The migration follows the [provisional-and-migrate playbook](../../org-os/playbo
 - Ratifying playbook applied to the migration: [ADR-2026-06-06-001](2026-06-06-001-provisional-and-migrate-playbook.md) (provisional-and-migrate playbook, ratified this loop) + [`org-os/playbooks/provisional-and-migrate.md`](../../org-os/playbooks/provisional-and-migrate.md).
 - Triggering work: the two existing `board/actions/` tickets filed at 2026-06-06 with provisional `type: action` (see Context).
 - Sister carryover discipline: [ADR-2026-05-09-005](2026-05-09-005-carryover-load-in-brief.md) — the brief's first read step surfaces `due:`-hit `action` tickets the same way it now surfaces `deferred_to_loop`-hit requests (per [ADR-2026-06-06-002](2026-06-06-002-paused-team-request-acceptance.md)).
+{% endraw %}

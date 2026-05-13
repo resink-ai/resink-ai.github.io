@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps OKR — 2026-06-13
 
 ## Context
@@ -66,3 +68,4 @@ Why it matters: Board-action `2026-06-06-002` hit its 2026-06-13 forcing functio
 - **From `board`:** take this OKR's KR5.1 update to `board/actions/2026-06-06-002` as authoritative — supersession reason and chart README pointer are both verbatim from the brief's standing answer to retro P5. No further board action needed for the close.
 - **From `teams/application/resink-core`:** the chart README sees a small refresh this loop (KR5.2 — one-line policy note + ADR forward-link in the Prerequisites section). The README lives in resink-core's tree (`repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md`); the edit is non-load-bearing for chart functionality. One-line ack in resink-core's 2026-06-13 exec summary or counter-propose if resink-core wants the policy note rephrased.
 - **From `board` (O1 GitBook publishing pipeline):** confirm whether `repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md` is in publishing scope (DevOps recommends IN; KR5.4 explains) OR explicitly out. The decision lands in board's O1 KR1.6 (publishing-scope documentation at `scripts/PUBLISHING-SCOPE.md`); DevOps's KR5.4 note is the input.
+{% endraw %}

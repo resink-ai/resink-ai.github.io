@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-11-0958
   links: parent: teams/application/sim-farm/okrs/2026-05-11-0958-team-okr.md
 -->
+{% raw %}
+
 # Sim Farm Exec Summary — 2026-05-16
 
 **Headline:** the Mode-A SCD2 diff engine + verdict contract closed step 5 of the four-team MVP loop on the green path. `make mvp-loop`'s verdict file reads `pass: true, mismatch_count: 0`; the four-case engine smoke is 5/5 passing.
@@ -96,3 +98,4 @@ OKR key results, end-of-loop state:
 ```
 
 Loop adherence: **on-track**. Five of seven KRs PASS, one PARTIAL (KR2.2 — green half of a two-half KR), one PASS-via-fallback (KR2.1 — fallback was the documented path, not a slip). MVP loop closed on the green path; sim-farm's gate read the verdict and returned the green answer.
+{% endraw %}

@@ -2,6 +2,7 @@
 layout: default
 title: "Team: platform-devops"
 ---
+{% raw %}
 # Team: platform-devops
 
 ## Mission
@@ -77,3 +78,4 @@ Bridge dev and ops; own deployment pipelines and cloud infra.
 - [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/platform-devops-okr.html)
 - [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/platform-devops-okr.html)
 - [2026-05-09-1715](../../loops/2026-05-09-1715/teams/platform-devops-okr.html)
+{% endraw %}

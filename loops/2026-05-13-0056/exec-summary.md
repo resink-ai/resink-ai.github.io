@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-13-0056
   links: parent: board/okrs/2026-05-13-0056-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-13-0056 — Company Exec Summary
 
 **Headline.** Org-os ratification bundle shipped — 2 draft ADRs flipped to active alongside their newly-authored playbooks; 1 ADR's scope extended in-place (V-a-E discipline now admits `runbook` + `convention` + `playbook` alongside `contract` + `rfc`); 1 in-place sibling section added to `provisional-and-migrate.md` (first-real-deploy pattern); 1 small new playbook authored (smallest-product-slice). **5 org-os edits in a single loop** — largest concentration since 2026-05-30's Bundle C. Per-edit + cumulative tenant-isolation dry-runs all clean — final sweep returns only the canonical `acme.ai` placeholder. **Backlog cleared.** Single team active (board); zero cross-team coordination cost.
@@ -122,3 +124,4 @@ Three patterns worth recording:
 1. **Bundled ratification loops produce backlog clearing at scale.** This loop ratified 4 backlog items in one focused authoring pass. The cost: org-os process evolution slows by 2-3 loops in the backlog-build phase. The benefit: clean single-focus product loops in the build-up; one focused authoring loop in the clear-out. Net positive.
 2. **Per-edit tenant-isolation dry-run is the right discipline at this scale.** 2 violations caught in 5 edits. Without per-edit dry-run, both would have landed in the bundled commit and required follow-up cleanup commits.
 3. **In-place playbook extensions are the right shape for sibling patterns.** `provisional-and-migrate.md` gained a first-real-deploy sibling section; ADR-2026-05-16-003 gained a sister-artifact-types subsection. Pattern: extend rather than spawn when the new content is a sibling shape to existing content. Reduces playbook proliferation; keeps related patterns co-located.
+{% endraw %}

@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   consumers: - teams/application/resink-core
   links: parent: teams/application/sim-farm/okrs/2026-05-11-0958-team-okr.md
 -->
+{% raw %}
+
 # MVP Loop Verdict Contract — Mode A (Batch SCD2 Diff)
 
 ## Version history
@@ -507,3 +509,4 @@ Per [ADR-2026-05-16-003](../../../board/decisions/2026-05-16-003-contract-enviro
   - Missing parquet file: `FileNotFoundError` at view-load time — surfaces as exit code 2 with `engine_error`.
   - Malformed `schema.json` (missing `key_columns` or `payload_columns`, non-list values, empty `key_columns`): `ValueError` at schema-ref-load time — surfaces as exit code 2 with `engine_error`.
   - Column named in `key_columns` / `payload_columns` not present in the parquet: DuckDB raises a binding error at query execution — surfaces as exit code 2 with `engine_error`.
+{% endraw %}

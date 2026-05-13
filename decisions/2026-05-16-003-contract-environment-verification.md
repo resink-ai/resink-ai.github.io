@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: "Every cross-team contract or RFC artifact must include a 'Verified-against-environment' subsection naming toolchain versions, OS, runtime dependencies, and auth-mode prerequisites it was exercised against; new contracts comply going forward, existing contracts grandfather"
 -->
+{% raw %}
+
 # ADR 2026-05-16-003: Contract-Against-Environment Verification
 
 ## Context
@@ -80,3 +82,4 @@ The canonical scope is now: **`contract`, `rfc`, `convention`, `runbook`, `playb
 - Companion ADR ratified same loop: [2026-05-16-004-focus-loop-pattern](2026-05-16-004-focus-loop-pattern.md).
 - Conventions edit landed alongside this ratification: [org-os/conventions.md](../../org-os/conventions.md).
 - Worked-example contracts (grandfathered; not retroactively edited): AE DISPATCH.md, sim-farm verdict contract, DE in-memory event-source contract — all filed 2026-05-16.
+{% endraw %}

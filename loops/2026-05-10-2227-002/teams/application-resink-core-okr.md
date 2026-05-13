@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-10-2227-002
   links: parent: board/okrs/2026-05-10-2227-002-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core OKR — 2026-05-10
 
 ## Context
@@ -204,3 +206,4 @@ Out of scope for this team (restated for clarity): Sim Farm internals; serving/d
 - **Decide the LLM provider abstraction** for the training-pipeline sub-agents (training spec §9). Anthropic + a thin shim is the default; revisit if the first sub-agent surfaces a constraint.
 - **First real (non-stub) node generation** from a hand-coded pattern (`scd2_counter_maintainer` from training spec §4.10). Targeted for the loop *after* the first slice ships.
 - **Pick the KV vendor for the second slice** — TiKV or FoundationDB. Runtime spec §2 doesn't lock; first slice doesn't need either.
+{% endraw %}

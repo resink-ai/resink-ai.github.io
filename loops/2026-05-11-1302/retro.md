@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-1302
   links: parent: board/exec-summaries/2026-05-11-1302.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-05-30
 
 ## What worked
@@ -96,3 +98,4 @@ Multi-loop plan adjustments (not new ADRs, just plan-side updates):
 ## Tenant-isolation dry-run
 
 `org-os/playbooks/extract-org-os.md` dry-run: **passed**. Board ran dry-runs after each of the 3 ADR-mandated `org-os/` edits + the new focus-and-consolidation-loops playbook + the conventions enum extension. AE ran dry-runs after each of the 7 Bundle C tasks + a final post-loop sweep. Combined: only the pre-existing `acme.ai` placeholder reference in `org-os/conventions.md` matched. **The largest concentration of `org-os/` writes in any single loop completed with zero tenant-isolation violations.** Two self-induced tripwires (regex inlining in `IC.md` + `README.md` during AE's Bundle C) surfaced and were fixed before commit — the invariant did exactly what it's designed to do. Pass.
+{% endraw %}

@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-11-1302
   links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering OKR — 2026-05-30
 
 ## Context
@@ -139,3 +141,4 @@ Maps to brief O2 → KR2.7 (tenant-isolation discipline + the implicit team-hygi
 - **ADR drafting or ratification.** Board owns ADR ratification this loop (brief O3 KR3.1). AE does not draft or merge any ADR artifact.
 - **Frontmatter-lint CI script** (DevOps). Still deferred per [ADR-2026-05-08-001](../../../../board/decisions/2026-05-08-001-frontmatter-validation.md).
 - **Resink-core stretch capacity decision** (Product UX team standup vs internal split). Still deferred until the next MVP-class deliverable surfaces.
+{% endraw %}

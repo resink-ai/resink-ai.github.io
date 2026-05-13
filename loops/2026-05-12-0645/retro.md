@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-12-0645
   links: parent: board/exec-summaries/2026-05-12-0645.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-05-12
 
 ## What worked
@@ -112,3 +114,4 @@ New ADR placeholders this loop:
 `org-os/playbooks/extract-org-os.md` dry-run: **passed**. Final tenant-isolation grep: `grep -nrE "(resink|nanofab|home-cluster|acme\.ai)" org-os/` returns only the canonical `acme.ai` placeholder at `org-os/conventions.md:121`. **This loop achieved the smallest possible org-os surface impact** — zero `org-os/` writes by ANY team, by design (no ADR ratifications, no convention edits, no template changes). The discipline holds trivially because there's nothing to dry-run beyond reading. Pass.
 
 This is the second consecutive loop with zero `org-os/` writes from product teams (2026-05-11-2153 had board-mandated 4-ADR ratification edits; this loop has none). The minimum-surface trend is healthy — `org-os/` edits should be load-bearing change, not housekeeping.
+{% endraw %}

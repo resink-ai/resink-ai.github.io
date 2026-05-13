@@ -2,6 +2,7 @@
 layout: default
 title: "Spec: 2026-05-10-nanofab-training-pipeline-design"
 ---
+{% raw %}
 # Nanofab Training Pipeline — Design Spec
 
 **Date:** 2026-05-10
@@ -375,3 +376,4 @@ Per-sub-agent metrics on a Prometheus endpoint; cohort dashboards in the resink 
 - **`release_seal.json`:** the artifact emitted when all four gate stages pass; presented to the runtime coordinator's `PublishDagVersion` API.
 - **DAG diff:** the set of manifest entries that changed between two DAG versions; used to scope codegen, CI builds, and validation in retrains.
 - **Diff-triage:** a specialized LLM job that classifies a stage-2 equivalence-diff into (codegen bug | customer-SQL bug | acceptable tolerance | semantic ambiguity).
+{% endraw %}

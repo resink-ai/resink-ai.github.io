@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-11-1302
   links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps Exec Summary — 2026-05-30 (paused team — review-ack)
 
 **Loop status:** paused per CEO brief 2026-05-30. No build deliverables this loop; single light "review the resink-core docs PR" ask.
@@ -45,3 +47,4 @@ No corrections needed. The chart's MVP shape (`restartPolicy: Never`, `healthz.e
 ## Asks
 
 **Board action on KR1.3 closure path.** The minikube smoke has now carried two loops (2026-05-23 → 2026-05-30 → 2026-06-06) on the same dev-machine-toolchain blocker. Filing the explicit board ask: **approve docker + minikube install on the IC's dev machine, OR pivot to Docker-Desktop-on-Mac (the smoke target rewrites trivially), OR provision a shared CI runner with docker.** A board decision in either direction unblocks KR1.3 closure in loop 2026-05-11-1631; continued deferral risks a third-loop slip. (Filed as a single ask to roll into the CEO consolidation 2026-05-30.)
+{% endraw %}

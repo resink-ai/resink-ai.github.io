@@ -2,6 +2,7 @@
 layout: default
 title: Teams
 ---
+{% raw %}
 # Teams
 
 One page per team. Each page links to the team's charter, contracts, conventions, runbooks, and chronological exec summaries.
@@ -12,3 +13,4 @@ One page per team. Each page links to the team's charter, contracts, conventions
 - [platform-data-engineering](platform-data-engineering/) (platform layer)
 - [platform-devops](platform-devops/) (platform layer)
 - [platform-sre](platform-sre/) (platform layer)
+{% endraw %}

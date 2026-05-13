@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 # Data Engineering Exec Summary — 2026-06-06 (paused, review-ack)
 
 **Loop status:** Paused per CEO brief 2026-06-06. Single light review-ack ask in the brief; an additional request landed in-loop from sim-farm + DevOps. DE remains paused; all three acks fold into this one paragraph-shaped summary.
@@ -41,3 +43,4 @@ owner: teams/platform/data-engineering
 ## Asks
 
 None this loop. The two open requests in `teams/platform/data-engineering/requests/` are answered by this exec summary; the schema-JSON request gets owner-named canonicalization next loop, the DevOps hand-off request closes here.
+{% endraw %}

@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: Adopt onboard-application-team.md as the canonical playbook for an application team's first product-shaped OKR.
 -->
+{% raw %}
+
 # ADR 2026-05-09-004: Onboarding playbook for application teams' first product OKR
 
 ## Context
@@ -44,3 +46,4 @@ Adopt the playbook as written in `org-os/playbooks/onboard-application-team.md`.
 - Triggering retro: [2026-05-08-ceo-retro](../retros/2026-05-09-1715-ceo-retro.md) (P2)
 - Related ADRs: [2026-05-08-001-frontmatter-validation](2026-05-08-001-frontmatter-validation.md), [2026-05-08-002-tenant-tree-restructure](2026-05-08-002-tenant-tree-restructure.md)
 - Playbook: [onboard-application-team.md](../../org-os/playbooks/onboard-application-team.md)
+{% endraw %}

@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-1631
   links: parent: board/exec-summaries/2026-05-11-1631.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-06-06
 
 ## What worked
@@ -117,3 +119,4 @@ Multi-loop plan adjustments (not new ADRs, just plan-side updates):
 ## Tenant-isolation dry-run
 
 `org-os/playbooks/extract-org-os.md` dry-run: **passed**. Board ran one dry-run after the `org-os/templates/adr.md` "Multi-loop plan note" subsection edit (the only org-os/ write this loop). AE made zero org-os/ writes (work in marketplace submodule). Combined: only the pre-existing `acme.ai` placeholder reference in `org-os/conventions.md` matched. The lightest org-os edit load in any single loop since 2026-05-09 (Bundle A start); the discipline of "every org-os edit gets a dry-run" held trivially. Pass.
+{% endraw %}

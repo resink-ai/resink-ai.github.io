@@ -2,6 +2,7 @@
 layout: default
 title: "Team: platform-sre"
 ---
+{% raw %}
 # Team: platform-sre
 
 ## Mission
@@ -74,3 +75,4 @@ Uptime, SLOs, incident response. As of 2026-05-10, SRE also owns the **operation
 
 - [nanofab-supervisor-deployment](runbooks/nanofab-supervisor-deployment.html)
 - [nanofab-supervisor-failed-validation](runbooks/nanofab-supervisor-failed-validation.html)
+{% endraw %}

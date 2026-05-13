@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-09-1715
   links: parent: teams/platform/sre/okrs/2026-05-09-1715-team-okr.md
 -->
+{% raw %}
+
 # SRE Exec Summary — 2026-05-08
 
 ## What we shipped
@@ -40,3 +42,4 @@ owner: teams/platform/sre
 
 - KR1.1 (3–5 metrics listed): met — 3 metrics drafted.
 - KR1.2 (first runbook identified): met — proposed candidate.
+{% endraw %}

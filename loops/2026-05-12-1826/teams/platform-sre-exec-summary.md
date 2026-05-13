@@ -17,6 +17,8 @@ owner: teams/platform/sre
   links: parent: board/okrs/2026-05-12-1826-ceo-brief.md
   team_okr: teams/platform/sre/okrs/2026-05-12-1826-team-okr.md
 -->
+{% raw %}
+
 # SRE Exec Summary — Loop 2026-05-12-1826 (light review-ack)
 
 **Headline.** Single-paragraph review-ack on the new `resink` CLI. The CLI reads the same artifacts the deployment SOP already names (`workspace/verdict.json`, `workspace/manifest.yaml`, `workspace/trace.jsonl`, `workspace/dim_*_output.parquet`); no source-of-truth divergence. No command-name conflicts with `kubectl` / `helm`. Recommendation for the next-loop SOP revision: optionally suggest `resink verdict latest` as a friendlier alternative to `cat workspace/verdict.json | jq` in the SOP's "Verification" section. **No SOP edits this loop** — forward-pointer only. The CLI's `workspace status` subcommand surfaces the same per-artifact checklist that an operator would otherwise build mentally; it's the natural drop-in for the SOP's "verify expected artifacts present" step too. Recommend bundling both edits at the next active-SRE loop.
@@ -40,3 +42,4 @@ owner: teams/platform/sre
 ## Tenant-isolation
 
 Held. Zero `org-os/` writes; only edits are this OKR + exec summary.
+{% endraw %}

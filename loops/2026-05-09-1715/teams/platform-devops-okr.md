@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-09-1715
   links: parent: board/okrs/2026-05-09-1715-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps Team OKR — 2026-05-08
 
 ## Context
@@ -46,3 +48,4 @@ Why it matters: DevOps must commit to a deployment target before realtime-pipeli
 - Production CI/CD pipelines.
 - Container image builds or registries.
 - Any work for application teams (`resink-core`, `sim-farm`) — deferred to next loop.
+{% endraw %}

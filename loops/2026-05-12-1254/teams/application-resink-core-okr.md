@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-12-1254
   links: parent: board/okrs/2026-05-12-1254-ceo-brief.md
 -->
+{% raw %}
+
 # Resink Core OKR — 2026-05-12 (loop 2026-05-12-1254)
 
 ## Context
@@ -70,3 +72,4 @@ Why it matters: Closes the 8-loop saga (7 prior carries + this loop's execution)
 - Independent CI/CD for the new submodule (future loop).
 - Branch protection rules on the new remote (future loop).
 - Bulk rewrite of historical references (intentional non-change; references stay point-in-time-correct).
+{% endraw %}

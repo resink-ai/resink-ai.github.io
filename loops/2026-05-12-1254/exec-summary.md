@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-12-1254
   links: parent: board/okrs/2026-05-12-1254-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-12-1254 — Company Exec Summary
 
 **Headline.** The 8-loop saga closes. `repos/resink-ai/resink-core/` is now a real git submodule at `git@github.com:resink-ai/resink-core.git` (master HEAD `f8b5f5d`, 7-commit linear history split from newbase's 19 in-tree commits via `git subtree split`). Parent newbase's `.gitmodules` gains a fourth entry; the working-tree mount point is identical so no path rewrites are needed across the 75 parent files that reference the submodule. Single-objective loop executed cleanly: subtree split → push → in-tree remove → submodule add → working-tree integrity verified → tenant-isolation invariant held. Helm chart gates green post-promotion (DevOps); SRE runbooks gained 1-line footers acknowledging the structural change (no body rewrites). Hot-swap correctness test (ADR-2026-05-16-001 step 3) slipped to loop+3 — bounded slip, recorded.
@@ -106,3 +108,4 @@ Held trivially. **Second consecutive loop with zero `org-os/` writes by any team
 Two patterns worth recording:
 1. **Multi-loop blocker resolution as cumulative pattern-application.** Workspace promotion didn't resolve by acting on the originally-tracked action; it resolved through cumulative refinement of the pattern over 8 loops (filing → forcing function → reframe-vs-act → auto-run command → mechanical execution). Each loop's iteration built on the prior loop's insight.
 2. **`git subtree split` is the right tool for in-tree → submodule.** Faithful history preservation; loop-level commit subjects intact; clean linear timeline on the new remote. The alternative (fresh-init + single import commit) would have lost the loop-coupling. Worth codifying in an org-os playbook on submodule promotion.
+{% endraw %}

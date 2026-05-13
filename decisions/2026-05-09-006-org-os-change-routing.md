@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: Org-os change proposals that surface mid-loop (not at retro time) route through a dedicated team-proposals path and are picked up as candidate evolution proposals in the next CEO brief.
 -->
+{% raw %}
+
 # ADR 2026-05-09-006: Out-of-retro routing path for org-os change proposals
 
 ## Context
@@ -50,3 +52,4 @@ The retro path remains the default; this ADR adds an additional path for proposa
 - New playbook: [org-os/playbooks/out-of-retro-org-os-change.md](../../org-os/playbooks/out-of-retro-org-os-change.md)
 - Ritual cross-link: [org-os/rituals/team-planning.md](../../org-os/rituals/team-planning.md)
 - Related ADRs: [2026-05-09-001-org-os-bottom-up-flow](2026-05-09-001-org-os-bottom-up-flow.md), [2026-05-09-005-carryover-load-in-brief](2026-05-09-005-carryover-load-in-brief.md)
+{% endraw %}

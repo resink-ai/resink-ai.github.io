@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: Adopt the org-os bottom-up flow design (team-initiated work + cross-team requests) as specified in docs/superpowers/specs/2026-05-09-org-os-bottom-up-flow-design.md; AE owns implementation via the 17-task plan in docs/superpowers/plans/2026-05-09-org-os-bottom-up-flow.md.
 -->
+{% raw %}
+
 # ADR 2026-05-09-001: Org-OS bottom-up flow
 
 ## Context
@@ -70,3 +72,4 @@ The 17-task implementation plan is the execution contract. AE owns it. Bundle A 
 - **Implementation OKR (loop 2026-05-10-2227-002):** [teams/platform/agent-engineering/okrs/2026-05-10-2227-002-team-okr.md](../../teams/platform/agent-engineering/okrs/2026-05-10-2227-002-team-okr.md)
 - **Related ADRs:** [2026-05-08-001-frontmatter-validation](2026-05-08-001-frontmatter-validation.md), [2026-05-08-002-tenant-tree-restructure](2026-05-08-002-tenant-tree-restructure.md), [2026-05-09-006-org-os-change-routing](2026-05-09-006-org-os-change-routing.md) (deferred to 2026-05-23 — will retroactively formalize the routing used here).
 - **Foundational org-OS spec:** [docs/superpowers/specs/2026-05-08-ai-native-org-os-design.md](../../docs/superpowers/specs/2026-05-08-ai-native-org-os-design.md)
+{% endraw %}

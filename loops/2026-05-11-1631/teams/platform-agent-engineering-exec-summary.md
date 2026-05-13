@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — 2026-06-06
 
 ## Headline
@@ -79,3 +81,4 @@ Exactly one line — the single pre-existing canonical placeholder. Zero new ten
 - **AE has no carryover after this loop.** Future codegen patterns from training spec §4.10 (`scd1_first_event`, `window_stats_with_decrement`, `sweep_line_pair_count`, etc.) remain gated on **resink-core requesting a specific pattern AND the board scheduling via a future brief**. AE's bandwidth is fully clear for whichever pattern the board schedules next.
 - **DISPATCH `--skill` follow-up (informational, no this-loop action).** When `claude` CLI ships its planned `--skill` flag, the DISPATCH.md "Invocation shape" section will need a small revision. No this-loop signal that the flag has shipped; flagged for awareness so a future brief can schedule the follow-up edit.
 - **No this-loop ask of resink-core, sim-farm, DE, DevOps, SRE, or board** beyond the loop+1 supervisor-swap handoff already documented in DISPATCH.md (informational).
+{% endraw %}

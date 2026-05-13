@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-11-1631
   links: parent: board/okrs/2026-05-11-1631-ceo-brief.md
 -->
+{% raw %}
+
 # DevOps Exec Summary — 2026-06-06
 
 **Headline:** Five resink-core supervisor-side (R1..R5) + three DE Kafka (K1..K3) hand-off responses absorbed into `repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/` (`values.yaml`, `_helpers.tpl`, `templates/configmap.yaml`, `templates/deployment.yaml`, new `values.schema.json`, README § Prerequisites / § Limitations / § Cross-team contracts). All three Helm gates exit 0 on both overlays; K3 schema rejection empirically verified. Minikube smoke (KR1.2 + KR1.3) **DEFERRED a third loop** — Docker Desktop is present on this build host via OrbStack, but the `minikube` CLI is not installed (`make minikube-smoke` exits 127 at step [1/9] with `minikube: command not found`). Recovery is a single command, `brew install minikube`, documented in chart README § Prerequisites.
@@ -62,3 +64,4 @@ owner: teams/platform/devops
 - **R2 `/healthz` + `/readyz` flip target** — when resink-core's `loop+1` long-running supervisor lands (2026-06-13 per ADR-2026-05-16-001 revised step 2), DevOps flips `healthz.enabled=true` in `values.yaml` defaults; the `Service` block then renders. Forward-compat values already wired (`port: 9090`, `livenessPath: /healthz`, `readinessPath: /readyz`).
 - **Frontmatter-lint CI script** — fourth consecutive defer; manual ADR-2026-05-08-001 enforcement continues.
 - **Supervisor-binary resource-budget doc** — deprioritized; sized when a real (non-sim) workload runs.
+{% endraw %}

@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-1302
   links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-11-1302 — Company Exec Summary
 
 **Headline: resink-core is now self-describing, the bottom-up flow plan is 17/17 complete, and the company has its first external-facing capabilities report.** Resink-core's product repo gained `CLAUDE.md` (76 lines), `AGENTS.md` symlink, and four `docs/` files (5,000+ words total) via `rit-docs-init`. AE shipped Bundle C — the final 5 tasks of the 17-task bottom-up flow plan from ADR-2026-05-09-001, closing the org-os ritual-surface authoring effort. Board ratified three ADRs (`2026-05-16-003` contract-environment-verification, `2026-05-16-004` focus-and-consolidation loop patterns, `2026-05-23-001` conventions enum extension — extended this loop to a 5-type batch: `runbook`/`convention`/`playbook`/`report`/`role`) and authored the single-file HTML capabilities report at [`board/reports/2026-05-30-resink-core-capabilities.html`](reports/2026-05-30-resink-core-capabilities.html) (18 KB; inline CSS; no JS; no external assets). The company's external surface, internal docs surface, and org-os ritual surface all closed simultaneously this loop.
@@ -99,3 +101,4 @@ Three ADRs flipped `draft → active`:
 ## Tenant-isolation invariant
 
 Held across the loop. Board ran dry-runs after each `org-os/` edit (3 ADR-mandated edits + the new focus-and-consolidation-loops playbook + the new HTML report's parent reports directory). AE ran dry-runs after each of the 7 Bundle C task edits + the final post-loop sweep. Combined: only the pre-existing `acme.ai` placeholder reference in `org-os/conventions.md` matched. **AE caught and fixed two self-induced tripwires** (regex inlining in `IC.md` + `README.md`) before commit — the invariant surfaced the issue exactly as designed. Pass.
+{% endraw %}

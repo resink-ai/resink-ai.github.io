@@ -17,6 +17,8 @@ owner: teams/application/resink-core
   links: parent: board/okrs/2026-05-12-1826-ceo-brief.md
   team_okr: teams/application/resink-core/okrs/2026-05-12-1826-team-okr.md
 -->
+{% raw %}
+
 # Resink Core Exec Summary — Loop 2026-05-12-1826
 
 **Headline.** First user-facing surface shipped: the `resink` CLI v1. New workspace member `crates/resink-cli/` (5 subcommands; 6 unit tests pass; arrow-prettyprint-formatted tabular output for parquet; clap-derive structure with subcommand help). Build green at `cargo build --release -p resink-cli`. All 5 subcommands exercised against the live `make mvp-loop` workspace: `workspace status` shows 5/5 ✓ artifacts; `verdict latest` prints `PASS / engine_version: 0.3.0 / per-dim PASS x2`; `manifest get` pretty-prints the YAML; `table head dim_user --limit 5` shows the 5-row SCD2 table; `trace tail --lines 3` pretty-prints the last 3 events with indented JSON. **First non-promotion content commit pushed to the resink-core remote at `057a18b`.**
@@ -67,3 +69,4 @@ owner: teams/application/resink-core
 ## Tenant-isolation invariant
 
 Held. Zero `org-os/` writes. All edits in resink-core submodule (`crates/resink-cli/`, `Cargo.toml`, `Cargo.lock`, `docs/user-guide.md`) + parent's submodule pointer bump (next commit) + this OKR + exec summary. Final tenant-isolation grep clean.
+{% endraw %}

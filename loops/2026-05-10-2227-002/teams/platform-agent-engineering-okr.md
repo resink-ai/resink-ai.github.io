@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-10-2227-002
   links: parent: board/okrs/2026-05-10-2227-002-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering OKR — 2026-05-10
 
 ## Context
@@ -169,3 +171,4 @@ Maps to brief O4 → KR4.1 (stretch).
 - **Any consumer-side adoption of the new artifacts.** No other team writes a `team-proposals.md`, files a `request`, or adds a `source` field to their OKR this loop; that adoption starts loop 2026-05-11-0958 when the new ritual descriptions are live on master.
 - **Tooling / lint enforcement of the validation hints.** Phase-2 concern per the spec; this loop only lands the hints as advisory text in `conventions.md`.
 - **Plugin marketplace / agent runtime work.** Per status.md, AE's bootstrap-phase priorities are entirely on the bottom-up flow rollout this loop; product-shaped work resumes once the org-os layer stabilizes.
+{% endraw %}

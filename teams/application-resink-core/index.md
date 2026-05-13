@@ -2,6 +2,7 @@
 layout: default
 title: "Team: application-resink-core"
 ---
+{% raw %}
 # Team: application-resink-core
 
 ## Mission
@@ -53,3 +54,4 @@ Deliver the customer-facing realtime data processing product — both the traini
 - [2026-05-11-0958](../../loops/2026-05-11-0958/teams/application-resink-core-okr.html)
 - [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/application-resink-core-okr.html)
 - [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/application-resink-core-okr.html)
+{% endraw %}

@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: Tenant tree restructured — board/ for executive desk, teams/{platform,application}/ for workforce, agent-engineering/data-engineering full-name slugs, application/realtime-pipeline → teams/application/resink-core
 -->
+{% raw %}
+
 # ADR 002: Tenant tree restructure
 
 ## Context
@@ -57,3 +59,4 @@ The `owner` field in YAML frontmatter is now defined as: **the directory path fr
 - Triggering change: user-driven directory rename on disk (no triggering retro this time; this ADR is the formal record after the fact, per the spec §6 rule that any org-os change requires an ADR).
 - Related: [ADR-001](2026-05-08-001-frontmatter-validation.md).
 - Affected playbook: [`extract-org-os.md`](../../org-os/playbooks/extract-org-os.md).
+{% endraw %}

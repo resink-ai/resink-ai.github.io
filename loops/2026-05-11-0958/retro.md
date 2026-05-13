@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-0958
   links: parent: board/exec-summaries/2026-05-11-0958.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-05-16
 
 ## What worked
@@ -117,3 +119,4 @@ The 2026-05-23 batch is now: ADR-003 + ADR-004 + ADR-005 + ADR-006 + this loop's
 ## Tenant-isolation dry-run
 
 `org-os/playbooks/extract-org-os.md` dry-run: **passed.** AE ran `grep -rEi "resink|nanofab|acme\.ai" org-os/` at the end of the loop; the only match is the pre-existing `acme.ai` placeholder in `org-os/conventions.md`. No `org-os/` files were edited this loop (Bundle B + ADR-003 deferred per CEO brief). No new ADRs from this retro touch `org-os/` content; all four are placeholder files in `board/decisions/`. Pass.
+{% endraw %}

@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-0958
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-05-16
 
 ## Context
@@ -159,3 +161,4 @@ Why it matters: The Kafka ingress contract assumes a real Kafka. The MVP runs on
 - Codegen patterns beyond `scd2_maintainer` — pattern-library expansion is post-MVP.
 - More than one dim table or more than two fact streams in the fixture.
 - Production-shape error handling, retries, observability beyond what's needed for the MVP smoke and verdict.
+{% endraw %}

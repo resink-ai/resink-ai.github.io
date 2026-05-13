@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-09-1715
   links: parent: board/okrs/2026-05-09-1715-ceo-brief.md
 -->
+{% raw %}
+
 # Data Engineering Team OKR — 2026-05-08
 
 ## Context
@@ -46,3 +48,4 @@ Why it matters: The realtime-pipeline team's first OKR (next loop) cannot be wri
 - Building or publishing transformation primitives.
 - Any work on fact types beyond `fact_sign_up.parquet`.
 - Application teams' OKRs (`resink-core`, `sim-farm`) — deferred to next loop.
+{% endraw %}

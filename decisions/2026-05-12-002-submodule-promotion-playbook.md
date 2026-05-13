@@ -15,6 +15,8 @@ owner: board
   decision: Author an org-os playbook codifying the in-tree → submodule promotion pattern using `git subtree split`.
   links: parent: board/retros/2026-05-12-1254-ceo-retro.md
 -->
+{% raw %}
+
 # ADR 2026-05-12-002 — Submodule-promotion playbook
 
 ## Status
@@ -89,3 +91,4 @@ One-loop-out draft-and-ratify. This ADR's `status: draft` at 2026-05-12-1254; th
 ## Decision
 
 **(Draft.)** Author `org-os/playbooks/submodule-promotion.md` per the body shape above; ratify at next loop alongside the other deferred playbooks (P3/P4/P5 from prior retro + P1 from this retro).
+{% endraw %}

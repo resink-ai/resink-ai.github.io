@@ -17,6 +17,8 @@ owner: teams/platform/data-engineering
   - teams/application/sim-farm
   links: parent: teams/platform/data-engineering/okrs/2026-05-11-0958-team-okr.md
 -->
+{% raw %}
+
 # In-Memory Event Source — Nanofab Runtime (MVP Addendum)
 
 This document defines the in-memory event-source contract that the nanofab
@@ -339,3 +341,4 @@ does for the existing fact streams. No new rows are needed.
 - Consumers this loop:
   - `teams/application/resink-core/` — supervisor + in-memory source impl
   - `teams/application/sim-farm/` — closed-loop diff (consumes the supervisor output, not the events directly, but relies on event-shape determinism)
+{% endraw %}

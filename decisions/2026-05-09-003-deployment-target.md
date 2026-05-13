@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: Adopt minikube (single-node local k8s) as the deployment target for the first fact_sign_up.parquet demo; manifests are portable to cloud k8s when production demos land.
 -->
+{% raw %}
+
 # ADR 2026-05-09-003: Deployment target for the first demo
 
 ## Context
@@ -43,3 +45,4 @@ Adopt **minikube** (single-node local Kubernetes) as the deployment target for t
 - Triggering retro: [2026-05-08-ceo-retro](../retros/2026-05-09-1715-ceo-retro.md) (DevOps deployment-target carryover)
 - Related ADRs: [2026-05-09-002-streaming-engine-choice](2026-05-09-002-streaming-engine-choice.md)
 - Surfaced constraints: [resink-core OKR § Plan](../../teams/application/resink-core/okrs/2026-05-10-2227-001-team-okr.md)
+{% endraw %}

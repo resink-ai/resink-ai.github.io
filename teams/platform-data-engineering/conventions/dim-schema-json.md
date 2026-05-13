@@ -13,6 +13,8 @@ owner: teams/platform/data-engineering
   date: 2026-06-13
   status: active
 -->
+{% raw %}
+
 # Per-Dim Schema-JSON Convention — `{key_columns, payload_columns}`
 
 **Scope:** every per-dim `schema.json` file produced by the resink-core
@@ -155,3 +157,4 @@ DE-owned contract/convention** to receive the discipline (after sim-farm's
 - **Worked-example files (canonical on-disk artifacts):**
   - [`repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0/sim-farm-schemas/dim_user.json`](../../../../repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0/sim-farm-schemas/dim_user.json)
   - [`repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0/sim-farm-schemas/dim_account.json`](../../../../repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0/sim-farm-schemas/dim_account.json)
+{% endraw %}

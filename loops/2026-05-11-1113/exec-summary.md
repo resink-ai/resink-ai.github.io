@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-1113
   links: parent: board/okrs/2026-05-11-1113-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-11-1113 — Company Exec Summary
 
 **Headline: the widened MVP closed loop is GREEN, AND the 2026-05-23 ADR batch is ratified.** The supervisor processed two dims simultaneously (`dim_user` 21 SCD2 rows, `dim_account` 18 SCD2 rows) driven by three fact streams across four logical shards using `xxHash64(seed=0)` partitioning byte-stable against DE's reference values. `make mvp-loop` exits 0 with `overall_pass: true`, both per-dim `pass: true` and `mismatch_count: 0`. In parallel, six ADRs flipped `status: draft → active` (oldest carryover ADR-005 + ADR-006 from 2026-05-09; ADR-003 + ADR-004 from 2026-05-10; this loop's ADR-001 + ADR-002), three contracts migrated from `type: rfc → type: contract` closing three loops of the workaround, AE shipped Bundle B in full (3-loop slip pattern broken), and DevOps + SRE returned to build mode after 4 weeks. The verdict file is at [`workspace/verdict.json`](../../repos/resink-ai/resink-core/synthetic_tenants/closed_loop_v0/workspace/verdict.json).
@@ -98,3 +100,4 @@ Six ADRs flipped `status: draft → active` this loop. The ritual + convention +
 ## Tenant-isolation invariant
 
 **Held across the loop.** AE ran the dry-run after each of the 7 Bundle B task edits; the board ran it after each ADR-mandated ritual edit. Combined dry-run results: only the pre-existing `acme.ai` placeholder reference in `org-os/conventions.md` matched. Zero new tenant/product names introduced anywhere in `org-os/`. Pass.
+{% endraw %}

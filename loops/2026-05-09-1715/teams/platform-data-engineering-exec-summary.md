@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-09-1715
   links: parent: teams/platform/data-engineering/okrs/2026-05-09-1715-team-okr.md
 -->
+{% raw %}
+
 # Data Engineering Exec Summary — 2026-05-08
 
 ## What we shipped
@@ -41,3 +43,4 @@ owner: teams/platform/data-engineering
 
 - KR1.1 (engine ADR): partial — comparison drafted, recommendation not yet finalized.
 - KR1.2 (one shared primitive identified): partial — candidate identified, contract not yet defined.
+{% endraw %}

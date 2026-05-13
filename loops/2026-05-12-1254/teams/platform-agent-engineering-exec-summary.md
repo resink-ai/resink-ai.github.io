@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-12-1254
   links: parent: board/okrs/2026-05-12-1254-ceo-brief.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — Loop 2026-05-12-1254 (paused, silent)
 
 **Headline.** Paused this loop per CEO brief. The workspace-promotion focus doesn't touch AE's marketplace surface (`repos/resink-ai/resink-marketplace/plugins/nanofab/skills/codegen-scd2-node/`); the template + DISPATCH addendum are unaffected by resink-core's submodule conversion. No review-ack ask. **Hot-swap correctness test (ADR-2026-05-16-001 step 3) re-scheduled to loop+3** (originally loop+1, slipped twice now); joint AE + resink-core deliverable; AE awaits scheduling signal in the next CEO brief.
@@ -30,3 +32,4 @@ owner: teams/platform/agent-engineering
 ## Tenant-isolation
 
 Held. Zero writes by AE this loop.
+{% endraw %}

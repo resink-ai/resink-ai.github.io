@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-10-2227-002
   links: parent: board/okrs/2026-05-10-2227-002-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm OKR — 2026-05-10
 
 ## Context
@@ -138,3 +140,4 @@ Per `org-os/playbooks/onboard-application-team.md` step 4, the smallest committa
 **Wire one mode-A assertion against a stub workspace.** Specifically: pull a hand-built fixture workspace (resink-core or sim-farm authors it next loop), run a no-op stub supervisor binary in `--mode=sim`, capture the write-trace, run one DuckDB diff against a trivial reference query, produce a `Verdict` JSON conforming to the verdict schema sketched in this loop's contract. Single mode, single layer (tolerances), single dim table. This is the runtime-equivalent of the 2026-05-09 "minimal generator + first assertions" slice that was deferred — re-aimed at the nanofab supervisor and scoped to a single mode-A run.
 
 This slice depends on: (a) resink-core having shipped or stubbed `--mode=sim` (this loop's cross-team ask), (b) a tiny fixture workspace existing somewhere (next-loop work, can be in sim-farm's directory). It does not depend on Iceberg, the coordinator, or the streaming differ.
+{% endraw %}

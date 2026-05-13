@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-11-1113
   links: parent: teams/platform/agent-engineering/okrs/2026-05-11-1113-team-okr.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — 2026-05-23
 
 ## Headline
@@ -86,3 +88,4 @@ Bundle B shipped clean — all seven ritual edits (T6–T12) on master, two-wave
 
 - **KR2.1** — `status.md` Recent shipments gained 2026-05-23 entry naming Bundle B's seven tasks; Carrying-into-next-loop updated (Bundle B removed; Bundle C target 2026-05-30; `--bare` addendum carried with brief-named 2026-05-30; ADR-003 removed). `date:` bumped 2026-05-16 → 2026-05-23. **MET.**
 - **KR2.2** — `charter.md` unchanged. No new owned products this loop; `date:` stays at 2026-05-16. **MET.**
+{% endraw %}

@@ -16,6 +16,8 @@ owner: teams/platform/devops
   loop: 2026-05-10-2227-002
   links: parent: teams/platform/devops/okrs/2026-05-10-2227-002-team-okr.md
 -->
+{% raw %}
+
 # DevOps Exec Summary — 2026-05-10
 
 ## What we shipped
@@ -68,3 +70,4 @@ This was a **plan-only** loop per [CEO brief](../../../../board/okrs/2026-05-10-
 - **O2 KR2.3** — definition-of-done for the next-loop deliverable, mechanically checkable: **done**.
 - **O3 KR3.1** — `status.md` updated per the post-pivot triage rules: **done** (this loop).
 - Plan-only loop adherence: **on-track** — no scope creep into code.
+{% endraw %}

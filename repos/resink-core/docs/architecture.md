@@ -13,6 +13,8 @@ owner: teams/application/resink-core
   date: 2026-05-30
   status: active
 -->
+{% raw %}
+
 # Architecture — resink-core
 
 This document describes what the repo runs **today** (loop 2026-05-23 closure state, as carried into loop 2026-05-30's documentation loop). Forward-pointers to specs and ADRs are explicitly marked; anything not yet implemented is named as a deviation in the final section.
@@ -80,3 +82,4 @@ This section records every place the live repo diverges from a canonical spec or
 - **Inlined `nanofab-node-abi` types in codegen template.** AE's `templates/scd2_maintainer/lib.rs.tmpl` inlines `Node` / `NodeCtx` / `Event` / `Scd2Row` / `Op` / `FieldValue` / `NodeError` verbatim rather than `use nanofab_node_abi::*`. Publishing the upstream crate (this loop's pre-condition) is preparatory; the template switch to `use`-ing it is part of AE's Bundle C this loop or a follow-up. **Owner:** AE.
 
 <!-- rit-docs-init:end -->
+{% endraw %}

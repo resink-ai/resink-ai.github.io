@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-10-2227-001
   links: parent: teams/application/resink-core/okrs/2026-05-10-2227-001-team-okr.md
 -->
+{% raw %}
+
 # Resink Core Exec Summary — 2026-05-09
 
 ## What we shipped
@@ -44,3 +46,4 @@ owner: teams/application/resink-core
 - KR1.1 (Training → Serving plan): met — sub-sections (a) input schema, (b) dim-table outputs, (c) streaming pattern, (d) deployment pattern, (e) validation contract — all written.
 - KR1.2 (streaming constraints surfaced to DE): met — surfaced in writing; DE's ADR cites them.
 - KR1.3 (validation failure-mode shapes surfaced to sim-farm): met — sim-farm's contract enumerates all seven shapes.
+{% endraw %}

@@ -2,6 +2,7 @@
 layout: default
 title: "Spec: 2026-05-10-nanofab-sim-farm-design"
 ---
+{% raw %}
 # Nanofab Sim Farm — Design Spec
 
 **Date:** 2026-05-10
@@ -388,3 +389,4 @@ This is "Sim Farm watching Sim Farm" — necessary because everything downstream
 - **Warm-worker pool:** small set of pre-booted supervisor processes ready to accept a low-latency sim job.
 - **Write-trace:** the structured per-state-mutation log emitted by `nanofab-supervisor --write-trace` (defined in runtime spec §8.4).
 - **Self canary:** the fixture workspace re-run nightly through Sim Farm to detect drift in Sim Farm itself.
+{% endraw %}

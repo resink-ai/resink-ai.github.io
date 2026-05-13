@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-11-1113
   links: parent: teams/platform/data-engineering/okrs/2026-05-11-1113-team-okr.md
 -->
+{% raw %}
+
 # Data Engineering Exec Summary — 2026-05-23
 
 ## Headline
@@ -53,3 +55,4 @@ Three deliverables shipped — `fact_account_open` schema fragment (Kafka §9), 
 - **KR1.2** (xxHash64 ratification entry inside Kafka §2 with worked example, UTF-8 decimal-string encoding rule, `shard_count` callouts, `twox-hash::xxh64::xxh64` reference impl): **met** — Kafka §2.1 `Ratification (2026-05-23)`. Two worked examples (Example A `u-001`, Example B `42`), decimal-string rule pinned, `shard_count` 4/1/36 all called out, reference impl named. Byte-stability verified on first attempt by resink-core's supervisor (see Surprises).
 - **KR1.3** (`pytz` DuckDB conventions doc at `teams/platform/data-engineering/conventions/duckdb.md`, one-paragraph normative entry, sim-farm `pyproject.toml` as canonical example): **met** — file landed; first DE `conventions/` tree established; normative paragraph + canonical example link in place. Filed `type: rfc` per the workaround (board's migration scoped to the two prior contracts; no same-loop migration of this file).
 - **KR1.4** (contract-type migration cooperation — confirm board's `type: rfc → type: contract` migration on three files; remove type-note HTML comments): **met for the two contracts** — `2026-05-10-kafka-ingress.md` and `2026-05-16-in-memory-event-source.md` both at `type: contract` on master, frontmatter migration confirmed. The conventions doc stays at `type: rfc` (not part of this loop's migration scope; intentional, see What we didn't ship).
+{% endraw %}

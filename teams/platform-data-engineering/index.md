@@ -2,6 +2,7 @@
 layout: default
 title: "Team: platform-data-engineering"
 ---
+{% raw %}
 # Team: platform-data-engineering
 
 ## Mission
@@ -67,3 +68,4 @@ Move and transform data so analytics, ML, and the realtime pipeline product can 
 
 - [dim-schema-json](conventions/dim-schema-json.html)
 - [duckdb](conventions/duckdb.html)
+{% endraw %}

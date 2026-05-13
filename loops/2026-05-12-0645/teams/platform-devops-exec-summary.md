@@ -17,6 +17,8 @@ owner: teams/platform/devops
   links: parent: board/okrs/2026-05-12-0645-ceo-brief.md
   team_okr: teams/platform/devops/okrs/2026-05-12-0645-team-okr.md
 -->
+{% raw %}
+
 # DevOps Exec Summary — Loop 2026-05-12-0645
 
 **Headline.** First product workload deployed to the home cluster end-to-end. The `nanofab-supervisor:0.3.0` image was built cross-arch (linux/amd64 from darwin/arm64 via `docker buildx`), distributed to all 4 nodes via `sudo ctr -n=k8s.io images import`, installed via Helm against `kubernetes-admin@kubernetes`, verified via `kubectl logs` (`supervisor: ok`), and uninstalled cleanly. Deploy → verify → delete cycle complete. **Two latent chart bugs surfaced and patched in-loop:** (1) `restartPolicy: Never` rendered into Deployment.spec.template.spec is invalid for Deployment kind (removed the unconditional render; values knob retained for future Job-shape variant); (2) Dockerfile was missing the `/fixtures` bake step (added; the supervisor's default fixtures-dir is `/fixtures`, not `<workspace>/../fixtures` as the chart comment claimed). The 4-loop minikube smoke carry is **structurally superseded** by the home-cluster deploy.
@@ -55,3 +57,4 @@ owner: teams/platform/devops
 ## Tenant-isolation invariant
 
 Held throughout. Zero `org-os/` writes by DevOps this loop. All edits landed under `repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/` (values file new, README updated, deployment.yaml + Dockerfile patched), and `teams/platform/devops/okrs/` + `teams/platform/devops/exec-summaries/`. Final tenant-isolation dry-run clean.
+{% endraw %}

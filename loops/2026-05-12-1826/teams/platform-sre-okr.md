@@ -16,6 +16,8 @@ owner: teams/platform/sre
   loop: 2026-05-12-1826
   links: parent: board/okrs/2026-05-12-1826-ceo-brief.md
 -->
+{% raw %}
+
 # SRE OKR — 2026-05-12 (loop 2026-05-12-1826)
 
 ## Context
@@ -42,3 +44,4 @@ source: ceo-brief
 
 - SOP revision (deferred to next loop; recommendation captured in exec summary).
 - Full operator-experience integration (depends on CLI distribution maturity — Homebrew, signed binaries, etc.).
+{% endraw %}

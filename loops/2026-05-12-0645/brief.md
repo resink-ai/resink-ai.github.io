@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-12-0645
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-05-12
 
 ## Context
@@ -218,3 +220,4 @@ The 2026-06-13 retro's classified evolution proposals:
   - Step 1 (AE template extension): ✅ closed loop-2 (= 2026-05-11-1631).
   - Step 2 (resink-core supervisor swap full execution): ✅ closed loop-1 (= 2026-05-11-2153).
   - Step 3 (hot-swap correctness test): was `loop+1`, **now `loop+2`** (= the loop after this one). Slippage reason: deployment focus crowds out hot-swap this loop. Joint AE + resink-core deliverable; AE awaits scheduling signal in the next CEO brief.
+{% endraw %}

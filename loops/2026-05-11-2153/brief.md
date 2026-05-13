@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-11-2153
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-06-13
 
 ## Context
@@ -234,3 +236,4 @@ Why it matters: Board-action 2026-06-06-002 (install minikube on dev machine) hi
 - **ADR-2026-06-13-001** (admit `action` to conventions enum) drafted AND flipped to `active` in the same loop (sister to ADR-2026-05-23-001's enum-extension precedent). Mandated edits to `org-os/conventions.md`. Two existing `board/actions/2026-06-06-001*.md` and `board/actions/2026-06-06-002*.md` migrate from provisional `type: action` to canonical (in-body provisional notes removed).
 - **No contract migrations this loop** (the engine 0.3 verdict contract migration completed at 2026-06-06; the schema-JSON spec canonicalization at O4 is a NEW conventions doc, not a migration).
 - **Multi-loop plan slippage absorption (not a new ratification):** ADR-2026-05-16-001 step 2 = closed loop+0 (this loop); step 3 = loop+1 (= 2026-06-20). Recorded here per ADR-2026-05-30-002's loop+N convention; the ADR body grandfathers under absolute-date authoring.
+{% endraw %}

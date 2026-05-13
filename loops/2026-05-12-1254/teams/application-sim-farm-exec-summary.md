@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-12-1254
   links: parent: board/okrs/2026-05-12-1254-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm Exec Summary — Loop 2026-05-12-1254 (paused, silent)
 
 **Headline.** Paused this loop per CEO brief. The sim-farm engine lives at `repos/resink-ai/resink-core/sim-farm/`, which is INSIDE the resink-core submodule. Verified post-promotion that the engine's working-tree mount point is unchanged; `make mvp-loop` from `synthetic_tenants/closed_loop_v0/` still resolves the diff engine identically. Verdict-contract surface unaffected by the parent-tree submodule structure. Verdict-contract back-reference to DE convention remains carry; mechanical 1-line edit; pickup at next active loop.
@@ -31,3 +33,4 @@ owner: teams/application/sim-farm
 ## Tenant-isolation
 
 Held. Zero writes by sim-farm this loop.
+{% endraw %}

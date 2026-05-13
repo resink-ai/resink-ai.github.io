@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-10-2227-002
   links: parent: teams/application/sim-farm/okrs/2026-05-10-2227-002-team-okr.md
 -->
+{% raw %}
+
 # Sim Farm Exec Summary — 2026-05-10
 
 ## What we shipped
@@ -68,3 +70,4 @@ OKR key results, end-of-loop state:
 - **KR3.1 / KR3.2** (charter update): **not landed** — scope shift documented in OKR Context only; charter.md edit pending.
 
 Loop adherence: **slipping** against KR landing thresholds, but **on-track** against the CEO brief's plan-only framing — the durable artifacts (failure-mode walkthrough, scope contraction, re-aimed integration target) are captured in the OKR and ready to flow into next loop's contract document.
+{% endraw %}

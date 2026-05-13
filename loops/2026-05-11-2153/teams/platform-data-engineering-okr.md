@@ -16,6 +16,8 @@ owner: teams/platform/data-engineering
   loop: 2026-05-11-2153
   links: parent: board/okrs/2026-05-11-2153-ceo-brief.md
 -->
+{% raw %}
+
 # Data Engineering OKR — 2026-06-13
 
 ## Context
@@ -72,3 +74,4 @@ Why it matters: Sim-farm's engine 0.3.0 (loop 2026-05-11-1631) inlined the per-p
 - **Migrating `conventions/duckdb.md` from `type: rfc` to `type: convention`** — not in this loop's scope per status.md ("`conventions/duckdb.md` remains at `type: rfc` (intentional — not in this loop's migration scope)"); the `convention` type was admitted at 2026-05-30 but the duckdb migration carries until a loop with explicit migration scope. The new `dim-schema-json.md` lands directly as `type: convention` (no workaround needed).
 - **`<verified-against-rust-impl>` tag flip on Kafka §2.1 as a forced edit** — opportunistic only (KR1.3); does not block KR1.1/KR1.2/KR1.4. If §2.1 is not touched naturally this loop, the tag carries.
 - **Authoring DE's own exec summary content** — happens in the exec-summary ritual after build phase, not in this OKR.
+{% endraw %}

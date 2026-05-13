@@ -13,6 +13,8 @@ owner: teams/application/resink-core
   date: 2026-05-30
   status: active
 -->
+{% raw %}
+
 # Concepts — resink-core
 
 The vocabulary used across resink-core's code, manifests, traces, and verdicts. Each term is grounded in the file path that defines its shape so a future agent can chase a definition without grepping.
@@ -80,3 +82,4 @@ A **fact_stream** is one CDC source (a parquet file in the MVP) feeding a Node �
 A **trace** is the supervisor's JSONL observability log at `<workspace>/trace.jsonl` — one record per event the supervisor processes. Defined by `crates/nanofab-supervisor/src/trace.rs`. Each record carries the `node_id` (the discriminator across nodes; both nodes share one trace file), `shard`, `event_id`, `event_ts`, `op`, and the outcome (state mutation summary, or error). Per runtime spec §8.4, the trace is the supervisor's contract with the SRE observability surface; when a `panic::catch_unwind` fires, the trace carries the panic message and the SRE runbook at `teams/platform/sre/runbooks/nanofab-supervisor-failed-validation.md` is the triage entry-point.
 
 <!-- rit-docs-init:end -->
+{% endraw %}

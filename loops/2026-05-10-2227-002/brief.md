@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-10-2227-002
   links: parent: ""
 -->
+{% raw %}
+
 # Resink.ai CEO Brief — 2026-05-10
 
 ## Context
@@ -135,3 +137,4 @@ Why it matters: AE was scheduled to pick up the 17-task bottom-up flow implement
 - DevOps frontmatter-lint script — deferred again; manual ADR-001 enforcement continues.
 - Cloud k8s deployment target (lives inside sub-project #4 work, not this loop's plan-only scope).
 - Broader fact-table coverage beyond what resink-core scopes in O2 KR2.1.
+{% endraw %}

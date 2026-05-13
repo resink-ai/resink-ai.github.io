@@ -14,6 +14,8 @@ owner: board
   status: active
   decision: "Extend the type enum in org-os/conventions.md to admit five additional owned-artifact types in one ratification batch: `runbook`, `convention`, `playbook`, `report`, and `role`; add a row to the additional-fields-per-type table for each; migrate existing files filed under workaround types to their new canonical types"
 -->
+{% raw %}
+
 # ADR 2026-05-23-001: Extend Conventions Type Enum (Five-Type Batch)
 
 ## Context
@@ -82,3 +84,4 @@ For each added type, add a row to the "Additional fields per type" table with th
 - Companion ADRs ratified same loop: [2026-05-16-003-contract-environment-verification](2026-05-16-003-contract-environment-verification.md), [2026-05-16-004-focus-loop-pattern](2026-05-16-004-focus-loop-pattern.md).
 - Conventions edit landed alongside this ratification: [org-os/conventions.md](../../org-os/conventions.md).
 - Worked-example artifacts (migrated to canonical types this loop): `teams/platform/sre/runbooks/nanofab-supervisor-failed-validation.md`, `teams/platform/data-engineering/conventions/duckdb.md`, `org-os/playbooks/out-of-retro-org-os-change.md`.
+{% endraw %}

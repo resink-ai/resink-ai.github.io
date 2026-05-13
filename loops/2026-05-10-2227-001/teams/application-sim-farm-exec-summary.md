@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-10-2227-001
   links: parent: teams/application/sim-farm/okrs/2026-05-10-2227-001-team-okr.md
 -->
+{% raw %}
+
 # Sim Farm Exec Summary — 2026-05-09
 
 ## What we shipped
@@ -42,3 +44,4 @@ owner: teams/application/sim-farm
 - KR1.1 (validation contract document): met — sub-sections (a) "valid output" criteria, (b) failure modes, (c) generation sketch — all written.
 - KR1.2 (contract handed to resink-core by mid-loop): met — referenced from resink-core's plan KR1.1.e.
 - KR1.3 (failure-mode list handed to SRE by mid-loop): met — handed off in writing; SRE's runbook drafting deferred but inputs are in place.
+{% endraw %}

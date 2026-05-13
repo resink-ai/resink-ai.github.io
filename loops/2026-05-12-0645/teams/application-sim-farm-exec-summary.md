@@ -16,6 +16,8 @@ owner: teams/application/sim-farm
   loop: 2026-05-12-0645
   links: parent: board/okrs/2026-05-12-0645-ceo-brief.md
 -->
+{% raw %}
+
 # Sim Farm Exec Summary — Loop 2026-05-12-0645 (paused, review-ack)
 
 **Headline.** Paused this loop per CEO brief. Reviewed the home-cluster deployment for verdict-contract surface impact — **none.** The supervisor's `make mvp-loop` invocation (which IS what runs inside the container) writes the same `verdict.json` shape (`engine_version: 0.3.0`, `overall_pass: true`, per-dim `pass: true`, `mismatch_count: 0`) whether executed on a developer laptop or inside the home cluster. The home-cluster deploy doesn't surface any new verdict-contract concerns. The sim-farm engine 0.3.0 contract surface is **unaffected by the deployment mechanism.** Verdict-contract back-reference to DE convention remains carry (mechanical 1-line edit; sim-farm picks the depth — link-only vs link+retained engine-side documentation).
@@ -38,3 +40,4 @@ owner: teams/application/sim-farm
 ## Tenant-isolation invariant
 
 Held. Zero writes to `org-os/` or sim-farm's own working tree this loop beyond this exec summary.
+{% endraw %}

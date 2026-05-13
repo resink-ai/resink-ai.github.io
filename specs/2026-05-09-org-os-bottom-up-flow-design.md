@@ -15,6 +15,8 @@ owner: board
   owner: board
   links: parent: docs/superpowers/specs/2026-05-08-ai-native-org-os-design.md
 -->
+{% raw %}
+
 # Org-OS bottom-up flow
 
 ## Problem
@@ -366,3 +368,4 @@ Added under "Mutation rules":
 
 - Whether to formalize a default capacity cap for team-initiated work in `conventions.md` (e.g., "no team should propose more than ~30% of loop capacity for team-initiated objectives without CEO conversation"), or leave it as a brief-time judgment call. Lean: leave it judgmental in Phase 2; revisit if data shows squeeze.
 - Whether to add a `priority: high | normal` field to `request` so receivers can sequence the inbox without reading every file. Lean: not yet; sizing covers most of it and adding priority invites politicking.
+{% endraw %}

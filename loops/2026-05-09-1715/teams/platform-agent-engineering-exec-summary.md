@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-09-1715
   links: parent: teams/platform/agent-engineering/okrs/2026-05-09-1715-team-okr.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — 2026-05-08
 
 ## What we shipped
@@ -42,3 +44,4 @@ None this loop.
 - KR1.1 (every internal `org-os/` link resolves): met.
 - KR1.2 (spawn-agent dry-run succeeds): met for the hypothetical "dbt-author" walkthrough.
 - KR2.1 / KR2.2 (RFC + plugin candidates): not met — deferred.
+{% endraw %}

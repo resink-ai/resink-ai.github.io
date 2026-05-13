@@ -2,6 +2,7 @@
 layout: default
 title: "Spec: 2026-05-10-nanofab-product-ux-design"
 ---
+{% raw %}
 # Nanofab Product UX — Design Spec
 
 **Date:** 2026-05-10
@@ -225,3 +226,4 @@ CLI commands hit the same APIs as the web app; permissions enforced server-side 
 - **Decision:** a resolved fork; archived in `/decisions`.
 - **Verdict:** Sim Farm's typed output (defined in Sim Farm spec §4.7); displayed in the Verdicts tab.
 - **Hot swap:** any DAG version transition (per-node or DAG-level) defined in runtime spec §6; surfaced in the Hot swaps tab.
+{% endraw %}

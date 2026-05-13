@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-10-2227-002
   links: parent: board/okrs/2026-05-10-2227-002-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-10-2227-002 — Company Exec Summary
 
 ## Per-team rollup
@@ -86,3 +88,4 @@ Deduplicated from per-team summaries; each ask names originating team and requir
 ## Tenant-isolation invariant
 
 Held across the loop. AE ran `grep -rEi "resink|nanofab|acme\.ai" org-os/` after Bundle A landed; no tenant or product names appear inside `org-os/` outside placeholder contexts (`<TENANT>`, `acme.ai` as a documented example). Two new template files (`request.md`, `team-proposals.md`) and the conventions changes were inspected as part of the dry-run. Pass.
+{% endraw %}

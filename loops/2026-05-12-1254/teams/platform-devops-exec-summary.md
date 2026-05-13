@@ -17,6 +17,8 @@ owner: teams/platform/devops
   links: parent: board/okrs/2026-05-12-1254-ceo-brief.md
   team_okr: teams/platform/devops/okrs/2026-05-12-1254-team-okr.md
 -->
+{% raw %}
+
 # DevOps Exec Summary — Loop 2026-05-12-1254
 
 **Headline.** Light supporting role. Three chart gates verified post-submodule-add — all exit 0 against `values/home-cluster-mvp.yaml`. No chart changes needed; the working-tree mount point is unchanged so the chart's relative paths continue to resolve. One pre-existing chart behavior surfaced (out of scope this loop): `helm lint --strict` against default `values.yaml` fails because `tenant: ""` violates the schema's `minLength: 1` — that's by-design (tenant is a required field with no sensible default) and was true pre-promotion. Real lint requires values that supply tenant.
@@ -50,3 +52,4 @@ owner: teams/platform/devops
 ## Tenant-isolation invariant
 
 Held. Zero writes anywhere outside this exec summary.
+{% endraw %}

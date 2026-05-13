@@ -16,6 +16,8 @@ owner: teams/platform/agent-engineering
   loop: 2026-05-11-1302
   links: parent: teams/platform/agent-engineering/okrs/2026-05-11-1302-team-okr.md
 -->
+{% raw %}
+
 # Agent Engineering Exec Summary — 2026-05-30
 
 ## Headline
@@ -84,3 +86,4 @@ Nothing material this loop. The bottom-up flow plan is fully discharged at 17/17
 
 - **KR2.1** — `status.md` refreshed: 2026-05-30 entry added to Recent shipments naming Bundle C's five tasks + DISPATCH addendum + marketplace test result. Carrying-into-next-loop updated (Bundle C removed; DISPATCH addendum removed; 17-task plan marked complete). Carry list shifts forward-looking: future codegen patterns from training spec §4.10 + any `dlopen` restoration template work resurfacing from ADR-2026-05-16-001's multi-loop plan. `date:` bumped 2026-05-23 → 2026-05-30. **MET.**
 - **KR2.2** — `charter.md` unchanged. No new owned products this loop. `date:` stays at 2026-05-16. **MET.**
+{% endraw %}

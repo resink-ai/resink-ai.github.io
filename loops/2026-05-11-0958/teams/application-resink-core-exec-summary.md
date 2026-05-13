@@ -16,6 +16,8 @@ owner: teams/application/resink-core
   loop: 2026-05-11-0958
   links: parent: teams/application/resink-core/okrs/2026-05-11-0958-team-okr.md
 -->
+{% raw %}
+
 # Resink Core Exec Summary — 2026-05-16
 
 **Headline: the company's first end-to-end MVP closed loop is GREEN.** `make mvp-loop` exits 0 with `verdict=pass mismatches=0` against `synthetic_tenants/closed_loop_v0/`. Real LLM-generated codegen, real supervisor, real diff. All 15 of this loop's KRs landed; one task pivoted as permitted (workspace promotion deferred to 2026-05-23).
@@ -108,3 +110,4 @@ owner: teams/application/resink-core
 | KR3.6 | CSV pivot if parquet non-deterministic | **not triggered** (parquet held; no pivot needed) |
 
 **Tally:** 14/15 passed, 1/15 deferred (permitted pivot), 0/15 blocked, 0/15 dropped.
+{% endraw %}

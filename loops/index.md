@@ -2,6 +2,7 @@
 layout: default
 title: Loops
 ---
+{% raw %}
 # Loops
 
 Chronological list of loops. Each loop links to its CEO brief, executive summary, retro, and per-team artifacts.
@@ -20,3 +21,4 @@ Chronological list of loops. Each loop links to its CEO brief, executive summary
 | [2026-05-10-2227-002](2026-05-10-2227-002/) | DE shipped the re-baseline-defining ADR ([2026-05-10-001](../decisions/2026-05-10-001-nanofab-runtime-is-rust.md)), archived its own ADR-002 in place with `superseded_by`, and wrote the Kafka ingress contract at `teams/platform/data-engineering/contracts/2026-05-10-kafka-ingre... |
 | [2026-05-10-2227-001](2026-05-10-2227-001/) | DE shipped the streaming engine ADR (Spark Structured Streaming, [ADR-002](../decisions/2026-05-09-002-streaming-engine-choice.md)), refined with resink-core's surfaced constraints. The recommendation moved from speculative to defensible because resink-core wrote its streaming... |
 | [2026-05-09-1715](2026-05-09-1715/) | Agent Engineering shipped Charter v1, the loop OKR, and completed a sanity-check pass on every internal link in `org-os/`. The Plugin Marketplace RFC was deferred — bootstrap loop overhead ran larger than estimated. Headline metric: both KR1.1 (all `org-os/` links resolve) and... |
+{% endraw %}

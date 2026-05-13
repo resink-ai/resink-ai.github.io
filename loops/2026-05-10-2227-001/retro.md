@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-10-2227-001
   links: parent: board/exec-summaries/2026-05-10-2227-001.md
 -->
+{% raw %}
+
 # Resink.ai CEO Retro — 2026-05-09
 
 ## What worked
@@ -74,3 +76,4 @@ owner: board
 ## Tenant-isolation dry-run
 
 `org-os/playbooks/extract-org-os.md` dry-run: passed. The new `org-os/playbooks/onboard-application-team.md` (added this loop via ADR-004) uses only generic placeholders (`<team>`, `<layer>`, `<receiver>`). No tenant or product names appear inside `org-os/`.
+{% endraw %}

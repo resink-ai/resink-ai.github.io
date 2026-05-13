@@ -16,6 +16,8 @@ owner: board
   loop: 2026-05-12-0645
   links: parent: board/okrs/2026-05-12-0645-ceo-brief.md
 -->
+{% raw %}
+
 # Resink.ai Loop 2026-05-12-0645 — Company Exec Summary
 
 **Headline.** Resink.ai's first product workload shipped to real Kubernetes infrastructure. `nanofab-supervisor:0.3.0` built cross-arch (linux/amd64 from darwin/arm64), distributed to all 4 home-cluster nodes via `sudo ctr -n=k8s.io images import`, installed via Helm against `kubernetes-admin@kubernetes`, executed successfully (`supervisor: ok`, 21 dim_user + 18 dim_account rows written), and uninstalled cleanly with zero residual objects. **The 4-loop minikube smoke carry is structurally superseded** — the chart's canonical deploy target is now the home cluster; minikube is preserved as a legacy local-dev path. Two latent chart bugs surfaced and were patched in-loop (`restartPolicy: Never` in Deployment; missing `/fixtures` bake in Dockerfile). SRE's deployment SOP runbook is the **third adopter** of ADR-2026-05-16-003's `Verified-against-environment` discipline and the **first runbook-type adopter** (after sim-farm's verdict contract and DE's schema-JSON convention). Two cross-team requests closed end-to-end (resink-core's R1–R5 ack + DE's K1–K3 ack); **the org-os tree now has three fulfilled cross-team request lifecycles.** Workspace promotion: 7th-loop carry; the brief's named `gh repo create` command was not run in-loop. ADR-2026-05-16-001 step 3 (hot-swap correctness test) explicitly deferred to loop+2 per the brief's deployment focus.
@@ -111,3 +113,4 @@ Three patterns worth recording for next-loop authoring:
 1. **First-real-deploy as the actual integration test.** Helm dry-run + helm template + helm lint --strict are necessary but not sufficient. First real `helm install` against a live cluster is the only deterministic surface for latent chart bugs.
 2. **SOP-author-alongside-first-execution generates better SOPs than after-the-fact.** The two patched chart bugs became failure-mode-subsection content immediately; the SOP's Known-chart-constraints subsection is anchored in observed-not-anticipated friction.
 3. **Reframing-vs-acting consumed a second recurring blocker class.** The pattern from 2026-06-13 retro (P5) — when a blocker has the wrong shape, reframe the class — handled the minikube carry this loop (replaced minikube with the home cluster as the deployment target). Two consecutive loops of pattern application; candidate for codifying as a playbook.
+{% endraw %}
