@@ -45,6 +45,18 @@ Existing contracts filed before 2026-05-30 grandfather: they are not retroactive
 
 The placement: `org-os/conventions.md` (rather than `org-os/rituals/build.md`) because the requirement is a frontmatter-and-body shape constraint on a specific `type`, not a step in the build ritual. The conventions file already hosts the "Additional fields per type" table and the validation hints section; the Verified-against-environment requirement extends that pattern.
 
+### Sister artifact types (in-place extension, 2026-05-13)
+
+The discipline has been adopted by 3 artifacts across 3 types since original ratification (a producer contract at 2026-06-06; a data-shape convention at 2026-05-11-2153; an operator-facing runbook at 2026-05-12-0645). The pattern transferred without grammatical or structural friction. **In-place extension** (per 2026-05-12-0645 retro § P4) admits the wider scope explicitly:
+
+The canonical scope is now: **`contract`, `rfc`, `convention`, `runbook`, `playbook`** — any artifact that documents a producer/consumer interface OR an operator-facing procedure that depends on environment-specific tooling. Original sentences referring only to "contract or rfc" extend to name this wider set.
+
+**Grandfathering rule unchanged.** Required on new artifacts authored after the original ratification date (2026-05-30) OR on materially-revised existing ones. Existing artifacts pre-2026-05-30 still grandfather; existing artifacts of the newly-admitted types (`convention`, `runbook`, `playbook`) authored between 2026-05-30 and 2026-05-13 also grandfather (they were not subject to the requirement at authoring time).
+
+**Sister precedent for in-place extension:** [ADR-2026-05-23-001](2026-05-23-001-conventions-enum-extension.md) was extended in-place at 2026-05-30 (added `report` to the enum) and again at 2026-06-13 (added `action` to the enum). The shape: append a dated subsection rather than spawn a new ADR; preserve original body for historical fidelity.
+
+**Mandated edit (2026-05-13):** [`org-os/conventions.md § "Body-shape rules"`](../../org-os/conventions.md) — the subsection header originally `"contract and rfc — Verified-against-environment subsection (required)"` renamed to `"contract, rfc, convention, runbook, playbook — Verified-against-environment subsection (required)"`. Body text extended to name the wider scope.
+
 ## Alternatives considered
 
 - **A: Lint contracts against a canonical environment in CI.** Rejected as too heavy for current org-os scale; the developer-laptop environment is the canonical environment until production CI exists. A future frontmatter-lint script (DevOps's deferred work) could check for the subsection's presence without prescribing its contents.

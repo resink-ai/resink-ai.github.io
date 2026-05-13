@@ -2,7 +2,7 @@
 layout: default
 title: "ADR 2026-05-12-002: submodule promotion playbook"
 date: 2026-05-12
-status: draft
+status: active
 type: adr
 owner: board
 ---
@@ -11,7 +11,7 @@ owner: board
   type: adr
   owner: board
   date: 2026-05-12
-  status: draft
+  status: active
   decision: Author an org-os playbook codifying the in-tree → submodule promotion pattern using `git subtree split`.
   links: parent: board/retros/2026-05-12-1254-ceo-retro.md
 -->
@@ -19,7 +19,7 @@ owner: board
 
 ## Status
 
-Draft as of loop 2026-05-12-1254 retro § P1. Ratification target: next loop (one-loop-out, sister precedent to ADR-2026-05-12-001 — reframe-vs-act playbook, drafted at 2026-05-12-0645 retro, still pending). Both ADRs target the same next-loop batched org-os authoring.
+**Ratified at loop 2026-05-13-0056** alongside the org-os ratification bundle. Drafted at loop 2026-05-12-1254 retro § P1. The mandated edit landed: [`org-os/playbooks/submodule-promotion.md`](../../org-os/playbooks/submodule-promotion.md) authored with `type: playbook`, `status: active`. The playbook includes the **footer-acknowledgment sibling section** per 2026-05-12-1254 retro § P4 (codifies the 1-line footer pattern for structural-but-non-disruptive changes).
 
 ## Context
 
