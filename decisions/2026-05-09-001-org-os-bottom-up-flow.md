@@ -6,7 +6,7 @@ status: active
 type: adr
 owner: board
 parent: Decisions (ADRs)
-nav_order: 23
+nav_order: 24
 ---
 
 <!-- original-frontmatter:

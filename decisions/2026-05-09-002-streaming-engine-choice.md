@@ -6,7 +6,7 @@ status: archived
 type: adr
 owner: board
 parent: Decisions (ADRs)
-nav_order: 22
+nav_order: 23
 ---
 
 <!-- original-frontmatter:

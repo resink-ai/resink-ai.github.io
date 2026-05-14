@@ -3,7 +3,7 @@ layout: default
 title: Loop 2026-05-13-1022
 parent: Loops
 has_children: true
-nav_order: 5
+nav_order: 6
 ---
 {% raw %}
 # Loop 2026-05-13-1022
