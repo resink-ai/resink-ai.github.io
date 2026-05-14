@@ -111,6 +111,38 @@ These revisions are narrated in detail in `board/retros/2026-05-13-1844-ceo-retr
 
 **Carryover to step 2:** `InMemoryStream` impl + integration test against a synthetic event sender. Target loop+1 from here. Resink-core owns; sized M.
 
+### 2026-05-13, loop 2026-05-13-1944 — step 2 closed
+
+**Step 2 of the four-step restoration plan shipped — sized up to L when CEO pulled the `Supervisor` API extraction forward from step 4.** The `InMemoryStream` impl + `Supervisor` struct API + unified-source model + per-batch outer loop + integration test + spec §2 edit all landed in one resink-core build session.
+
+**What shipped:**
+
+- `crates/nanofab-supervisor/src/event_source/in_memory_stream.rs` — `InMemoryStream` impl per spec §5.2. mpsc-backed; `InMemoryStream::pair()` factory; 5 unit tests (pair roundtrip; empty-batch on no-events; sender-drop → EndOfStream; batch ordering preserved; commit/shutdown no-ops).
+- `crates/nanofab-supervisor/src/supervisor.rs` — `Supervisor` struct extracted from `main.rs`'s inline `run()`. Builder shape: `Supervisor::new(SupervisorConfig).with_source(Box<dyn EventSource>).run() → Result<RunResult, String>`. Hosts the manifest types (`Manifest`, `DagSpec`, `NodeSpec`, `ManifestFactStream`) + outer poll loop per spec §7.
+- `crates/nanofab-supervisor/src/event_source/parquet_replay.rs` — new `ParquetReplay::from_specs(specs)` constructor; the supervisor builds a single unified source gathering all fact streams from all node-specs in the DAG (rather than one source per node-spec as in step 1).
+- `crates/nanofab-supervisor/src/main.rs` — slimmed to a ~80-line shell: parse `Args` → `SupervisorConfig` → `Supervisor::new(config).run()` → emit ok/error.
+- `crates/nanofab-supervisor/src/lib.rs` — now exposes `event_source` + `supervisor` modules (in addition to the prior `plugin_loader`); `nodes` + `trace` stay `pub(crate)`. The `streaming_event_source` integration test imports from this library surface.
+- `crates/nanofab-supervisor/tests/streaming_event_source.rs` — new integration test (3 cases) drives `Supervisor::run()` via `InMemoryStream::pair()` per spec §8 verbatim. Tests: mixed dim_user + dim_account batch routing → 2/2 rows per table + outputs + trace exist; empty stream → 0/0 rows; empty-batches-then-real-events → 1/0 rows.
+- `crates/nanofab-supervisor/src/event_source/mod.rs` — `drain_to_vec` step-1 bridge **deleted** (replaced by the inline poll loop in `Supervisor::run`).
+- `docs/superpowers/specs/2026-05-13-streaming-event-source-design.md` § 2 — code blocks updated: `EventSourceError` shows manual `Display`/`Error` impls; `CommitToken` shows bare-enum shape; "Why these methods" gained a `drain_to_vec`-retirement bullet.
+
+**Zero further first-contact spec revisions.** Step 1 surfaced three; step 2 surfaced zero. The trait surface accommodates `InMemoryStream` cleanly (mpsc receive → `Ok(empty_batch)` on `TryRecvError::Empty`; `Err(EndOfStream)` on `TryRecvError::Disconnected`). The empty-batch semantics in spec §3 worked verbatim under the supervisor's new inline poll loop.
+
+**Architectural decisions taken during the build (narrated but not first-contact-revisions):**
+
+1. **Unified-source model.** Step 1 had one `ParquetReplay` per node-spec; step 2 collapses to one source per supervisor instance, yielding events tagged by `RawEvent.table`. The supervisor routes by table to a `HashMap<String, Vec<RawEvent>>` of per-table buffers, then dispatches to `nodes::user::run` / `nodes::account::run` at `EndOfStream`. This shape is naturally what `InMemoryStream` + `Kafka` need (both yield mixed-table events from a single channel/topic-subscription); the per-node-source model was a `ParquetReplay`-specific quirk.
+2. **Per-table buffering kept inside the Supervisor.** Spec §7's pseudocode shows `nodes::route_event(event, shard_id)` — a single-event API. The actual `nodes::user::run` / `nodes::account::run` take slices. Refactoring `nodes::*` to single-event APIs is deferred (no forcing function this step); the supervisor's outer loop accumulates into per-table buffers + dispatches at shutdown. This is a deliberate per-table-buffer-before-run pattern that step 3 / step 4 may revisit if Kafka's continuous-flow semantics motivate single-event node APIs.
+3. **`Retryable` errors treated as fatal in step 2.** Neither `ParquetReplay` nor `InMemoryStream` constructs `Retryable`. The supervisor's poll loop treats an unexpected `Retryable` as fatal (returns an error). Step 3 (Kafka) adds the real backoff loop.
+
+**Test surface:**
+
+- `cargo test --workspace --release`: green. New: 5 `InMemoryStream` unit tests + 3 `streaming_event_source` integration tests + 1 `parquet_replay` test (`fact_stream_spec_construction_is_infallible`).
+- `make mvp-loop`: `verdict=pass mismatches=0`. Output bytes identical to step-1 baseline.
+
+**Sized:** L (revised up from spec §9's M sizing when CEO pulled `Supervisor` extraction forward from step 4); landed in one resink-core build session.
+
+**Carryover to step 3:** `Kafka` impl + broker integration. Resink-core (client) + devops (broker). Sized L. Target `loop+1` / `loop+2` from here. Steps 3 + 4 are now smaller than originally sized because the `Supervisor` API + unified-source model are settled — step 3 adds a `Kafka` impl behind the `kafka-source` Cargo feature; step 4 wires end-to-end Kafka-driven `verdict=pass`.
+
 ## Links
 
 - Runtime spec: [docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md](../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md) — §3, §4, §5.4, §6 specify the streaming architecture this ADR closes the gap to.

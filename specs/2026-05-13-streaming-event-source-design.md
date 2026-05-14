@@ -72,14 +72,21 @@ pub struct EventBatch {
     pub low_watermark: Option<u64>,
 }
 
-/// Implementation-opaque commit cursor. Kept `pub` so the supervisor can hold
-/// it across the batch processing window without leaking implementation
-/// details.
+/// Implementation-opaque commit cursor. Bare `pub enum` (no newtype wrap) per
+/// step-1 first-contact revision (loop 2026-05-13-1844): step 2 has no
+/// external consumers, so the encapsulation a `pub struct CommitToken(pub(crate) CommitTokenInner)`
+/// would provide isn't motivated yet. Future hardening (re-wrapping behind a
+/// newtype if external consumers materialize) is non-breaking. The supervisor
+/// never inspects the inner value; it only hands the token back to
+/// `commit_offsets`.
 #[derive(Debug, Clone)]
-pub struct CommitToken(pub(crate) CommitTokenInner);
-
-// `CommitTokenInner` is an internal enum the trait implementor matches on.
-// The supervisor never inspects it.
+pub enum CommitToken {
+    /// `ParquetReplay` cursor (index past the last event in the batch).
+    /// Replay sources can't rewind, so commit is a no-op regardless.
+    ParquetRowGroup(usize),
+    // Future: `Kafka(...)` for consumer-group offsets; `InMemoryStream` reuses
+    // `ParquetRowGroup(0)` as a benign placeholder (tests don't introspect).
+}
 
 /// Trait every event-source implements.
 pub trait EventSource: Send {
@@ -119,15 +126,34 @@ pub trait EventSource: Send {
 
 /// Error type. Carrier for both retryable (broker disconnected; partition
 /// rebalance in progress) + fatal (config invalid; topic doesn't exist) cases.
-#[derive(Debug, thiserror::Error)]
+///
+/// Manual `Display` + `std::error::Error` impls per step-1 first-contact
+/// revision (loop 2026-05-13-1844): the workspace doesn't have `thiserror` as
+/// a dep, and the existing error idiom is `Result<T, String>` everywhere.
+/// Adding a workspace dep for one enum's derive macro was the larger blast
+/// radius vs ~12 lines of manual impls. Re-evaluate the dep when 3+ types
+/// want the macro.
+#[derive(Debug, Clone)]
 pub enum EventSourceError {
-    #[error("end of stream (replay sources only)")]
+    /// Replay sources only.
     EndOfStream,
-    #[error("retryable: {0}")]
+    /// Transient; supervisor logs + retries with backoff (step 3+).
     Retryable(String),
-    #[error("fatal: {0}")]
+    /// Unrecoverable; supervisor logs + aborts with non-zero exit.
     Fatal(String),
 }
+
+impl std::fmt::Display for EventSourceError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            EventSourceError::EndOfStream => write!(f, "end of stream (replay sources only)"),
+            EventSourceError::Retryable(msg) => write!(f, "retryable: {}", msg),
+            EventSourceError::Fatal(msg) => write!(f, "fatal: {}", msg),
+        }
+    }
+}
+
+impl std::error::Error for EventSourceError {}
 ```
 
 ### Why these methods + this shape
@@ -136,6 +162,8 @@ pub enum EventSourceError {
 - **`poll_events` returns batches, not single events.** Kafka's consumer-poll API is naturally batched; parquet row-groups are naturally batched; in-memory implementations can buffer + drain. Batching also gives the supervisor's per-batch trace + per-batch commit a natural fence.
 - **`commit_offsets` is decoupled from `poll_events`.** The supervisor only commits after every affected shard has finished the batch; the trait doesn't assume processing happens synchronously on the polling thread.
 - **`low_watermark` is optional per batch.** Sources that can't compute a real watermark (small in-memory tests; replay sources that finished) return `None`; sources that can (Kafka with real partition metadata; parquet with sorted event_ts) return the actual minimum.
+
+- **Step-1's `drain_to_vec` bridge retired in step 2.** Loop 2026-05-13-1844 introduced a `drain_to_vec(&mut dyn EventSource) -> Vec<RawEvent>` helper to keep the supervisor's pre-step-1 per-table-Vec shape working while the trait threaded through. Step 2 (loop 2026-05-13-1944) restructures the supervisor's outer loop to per-batch flow per §7 below; the bridge is deleted. See `crates/nanofab-supervisor/src/supervisor.rs::Supervisor::run`.
 
 ---
 
