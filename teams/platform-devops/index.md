@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "Team: platform-devops"
+parent: Teams
+has_children: true
+nav_order: 5
 ---
 {% raw %}
 # Team: platform-devops

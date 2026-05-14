@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Decisions (ADRs)
+has_children: true
+nav_order: 3
 ---
 {% raw %}
 # Decisions (ADRs)

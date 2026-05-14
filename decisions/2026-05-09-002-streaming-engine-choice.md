@@ -5,6 +5,8 @@ date: 2026-05-09
 status: archived
 type: adr
 owner: board
+parent: Decisions (ADRs)
+nav_order: 22
 ---
 
 <!-- original-frontmatter:

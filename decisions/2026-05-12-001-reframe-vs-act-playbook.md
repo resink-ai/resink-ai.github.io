@@ -5,6 +5,8 @@ date: 2026-05-12
 status: active
 type: adr
 owner: board
+parent: Decisions (ADRs)
+nav_order: 13
 ---
 
 <!-- original-frontmatter:

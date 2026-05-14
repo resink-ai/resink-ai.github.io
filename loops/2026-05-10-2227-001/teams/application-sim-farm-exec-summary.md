@@ -6,6 +6,9 @@ status: active
 type: exec-summary
 loop: 2026-05-10-2227-001
 owner: teams/application/sim-farm
+grand_parent: Loops
+parent: Loop 2026-05-10-2227-001
+nav_order: 13
 ---
 
 <!-- original-frontmatter:

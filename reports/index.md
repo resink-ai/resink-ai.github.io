@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Reports
+has_children: true
+nav_order: 5
 ---
 {% raw %}
 # Reports

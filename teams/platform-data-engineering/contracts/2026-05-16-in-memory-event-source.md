@@ -5,6 +5,8 @@ date: 2026-05-16
 status: active
 type: contract
 owner: teams/platform/data-engineering
+grand_parent: Teams
+parent: "Team: platform-data-engineering"
 ---
 
 <!-- original-frontmatter:

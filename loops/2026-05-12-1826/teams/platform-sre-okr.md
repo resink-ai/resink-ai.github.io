@@ -6,6 +6,9 @@ status: active
 type: okr
 loop: 2026-05-12-1826
 owner: teams/platform/sre
+grand_parent: Loops
+parent: Loop 2026-05-12-1826
+nav_order: 12
 ---
 
 <!-- original-frontmatter:

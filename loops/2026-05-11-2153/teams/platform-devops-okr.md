@@ -6,6 +6,9 @@ status: active
 type: okr
 loop: 2026-05-11-2153
 owner: teams/platform/devops
+grand_parent: Loops
+parent: Loop 2026-05-11-2153
+nav_order: 14
 ---
 
 <!-- original-frontmatter:

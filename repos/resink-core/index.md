@@ -1,6 +1,8 @@
 ---
 layout: default
 title: resink-core (overview)
+has_children: true
+nav_order: 8
 ---
 {% raw %}
 # resink-core

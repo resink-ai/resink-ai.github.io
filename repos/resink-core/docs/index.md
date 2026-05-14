@@ -1,6 +1,8 @@
 ---
 layout: default
 title: resink-core docs
+parent: resink-core (overview)
+nav_order: 1
 ---
 {% raw %}
 # resink-core docs

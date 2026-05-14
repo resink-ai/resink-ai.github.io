@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "Team: application-sim-farm"
+parent: Teams
+has_children: true
+nav_order: 2
 ---
 {% raw %}
 # Team: application-sim-farm

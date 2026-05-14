@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Resink.ai
+nav_order: 1
 ---
 {% raw %}
 # Resink.ai

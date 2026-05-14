@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Spec: 2026-05-10-nanofab-training-pipeline-design"
+parent: Design specs
 ---
 {% raw %}
 # Nanofab Training Pipeline — Design Spec

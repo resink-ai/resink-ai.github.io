@@ -6,6 +6,9 @@ status: active
 type: okr
 loop: 2026-05-12-1254
 owner: teams/application/resink-core
+grand_parent: Loops
+parent: Loop 2026-05-12-1254
+nav_order: 10
 ---
 
 <!-- original-frontmatter:

@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "Team: platform-data-engineering"
+parent: Teams
+has_children: true
+nav_order: 4
 ---
 {% raw %}
 # Team: platform-data-engineering

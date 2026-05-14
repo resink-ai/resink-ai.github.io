@@ -6,6 +6,8 @@ status: done
 type: action
 owner: board
 due: 2026-06-13
+parent: Actions
+nav_order: 2
 ---
 
 <!-- original-frontmatter:

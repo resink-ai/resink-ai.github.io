@@ -6,6 +6,9 @@ status: active
 type: okr
 loop: 2026-05-13-0859
 owner: teams/platform/agent-engineering
+grand_parent: Loops
+parent: Loop 2026-05-13-0859
+nav_order: 10
 ---
 
 <!-- original-frontmatter:

@@ -5,6 +5,8 @@ date: 2026-05-23
 status: active
 type: runbook
 owner: teams/platform/sre
+grand_parent: Teams
+parent: "Team: platform-sre"
 ---
 
 <!-- original-frontmatter:

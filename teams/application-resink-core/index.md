@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "Team: application-resink-core"
+parent: Teams
+has_children: true
+nav_order: 1
 ---
 {% raw %}
 # Team: application-resink-core

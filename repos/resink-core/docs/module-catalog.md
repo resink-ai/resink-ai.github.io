@@ -5,6 +5,7 @@ date: 2026-05-30
 status: active
 type: doc
 owner: teams/application/resink-core
+parent: resink-core (overview)
 ---
 
 <!-- original-frontmatter:

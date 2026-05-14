@@ -6,6 +6,9 @@ status: active
 type: okr
 loop: 2026-05-11-0958
 owner: teams/application/sim-farm
+grand_parent: Loops
+parent: Loop 2026-05-11-0958
+nav_order: 12
 ---
 
 <!-- original-frontmatter:

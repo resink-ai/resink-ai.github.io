@@ -6,6 +6,9 @@ status: active
 type: okr
 loop: 2026-05-13-1944
 owner: board
+grand_parent: Loops
+parent: Loop 2026-05-13-1944
+nav_order: 1
 ---
 
 <!-- original-frontmatter:

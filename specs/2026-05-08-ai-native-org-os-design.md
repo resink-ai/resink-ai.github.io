@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Spec: 2026-05-08-ai-native-org-os-design"
+parent: Design specs
 ---
 {% raw %}
 # AI-Native Org-OS — Design Spec

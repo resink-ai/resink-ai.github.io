@@ -6,6 +6,9 @@ status: active
 type: okr
 loop: 2026-05-09-1715
 owner: teams/platform/data-engineering
+grand_parent: Loops
+parent: Loop 2026-05-09-1715
+nav_order: 12
 ---
 
 <!-- original-frontmatter:

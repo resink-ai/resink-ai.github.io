@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Loops
+has_children: true
+nav_order: 2
 ---
 {% raw %}
 # Loops

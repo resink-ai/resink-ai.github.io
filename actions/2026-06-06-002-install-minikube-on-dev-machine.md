@@ -6,6 +6,8 @@ status: superseded
 type: action
 owner: board
 due: 2026-06-13
+parent: Actions
+nav_order: 1
 ---
 
 <!-- original-frontmatter:
