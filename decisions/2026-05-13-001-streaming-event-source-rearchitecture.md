@@ -85,7 +85,31 @@ Sister arcs explicitly **out of scope** for this ADR (each gets its own future A
 
 ## Status
 
-_(Reserved for future-loop updates as each restoration step closes. Mirrors the ADR-2026-05-16-001 closing-section convention.)_
+### 2026-05-13, loop 2026-05-13-1844 — step 1 closed
+
+**Step 1 of the four-step restoration plan shipped.** The `EventSource` trait + `ParquetReplay` impl land in tree at `repos/resink-ai/resink-core/crates/nanofab-supervisor/src/event_source/`. The supervisor consumes events through the trait via a step-1 bridge (`drain_to_vec`) that preserves the per-node, per-table routing structure unchanged.
+
+**What shipped:**
+
+- New module directory `crates/nanofab-supervisor/src/event_source/` (replaces the single-file `event_source.rs`):
+  - `mod.rs` — `EventSource` trait + `EventBatch` + `CommitToken` + `EventSourceError` per spec §2; plus a `drain_to_vec` step-1 bridge helper.
+  - `raw.rs` — existing `RawEvent` / `RawOp` / `RawFieldValue` / `FactStreamSpec` + `xxh64_hash` / `partition` / `key_value_for` / `read_fact_parquet` / `events_for` relocated verbatim.
+  - `parquet_replay.rs` — `ParquetReplay` impl per spec §5.1.
+- `main.rs` wired through the trait: `ParquetReplay::new(specs) → drain_to_vec(&mut source)` replaces the direct `event_source::events_for(&specs)` call. Per-node, per-table routing unchanged.
+- `make mvp-loop` green: `verdict=pass mismatches=0` on the canonical two-dim fixture. Supervisor output byte-identical to the pre-step-1 path.
+- `cargo test --workspace --release` green; 4 new `ParquetReplay` unit tests passing.
+
+**First-contact spec revisions** (narrated per CEO brief allowance "spec drift allowed when structurally motivated"):
+
+1. **`EventSourceError` uses manual `Display` + `std::error::Error` impls, not `thiserror::Error` derive.** The workspace doesn't have `thiserror` as a dep; spec §2 assumed it. Manual impl is ~12 lines; adding a new workspace dep for one enum variant set was the larger blast radius. The trait shape is unchanged; only the derive macro differs.
+2. **`CommitToken` is a bare `pub enum`, not a `pub(crate)`-wrapped newtype.** Spec §2 has `pub struct CommitToken(pub(crate) CommitTokenInner)`. The newtype was motivated by external-consumer encapsulation; in step 1 there are no external consumers (the supervisor binary is the only caller). The bare-enum shape is simpler + future hardening (re-wrapping behind a newtype) is non-breaking if + when an external consumer materializes.
+3. **`drain_to_vec` helper added** (not in spec). The supervisor's per-node-spec event loading is per-table-separated (user_events / account_events Vecs are constructed before the per-table `nodes::user::run` / `nodes::account::run` invocations); migrating that structure to a per-batch outer loop is a step 2-3 concern. `drain_to_vec` is the step-1 bridge that keeps the trait wired without restructuring `main.rs`'s per-table separation. Spec §7's "main.rs changes" example shows the post-step-3 shape; step 1 doesn't get there yet.
+
+These revisions are narrated in detail in `board/retros/2026-05-13-1844-ceo-retro.md`. Spec §2 will be updated in step 2 alongside the `InMemoryStream` impl that also needs these types.
+
+**Sized:** M; landed in one resink-core build session.
+
+**Carryover to step 2:** `InMemoryStream` impl + integration test against a synthetic event sender. Target loop+1 from here. Resink-core owns; sized M.
 
 ## Links
 
