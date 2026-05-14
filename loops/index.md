@@ -9,6 +9,7 @@ Chronological list of loops. Each loop links to its CEO brief, executive summary
 
 | Date | Headline |
 |---|---|
+| [2026-05-13-1944](2026-05-13-1944/) | **Headline.** Seventh same-day loop. Step 2 of ADR-2026-05-13-001's four-step streaming restoration plan shipped — sized L when CEO pulled the `Supervisor` API extraction forward from step 4. Six interlocked deliverables in one resink-core build session: `InMemoryStream` impl,... |
 | [2026-05-13-1844](2026-05-13-1844/) | **Headline.** Sixth same-day loop. Single team active (resink-core); single objective; step 1 of ADR-2026-05-13-001's four-step streaming restoration plan shipped clean in one build session. `EventSource` trait + `ParquetReplay` impl + supervisor wired through trait; `make mvp... |
 | [2026-05-13-1422](2026-05-13-1422/) | **Headline.** Fifth loop on the same calendar date. Design-first architectural loop: filed [ADR-2026-05-13-001](../decisions/2026-05-13-001-streaming-event-source-rearchitecture.md) naming the current parquet-eager event-source as a deliberate MVP deviation from the runtime sp... |
 | [2026-05-13-1303](2026-05-13-1303/) | **Headline.** Fourth loop on the same calendar date. After three product loops (org-os ratification → observability skill + hot-swap AE-side → resink-core bundle close-out), this loop closes the showcase gap: the work on disk is now substantial enough to show somebody, and the... |
