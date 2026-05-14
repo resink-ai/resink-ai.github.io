@@ -6,6 +6,9 @@ status: active
 type: retro
 loop: 2026-05-10-2227-002
 owner: board
+grand_parent: Loops
+parent: Loop 2026-05-10-2227-002
+nav_order: 3
 ---
 
 <!-- original-frontmatter:

@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "Team: platform-sre"
+parent: Teams
+has_children: true
+nav_order: 6
 ---
 {% raw %}
 # Team: platform-sre

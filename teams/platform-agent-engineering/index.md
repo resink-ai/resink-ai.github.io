@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "Team: platform-agent-engineering"
+parent: Teams
+has_children: true
+nav_order: 3
 ---
 {% raw %}
 # Team: platform-agent-engineering

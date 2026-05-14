@@ -5,6 +5,7 @@ date: 2026-05-13
 status: active
 type: spec
 owner: board
+parent: Design specs
 ---
 
 <!-- original-frontmatter:

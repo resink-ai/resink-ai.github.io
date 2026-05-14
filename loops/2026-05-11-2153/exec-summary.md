@@ -6,6 +6,9 @@ status: active
 type: exec-summary
 loop: 2026-05-11-2153
 owner: board
+grand_parent: Loops
+parent: Loop 2026-05-11-2153
+nav_order: 2
 ---
 
 <!-- original-frontmatter:

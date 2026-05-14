@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Design specs
+has_children: true
+nav_order: 7
 ---
 {% raw %}
 # Design specs

@@ -6,6 +6,9 @@ status: active
 type: exec-summary
 loop: 2026-05-12-1254
 owner: teams/platform/agent-engineering
+grand_parent: Loops
+parent: Loop 2026-05-12-1254
+nav_order: 15
 ---
 
 <!-- original-frontmatter:

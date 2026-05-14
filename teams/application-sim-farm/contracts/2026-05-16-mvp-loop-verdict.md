@@ -5,6 +5,8 @@ date: 2026-05-16
 status: active
 type: contract
 owner: teams/application/sim-farm
+grand_parent: Teams
+parent: "Team: application-sim-farm"
 ---
 
 <!-- original-frontmatter:

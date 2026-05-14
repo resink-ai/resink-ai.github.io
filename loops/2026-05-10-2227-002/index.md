@@ -1,6 +1,9 @@
 ---
 layout: default
 title: Loop 2026-05-10-2227-002
+parent: Loops
+has_children: true
+nav_order: 16
 ---
 {% raw %}
 # Loop 2026-05-10-2227-002

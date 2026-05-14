@@ -6,6 +6,9 @@ status: active
 type: exec-summary
 loop: 2026-05-13-1844
 owner: teams/application/resink-core
+grand_parent: Loops
+parent: Loop 2026-05-13-1844
+nav_order: 11
 ---
 
 <!-- original-frontmatter:

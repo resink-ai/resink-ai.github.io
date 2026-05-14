@@ -5,6 +5,7 @@ date: 2026-05-30
 status: active
 type: report
 owner: board
+parent: Reports
 ---
 
 <!-- original-frontmatter:

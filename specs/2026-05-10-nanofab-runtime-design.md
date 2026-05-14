@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Spec: 2026-05-10-nanofab-runtime-design"
+parent: Design specs
 ---
 {% raw %}
 # Nanofab Runtime — Design Spec
