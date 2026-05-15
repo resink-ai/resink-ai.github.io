@@ -170,6 +170,8 @@ ADR-2026-05-16-001 deferred "step 3.5 — supervisor-side NodeCtx bridge." It is
 
 The exact callback ABI (function-pointer table vs. a serialized request/response loop) is the **first decision Phase 1's implementing loop owns** — it depends on the `nanofab_node_process` signature already shipped in the codegen template. The spec fixes the *contract* (the node can read the current version, close it, and append a new one, scoped to one shard, within one `process` call); the implementing loop fixes the *wire shape*.
 
+> **Wire shape ratified (loop 2026-05-14-0857 — Phase 1a).** The probe found `nanofab_node_process` returns *only* a status code and `ctx_ptr` is unwired in the codegen template — so Phase 1 was re-shaped into a contract-first split (see ADR-2026-05-14-001 § Status). The wire shape is now fixed by **[`teams/application/resink-core/contracts/2026-05-14-nodectx-cabi-callback.md`](../../../teams/application/resink-core/contracts/2026-05-14-nodectx-cabi-callback.md)**: a `#[repr(C)] NanofabNodeCtxVTable` of function pointers behind `ctx_ptr`, JSON key/row serialization across the FFI boundary. The `NodeCtxBridge` trait below is unchanged; its `impl` for `&mut ShardKv` and the v-table that drives it land in Phase 1b.
+
 ```rust
 /// The supervisor-side NodeCtx bridge. Bound to one shard's KV for the
 /// duration of one `process_event` call. The node invokes these through the
@@ -353,9 +355,12 @@ Each row maps to the ADR's three phases. Future briefs cite this table; future O
 
 | Phase | Owner(s) | Sized | Target | Closes which spec sections |
 |---|---|---|---|---|
-| 1. De-hardcode supervisor — generic `NodeRunner` + `DimSchema` + NodeCtx bridge | resink-core | M | `loop+1` | §2, §3.1-3.4, §5 (composite-key plumbing), §7.1, §7.2, §7.4, §8 (Phase 1 test) |
-| 2. Richer schemas + field types | resink-core + DE + AE + sim-farm | M-L | `loop+2` / `loop+3` | §4, §3.2 (DE projection), §5 (composite-PK acceptance), §8 (Phase 2 test) |
-| 3. Complex fact-table shapes | resink-core + DE + training pipeline | L | `loop+4` / `loop+5` | §6, §7.2 (fan-out dispatch), §8 (Phase 3 test) |
+| 1a. NodeCtx C-ABI callback contract + pure-Rust scaffolding (`DimSchema`, `NodeRunner` skeleton, composite-key encoding, test harness) — **shipped loop 2026-05-14-0857** | resink-core (lead) + AE (co-author) | M | `loop+1` | §2.3, §3.1-3.4, §5 (composite-key projection + encoding), §8 (Phase 1a tests) |
+| 1b. Wire the NodeCtx bridge — AE `lib.rs.tmpl` `ctx_ptr` wiring; resink-core `NodeCtxBridge` impl + `Supervisor::run` integration + `nodes.rs` retirement | AE + resink-core | M | `loop+2` | §2.4, §7.1, §7.2, §7.4, §8 (`supervisor_runs_three_dims` un-ignored) |
+| 2. Richer schemas + field types | resink-core + DE + AE + sim-farm | M-L | `loop+3` / `loop+4` | §4, §3.2 (DE projection), §5 (composite-PK acceptance), §8 (Phase 2 test) |
+| 3. Complex fact-table shapes | resink-core + DE + training pipeline | L | `loop+5` / `loop+6` | §6, §7.2 (fan-out dispatch), §8 (Phase 3 test) |
+
+> **Phase 1 split into 1a + 1b (loop 2026-05-14-0857).** The probe finding (the C-ABI's `ctx_ptr` is unwired in the codegen template) re-shaped Phase 1 into a contract-first split — see ADR-2026-05-14-001 § Status and the wire-shape note in §2.4. Phase 1a shipped the contract + the pure-Rust scaffolding; Phase 1b wires the bridge. Phases 2 + 3 `loop+N` targets shift by one accordingly.
 
 Each phase:
 
@@ -365,7 +370,7 @@ Each phase:
 
 The most likely first-contact revision sites, flagged in advance:
 
-- **§2.4 NodeCtx bridge wire shape** — depends on the `nanofab_node_process` signature already in the codegen template; Phase 1's implementing loop may find the C-ABI needs a callback-table extension, which is an AE codegen-template change pulled into Phase 1.
+- **§2.4 NodeCtx bridge wire shape** — ✅ **resolved (loop 2026-05-14-0857).** The probe confirmed the C-ABI needs an AE codegen-template change; rather than improvise it cross-team in one loop, Phase 1 split into 1a (contract + scaffolding) and 1b (bridge wiring). Wire shape ratified in `contracts/2026-05-14-nodectx-cabi-callback.md`.
 - **§3.2 DE projection** — Phase 2 may find `{key_columns, payload_columns}` is lossy for sim-farm; that is a DE contract revision.
 - **§6 derived facts** — Phase 3 may find derived facts need the ADS sibling arc pulled forward.
 

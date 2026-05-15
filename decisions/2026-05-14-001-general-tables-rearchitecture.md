@@ -103,7 +103,33 @@ The companion spec — `docs/superpowers/specs/2026-05-14-general-tables-design.
 
 ## Status
 
-_(Reserved for future-loop updates as each restoration phase closes. Mirrors the ADR-2026-05-16-001 / ADR-2026-05-13-001 closing-section convention. Phase 1 closure narration expected at `loop+1`; Phase 3 closes the arc.)_
+### 2026-05-14, loop 2026-05-14-0857 — Phase 1 re-shaped + Phase 1a shipped
+
+**Phase 1 was re-shaped on a first-contact finding, then split.** A probe before authoring the loop+1 brief found that Phase 1, as this ADR sized it ("resink-core; M"), was mis-scoped:
+
+- This ADR's Decision §3 commits Phase 1 to consuming nodes through the dlopen `Node` C-ABI. But `nanofab_node_process(node_ptr, event_json, event_json_len, ctx_ptr) -> i32` returns **only a status code** — every SCD2 mutation must flow back through `ctx_ptr`.
+- `ctx_ptr` is unwired today: the codegen template `lib.rs.tmpl` (AE-owned) ignores it and uses an in-process `DefaultProcessCtx`. So Phase 1 needs an **AE codegen-template change** — it is a cross-team loop, not a solo resink-core M. (The companion spec's §9 pre-flagged this exact site.)
+
+**Resolution: a contract-first split.** Phase 1a (loop 2026-05-14-0857) and Phase 1b (next loop):
+
+**Phase 1a — shipped this loop:**
+
+- **`teams/application/resink-core/contracts/2026-05-14-nodectx-cabi-callback.md`** — the NodeCtx C-ABI callback contract. Specifies the `#[repr(C)] NanofabNodeCtxVTable` (function pointers for `get_current` / `close_current` / `append_current` + an opaque `ctx_handle`), JSON serialization of keys + rows across the FFI boundary, `NodeError` propagation, and the `ctx_ptr` lifetime contract (valid for one `process` call, bound to one shard). resink-core-authored, **AE-co-authored** — AE confirmed it is implementable against `lib.rs.tmpl`'s `nanofab_node_process` shape with no C-ABI signature change (only a reinterpretation of the already-present `ctx_ptr`).
+- **`crates/nanofab-supervisor/src/schema.rs`** — `DimSchema` + `ColumnDesc` + `ColumnType` + `Scd2ColumnTriple` + `DimSchema::from_json` with validation per spec §3. Fully implemented; 7 unit tests.
+- **`crates/nanofab-supervisor/src/node_runner.rs`** — `NodeRunner`, `ShardKv`, `CompositeKey`, `RawFieldValueKey`, `Scd2RowGeneric`, the `NodeCtxBridge` trait, and the `NanofabNodeCtxVTable` declaration. Pure-Rust surface implemented: `CompositeKey` projection, the partition-key byte encoding (byte-stability-critical — a single-column string key encodes to exactly its bare UTF-8 bytes, reproducing the current per-table partitioner's input), `write_output`'s schema-driven parquet shaping. `NodeRunner::process_event`'s bridge call site is `unimplemented!("Phase 1b")`. 6 unit tests.
+- **`crates/nanofab-supervisor/tests/general_tables.rs`** — the harness with a third synthetic dim (`dim_widget`). 3 tests pass this loop (three-dim parse/validate; composite-key projection; cross-dim encoding determinism); `supervisor_runs_three_dims` is `#[ignore]`'d as the Phase 1b acceptance gate.
+- `nodes.rs` + `supervisor.rs` **untouched**; `make mvp-loop` byte-stable trivially (`verdict=pass mismatches=0`); `cargo test --workspace --release` green.
+
+**First-contact spec revision narrated:** `RawFieldValueKey` ships as `String | Int64 | Bool` only — spec §2.3 sketched a `Timestamp` variant, but `RawFieldValue` carries no timestamp until Phase 2, so the variant would be unconstructible dead code. It joins `RawFieldValueKey` in Phase 2 alongside `RawFieldValue`'s widening.
+
+**Phase 1b — next loop:**
+
+- **AE** extends `lib.rs.tmpl`'s `nanofab_node_process` to interpret `ctx_ptr` as `*mut NanofabNodeCtxVTable` and process against a real `CAbiCtxShim` instead of `DefaultProcessCtx` (with null-`ctx_ptr` fallback for the template's standalone smoke test).
+- **resink-core** implements `NodeCtxBridge` for `&mut ShardKv`, wires `NodeRunner::process_event`, wires the generic runner into `Supervisor::run`, retires `nodes.rs`'s `mod user`/`mod account` + `supervisor.rs`'s `match node_spec.table`, and un-ignores `supervisor_runs_three_dims`.
+
+**Sized:** Phase 1a — M (one resink-core build session + a light AE co-author). Phase 1b — M (cross-team, AE + resink-core).
+
+### _(Reserved — Phase 2 + Phase 3 closure narration as each lands; Phase 3 closes the arc.)_
 
 ## Links
 

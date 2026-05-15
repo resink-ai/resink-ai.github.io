@@ -11,6 +11,7 @@ Chronological list of loops. Each loop links to its CEO brief, executive summary
 
 | Date | Headline |
 |---|---|
+| [2026-05-14-0857](2026-05-14-0857/) | **Headline.** Second loop on 2026-05-14. General-tables Phase 1 — and a first-contact probe reshaped it before a line of code was written. The probe found the ADR's "dlopen C-ABI" Phase 1 needs an AE codegen-template change (`ctx_ptr` is unwired in `lib.rs.tmpl`) — so Phase 1... |
 | [2026-05-14-0742](2026-05-14-0742/) | **Headline.** First loop on a new calendar date (the prior seven all landed 2026-05-13). Design-first architectural loop: opened a **third** architectural arc with [ADR-2026-05-14-001](../decisions/2026-05-14-001-general-tables-rearchitecture.md), naming the supervisor's hardc... |
 | [2026-05-13-1944](2026-05-13-1944/) | **Headline.** Seventh same-day loop. Step 2 of ADR-2026-05-13-001's four-step streaming restoration plan shipped — sized L when CEO pulled the `Supervisor` API extraction forward from step 4. Six interlocked deliverables in one resink-core build session: `InMemoryStream` impl,... |
 | [2026-05-13-1844](2026-05-13-1844/) | **Headline.** Sixth same-day loop. Single team active (resink-core); single objective; step 1 of ADR-2026-05-13-001's four-step streaming restoration plan shipped clean in one build session. `EventSource` trait + `ParquetReplay` impl + supervisor wired through trait; `make mvp... |
