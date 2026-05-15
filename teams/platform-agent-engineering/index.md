@@ -42,6 +42,7 @@ Build and maintain the AI agent infrastructure for the org. Produces the agent r
 
 ## Executive summaries
 
+- [2026-05-14-0857](../../loops/2026-05-14-0857/teams/platform-agent-engineering-exec-summary.html)
 - [2026-05-13-0859](../../loops/2026-05-13-0859/teams/platform-agent-engineering-exec-summary.html)
 - [2026-05-12-1826](../../loops/2026-05-12-1826/teams/platform-agent-engineering-exec-summary.html)
 - [2026-05-12-1254](../../loops/2026-05-12-1254/teams/platform-agent-engineering-exec-summary.html)
@@ -57,6 +58,7 @@ Build and maintain the AI agent infrastructure for the org. Produces the agent r
 
 ## OKRs
 
+- [2026-05-14-0857](../../loops/2026-05-14-0857/teams/platform-agent-engineering-okr.html)
 - [2026-05-13-0859](../../loops/2026-05-13-0859/teams/platform-agent-engineering-okr.html)
 - [2026-05-11-1631](../../loops/2026-05-11-1631/teams/platform-agent-engineering-okr.html)
 - [2026-05-11-1302](../../loops/2026-05-11-1302/teams/platform-agent-engineering-okr.html)
