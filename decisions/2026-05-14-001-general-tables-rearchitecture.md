@@ -129,7 +129,34 @@ The companion spec — `docs/superpowers/specs/2026-05-14-general-tables-design.
 
 **Sized:** Phase 1a — M (one resink-core build session + a light AE co-author). Phase 1b — M (cross-team, AE + resink-core).
 
-### _(Reserved — Phase 2 + Phase 3 closure narration as each lands; Phase 3 closes the arc.)_
+### 2026-05-15, loop 2026-05-15-0001 — Phase 1b shipped + Phase 1c carved out
+
+**Phase 1b shipped the contract-implementation work.** The NodeCtx C-ABI callback contract is wired across both sides; the v-table bridge is proven end-to-end on real FFI.
+
+- **AE** — `repos/resink-ai/resink-marketplace/plugins/nanofab/skills/codegen-scd2-node/templates/scd2_maintainer/lib.rs.tmpl` extended: `nanofab_node_process` accepts `ctx_ptr` (no longer ignored); `NanofabNodeCtxVTable` declared inline, field order verbatim from the supervisor's authoritative declaration per the contract's lock-step discipline. The per-tenant `CAbiCtxShim` slot-fill is deferred to Phase 1c (the template's `_ = ctx_ptr` line is a marker for that follow-on); regenerated tenant crates continue using `DefaultProcessCtx` until the orchestrator's slot-fill is extended.
+- **resink-core (cdylib side)** — `crates/nanofab-plugin-dim-user/src/lib.rs` + `crates/nanofab-plugin-dim-user-v2/src/lib.rs` hand-updated with concrete `CAbiCtxShim` implementations for dim_user (the in-tree cdylibs are hand-slot-fills, not regenerated; they carry the reference shape for Phase 1c's slot-fill).
+- **resink-core (supervisor side)** — `crates/nanofab-supervisor/src/node_runner.rs` `impl NodeCtxBridge for ShardKv` + `NodeRunner::process_event` wired end-to-end: builds a v-table over the routed shard's `ShardKv`, serializes the event to event_json (codegen's tagged form), calls `PluginNode::process(event_json, ctx_ptr)`, drains accumulated mutations + writes trace records via `TraceWriter`, maps status codes per `NANOFAB_NODE_*`. `PluginNode::process` signature extended (`plugin_loader.rs`) to accept `ctx_ptr` (call sites updated in `tests/dlopen_integration.rs` + `tests/hot_swap_correctness.rs`).
+- **Bridge proven end-to-end** — `tests/dlopen_integration.rs::bridge_v_table_round_trips_dim_user_insert` + `bridge_v_table_close_and_append_on_update` drive `dim_user` events through `NodeRunner` against the real `nanofab-plugin-dim-user` cdylib; the supervisor's `ShardKv` is mutated through the v-table callbacks; output parquets + trace records match expectations. 5/5 dlopen integration tests green; all 3 hot-swap correctness tests green (null-`ctx_ptr` fallback path preserved); 27/27 supervisor unit tests green.
+- **`make mvp-loop` byte-stable** — `verdict=pass mismatches=0` on the widened 2-dim / 3-fact / 4-shard fixture. Trivially satisfied — the live `make mvp-loop` path goes through `nodes.rs` (static-plugins, untouched). The genuine "output via C-ABI matches the golden" gate is Phase 1c.
+
+**In-loop re-shape: Phase 1b → 1b + 1c.** A build-time probe at brief-authoring found the brief was mis-sized at M+M:
+
+- `supervisor.rs:189-211` unconditionally calls `nodes::user::run` + `nodes::account::run` — not gated by the dlopen-plugins feature.
+- `Cargo.toml` carries `nanofab_node_dim_user_scd2` + `nanofab_node_dim_account_scd2` as path-deps by name; truly retiring static-plugins requires removing them.
+- Only `nanofab-plugin-dim-user` (+ `-v2`) exists as a cdylib in-tree; dim_account + dim_widget have no cdylib equivalent.
+
+The brief's KR1.4 (nodes.rs deleted), KR1.5 (supervisor_runs_three_dims un-ignored), and KR1.6 (output via C-ABI byte-stable) together require Makefile + Cargo.toml + orchestrator changes that the M+M sizing missed. **Re-shape (recorded in the loop's brief in-place, before code landed):**
+
+- **Phase 1b (this loop) shipped** the contract-implementation work — the load-bearing v-table bridge proven on real FFI. `nodes.rs` stays alive; `supervisor_runs_three_dims` stays `#[ignore]`'d with its reason updated to name Phase 1c as the gate.
+- **Phase 1c (`loop+1`)** carries the static-plugins retirement: build cdylibs for dim_account + dim_widget; extend the orchestrator to emit cdylib paths into the manifest; flip `make mvp-loop` default to dlopen-plugins; remove `Cargo.toml` path-deps; delete `nodes.rs` + `supervisor.rs`'s `match node_spec.table`; un-ignore + author `supervisor_runs_three_dims`. Acceptance signal: `make mvp-loop` byte-stable through the C-ABI.
+
+**Contract revisions discovered during implementation: 0.** The contract held cleanly. One implementation-level finding worth recording: the codegen template's `parse_event_json` accepts the *tagged* FieldValue form (`{"string": "..."}`), while the contract specifies the *plain* form for the Row JSON (key/payload). Events flow INTO the node in tagged form; rows flow OUT in plain form. The contract was internally consistent on this; the AE template's CAbiCtxShim handles the asymmetry (the in-tree cdylib's `parse_scd2_row_json_dim_user` uses the plain form). Worth a clarifying note in the contract's serialization § for Phase 2's wider type coverage, but not a revision.
+
+**Sized:** Phase 1a — M shipped. Phase 1b — M+M as sized for the contract-implementation work (shipped this loop). Phase 1c — M+M now-explicit (cdylibs + orchestrator + Makefile + Cargo.toml + nodes.rs retirement); previously folded into a notional M+M Phase 1b that the brief-time-probe missed.
+
+**Sequencing impact:** Phase 2 moves to `loop+2` (was `loop+1` before the split); Phase 3 to `loop+4` (was `loop+3`); the org-os-process loop (CEO decision (b) of this loop's brief) moves to `loop+3` (was `loop+2`).
+
+### _(Reserved — Phase 1c closure as it lands; Phase 2 + Phase 3 closure as each lands; Phase 3 closes the arc.)_
 
 ## Links
 
