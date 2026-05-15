@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Loop 2026-05-13-0859
+title: Loop 2026-05-15-0001
 parent: Loops
 has_children: true
-nav_order: 9
+nav_order: 1
 ---
 {% raw %}
-# Loop 2026-05-13-0859
+# Loop 2026-05-15-0001
 
 - [CEO Brief](brief.html)
 - [Executive Summary](exec-summary.html)
@@ -14,5 +14,6 @@ nav_order: 9
 
 ## Per-team
 
+- **application-resink-core** — [OKR](teams/application-resink-core-okr.html) · [exec summary](teams/application-resink-core-exec-summary.html)
 - **platform-agent-engineering** — [OKR](teams/platform-agent-engineering-okr.html) · [exec summary](teams/platform-agent-engineering-exec-summary.html)
 {% endraw %}

@@ -11,6 +11,7 @@ Chronological list of loops. Each loop links to its CEO brief, executive summary
 
 | Date | Headline |
 |---|---|
+| [2026-05-15-0001](2026-05-15-0001/) | **Headline.** First loop on 2026-05-15. General-tables **Phase 1b** shipped (re-shaped) — the NodeCtx C-ABI callback contract wired across both sides, bridge proven end-to-end on **real FFI**. AE wired `lib.rs.tmpl` (`nanofab_node_process` accepts `ctx_ptr`; `NanofabNodeCtxVTa... |
 | [2026-05-14-0857](2026-05-14-0857/) | **Headline.** Second loop on 2026-05-14. General-tables Phase 1 — and a first-contact probe reshaped it before a line of code was written. The probe found the ADR's "dlopen C-ABI" Phase 1 needs an AE codegen-template change (`ctx_ptr` is unwired in `lib.rs.tmpl`) — so Phase 1... |
 | [2026-05-14-0742](2026-05-14-0742/) | **Headline.** First loop on a new calendar date (the prior seven all landed 2026-05-13). Design-first architectural loop: opened a **third** architectural arc with [ADR-2026-05-14-001](../decisions/2026-05-14-001-general-tables-rearchitecture.md), naming the supervisor's hardc... |
 | [2026-05-13-1944](2026-05-13-1944/) | **Headline.** Seventh same-day loop. Step 2 of ADR-2026-05-13-001's four-step streaming restoration plan shipped — sized L when CEO pulled the `Supervisor` API extraction forward from step 4. Six interlocked deliverables in one resink-core build session: `InMemoryStream` impl,... |
