@@ -41,7 +41,7 @@ Admit `action` to `org-os/conventions.md`'s `type` enum. Add a row to the "Addit
 |----------|-----------------------------------------------------|
 | `action` | `due: YYYY-MM-DD`, `status: open \| done \| superseded` |
 
-The `due:` field is the forcing-function date — the brief at that loop surfaces the ticket if it has not closed (per [ADR-2026-05-09-005](2026-05-09-005-carryover-load-in-brief.md)'s carryover-load discipline + the ceo-brief ritual's first read step).
+The `due:` field is the forcing-function date — the brief at that loop surfaces the ticket if it has not closed (per ADR-2026-05-09-005's carryover-load discipline + the ceo-brief ritual's first read step).
 
 The `status:` enum for `action` is narrower than the publication-state enum: only `open | done | superseded`. Action tickets do not draft, do not publish, do not archive — they are filed as `open`, advanced to `done` on resolution, or `superseded` on supersession. Add this to the conventions.md status-values section under a new "`action` — lifecycle status, not publication status" subsection (mirror the existing `request` status subsection's shape).
 
@@ -71,5 +71,5 @@ The migration follows the [provisional-and-migrate playbook](../../org-os/playbo
 - Sister precedent (same shape, larger batch): [ADR-2026-05-23-001](2026-05-23-001-conventions-enum-extension.md) — five-type enum extension ratified at 2026-05-30 with `report` and `role` admitted same-loop as the artifacts that needed them.
 - Ratifying playbook applied to the migration: [ADR-2026-06-06-001](2026-06-06-001-provisional-and-migrate-playbook.md) (provisional-and-migrate playbook, ratified this loop) + [`org-os/playbooks/provisional-and-migrate.md`](../../org-os/playbooks/provisional-and-migrate.md).
 - Triggering work: the two existing `board/actions/` tickets filed at 2026-06-06 with provisional `type: action` (see Context).
-- Sister carryover discipline: [ADR-2026-05-09-005](2026-05-09-005-carryover-load-in-brief.md) — the brief's first read step surfaces `due:`-hit `action` tickets the same way it now surfaces `deferred_to_loop`-hit requests (per [ADR-2026-06-06-002](2026-06-06-002-paused-team-request-acceptance.md)).
+- Sister carryover discipline: ADR-2026-05-09-005 — the brief's first read step surfaces `due:`-hit `action` tickets the same way it now surfaces `deferred_to_loop`-hit requests (per [ADR-2026-06-06-002](2026-06-06-002-paused-team-request-acceptance.md)).
 {% endraw %}

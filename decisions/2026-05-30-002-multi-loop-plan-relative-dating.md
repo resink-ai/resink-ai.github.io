@@ -64,7 +64,7 @@ When an ADR records a multi-loop plan, every step inside that plan names its loo
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-11-1302-ceo-retro.md](../retros/2026-05-11-1302-ceo-retro.md) — P4.
+- Triggering retro: board/retros/2026-05-11-1302-ceo-retro.md — P4.
 - Worked-example slippage: [ADR-2026-05-16-001](2026-05-16-001-abi-option-a-mvp-deviation.md) — AE template extension at named 2026-05-30 slipped one loop to 2026-06-06.
 - Sister convention: this ADR + ADR-2026-05-16-003 + ADR-2026-05-30-001 form the "verify-and-honest-about-dates" family.
 {% endraw %}

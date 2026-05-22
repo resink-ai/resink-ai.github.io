@@ -378,7 +378,7 @@ The most likely first-contact revision sites, flagged in advance:
 ## 10. Cross-references
 
 - **Ratifying ADR:** [board/decisions/2026-05-14-001-general-tables-rearchitecture.md](../../../board/decisions/2026-05-14-001-general-tables-rearchitecture.md).
-- **Runtime spec:** [docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md](2026-05-10-nanofab-runtime-design.md) — the general-DAG-executor design this spec reifies.
+- **Runtime spec:** docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md — the general-DAG-executor design this spec reifies.
 - **Sister ADR (dlopen — closed):** [board/decisions/2026-05-16-001-abi-option-a-mvp-deviation.md](../../../board/decisions/2026-05-16-001-abi-option-a-mvp-deviation.md) — the `PluginNode` C-ABI surface §2.2 consumes; its deferred step-3.5 NodeCtx bridge is §2.4.
 - **Sister ADR (streaming — in progress):** [board/decisions/2026-05-13-001-streaming-event-source-rearchitecture.md](../../../board/decisions/2026-05-13-001-streaming-event-source-rearchitecture.md) — the `EventSource` trait §7.3 composes with.
 - **DE schema-JSON convention:** [teams/platform/data-engineering/conventions/dim-schema-json.md](../../../teams/platform/data-engineering/conventions/dim-schema-json.md) — reconciled in §3.2 as a projection of the richer codegen schema.

@@ -511,7 +511,7 @@ Each step:
 ## 10. Cross-references
 
 - **Ratifying ADR:** [board/decisions/2026-05-13-001-streaming-event-source-rearchitecture.md](../../../board/decisions/2026-05-13-001-streaming-event-source-rearchitecture.md) — names the deviation + commits to this plan.
-- **Runtime spec:** [docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md](2026-05-10-nanofab-runtime-design.md) — the canonical streaming-ingestion design this spec reifies at the code-shape level. Especially §3 ("Architecture overview"), §4 ("The Supervisor"), §5.4 ("Event shape"), §6 ("Shard-routing & internal Kafka").
+- **Runtime spec:** docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md — the canonical streaming-ingestion design this spec reifies at the code-shape level. Especially §3 ("Architecture overview"), §4 ("The Supervisor"), §5.4 ("Event shape"), §6 ("Shard-routing & internal Kafka").
 - **Sister ADR (worked example of the pattern):** [board/decisions/2026-05-16-001-abi-option-a-mvp-deviation.md](../../../board/decisions/2026-05-16-001-abi-option-a-mvp-deviation.md) — the named-deviation + multi-loop-restoration template. Closed cleanly across 5 loops.
 - **Existing code this rearchitecture refactors:** `repos/resink-ai/resink-core/crates/nanofab-supervisor/src/event_source.rs` (the `RawEvent` + `read_fact_parquet` surface that step 1 wraps).
 - **Triggering brief:** [board/okrs/2026-05-13-1422-ceo-brief.md](../../../board/okrs/2026-05-13-1422-ceo-brief.md).

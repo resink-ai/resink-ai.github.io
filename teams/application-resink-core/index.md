@@ -39,16 +39,6 @@ Deliver the customer-facing realtime data processing product — both the traini
 - [2026-05-13-1944](../../loops/2026-05-13-1944/teams/application-resink-core-exec-summary.html)
 - [2026-05-13-1844](../../loops/2026-05-13-1844/teams/application-resink-core-exec-summary.html)
 - [2026-05-13-1022](../../loops/2026-05-13-1022/teams/application-resink-core-exec-summary.html)
-- [2026-05-12-1826](../../loops/2026-05-12-1826/teams/application-resink-core-exec-summary.html)
-- [2026-05-12-1254](../../loops/2026-05-12-1254/teams/application-resink-core-exec-summary.html)
-- [2026-05-12-0645](../../loops/2026-05-12-0645/teams/application-resink-core-exec-summary.html)
-- [2026-05-11-2153](../../loops/2026-05-11-2153/teams/application-resink-core-exec-summary.html)
-- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/application-resink-core-exec-summary.html)
-- [2026-05-11-1302](../../loops/2026-05-11-1302/teams/application-resink-core-exec-summary.html)
-- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/application-resink-core-exec-summary.html)
-- [2026-05-11-0958](../../loops/2026-05-11-0958/teams/application-resink-core-exec-summary.html)
-- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/application-resink-core-exec-summary.html)
-- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/application-resink-core-exec-summary.html)
 
 ## OKRs
 
@@ -57,16 +47,6 @@ Deliver the customer-facing realtime data processing product — both the traini
 - [2026-05-13-1944](../../loops/2026-05-13-1944/teams/application-resink-core-okr.html)
 - [2026-05-13-1844](../../loops/2026-05-13-1844/teams/application-resink-core-okr.html)
 - [2026-05-13-1022](../../loops/2026-05-13-1022/teams/application-resink-core-okr.html)
-- [2026-05-12-1826](../../loops/2026-05-12-1826/teams/application-resink-core-okr.html)
-- [2026-05-12-1254](../../loops/2026-05-12-1254/teams/application-resink-core-okr.html)
-- [2026-05-12-0645](../../loops/2026-05-12-0645/teams/application-resink-core-okr.html)
-- [2026-05-11-2153](../../loops/2026-05-11-2153/teams/application-resink-core-okr.html)
-- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/application-resink-core-okr.html)
-- [2026-05-11-1302](../../loops/2026-05-11-1302/teams/application-resink-core-okr.html)
-- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/application-resink-core-okr.html)
-- [2026-05-11-0958](../../loops/2026-05-11-0958/teams/application-resink-core-okr.html)
-- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/application-resink-core-okr.html)
-- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/application-resink-core-okr.html)
 
 ## Contracts
 

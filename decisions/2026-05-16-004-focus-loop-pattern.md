@@ -6,7 +6,7 @@ status: active
 type: adr
 owner: board
 parent: Decisions (ADRs)
-nav_order: 7
+nav_order: 8
 ---
 
 <!-- original-frontmatter:
@@ -77,9 +77,9 @@ The single-playbook framing (both patterns in one document) is deliberate: the p
 
 ## Links
 
-- Triggering retros: [board/retros/2026-05-11-0958-ceo-retro.md](../retros/2026-05-11-0958-ceo-retro.md) — P5; [board/retros/2026-05-11-1113-ceo-retro.md](../retros/2026-05-11-1113-ceo-retro.md) — P5 (consolidation-loop sibling).
-- Worked example (focus): [board/okrs/2026-05-11-0958-ceo-brief.md](../okrs/2026-05-16-ceo-brief.md), [board/exec-summaries/2026-05-11-0958.md](../exec-summaries/2026-05-11-0958.md).
-- Worked example (consolidation): [board/okrs/2026-05-11-1113-ceo-brief.md](../okrs/2026-05-23-ceo-brief.md), [board/exec-summaries/2026-05-11-1113.md](../exec-summaries/2026-05-11-1113.md).
+- Triggering retros: board/retros/2026-05-11-0958-ceo-retro.md — P5; board/retros/2026-05-11-1113-ceo-retro.md — P5 (consolidation-loop sibling).
+- Worked example (focus): [board/okrs/2026-05-11-0958-ceo-brief.md](../okrs/2026-05-16-ceo-brief.md), board/exec-summaries/2026-05-11-0958.md.
+- Worked example (consolidation): [board/okrs/2026-05-11-1113-ceo-brief.md](../okrs/2026-05-23-ceo-brief.md), board/exec-summaries/2026-05-11-1113.md.
 - Companion ADR ratified same loop: [2026-05-16-003-contract-environment-verification](2026-05-16-003-contract-environment-verification.md), [2026-05-23-001-conventions-enum-extension](2026-05-23-001-conventions-enum-extension.md).
 - Playbook landed alongside this ratification: [org-os/playbooks/focus-and-consolidation-loops.md](../../org-os/playbooks/focus-and-consolidation-loops.md).
 {% endraw %}

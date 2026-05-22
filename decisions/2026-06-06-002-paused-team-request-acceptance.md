@@ -69,8 +69,8 @@ Three ritual/template edits land alongside this ratification:
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-11-1631-ceo-retro.md](../retros/2026-05-11-1631-ceo-retro.md) — P3.
+- Triggering retro: board/retros/2026-05-11-1631-ceo-retro.md — P3.
 - Sister ADR (drafted same loop): [2026-06-06-001-provisional-and-migrate-playbook](2026-06-06-001-provisional-and-migrate-playbook.md) — same retro, different pattern.
-- Related: [ADR-2026-05-09-006](2026-05-09-006-org-os-change-routing.md) — request-flow lifecycle this ADR extends.
+- Related: ADR-2026-05-09-006 — request-flow lifecycle this ADR extends.
 - Worked example trigger: [teams/platform/data-engineering/requests/2026-06-06-001-schema-json-shape-ack.md](../../teams/platform/data-engineering/requests/2026-06-06-001-schema-json-shape-ack.md) — DE's pending paused-team acceptance.
 {% endraw %}

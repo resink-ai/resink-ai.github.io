@@ -14,7 +14,7 @@ parent: Reports
   date: 2026-05-30
   status: active
   audience: technical reviewer (engineer, investor, prospective hire)
-  links: parent: board/okrs/2026-05-11-1302-ceo-brief.md
+  links: 
 -->
 {% raw %}
 
@@ -46,7 +46,7 @@ Each bullet is a present-tense capability backed by an on-disk verdict, a test e
   }
   ```
 
-- **Real LLM-driven code generation produces compilable, deterministic Rust.** The orchestrator dispatches AE's `nanofab:codegen-scd2-node` skill via the local `claude` CLI; the generated Rust crate compiles with `cargo build --release` exit code 0 and passes its own per-node `cargo test` exit code 0. Loop 2026-05-11-0958's first end-to-end attempt produced compilable Rust with zero template iterations (~$0.77 in API cost, ~106s wall on a developer laptop) — see [`board/exec-summaries/2026-05-11-0958.md`](../exec-summaries/2026-05-11-0958.md). When `CLAUDE_DISPATCH=1` is not set, the orchestrator falls back to in-process deterministic slot-fill so the loop runs with no API key.
+- **Real LLM-driven code generation produces compilable, deterministic Rust.** The orchestrator dispatches AE's `nanofab:codegen-scd2-node` skill via the local `claude` CLI; the generated Rust crate compiles with `cargo build --release` exit code 0 and passes its own per-node `cargo test` exit code 0. Loop 2026-05-11-0958's first end-to-end attempt produced compilable Rust with zero template iterations (~$0.77 in API cost, ~106s wall on a developer laptop) — see `board/exec-summaries/2026-05-11-0958.md`. When `CLAUDE_DISPATCH=1` is not set, the orchestrator falls back to in-process deterministic slot-fill so the loop runs with no API key.
 
 - **Multi-dim parallel maintenance.** The supervisor processes two dim-tables (`dim_user` 21 SCD2 rows; `dim_account` 18 SCD2 rows) in one process driven by three fact streams (`fact_sign_up`, `fact_profile_update`, `fact_account_open`). Per loop 2026-05-11-1113, verdict shows both `dim_user` and `dim_account` with `pass: true` and `mismatch_count: 0`.
 
@@ -156,7 +156,7 @@ The system **today** does not include the following — they are roadmap items n
 - **Resink-core's CLAUDE.md** — `repos/resink-ai/resink-core/CLAUDE.md` (shipped this loop): one-paragraph product summary, tech stack, common commands, repo layout.
 - **Resink-core's docs/** — `repos/resink-ai/resink-core/docs/{architecture,concepts,user-guide,module-catalog}.md` (shipped this loop): deeper internal documentation, target audience is an IC opening the repo for the first time.
 - **Canonical specs (in parent newbase repo)** — `docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md`, `docs/superpowers/specs/2026-05-10-nanofab-training-pipeline-design.md`.
-- **ADRs** — `board/decisions/` — every architectural deviation has an ADR; start with [ADR-2026-05-16-001 (Option A)](../decisions/2026-05-16-001-abi-option-a-mvp-deviation.md) and [ADR-2026-05-10-001 (Rust runtime)](../decisions/2026-05-10-001-nanofab-runtime-is-rust.md).
+- **ADRs** — `board/decisions/` — every architectural deviation has an ADR; start with [ADR-2026-05-16-001 (Option A)](../decisions/2026-05-16-001-abi-option-a-mvp-deviation.md) and ADR-2026-05-10-001 (Rust runtime).
 - **Loop-by-loop history** — `board/exec-summaries/2026-05-11-0958.md` (first GREEN end-to-end), `board/exec-summaries/2026-05-11-1113.md` (widened MVP + 6-ADR batch).
 
 ---

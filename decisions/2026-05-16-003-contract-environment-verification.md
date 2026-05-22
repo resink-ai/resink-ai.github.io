@@ -6,7 +6,7 @@ status: active
 type: adr
 owner: board
 parent: Decisions (ADRs)
-nav_order: 8
+nav_order: 9
 ---
 
 <!-- original-frontmatter:
@@ -75,12 +75,12 @@ The canonical scope is now: **`contract`, `rfc`, `convention`, `runbook`, `playb
 - **Follow-ups required:**
   - Update `org-os/conventions.md` with the new body-shape rule (lands alongside this ADR's ratification).
   - When the DevOps frontmatter-lint script ships (deferred per ADR-2026-05-08-001), extend it to assert presence of the subsection on `type: contract` artifacts produced on or after 2026-05-30.
-  - Pair with [ADR-2026-05-10-003](2026-05-10-003-verify-state-claims-at-ritual-transitions.md) (verify-state-claims) — both target the same conventions/ritual surface; both ratified.
+  - Pair with ADR-2026-05-10-003 (verify-state-claims) — both target the same conventions/ritual surface; both ratified.
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-11-0958-ceo-retro.md](../retros/2026-05-11-0958-ceo-retro.md) — P3.
-- Sister ADR: [2026-05-10-003-verify-state-claims-at-ritual-transitions](2026-05-10-003-verify-state-claims-at-ritual-transitions.md) (same family, different scope).
+- Triggering retro: board/retros/2026-05-11-0958-ceo-retro.md — P3.
+- Sister ADR: 2026-05-10-003-verify-state-claims-at-ritual-transitions (same family, different scope).
 - Companion ADR ratified same loop: [2026-05-16-004-focus-loop-pattern](2026-05-16-004-focus-loop-pattern.md).
 - Conventions edit landed alongside this ratification: [org-os/conventions.md](../../org-os/conventions.md).
 - Worked-example contracts (grandfathered; not retroactively edited): AE DISPATCH.md, sim-farm verdict contract, DE in-memory event-source contract — all filed 2026-05-16.
