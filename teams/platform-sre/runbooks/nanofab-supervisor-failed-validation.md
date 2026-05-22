@@ -69,12 +69,12 @@ below is the place to start.
 **Post-Mode-B / post-Mode-C (stubs only):**
 
 - Mode-B sidecar pair-orphan handling (`orphan_count > 1%` containment)
-  [§6.4](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md).
-- Sim-worker pod crash / `INFRA_FAILURE` [§6.1](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md).
-- Supervisor write-trace socket overrun (`trace_dropped`) [§6.5](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md).
-- Mode-A coordinator crash / restart [§6.6](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md).
+  §6.4.
+- Sim-worker pod crash / `INFRA_FAILURE` §6.1.
+- Supervisor write-trace socket overrun (`trace_dropped`) §6.5.
+- Mode-A coordinator crash / restart §6.6.
 - DuckDB diff engine failures beyond the MVP exit-code-2 case (OOM retries,
-  schema-mismatch as structural diff) [§6.3](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md).
+  schema-mismatch as structural diff) §6.3.
 - The runtime coordinator's `BLOCKED` hot-swap state-machine surface (does
   not exist in MVP scope; see Cross-cutting note 2 below).
 
@@ -559,7 +559,7 @@ yq '.dags[].nodes[].fact_streams[].op' <workspace>/manifest.yaml
    Interfaces](../charter.md)). If the manifest is correct and the
    supervisor's binary is stale, redeploy the supervisor.
 3. **Multi-dim widening note.** O1 of the
-   [2026-05-23 CEO brief](../../../../board/okrs/2026-05-11-1113-ceo-brief.md)
+   2026-05-23 CEO brief
    commits the orchestrator to emit multi-node manifests this loop. If
    the supervisor's `main.rs` is still at the single-node check
    (`nodes.len() != 1`), the rejection is expected for multi-node
@@ -652,7 +652,7 @@ resolve with a clean re-checkout.
 
 The runbook deliberately does not cover the following classes; these
 land as separate runbooks in future loops, per the 2026-05-23 SRE OKR's
-[§ Out of scope](../okrs/2026-05-11-1113-team-okr.md):
+§ Out of scope:
 
 - **KV cluster failures** (the in-memory `MemKv` is MVP; production
   uses a persistent KV — separate runbook when that lands).
@@ -682,7 +682,7 @@ expand it in place.
 ### 6.1 Sim-worker pod crash / `INFRA_FAILURE` (post-Mode-B / post-Mode-C)
 
 Per sim-farm spec
-[§6.1](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md):
+§6.1:
 the coordinator detects a sim-worker pod crash via gRPC stream EOF + pod
 status, marks the job FAILED, and surfaces
 `Verdict{overall: INFRA_FAILURE, layers: empty}` to the caller. The
@@ -697,7 +697,7 @@ in CI** — currently expected post-2026-06-06.
 ### 6.2 Mode-B sidecar pair-orphan handling (`orphan_count > 1%`)
 
 Per sim-farm spec
-[§6.4](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md)
+§6.4
 and the runtime mid-shadow containment story: when a sidecar restarts
 mid-session, in-flight LRU pairs are lost and the `sidecar_restart_lost_pairs`
 counter increments; coordinator marks the session UNRELIABLE if
@@ -710,7 +710,7 @@ partial data as complete" framing. **Full coverage when Mode B ships.**
 ### 6.3 Supervisor write-trace socket overrun (`trace_dropped` counter)
 
 Per sim-farm spec
-[§6.5](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md):
+§6.5:
 the supervisor's `--write-trace` socket is non-blocking with a bounded
 `SO_SNDBUF` (8 MiB default); if a sidecar can't drain fast enough,
 supervisor drops trace events and increments `trace_dropped`. The
@@ -724,7 +724,7 @@ with the sidecar.**
 ### 6.4 Mode-A coordinator crash / restart
 
 Per sim-farm spec
-[§6.6](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md):
+§6.6:
 coordinator state lives in a metadata store (Postgres/etcd); restart
 re-attaches via job-id lookup; both-coordinator-and-sidecars-down
 (regional outage) triggers a runtime-coordinator session-timeout abort
@@ -738,7 +738,7 @@ likely post-2026-06-06.
 ### 6.5 DuckDB diff failures beyond MVP exit-code-2
 
 Per sim-farm spec
-[§6.3](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md):
+§6.3:
 DuckDB OOM / syntax errors retry once with a smaller row sample before
 emitting `Verdict{overall: DIFF_ENGINE_FAILURE}`; schema-mismatch
 between candidate and reference is treated as structural diff
@@ -753,7 +753,7 @@ behavior ships in the engine** — sim-farm-owned, no committed loop yet.
 ### 6.6 Supervisor `panic_event` trace-record (post-Mode-B per spec §6.2)
 
 Per sim-farm spec
-[§6.2](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md):
+§6.2:
 a panicked event is recorded in `trace.jsonl` as a `panic_event` and
 treated as a stage-1 verdict failure
 (`node_coverage=FAIL` with the panic node + event surfaced). The MVP
@@ -774,7 +774,7 @@ loop yet.
   The `0.1.0` shape is preserved byte-identically in single-dim mode;
   the `0.2.0` shape adds `overall_pass` + `verdicts[]` for multi-dim.
 - **Sim-farm design spec §6 (failure handling):**
-  [`docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md`](../../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md).
+  `docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md`.
 - **Supervisor MVP source:**
   [`repos/resink-ai/resink-core/crates/nanofab-supervisor/src/main.rs`](../../../../repos/resink-ai/resink-core/crates/nanofab-supervisor/src/main.rs).
   Specific lines referenced above (subject to commit drift; pin at
@@ -790,9 +790,9 @@ loop yet.
   runbook storage convention (`teams/platform/sre/runbooks/<slug>.md`)
   and the SRE/DevOps boundary at the metric-emission seam.
 - **2026-05-23 SRE OKR:**
-  [`teams/platform/sre/okrs/2026-05-11-1113-team-okr.md`](../okrs/2026-05-11-1113-team-okr.md).
+  `teams/platform/sre/okrs/2026-05-11-1113-team-okr.md`.
 - **2026-05-23 CEO brief (O5 is the parent objective):**
-  [`board/okrs/2026-05-11-1113-ceo-brief.md`](../../../../board/okrs/2026-05-11-1113-ceo-brief.md).
+  `board/okrs/2026-05-11-1113-ceo-brief.md`.
 
 ---
 

@@ -80,9 +80,9 @@ For each added type, add a row to the "Additional fields per type" table with th
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-11-1113-ceo-retro.md](../retros/2026-05-11-1113-ceo-retro.md) — P4.
+- Triggering retro: board/retros/2026-05-11-1113-ceo-retro.md — P4.
 - Triggering CEO brief (further extension to five types): [board/okrs/2026-05-11-1302-ceo-brief.md](../okrs/2026-05-30-ceo-brief.md).
-- Sister ADR (same family — `contract` type added): [2026-05-10-004-contract-artifact-type](2026-05-10-004-contract-artifact-type.md).
+- Sister ADR (same family — `contract` type added): 2026-05-10-004-contract-artifact-type.
 - Companion ADRs ratified same loop: [2026-05-16-003-contract-environment-verification](2026-05-16-003-contract-environment-verification.md), [2026-05-16-004-focus-loop-pattern](2026-05-16-004-focus-loop-pattern.md).
 - Conventions edit landed alongside this ratification: [org-os/conventions.md](../../org-os/conventions.md).
 - Worked-example artifacts (migrated to canonical types this loop): `teams/platform/sre/runbooks/nanofab-supervisor-failed-validation.md`, `teams/platform/data-engineering/conventions/duckdb.md`, `org-os/playbooks/out-of-retro-org-os-change.md`.

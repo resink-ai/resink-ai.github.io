@@ -10,7 +10,7 @@ nav_order: 6
 
 ## Mission
 
-Uptime, SLOs, incident response. As of 2026-05-10, SRE also owns the **operational shape** of [Nanofab Serving & Deployment](../../../docs/superpowers/specs/2026-05-10-nanofab-serving-deployment-design.md) (sub-project #4) — runbooks, on-call, and capacity surfaces — paired with DevOps's ownership of deployment topology, IaC, CI/CD gate, and secrets storage.
+Uptime, SLOs, incident response. As of 2026-05-10, SRE also owns the **operational shape** of Nanofab Serving & Deployment (sub-project #4) — runbooks, on-call, and capacity surfaces — paired with DevOps's ownership of deployment topology, IaC, CI/CD gate, and secrets storage.
 
 ## Owned products
 
@@ -51,28 +51,6 @@ Uptime, SLOs, incident response. As of 2026-05-10, SRE also owns the **operation
 - Deployment topology and IaC for sub-project #4 (DevOps).
 - Secrets storage and rotation Lambda implementation (DevOps); SRE owns the *observability* of rotation health, not the mechanism.
 - Sub-project #5 (Product UX) operational surfaces — ownership for #5 is deferred per CEO brief 2026-05-10.
-
-## Executive summaries
-
-- [2026-05-12-1826](../../loops/2026-05-12-1826/teams/platform-sre-exec-summary.html)
-- [2026-05-12-1254](../../loops/2026-05-12-1254/teams/platform-sre-exec-summary.html)
-- [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-sre-exec-summary.html)
-- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/platform-sre-exec-summary.html)
-- [2026-05-11-1302](../../loops/2026-05-11-1302/teams/platform-sre-exec-summary.html)
-- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/platform-sre-exec-summary.html)
-- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/platform-sre-exec-summary.html)
-- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/platform-sre-exec-summary.html)
-- [2026-05-09-1715](../../loops/2026-05-09-1715/teams/platform-sre-exec-summary.html)
-
-## OKRs
-
-- [2026-05-12-1826](../../loops/2026-05-12-1826/teams/platform-sre-okr.html)
-- [2026-05-12-1254](../../loops/2026-05-12-1254/teams/platform-sre-okr.html)
-- [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-sre-okr.html)
-- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/platform-sre-okr.html)
-- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/platform-sre-okr.html)
-- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/platform-sre-okr.html)
-- [2026-05-09-1715](../../loops/2026-05-09-1715/teams/platform-sre-okr.html)
 
 ## Runbooks
 

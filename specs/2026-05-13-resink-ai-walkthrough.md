@@ -255,20 +255,20 @@ Every deferral above corresponds to a named follow-up in our internal artifacts 
 
 - **Capabilities report (companion):** [`board/reports/2026-05-13-resink-ai-capabilities.html`](../../../board/reports/2026-05-13-resink-ai-capabilities.html). Same evidence, executive-summary tone.
 - **Design specs:**
-  - [Runtime](2026-05-10-nanofab-runtime-design.md) — per-tenant compute, the supervisor's contract with node code.
-  - [Training pipeline](2026-05-10-nanofab-training-pipeline-design.md) — the orchestrator + codegen flow.
-  - [Serving & deployment](2026-05-10-nanofab-serving-deployment-design.md) — multi-tenant operations.
-  - [Sim Farm](2026-05-10-nanofab-sim-farm-design.md) — the diff engine.
-  - [Product UX](2026-05-10-nanofab-product-ux-design.md) — the customer-facing surfaces (CLI today; UI in roadmap).
-  - [Org-OS design](2026-05-08-ai-native-org-os-design.md) — how the company itself operates.
+  - Runtime — per-tenant compute, the supervisor's contract with node code.
+  - Training pipeline — the orchestrator + codegen flow.
+  - Serving & deployment — multi-tenant operations.
+  - Sim Farm — the diff engine.
+  - Product UX — the customer-facing surfaces (CLI today; UI in roadmap).
+  - Org-OS design — how the company itself operates.
 - **Closed engineering arcs:**
   - [ADR-2026-05-16-001](../../../board/decisions/2026-05-16-001-abi-option-a-mvp-deviation.md) — dlopen restoration (closed 2026-05-13-1022).
-  - [ADR-2026-05-09-001](../../../board/decisions/2026-05-09-001-org-os-bottom-up-flow.md) — bottom-up flow scaffolding (closed 2026-05-30).
+  - ADR-2026-05-09-001 — bottom-up flow scaffolding (closed 2026-05-30).
 - **Recent loops** (in chronological order of work):
   - [2026-05-13-1022](../../../board/exec-summaries/2026-05-13-1022.md) — resink-core bundle close-out (CI/CD + hot-swap test + `make bootstrap`).
   - [2026-05-13-0859](../../../board/exec-summaries/2026-05-13-0859.md) — observability skill v1 + hot-swap AE-side.
   - [2026-05-13-0056](../../../board/exec-summaries/2026-05-13-0056.md) — org-os ratification bundle (5 playbooks + 3 ADR ratifications).
-- **All ADRs:** `board/decisions/` — every architectural decision has its own document. Start with [ADR-2026-05-10-001](../../../board/decisions/2026-05-10-001-nanofab-runtime-is-rust.md) (Rust runtime choice) for the foundational tech-stack decision.
+- **All ADRs:** `board/decisions/` — every architectural decision has its own document. Start with ADR-2026-05-10-001 (Rust runtime choice) for the foundational tech-stack decision.
 
 ---
 

@@ -84,7 +84,7 @@ P5 from the 2026-06-06 retro asks the meta-question: should every external-toolc
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-11-1631-ceo-retro.md](../retros/2026-05-11-1631-ceo-retro.md) — P1.
+- Triggering retro: board/retros/2026-05-11-1631-ceo-retro.md — P1.
 - Worked-example blocker: 3-loop carry in [teams/platform/devops/status.md](../../teams/platform/devops/status.md).
 - Sibling ticket: [board/actions/2026-06-06-001-create-resink-core-github-remote.md](2026-06-06-001-create-resink-core-github-remote.md).
 - Chart prerequisites doc: [repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md](../../repos/resink-ai/resink-core/deploy/charts/nanofab-supervisor/README.md) — § Prerequisites already names `brew install minikube`.

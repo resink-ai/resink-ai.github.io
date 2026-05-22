@@ -17,7 +17,7 @@ parent: "Team: platform-data-engineering"
   producers: teams/platform/data-engineering
   consumers: - teams/application/resink-core
   - teams/application/sim-farm
-  links: parent: teams/platform/data-engineering/okrs/2026-05-11-0958-team-okr.md
+  links: 
 -->
 {% raw %}
 
@@ -34,14 +34,14 @@ change the source plugin, keep every field name, type, and semantic.
 This is a sibling contract to the Kafka ingress contract, not a replacement.
 The Kafka contract remains the production surface; this addendum scopes the
 laptop-only MVP fixture path described in
-[CEO brief O1 KR1.4](../../../../board/okrs/2026-05-11-0958-ceo-brief.md) and
-[CEO brief O4](../../../../board/okrs/2026-05-11-0958-ceo-brief.md). The
-[runtime spec §5.4](../../../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md)
+CEO brief O1 KR1.4 and
+CEO brief O4. The
+runtime spec §5.4
 is the source of truth for the per-event shape; the Kafka ingress contract is
 the source of truth for partitioning, idempotency, and producer-side framing.
 
 **Format note:** Named hand-off sections per P3 of the
-[2026-05-09 retro](../../../../board/retros/2026-05-10-2227-001-ceo-retro.md). Every
+2026-05-09 retro. Every
 normative section names the consumer that relies on it.
 
 ---
@@ -51,7 +51,7 @@ normative section names the consumer that relies on it.
 **Consumed by: resink-core supervisor (in-memory event source impl), sim-farm (closed-loop diff)**
 
 The `Event` record shape is defined verbatim against
-[runtime spec §5.4](../../../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md)
+runtime spec §5.4
 and the Kafka ingress contract §7 (`event_id` requirement). Pseudo-Rust /
 TypeScript-flavored:
 
@@ -153,7 +153,7 @@ no offset commit, no retention, no DLQ.
   `derive_facts.py` from a known-good `dim_user_fixture.parquet`; schema
   mismatches at ingress are impossible by construction.
 - **No watermark fan-out.** Watermarks are tracked locally by the supervisor
-  per [runtime spec §5.4](../../../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md);
+  per runtime spec §5.4;
   there is no `nanofab.internal.watermarks` topic equivalent in the
   in-memory source because there is no second supervisor to fan out to.
 
@@ -270,7 +270,7 @@ widened MVP fixture), sim-farm (closed-loop diff for `dim_account`)**
 
 The `fact_account_open` fact stream is the second fact registered on the
 widened MVP fixture introduced by
-[CEO brief 2026-05-23 O1](../../../../board/okrs/2026-05-11-1113-ceo-brief.md).
+CEO brief 2026-05-23 O1.
 Its full schema (topic name, primary key, partitioning, event shape,
 cross-dim referential note, production parity restatement) is pinned in
 **[Kafka ingress contract §9 (fact_account_open schema)](2026-05-10-kafka-ingress.md)**.
@@ -335,11 +335,11 @@ does for the existing fact streams. No new rows are needed.
 ## Links
 
 - Production source-of-truth contract (parity gate): [Kafka ingress contract](2026-05-10-kafka-ingress.md)
-- Event-shape source of truth: [runtime spec §5.4](../../../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md)
-- Driving CEO brief (O4 — this addendum; O1 KR1.4 — the consumer): [2026-05-16 CEO brief](../../../../board/okrs/2026-05-11-0958-ceo-brief.md)
-- DE team OKR for this loop: [2026-05-16 team OKR](../okrs/2026-05-11-0958-team-okr.md)
-- Runtime adoption ADR: [2026-05-10-001 nanofab runtime is Rust](../../../../board/decisions/2026-05-10-001-nanofab-runtime-is-rust.md)
-- Format-pattern source: P3 in [2026-05-09 CEO retro](../../../../board/retros/2026-05-10-2227-001-ceo-retro.md)
+- Event-shape source of truth: runtime spec §5.4
+- Driving CEO brief (O4 — this addendum; O1 KR1.4 — the consumer): 2026-05-16 CEO brief
+- DE team OKR for this loop: 2026-05-16 team OKR
+- Runtime adoption ADR: 2026-05-10-001 nanofab runtime is Rust
+- Format-pattern source: P3 in 2026-05-09 CEO retro
 - Consumers this loop:
   - `teams/application/resink-core/` — supervisor + in-memory source impl
   - `teams/application/sim-farm/` — closed-loop diff (consumes the supervisor output, not the events directly, but relies on event-shape determinism)

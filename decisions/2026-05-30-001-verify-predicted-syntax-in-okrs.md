@@ -60,7 +60,7 @@ Two ritual edits land alongside this ratification:
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-11-1302-ceo-retro.md](../retros/2026-05-11-1302-ceo-retro.md) — P2.
+- Triggering retro: board/retros/2026-05-11-1302-ceo-retro.md — P2.
 - Sister ADR: [2026-05-16-003-contract-environment-verification](2026-05-16-003-contract-environment-verification.md) — same discipline, different artifact type.
 - Worked-example failure: three loops of `claude --skill` prediction culminated in AE's DISPATCH.md addendum at loop 2026-05-11-1302.
 {% endraw %}

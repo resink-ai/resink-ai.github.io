@@ -92,8 +92,8 @@ No exec summaries this loop. Per CEO brief: this is a "paused-team-only loop" �
 
 ## Decisions ratified this loop (3)
 
-- **[ADR-2026-05-12-001](../decisions/2026-05-12-001-reframe-vs-act-playbook.md)** (reframe-vs-act playbook) flips `draft → active`. Mandated edit: new [`org-os/playbooks/reframe-vs-act.md`](../../org-os/playbooks/reframe-vs-act.md).
-- **[ADR-2026-05-12-002](../decisions/2026-05-12-002-submodule-promotion-playbook.md)** (submodule-promotion playbook) flips `draft → active`. Mandated edit: new [`org-os/playbooks/submodule-promotion.md`](../../org-os/playbooks/submodule-promotion.md) (with footer-acknowledgment sibling section).
+- **ADR-2026-05-12-001** (reframe-vs-act playbook) flips `draft → active`. Mandated edit: new [`org-os/playbooks/reframe-vs-act.md`](../../org-os/playbooks/reframe-vs-act.md).
+- **ADR-2026-05-12-002** (submodule-promotion playbook) flips `draft → active`. Mandated edit: new [`org-os/playbooks/submodule-promotion.md`](../../org-os/playbooks/submodule-promotion.md) (with footer-acknowledgment sibling section).
 - **[ADR-2026-05-16-003](../decisions/2026-05-16-003-contract-environment-verification.md) in-place extension** — scope extended from `contract` + `rfc` to admit `convention`, `runbook`, `playbook`. Mandated edit: `org-os/conventions.md § "Body-shape rules"` subsection retitled + body extended. No new ADR (sister precedent: ADR-2026-05-23-001's 2026-05-30 + 2026-06-13 in-place extensions).
 
 ## Decisions filed this loop (not new ADRs)

@@ -6,7 +6,7 @@ status: active
 type: adr
 owner: board
 parent: Decisions (ADRs)
-nav_order: 10
+nav_order: 11
 ---
 
 <!-- original-frontmatter:
@@ -22,7 +22,7 @@ nav_order: 10
 
 ## Context
 
-The nanofab runtime spec ([docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md](../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md)) §4.3 describes the supervisor as `dlopen`-ing per-tenant cdylib node plugins so that node code can be hot-swapped without restarting the supervisor. During the 2026-05-16 MVP-focus loop, resink-core discovered that AE's `codegen-scd2-node` skill template exports only `nanofab_node_new` and `nanofab_node_drop` as C-ABI symbols — there is no `nanofab_node_process` symbol. Pure `dlopen` is impossible without either extending the template or shipping a Rust shim. Resink-core chose **Option A** (statically link the codegen output as a Cargo path-dep) for MVP simplicity, knowingly sacrificing the hot-swap property; the supervisor binary is rebuilt per-tenant. The MVP closed loop is green; this ADR ratifies the deviation and names the multi-loop plan to restore the spec.
+The nanofab runtime spec (docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md) §4.3 describes the supervisor as `dlopen`-ing per-tenant cdylib node plugins so that node code can be hot-swapped without restarting the supervisor. During the 2026-05-16 MVP-focus loop, resink-core discovered that AE's `codegen-scd2-node` skill template exports only `nanofab_node_new` and `nanofab_node_drop` as C-ABI symbols — there is no `nanofab_node_process` symbol. Pure `dlopen` is impossible without either extending the template or shipping a Rust shim. Resink-core chose **Option A** (statically link the codegen output as a Cargo path-dep) for MVP simplicity, knowingly sacrificing the hot-swap property; the supervisor binary is rebuilt per-tenant. The MVP closed loop is green; this ADR ratifies the deviation and names the multi-loop plan to restore the spec.
 
 ## Decision
 
@@ -66,8 +66,8 @@ With step 3 closed, the supervisor can mechanically load + unload + reload plugi
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-11-0958-ceo-retro.md](../retros/2026-05-11-0958-ceo-retro.md) — P1.
-- Related ADRs: [2026-05-10-001-nanofab-runtime-is-rust](2026-05-10-001-nanofab-runtime-is-rust.md), [2026-05-10-002-nanofab-sub-project-decomposition](2026-05-10-002-nanofab-sub-project-decomposition.md).
+- Triggering retro: board/retros/2026-05-11-0958-ceo-retro.md — P1.
+- Related ADRs: 2026-05-10-001-nanofab-runtime-is-rust, 2026-05-10-002-nanofab-sub-project-decomposition.
 - Codegen template: [`repos/resink-ai/resink-marketplace/plugins/nanofab/skills/codegen-scd2-node/templates/scd2_maintainer/lib.rs.tmpl`](../../repos/resink-ai/resink-marketplace/plugins/nanofab/skills/codegen-scd2-node/templates/scd2_maintainer/lib.rs.tmpl).
 - MVP supervisor: [`repos/resink-ai/resink-core/crates/nanofab-supervisor/`](../../repos/resink-ai/resink-core/crates/nanofab-supervisor/).
 {% endraw %}

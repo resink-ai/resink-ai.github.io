@@ -6,7 +6,7 @@ status: active
 type: adr
 owner: board
 parent: Decisions (ADRs)
-nav_order: 11
+nav_order: 12
 ---
 
 <!-- original-frontmatter:
@@ -161,7 +161,7 @@ The brief's KR1.4 (nodes.rs deleted), KR1.5 (supervisor_runs_three_dims un-ignor
 ## Links
 
 - Companion design spec: [docs/superpowers/specs/2026-05-14-general-tables-design.md](../../docs/superpowers/specs/2026-05-14-general-tables-design.md) — the canonical generic-node-runner contract + schema model + three-phase implementation-loop plan.
-- Runtime spec: [docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md](../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md) — describes the supervisor as a general DAG executor; this ADR closes the gap to that design.
+- Runtime spec: docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md — describes the supervisor as a general DAG executor; this ADR closes the gap to that design.
 - Sister ADR (dlopen — closed): [ADR-2026-05-16-001](2026-05-16-001-abi-option-a-mvp-deviation.md) — the `PluginNode` C-ABI surface this arc's generic runner consumes; its deferred "step 3.5 NodeCtx bridge" is subsumed by Phase 1.
 - Sister ADR (streaming — in progress): [ADR-2026-05-13-001](2026-05-13-001-streaming-event-source-rearchitecture.md) — the `EventSource` trait the general-tables runner must compose with; orthogonal arc, planned independently.
 - DE schema-JSON convention: [teams/platform/data-engineering/conventions/dim-schema-json.md](../../teams/platform/data-engineering/conventions/dim-schema-json.md) — the `{key_columns, payload_columns}` shape; reconciled in spec §3 as a projection of the richer codegen schema.

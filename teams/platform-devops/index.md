@@ -18,10 +18,10 @@ Bridge dev and ops; own deployment pipelines and cloud infra.
 - Terraform / Pulumi IaC.
 - CI/CD pipelines (GitHub Actions / ArgoCD).
 - **Sub-project #4 (Nanofab Serving & Deployment) surfaces** — DevOps owns:
-  - **Deployment topology** — k8s on AWS for cloud (EKS), minikube for local-dev; manifest portability between the two (per [ADR-003](../../../board/decisions/2026-05-09-003-deployment-target.md)). Tenant isolation enforced at the k8s layer (per-tenant `ResourceQuota`, `LimitRange`, `ServiceAccount`, labels) per [serving spec §4.1](../../../docs/superpowers/specs/2026-05-10-nanofab-serving-deployment-design.md).
+  - **Deployment topology** — k8s on AWS for cloud (EKS), minikube for local-dev; manifest portability between the two (per ADR-003). Tenant isolation enforced at the k8s layer (per-tenant `ResourceQuota`, `LimitRange`, `ServiceAccount`, labels) per serving spec §4.1.
   - **IaC** — Terraform modules under the resinkit_deployer pattern. Per-tenant IAM roles, S3 artifact buckets, Secrets Manager namespaces, IRSA bindings.
-  - **CI/CD gate** — the pipeline that builds the supervisor binary, packages the Helm chart, publishes content-addressed artifacts to S3, and emits the signed manifest that the runtime coordinator validates against the Sim Farm seal (per [serving spec §6.1](../../../docs/superpowers/specs/2026-05-10-nanofab-serving-deployment-design.md)). DevOps owns the *pipeline plumbing*; the coordinator and Sim Farm own the *validation gate*.
-  - **Secrets surfaces** — AWS Secrets Manager namespacing, IRSA wiring, rotation Lambdas, and the chart-side plumbing that references externally-provisioned secrets (per [serving spec §7](../../../docs/superpowers/specs/2026-05-10-nanofab-serving-deployment-design.md)).
+  - **CI/CD gate** — the pipeline that builds the supervisor binary, packages the Helm chart, publishes content-addressed artifacts to S3, and emits the signed manifest that the runtime coordinator validates against the Sim Farm seal (per serving spec §6.1). DevOps owns the *pipeline plumbing*; the coordinator and Sim Farm own the *validation gate*.
+  - **Secrets surfaces** — AWS Secrets Manager namespacing, IRSA wiring, rotation Lambdas, and the chart-side plumbing that references externally-provisioned secrets (per serving spec §7).
 
 ## Conventions
 
@@ -57,28 +57,4 @@ Bridge dev and ops; own deployment pipelines and cloud infra.
 - Application code (resink-core, sim-farm, training).
 - The Sim Farm seal's *content* and the coordinator's *validator logic* — DevOps plumbs them, doesn't define them.
 - Product UX (sub-project #5).
-
-## Executive summaries
-
-- [2026-05-12-1826](../../loops/2026-05-12-1826/teams/platform-devops-exec-summary.html)
-- [2026-05-12-1254](../../loops/2026-05-12-1254/teams/platform-devops-exec-summary.html)
-- [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-devops-exec-summary.html)
-- [2026-05-11-2153](../../loops/2026-05-11-2153/teams/platform-devops-exec-summary.html)
-- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/platform-devops-exec-summary.html)
-- [2026-05-11-1302](../../loops/2026-05-11-1302/teams/platform-devops-exec-summary.html)
-- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/platform-devops-exec-summary.html)
-- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/platform-devops-exec-summary.html)
-- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/platform-devops-exec-summary.html)
-- [2026-05-09-1715](../../loops/2026-05-09-1715/teams/platform-devops-exec-summary.html)
-
-## OKRs
-
-- [2026-05-12-1254](../../loops/2026-05-12-1254/teams/platform-devops-okr.html)
-- [2026-05-12-0645](../../loops/2026-05-12-0645/teams/platform-devops-okr.html)
-- [2026-05-11-2153](../../loops/2026-05-11-2153/teams/platform-devops-okr.html)
-- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/platform-devops-okr.html)
-- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/platform-devops-okr.html)
-- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/platform-devops-okr.html)
-- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/platform-devops-okr.html)
-- [2026-05-09-1715](../../loops/2026-05-09-1715/teams/platform-devops-okr.html)
 {% endraw %}

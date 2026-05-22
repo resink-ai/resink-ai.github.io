@@ -16,7 +16,7 @@ parent: "Team: application-sim-farm"
   status: active
   producers: teams/application/sim-farm
   consumers: - teams/application/resink-core
-  links: parent: teams/application/sim-farm/okrs/2026-05-11-0958-team-okr.md
+  links: 
 -->
 {% raw %}
 
@@ -34,7 +34,7 @@ Semver discipline: additive top-level fields and additive `Mismatch.type` enum e
 
 ## Purpose
 
-Defines the verdict JSON shape produced by the MVP closed-loop **Mode-A** diff engine (`repos/resink-ai/resink-core/sim-farm/diff_scd2.py`). The engine is the verification authority that closes step 5 of the MVP loop per Sim Farm spec [§1.3](../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md) and the [2026-05-16 CEO brief](../../../board/okrs/2026-05-11-0958-ceo-brief.md) O2.
+Defines the verdict JSON shape produced by the MVP closed-loop **Mode-A** diff engine (`repos/resink-ai/resink-core/sim-farm/diff_scd2.py`). The engine is the verification authority that closes step 5 of the MVP loop per Sim Farm spec §1.3 and the 2026-05-16 CEO brief O2.
 
 **Consumers this loop:**
 
@@ -43,7 +43,7 @@ Defines the verdict JSON shape produced by the MVP closed-loop **Mode-A** diff e
 
 **Future consumers (additive extension only):**
 
-- Mode B (per-node shadow, post-MVP) and Mode C (DAG blue/green warmup, post-MVP) — see Sim Farm spec [§5.2 / §5.3](../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md).
+- Mode B (per-node shadow, post-MVP) and Mode C (DAG blue/green warmup, post-MVP) — see Sim Farm spec §5.2 / §5.3.
 - Training pipeline gate stage 3 (post-MVP, when training adopts coverage-spec-driven verdicts).
 
 ## Schema
@@ -82,7 +82,7 @@ The verdict is a single top-level JSON object. Every field is required unless ex
 | `fixture_row` | object &#124; null                | yes      | The full row from the fixture. Under engines `0.1.0` / `0.2.0` this is always the six legacy SCD2 columns. Under engine `0.3.0`+ this is the union of `key_columns` + `payload_columns` declared by the per-pair schema-ref (or the legacy six when the schema-ref is omitted). `null` for `type == "extra"` (no fixture side).                                                              |
 | `output_row`  | object &#124; null                | yes      | The full row from the output, under the same column-set semantics as `fixture_row`. `null` for `type == "missing"` (no output side).                                                                                         |
 
-The four SCD2-equivalence cases per Sim Farm spec [§4.5](../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md), in DuckDB SQL form:
+The four SCD2-equivalence cases per Sim Farm spec §4.5, in DuckDB SQL form:
 
 - `match`: `INNER JOIN` on the key columns where every payload column passes `IS NOT DISTINCT FROM` (NULL-safe equality). Under engines `0.1.0` / `0.2.0` (and the engine `0.3.0` legacy-fallback path) the key columns are `(user_id, valid_from)` and the payload columns are `(email, country, valid_to, is_current)`. Under engine `0.3.0`'s schema-aware path the columns are whatever the per-pair schema-ref declares.
 - `missing`: `LEFT JOIN ... WHERE output_side.<first_key_col> IS NULL` (anti-join from fixture side).
@@ -172,7 +172,7 @@ By construction, all three clauses are equivalent — `overall_pass` is `true` i
 
 ## Exit-code semantics
 
-Per Sim Farm spec [§6.3](../../../docs/superpowers/specs/2026-05-10-nanofab-sim-farm-design.md) (engine-failure case) and the 2026-05-16 sim-farm OKR KR1.1 + KR2.1:
+Per Sim Farm spec §6.3 (engine-failure case) and the 2026-05-16 sim-farm OKR KR1.1 + KR2.1:
 
 | Exit code | Meaning                                                                  | stdout/stderr                                                                                          | `workspace/verdict.json`                                                                                                                       |
 |-----------|--------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|

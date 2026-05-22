@@ -6,7 +6,7 @@ status: active
 type: adr
 owner: board
 parent: Decisions (ADRs)
-nav_order: 12
+nav_order: 13
 ---
 
 <!-- original-frontmatter:
@@ -22,7 +22,7 @@ nav_order: 12
 
 ## Context
 
-The nanofab runtime spec ([docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md](../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md)) is detailed about the supervisor's streaming architecture: §3 ("Architecture overview") names Kafka/Redpanda as the canonical event transport; §4 ("The Supervisor") names the consumer-group protocol as the shard-rebalancing mechanism; §5.4 ("Event shape") defines the wire format the supervisor consumes; §6 ("Shard-routing & internal Kafka") names internal Kafka topics for cross-shard re-keying + watermark publication.
+The nanofab runtime spec (docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md) is detailed about the supervisor's streaming architecture: §3 ("Architecture overview") names Kafka/Redpanda as the canonical event transport; §4 ("The Supervisor") names the consumer-group protocol as the shard-rebalancing mechanism; §5.4 ("Event shape") defines the wire format the supervisor consumes; §6 ("Shard-routing & internal Kafka") names internal Kafka topics for cross-shard re-keying + watermark publication.
 
 None of that exists in code today. The supervisor at `repos/resink-ai/resink-core/crates/nanofab-supervisor/src/event_source.rs` reads parquet files eagerly via `read_fact_parquet()`, returning a fully-materialised `Vec<RawEvent>` consumed by the main loop. No Kafka client is in `Cargo.toml`; no consumer-group protocol; no watermark advancement on a real timer; no incremental offset commit. The MVP closed loop (`make mvp-loop` → `verdict=pass mismatches=0`) is green and load-bearing for the synthetic-tenant verification flow — but it is a deliberate v1 simplification of the documented streaming design, not a missing feature.
 
@@ -147,7 +147,7 @@ These revisions are narrated in detail in `board/retros/2026-05-13-1844-ceo-retr
 
 ## Links
 
-- Runtime spec: [docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md](../../docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md) — §3, §4, §5.4, §6 specify the streaming architecture this ADR closes the gap to.
+- Runtime spec: docs/superpowers/specs/2026-05-10-nanofab-runtime-design.md — §3, §4, §5.4, §6 specify the streaming architecture this ADR closes the gap to.
 - Design spec for this ADR's contract: [docs/superpowers/specs/2026-05-13-streaming-event-source-design.md](../../docs/superpowers/specs/2026-05-13-streaming-event-source-design.md) — the canonical `EventSource` trait + lifecycle + reference impls.
 - Sister ADR (just closed): [ADR-2026-05-16-001](2026-05-16-001-abi-option-a-mvp-deviation.md) — the named-deviation + multi-loop-restoration pattern this ADR mirrors. Closed cleanly across 5 loops; worked example of the pattern at full closure.
 - Triggering brief: [board/okrs/2026-05-13-1422-ceo-brief.md](../okrs/2026-05-13-1422-ceo-brief.md).

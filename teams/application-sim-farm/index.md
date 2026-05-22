@@ -37,27 +37,6 @@ Internal product — execute candidate nanofab DAGs against synthetic or shadowe
 - Production deployment of Sim Farm (DevOps).
 - General SQL execution — DuckDB is the diff substrate, not a query engine for callers.
 
-## Executive summaries
-
-- [2026-05-12-1826](../../loops/2026-05-12-1826/teams/application-sim-farm-exec-summary.html)
-- [2026-05-12-1254](../../loops/2026-05-12-1254/teams/application-sim-farm-exec-summary.html)
-- [2026-05-12-0645](../../loops/2026-05-12-0645/teams/application-sim-farm-exec-summary.html)
-- [2026-05-11-2153](../../loops/2026-05-11-2153/teams/application-sim-farm-exec-summary.html)
-- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/application-sim-farm-exec-summary.html)
-- [2026-05-11-1302](../../loops/2026-05-11-1302/teams/application-sim-farm-exec-summary.html)
-- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/application-sim-farm-exec-summary.html)
-- [2026-05-11-0958](../../loops/2026-05-11-0958/teams/application-sim-farm-exec-summary.html)
-- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/application-sim-farm-exec-summary.html)
-- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/application-sim-farm-exec-summary.html)
-
-## OKRs
-
-- [2026-05-11-1631](../../loops/2026-05-11-1631/teams/application-sim-farm-okr.html)
-- [2026-05-11-1113](../../loops/2026-05-11-1113/teams/application-sim-farm-okr.html)
-- [2026-05-11-0958](../../loops/2026-05-11-0958/teams/application-sim-farm-okr.html)
-- [2026-05-10-2227-002](../../loops/2026-05-10-2227-002/teams/application-sim-farm-okr.html)
-- [2026-05-10-2227-001](../../loops/2026-05-10-2227-001/teams/application-sim-farm-okr.html)
-
 ## Contracts
 
 - [2026-05-16-mvp-loop-verdict](contracts/2026-05-16-mvp-loop-verdict.html)

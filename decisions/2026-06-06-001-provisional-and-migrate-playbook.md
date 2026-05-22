@@ -59,7 +59,7 @@ The pattern's reuse rate (3-in-3-loops) is the load-bearing argument for codific
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-11-1631-ceo-retro.md](../retros/2026-05-11-1631-ceo-retro.md) — P2.
+- Triggering retro: board/retros/2026-05-11-1631-ceo-retro.md — P2.
 - Sister ADR (drafted same loop): [2026-06-06-002-paused-team-request-acceptance](2026-06-06-002-paused-team-request-acceptance.md) — same retro, different pattern.
-- Prior worked examples: AE `rfc → role` at [board/exec-summaries/2026-05-11-1302.md](../exec-summaries/2026-05-11-1302.md); board `type: action` at [board/actions/2026-06-06-001-create-resink-core-github-remote.md](../actions/2026-06-06-001-create-resink-core-github-remote.md).
+- Prior worked examples: AE `rfc → role` at board/exec-summaries/2026-05-11-1302.md; board `type: action` at [board/actions/2026-06-06-001-create-resink-core-github-remote.md](../actions/2026-06-06-001-create-resink-core-github-remote.md).
 {% endraw %}

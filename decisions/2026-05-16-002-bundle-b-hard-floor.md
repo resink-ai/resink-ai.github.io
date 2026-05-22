@@ -6,7 +6,7 @@ status: active
 type: adr
 owner: board
 parent: Decisions (ADRs)
-nav_order: 9
+nav_order: 10
 ---
 
 <!-- original-frontmatter:
@@ -54,8 +54,8 @@ Coordination: ADR-2026-05-10-003 (verify-state-claims) also ratifies this loop a
 
 ## Links
 
-- Triggering retro: [board/retros/2026-05-11-0958-ceo-retro.md](../retros/2026-05-11-0958-ceo-retro.md) — P2.
-- Related ADRs: [2026-05-09-001-org-os-bottom-up-flow](2026-05-09-001-org-os-bottom-up-flow.md) (the 17-task plan B implements); [2026-05-10-003-verify-state-claims-at-ritual-transitions](2026-05-10-003-verify-state-claims-at-ritual-transitions.md) (sibling 2026-05-23 ritual edit).
+- Triggering retro: board/retros/2026-05-11-0958-ceo-retro.md — P2.
+- Related ADRs: 2026-05-09-001-org-os-bottom-up-flow (the 17-task plan B implements); 2026-05-10-003-verify-state-claims-at-ritual-transitions (sibling 2026-05-23 ritual edit).
 - AE's status carrying Bundle B context: [`teams/platform/agent-engineering/status.md`](../../teams/platform/agent-engineering/status.md).
-- AE's 2026-05-16 exec summary flagging the pattern: [`teams/platform/agent-engineering/exec-summaries/2026-05-11-0958.md`](../../teams/platform/agent-engineering/exec-summaries/2026-05-11-0958.md).
+- AE's 2026-05-16 exec summary flagging the pattern: `teams/platform/agent-engineering/exec-summaries/2026-05-11-0958.md`.
 {% endraw %}
